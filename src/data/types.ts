@@ -208,9 +208,9 @@ export interface UpdateStatus {
 }
 
 export const INDEX_LABELS: Record<string, { label: string; description: string }> = {
-  intelligence: { label: '綜合智能指數', description: 'Artificial Analysis Intelligence Index 的標準化綜合結果；依官方當前版本及其納入測試計算，不是聊天體驗保證。' },
-  coding: { label: '程式能力指數', description: 'Artificial Analysis Coding Index；衡量模型在官方編程任務集合的表現。它不等於 Coding Agent Index，也不含完整代理工具鏈效果。' },
-  agentic: { label: '代理執行能力指數', description: 'Artificial Analysis Agentic Index；反映模型在代理型任務中的表現，不代表特定訂閱方案的任務配額。' },
+  intelligence: { label: '綜合智能指數', description: 'Artificial Analysis 綜合智能指數（Intelligence Index）的標準化結果；依官方當前版本及納入的測試計算，不代表聊天體驗保證。' },
+  coding: { label: '程式能力指數', description: 'Artificial Analysis 程式能力指數（Coding Index）；衡量模型在官方程式任務集合中的表現。不同於程式代理指數（Coding Agent Index），也不包含完整代理工具鏈效果。' },
+  agentic: { label: '代理執行能力指數', description: 'Artificial Analysis 代理執行能力指數（Agentic Index）；反映模型在代理型任務中的表現，不代表特定訂閱方案的任務額度。' },
   finance_accounting: { label: '財務與會計能力', description: 'Artificial Analysis 專業能力指數中的財務與會計能力分項。請參照官方方法與版本解讀。' },
   strategy_ops: { label: '商業策略與營運能力', description: 'Artificial Analysis 專業能力指數中的商業策略與營運能力分項。請參照官方方法與版本解讀。' },
   legal: { label: '法律能力', description: 'Artificial Analysis 專業能力指數中的法律能力分項；不能取代專業法律意見。' },

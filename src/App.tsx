@@ -3,8 +3,8 @@ import { Activity, BadgeDollarSign, Bot, CircleHelp, Code2, ExternalLink, Layers
 import {
   CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip as ChartTooltip, XAxis, YAxis,
 } from 'recharts';
-import { BENCHMARK_INFO, INDEX_KEYS, INDEX_LABELS, type BenchmarkDefinition, type CodingAgentRecord, type ModelRecord, type QuotaCategory, type QuotaObservation, type Snapshot, type SourceRef, type SubscriptionPlan, type UpdateStatus } from './data/types';
-import { comparableCodingAgents, comparableCostPoints, countScores, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, formatQuota, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, preferredVersion, priceWithinCap } from './data/metrics';
+import { BENCHMARK_INFO, INDEX_KEYS, INDEX_LABELS, type CodingAgentRecord, type ModelRecord, type QuotaCategory, type QuotaObservation, type Snapshot, type SourceRef, type SubscriptionPlan, type UpdateStatus } from './data/types';
+import { comparableCodingAgents, comparableCostPoints, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, preferredVersion, priceWithinCap } from './data/metrics';
 
 type Tab = 'plans' | 'models' | 'coding' | 'value';
 const PROVIDERS = [
@@ -16,13 +16,131 @@ const PROVIDERS = [
 const TABS: Array<{ id: Tab; label: string; icon: typeof Layers3; subtitle: string }> = [
   { id: 'plans', label: '訂閱方案', icon: Layers3, subtitle: '比月費、產品權限與三種分開計量的額度。' },
   { id: 'models', label: '模型能力', icon: Sparkles, subtitle: '檢視 Artificial Analysis 指數、API 成本與基準測試版本。' },
-  { id: 'coding', label: '程式代理', icon: Code2, subtitle: '比較 Agent + 模型 + Harness 組態，不把代理結果當成純模型分數。' },
-  { id: 'value', label: '每美元價值', icon: BadgeDollarSign, subtitle: '把訂閱月費、智能評測 API 成本、程式代理 API 成本分開看。' },
+  { id: 'coding', label: '程式代理', icon: Code2, subtitle: '比較代理、模型與執行框架組態，不把代理結果當成純模型分數。' },
+  { id: 'value', label: '每美元價值', icon: BadgeDollarSign, subtitle: '分開比較訂閱月費、智能評測成本與程式代理成本。' },
 ];
 const CHART_COLORS = ['#247d68', '#a36132', '#3977c3', '#777b88', '#b57b26', '#b65352'];
 
+const SOURCE_LABELS: Record<string, string> = {
+  'aa-free-api': 'Artificial Analysis 免費模型 API', 'aa-api-reference': 'Artificial Analysis API 欄位說明', 'aa-free-endpoint': '免費模型資料端點',
+  'aa-method': '綜合智能評測方法', 'aa-coding-agents': '程式代理排名', 'aa-coding-method': '程式代理評測方法',
+  'openai-go': 'ChatGPT Go 方案', 'openai-plus': 'ChatGPT Plus 方案', 'openai-codex': 'ChatGPT 方案中的 Codex', 'openai-codex-usage': 'Codex 用量與模型', 'openai-models': 'ChatGPT 模型清單',
+  'anthropic-pricing': 'Claude 方案價格', 'anthropic-pro-cost': 'Claude Pro 計費', 'anthropic-code': 'Claude 訂閱中的 Claude Code',
+  'google-plans': 'Google AI 方案', 'google-ai-plus-current': 'Google AI 方案與模型權限', 'google-annual-plus': 'Google AI Plus 年繳', 'google-annual-pro': 'Google AI Pro 年繳', 'google-student-offer': 'Google AI 學生優惠', 'google-gemini-limits': 'Gemini 使用上限', 'google-one-benefits': 'Google AI 方案福利', 'gemini-cli-deprecation': 'Gemini CLI 個人帳號服務狀態', 'gemini-cli-deprecation-individuals': '個人帳號方案說明',
+  'xai-pricing': 'X 訂閱價格', 'xai-grok': 'Grok 功能介紹', 'xai-faq': 'Grok 常見問題', 'xai-build': 'Grok Build 命令列公告', 'xai-grok-bot': 'Grok Bot 方案權限', 'xai-build-all': 'Grok Build 網頁與手機版', 'google-ai-plan-benefits': 'Google AI Plus／Pro／Ultra 權益', 'google-jules': 'Jules 非同步程式代理',
+  'openai-agent-mode': 'ChatGPT 代理模式限制', 'openai-work': 'ChatGPT Work 與 Codex', 'openai-work-rollout': 'ChatGPT Work 推出資訊', 'openai-deep-research': 'ChatGPT 深度研究', 'openai-flexible-usage': 'ChatGPT 彈性用量點數', 'anthropic-research': 'Claude Research 官方說明', 'xai-pricing-web': 'X 訂閱方案價格', 'openai-current-pricing': 'ChatGPT 最新方案比較',
+  'aa-public-gemini-argon-comparison': 'Artificial Analysis Gemini 4 Argon 公開評測', 'aa-public-gpt-6-luna-high-comparison': 'Artificial Analysis GPT-6 Luna 公開評測', 'aa-coding-agent-import-v1.5-2026-10-16': '程式代理指數 v1.5 匯入資料',
+};
+const PRODUCT_LABELS: Record<string, string> = {
+  'Codex Local': 'Codex 本機版', 'Codex Cloud': 'Codex 雲端版', 'ChatGPT Agent mode': 'ChatGPT 代理模式',
+  'ChatGPT Deep Research': 'ChatGPT 深度研究', 'ChatGPT Work': 'ChatGPT 工作區', 'Claude Chat': 'Claude 對話', 'Claude Research': 'Claude 研究',
+  'Gemini Apps': 'Gemini 應用程式', 'Antigravity Desktop': 'Antigravity 桌面版', 'Gemini CLI (舊個人登入產品)': 'Gemini 命令列工具（舊個人帳號版）',
+  'Gemini Deep Research': 'Gemini 深度研究', 'Gemini Tasks in Gemini': 'Gemini 任務', 'Chrome agent': 'Chrome 網頁代理',
+  'Grok Build Web': 'Grok Build 網頁版', 'Grok Build CLI': 'Grok Build 命令列工具', 'Grok Bot / 雲端電腦': 'Grok Bot／雲端電腦',
+  'Cursor Agent': 'Cursor 程式代理', 'Grok / Grok Build Web': 'Grok／Grok Build 網頁版', 'Grok / Grok Bot / Grok Build Web': 'Grok／Grok Bot／Grok Build 網頁版',
+  'Cursor Pro / Grok Build CLI': 'Cursor Pro／Grok Build 命令列工具', 'ChatGPT Deep Research / ChatGPT Work': 'ChatGPT 深度研究／工作區',
+  'Claude Chat + Claude Code': 'Claude 對話＋Claude Code', 'Gemini Deep Research / Agent': 'Gemini 深度研究／代理', 'Grok Bot': 'Grok Bot',
+  '一般 Agent 功能': '一般代理功能', 'Codex Local / ChatGPT Work': 'Codex 本機版／ChatGPT 工作區', 'Codex Local / Codex Cloud': 'Codex 本機版／Codex 雲端版',
+};
+const PLAN_LABELS: Record<string, string> = {
+  'ChatGPT Free': 'ChatGPT 免費方案', 'Claude Free': 'Claude 免費方案', 'Google AI Free': 'Google AI 免費方案',
+  'The X Subscription Free': 'X 免費方案', 'The X Subscription Plus': 'X Plus 方案', 'The X Subscription Premium': 'X Premium 方案',
+};
+const QUOTA_UNITS: Record<string, string> = {
+  'Local messages': '本機訊息', 'Jules tasks / concurrent tasks': 'Jules 任務數／並行任務數', 'messages or tasks': '訊息或任務',
+  'messages / research sessions': '訊息／研究工作階段', 'Work allowance / agent tasks': '工作區額度／代理任務', reports: '研究報告', tasks: '任務',
+  'tasks from shared weekly pool': '共享週額度任務', 'tasks / actions': '任務／操作',
+};
+const QUOTA_WINDOWS: Record<string, string> = {
+  'Varies by plan and agent feature': '依方案與代理功能而異',
+  'Same as conversation allowance; variable by workload': '與對話額度共用；依工作負載而異',
+  'May use a five-hour or weekly window; task/model/settings vary': '可能採五小時或每週窗口；視任務、模型與設定而異',
+  'Dynamic model/feature limits; reports consume high relative usage': '模型與功能限制會動態調整；研究報告耗用量較高',
+  'Dynamic; fixed task count not published': '動態調整；未公布固定任務數',
+  'Weekly shared pool with Grok and Cursor; effort varies': '與 Grok、Cursor 共用每週額度；耗用量依任務而異',
+};
+const COPY_TRANSLATIONS: Record<string, string> = {
+  'Free 方案；可用性與部分功能會依地區、模型及推出狀態變動。': '免費方案；可用性與部分功能會依地區、模型及推出狀態變動。',
+  'US 月繳參考價；地區可用性和稅金依結帳頁為準。': '美國月繳參考價；地區可用性和稅金依結帳頁為準。',
+  '美國月繳參考價；Codex local 與 Work 共用用量。Cloud 任務消耗可能較高，且可能另受 weekly cap 限制。': '美國月繳參考價；Codex 本機版與 Work 共用用量。雲端任務消耗可能較高，且可能另受每週上限限制。',
+  '月繳 $20；年繳一次付 $200，月均 $16.67（官方頁約顯示 $17/月）。Claude Chat 與 Claude Code 共用額度，官方未公布固定任務數。': '月繳 $20；年繳一次付 $200，月均 $16.67（官方頁約顯示 $17／月）。Claude 對話與 Claude Code 共用額度；官方未公布固定任務數。',
+  '符合資格的非美國學生可獲 1 年免費 AI Plus，之後依當地月費計價；美國及 Bolivia、Albania、Canada、Macau、Hong Kong、Tunisia 不符合此優惠，至 2026-12-31 可兌換。': '符合資格的美國以外學生可獲 1 年免費 AI Plus，之後依當地月費計價；美國、玻利維亞、阿爾巴尼亞、加拿大、澳門、香港及突尼西亞不適用。優惠兌換期限至 2026-12-31。',
+  '美國符合資格學生可獲 1 年免費 AI Pro，之後依月費計價；學生方案資格、期限和地區限制見官方說明。': '符合資格的美國學生可獲 1 年免費 AI Pro，之後依月費計價；學生方案資格、期限與地區限制請參閱官方說明。',
+  'Intelligence Index 與各底層測試有自己的方法、權重及原生單位；Elo、通過率、標準化指數不可混成單一尺度。類別權重與各測試權重分開呈現。': '綜合智能指數與各底層測試各有方法、權重及原生單位；Elo 評分、通過率與標準化指數不可混成同一尺度。類別權重與各測試權重分開呈現。',
+  'Research requires a paid Claude plan.': 'Claude Research 需要付費 Claude 方案。',
+  'Paid plan feature; no fixed research task count published.': '付費方案功能；官方未公布固定研究任務數。',
+  'Expanded limits；與 Antigravity 使用量分開。': '使用額度提高；與 Antigravity 使用量分開計算。',
+  'Multi-step web research; high relative usage cost. Free access may vary with demand.': '多步驟網頁研究，耗用量相對較高。免費使用會隨需求變動。',
+  'Higher task and concurrency limits；與 Antigravity 使用量分開。': '任務與並行上限較高；與 Antigravity 使用量分開計算。',
+  'Persistent cloud computer with browser, filesystem, and terminal. Premium includes it; Plus does not.': '提供持續運作的雲端電腦，含瀏覽器、檔案系統與終端機。Premium 方案包含，Plus 不包含。',
+  'Current monthly allowance depends on plan; the in-product usage counter is authoritative. This value is not a Codex task count.': '每月額度依方案而異，請以產品內用量計數器為準。此項不是 Codex 任務數。',
+  'Research is available on paid plans and draws from standard conversation limits; sessions may consume limits faster.': '付費方案可使用研究功能，並共用一般對話額度；研究工作階段可能更快耗用額度。',
+  'ChatGPT Work shares an agentic allowance with Codex for applicable plans. Work usage varies by task; no fixed task count is published. API task costs are separate.': '適用方案中的 ChatGPT 工作區與 Codex 共用代理額度。工作區用量依任務而異，官方未公布固定任務數。API 任務成本另計。',
+  'Deep Research is available in the Gemini Apps feature matrix. It has high relative usage cost; fixed task counts are not published. Free access may be reduced during peak demand.': 'Gemini 應用程式功能表列有深度研究。此功能耗用量相對較高，官方未公布固定任務數；需求高峰時免費使用量可能降低。',
+  'Tasks in Gemini is listed for AI Pro; use limits are dynamic and not published as a fixed count.': 'AI Pro 方案列有 Gemini 任務功能；用量限制會動態調整，官方未公布固定數量。',
+  'Grok Bot is not included in this tier.': '此方案不包含 Grok Bot。',
+  'Grok Bot runs multi-step work on a persistent cloud computer; included only on Premium and higher. Usage is shared, not a separate additive allowance; fixed task count is not published.': 'Grok Bot 在持續運作的雲端電腦上執行多步驟工作；僅 Premium 以上方案包含。用量屬共享額度，不是可額外累加的獨立額度；官方未公布固定任務數。',
+  'Grok Bot is not included on Free/Plus. This records the product entitlement and does not imply a zero quota.': '免費與 Plus 方案不包含 Grok Bot。本筆僅記錄產品權益，不代表額度為零。',
+};
+
+function translateUiText(value: string | null | undefined): string {
+  if (!value) return '';
+  const exact = COPY_TRANSLATIONS[value];
+  if (exact) return exact;
+  return value
+    .replace(/\bBolivia\b/g, '玻利維亞').replace(/\bAlbania\b/g, '阿爾巴尼亞').replace(/\bCanada\b/g, '加拿大')
+    .replace(/\bMacau\b/g, '澳門').replace(/\bHong Kong\b/g, '香港').replace(/\bTunisia\b/g, '突尼西亞')
+    .replace(/\bUS\b/g, '美國').replace(/\bCodex local\b/gi, 'Codex 本機版')
+    .replace(/\bFree\/Go\b/g, '免費版／Go').replace(/\blocal-message(?:s)?\b/gi, '本機訊息').replace(/\bCloud task(?:s)?\b/gi, '雲端任務').replace(/\bCloud\b/g, '雲端')
+    .replace(/\bIntelligence Index\b/g, '綜合智能指數').replace(/\bCoding Agent Index\b/g, '程式代理指數')
+    .replace(/\bAgentic Index\b/g, '代理執行能力指數').replace(/\bCoding Index\b/g, '程式能力指數')
+    .replace(/\bpooled task metrics\b/gi, '合併任務指標').replace(/\bFree API\b/g, '免費 API')
+    .replace(/\bExpanded limits\b/g, '額度提高').replace(/\bHigher task and concurrency limits\b/g, '任務與並行上限較高')
+    .replace(/\bBeta\b/g, '測試版').replace(/\bbeta\b/g, '測試版').replace(/\bFree\b/g, '免費方案').replace(/\bfree\b/g, '免費使用')
+    .replace(/\bweekly cap\b/gi, '每週上限').replace(/\blocal messages\b/gi, '本機訊息').replace(/\btask count\b/gi, '任務數')
+    .replace(/\bAPI key\b/gi, 'API 金鑰').replace(/\bHarness\b/g, '執行框架').replace(/\bBenchmark\b/g, '基準測試')
+    .replace(/\btask-macro mean pass rate\b/gi, '任務宏平均通過率').replace(/\bsee current methodology for task groups and scoring\b/gi, '任務分類與評分請參照現行方法文件')
+    .replace(/\bPooled task metric\b/gi, '匯總任務指標').replace(/\bofficial agent score\b/gi, '官方代理分數')
+    .replace(/\bagentic allowance\b/gi, '代理額度').replace(/\btask count\b/gi, '任務數')
+    .replace(/\b([\d,]+)\s+tasks\b/gi, '$1 項任務').replace(/\b([\d,]+)\s+scenarios\b/gi, '$1 種情境').replace(/\b([\d,]+)\s+subproblems\b/gi, '$1 個子題').replace(/\b([\d,]+)\s+questions\b/gi, '$1 題')
+    .replace(/\btasks\b/gi, '任務').replace(/\btask\b/gi, '任務')
+    .replace(/\bscenarios\b/gi, '情境').replace(/\bsubproblems\b/gi, '子題').replace(/\bquestions\b/gi, '題')
+    .replace(/\bworkflow\b/gi, '工作流程').replace(/\bcompletion rate\b/gi, '完成率').replace(/\bAccuracy\b/g, '正確率')
+    .replace(/\bnon-hallucination rate\b/gi, '非幻覺率').replace(/\bAll-pass rate\b/gi, '全項通過率')
+    .replace(/\bequal-weight component\b/gi, '等權組成項目').replace(/\bIndex weight\b/gi, '指數權重')
+    .replace(/\bitems\b/gi, '項目').replace(/\bconditions\b/gi, '條件').replace(/\bruns\b/gi, '次執行').replace(/\bdomains\b/gi, '個領域').replace(/\bacross\b/gi, '涵蓋')
+    .replace(/\bFree\/Plus\b/g, '免費／Plus').replace(/\bFree\/ AI Pro\b/g, '免費／AI Pro').replace(/\bGrok Build CLI\b/g, 'Grok Build 命令列工具')
+    .replace(/\bChat\b/g, '對話').replace(/\bAgent\b/g, '代理').replace(/\bcredits\b/gi, '用量點數').replace(/\bCLI\b/g, '命令列工具')
+    .replace(/\bbenefit\b/gi, '權益').replace(/\bentitlement\b/gi, '權益').replace(/\bdesktop\b/gi, '桌面版')
+    .replace(/\bmessages\b/gi, '訊息').replace(/\bmessage\b/gi, '訊息').replace(/\bresearch sessions\b/gi, '研究工作階段')
+    .replace(/\bconcurrency\b/gi, '並行數').replace(/\bmodel\b/gi, '模型').replace(/\bsettings\b/gi, '設定')
+    .replace(/\bAPI task costs\b/gi, 'API 任務成本').replace(/\bper task\b/gi, '每任務').replace(/\bTokens?\b/g, '詞元（Token）');
+}
+
+function sourceLabel(source: SourceRef): string { return SOURCE_LABELS[source.id] ?? translateUiText(source.label); }
+function sourceLabelById(id: string, fallback: string): string { return SOURCE_LABELS[id] ?? translateUiText(fallback); }
+function productLabel(value: string): string { return PRODUCT_LABELS[value] ?? translateUiText(value); }
+function planLabel(value: string): string { return PLAN_LABELS[value] ?? translateUiText(value); }
+function quotaUnit(value: string): string { return QUOTA_UNITS[value] ?? translateUiText(value); }
+function quotaWindow(value: string | null): string { return value ? QUOTA_WINDOWS[value] ?? translateUiText(value) : '時間窗口尚未公布'; }
+function benchmarkUnit(value: string): string {
+  const labels: Record<string, string> = { Elo: 'Elo 評分', 'pass@1': '首次通過率（pass@1）', 'Objective completion rate': '目標完成率', 'Accuracy + non-hallucination rate': '正確率＋非幻覺率', 'All-pass rate + task-macro mean pass rate': '全項通過率＋任務宏平均通過率', 'official AA-LCR score': 'AA-LCR 官方分數', 'Pooled task metric (official agent score)': '匯總任務指標（官方代理分數）' };
+  return labels[value] ?? translateUiText(value);
+}
+function reasoningLabel(value: string | null | undefined): string { return value === 'xHigh' ? '超高' : value === 'Max' ? '最高' : value ? translateUiText(value) : '未公布'; }
+function agentLabel(value: string): string { return value.replace(' + ', '＋').replace(' (xhigh)', '（超高推理）').replace(' (Max)', '（最高推理）'); }
+function evidenceLabel(value: string | null | undefined): string {
+  return value === 'official' ? '官方' : value === 'measured' ? '實測' : value === 'community' ? '社群觀察' : value === 'estimate' ? '推估' : value ? translateUiText(value) : '尚無資料';
+}
+
+function quotaValue(quota: QuotaObservation): string {
+  if (quota.value_type === 'range' && quota.estimate_range) return `${quota.estimate_range.min.toLocaleString('zh-Hant')}–${quota.estimate_range.max.toLocaleString('zh-Hant')} ${quotaUnit(quota.unit)}（估計）`;
+  if (quota.value_type === 'exact' && quota.value !== null) return `${quota.value.toLocaleString('zh-Hant', { maximumFractionDigits: 2 })} ${quotaUnit(quota.unit)}`;
+  return MISSING;
+}
+
 const defaultStatus: UpdateStatus = {
-  aa: { configured: false, status: 'disabled', message: '尚未設定 Artificial Analysis API Key；目前只顯示已儲存資料。', checked_at: null, stale_days: null, http_status: null, last_error: null, models_count: 0, endpoint: 'https://artificialanalysis.ai/api/v2/language/models/free', data_updated_at: null },
+  aa: { configured: false, status: 'disabled', message: '尚未設定 Artificial Analysis API 金鑰；目前只顯示已儲存資料。', checked_at: null, stale_days: null, http_status: null, last_error: null, models_count: 0, endpoint: 'https://artificialanalysis.ai/api/v2/language/models/free', data_updated_at: null },
 };
 
 function useSnapshot() {
@@ -58,7 +176,7 @@ function Info({ children, title = '指標說明' }: { children: React.ReactNode;
 }
 
 function Evidence({ confidence, kind }: { confidence?: string; kind?: string }) {
-  const text = kind === 'official' ? '官方' : kind === 'measured' ? '實測' : kind === 'community' ? '社群' : kind === 'estimate' ? '推估' : confidence === 'high' ? '高可信' : confidence === 'medium' ? '中可信' : confidence === 'low' ? '低可信' : '未知';
+  const text = kind === 'official' ? '官方' : kind === 'measured' ? '實測' : kind === 'community' ? '社群實測' : kind === 'estimate' ? '推估' : confidence === 'high' ? '高可信' : confidence === 'medium' ? '中可信' : confidence === 'low' ? '低可信' : '未知';
   const cls = kind === 'official' || confidence === 'high' ? 'good' : kind === 'community' || kind === 'estimate' || confidence === 'medium' ? 'warm' : 'quiet';
   return <span className={`evidence evidence--${cls}`}>{text}</span>;
 }
@@ -66,27 +184,22 @@ function Evidence({ confidence, kind }: { confidence?: string; kind?: string }) 
 function SourceLinks({ ids, sources, label = '來源' }: { ids: string[]; sources: SourceRef[]; label?: string }) {
   const list = ids.map((id) => sources.find((source) => source.id === id)).filter((source): source is SourceRef => Boolean(source));
   if (!list.length) return <span className="muted">尚無來源</span>;
-  return <span className="source-links" aria-label={label}>{list.map((source) => <a href={source.url} key={source.id} target="_blank" rel="noreferrer">{source.label}<ExternalLink size={12} /></a>)}</span>;
+  return <span className="source-links" aria-label={label}>{list.map((source) => <a href={source.url} key={source.id} target="_blank" rel="noreferrer">{sourceLabel(source)}<ExternalLink size={12} /></a>)}</span>;
 }
 
 function benchmarkLabel(id: string): string {
-  const labels: Record<string, string> = { ...Object.fromEntries(Object.entries(BENCHMARK_INFO).map(([key, value]) => [key, value.name])), terminal_bench: 'Terminal-Bench 4.0' };
-  if (id === 'swe_atlas_qna') return 'SWE-Atlas-QnA';
-  return labels[id] ?? id;
+  const labels: Record<string, string> = {
+    aa_briefcase: 'AA-Briefcase 專業工作任務', gdpval_aa: 'GDPval-AA 經濟價值任務', automationbench_aa: 'AutomationBench-AA 自動化工作流程',
+    terminal_bench: 'Terminal-Bench 終端機任務', scicode: 'SciCode 科學程式任務', aa_omniscience: 'AA-Omniscience 知識與不確定性',
+    gdp_pdf: 'GDP.pdf 長文件任務', aa_lcr: 'AA-LCR 長上下文檢索', humanity_last_exam: 'Humanity’s Last Exam 人類最後考試',
+    critpt: 'CritPt 物理與科學推理', deepswe: 'DeepSWE 軟體工程代理', terminal_bench_agent: 'Terminal-Bench 終端機代理任務',
+    swe_atlas_qna: 'SWE-Atlas-QnA 程式庫問答',
+  };
+  return labels[id] ?? translateUiText(BENCHMARK_INFO[id]?.name ?? id);
 }
 
 function Badge({ value }: { value: boolean | null }) {
   return <span className={`product-badge ${value === true ? 'product-badge--yes' : value === false ? 'product-badge--no' : 'product-badge--unknown'}`}>{value === true ? '包含' : value === false ? '未包含' : '未確認'}</span>;
-}
-
-function PriceBlock({ plan }: { plan: SubscriptionPlan }) {
-  return <div className="price-block">
-    <strong>{formatPrice(plan.monthly_price, plan.currency)}</strong>
-    <span>/ 月</span>
-    {plan.annual_billed_total !== null && <small>年繳 {formatPrice(plan.annual_billed_total, plan.currency)}，月均 {formatPrice(plan.annual_monthly_price, plan.currency)}</small>}
-    {plan.annual_billed_total === null && plan.annual_monthly_price === null && <small>年繳價格：尚無官方靜態價格</small>}
-    <small>稅金：{plan.tax === 'extra' ? '另計' : plan.tax === 'included' ? '已含' : plan.tax === 'varies' ? '依地區/結帳而異' : '未知'} · {plan.region} / {plan.currency}</small>
-  </div>;
 }
 
 function numericQuotaCount(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory): number {
@@ -121,65 +234,54 @@ function officialCodingCostRows(snapshot: Snapshot, agents: CodingAgentRecord[])
   });
 }
 
-function QuotaCard({ quota, sources }: { quota: QuotaObservation; sources: SourceRef[] }) {
-  return <article className="quota-card">
-    <div className="quota-card__top"><strong>{quota.product}</strong><Evidence confidence={quota.confidence} /></div>
-    <div className="quota-card__value">{formatQuota(quota)}</div>
-    <div className="quota-card__meta">{quota.window ?? '時間窗口尚未公布'}{quota.model ? ` · ${quota.model}` : ''}{quota.reasoning_mode ? ` · ${quota.reasoning_mode}` : ''}</div>
-    <p>{quota.note}</p>
-    <div className="quota-card__meta">{quota.plan_name} · {quota.region} · 資料日 {quota.sampled_at}{quota.shared_with.length ? ` · 共用：${quota.shared_with.join('、')}` : ''}</div>
-    <SourceLinks ids={quota.source_ids} sources={sources} />
-  </article>;
+function quotaCategoryLabel(category: QuotaCategory): string {
+  return category === 'chat' ? '對話額度' : category === 'agent' ? '一般代理額度' : '程式代理額度';
 }
 
-function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly }: { plan: SubscriptionPlan; snapshot: Snapshot; quotaFilter: QuotaCategory | 'all'; verifiedOnly: boolean }) {
-  const quotas = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && (quotaFilter === 'all' || quota.category === quotaFilter) && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
-  const categoryInfo: Array<{ id: QuotaCategory; name: string }> = [
-    { id: 'chat', name: 'Chat 額度' }, { id: 'agent', name: '一般 Agent 額度' }, { id: 'coding_agent', name: 'Coding Agent 額度' },
-  ];
-  const promo = plan.promo || plan.trial;
-  return <article className="plan-card">
-    <div className="plan-card__heading">
-      <div><span className={`provider-dot provider-dot--${plan.provider}`} /> <span className="provider-name">{plan.provider_name}</span><span className="plan-tier">{plan.tier === 'free' ? '免費' : '個人方案'}</span></div>
-      <h3>{plan.name}</h3>
-    </div>
-    <PriceBlock plan={plan} />
-    {promo && <div className="promo-note"><Sparkles size={15} /><span>{promo}</span></div>}
-    <p className="plan-note">{plan.note}</p>
-    <div className="plan-card__section">
-      <h4>產品與模型權限</h4>
-      <div className="product-list">
-        {plan.products.map((product) => <div className={`product-row ${product.rollout === 'discontinued' ? 'product-row--retired' : ''}`} key={product.product}>
-          <div className="product-row__head"><span>{product.product}</span><Badge value={product.included} />{product.rollout === 'discontinued' && <span className="status-tag">已停止</span>}{product.rollout === 'limited' && <span className="status-tag">推出/地區限制</span>}{product.rollout === 'beta' && <span className="status-tag">Beta</span>}</div>
-          {product.model_access.length > 0 && <div className="product-models">模型：{product.model_access.map((m) => `${m.model}${m.reasoning_modes.length ? `（${m.reasoning_modes.join('、')}）` : ''}${m.mapping === 'unmapped' ? ' · 無精確基準對應' : m.mapping === 'approximate' ? ' · 近似對應' : ''}`).join('、')}</div>}
-          {product.note && <div className="product-note">{product.note}</div>}
-          {product.source_ids.length > 0 && <SourceLinks ids={product.source_ids} sources={snapshot.sources} label="產品權限來源" />}
-        </div>)}
-      </div>
-    </div>
-    <div className="plan-card__section">
-      <h4>用量與限制</h4>
-      {categoryInfo.filter((category) => quotaFilter === 'all' || quotaFilter === category.id).map((category) => {
-        const rows = quotas.filter((quota) => quota.category === category.id);
-        return <div className="quota-group" key={category.id}>
-          <h5>{category.name}</h5>
-          {rows.length ? rows.map((quota) => <QuotaCard quota={quota} sources={snapshot.sources} key={quota.id} />) : <div className="empty-compact">此方案目前尚無可核實的 {category.name} 額度數據。</div>}
-        </div>;
-      })}
-    </div>
-    <div className="plan-card__footer"><span>方案核對日 {plan.checked_at}</span><SourceLinks ids={plan.source_ids} sources={snapshot.sources} /></div>
-  </article>;
+function QuotaCell({ rows, sources }: { rows: QuotaObservation[]; sources: SourceRef[] }) {
+  if (!rows.length) return <span className="muted">{MISSING}</span>;
+  return <div className="table-cell-list">{rows.map((quota) => <div className="table-cell-item" key={quota.id}>
+    <b>{productLabel(quota.product)}</b>
+    <strong>{quotaValue(quota)}</strong>
+    <small>{quotaWindow(quota.window)}{quota.model ? ` · ${quota.model}` : ''}{quota.reasoning_mode ? ` · 推理強度：${reasoningLabel(quota.reasoning_mode)}` : ''}</small>
+    <small>{translateUiText(quota.note)}</small>
+    <small>可信度：{quota.confidence === 'high' ? '高' : quota.confidence === 'medium' ? '中' : quota.confidence === 'low' ? '低' : '未知'} · {quota.region} · 取樣日 {quota.sampled_at}{quota.shared_with.length ? ` · 共用：${quota.shared_with.map(productLabel).join('、')}` : ''}</small>
+    <SourceLinks ids={quota.source_ids} sources={sources} />
+  </div>)}</div>;
+}
+
+function PlanProducts({ plan, sources }: { plan: SubscriptionPlan; sources: SourceRef[] }) {
+  return <div className="table-cell-list">{plan.products.map((product) => <div className="table-cell-item" key={product.product}>
+    <div className="table-cell-heading"><b>{productLabel(product.product)}</b><Badge value={product.included} />{product.rollout === 'discontinued' && <span className="status-tag">已停止</span>}{product.rollout === 'limited' && <span className="status-tag">推出／地區限制</span>}{product.rollout === 'beta' && <span className="status-tag">測試版</span>}</div>
+    {product.model_access.length > 0 && <small>可用模型：{product.model_access.map((m) => `${m.model}${m.reasoning_modes.length ? `（${m.reasoning_modes.map(reasoningLabel).join('、')}）` : ''}${m.mapping === 'unmapped' ? ' · 無精確對應' : m.mapping === 'approximate' ? ' · 近似對應' : ''}`).join('、')}</small>}
+    {product.note && <small>{translateUiText(product.note)}</small>}
+    {product.source_ids.length > 0 && <SourceLinks ids={product.source_ids} sources={sources} label="產品權限來源" />}
+  </div>)}</div>;
+}
+
+function PlanComparisonTable({ plans, snapshot, quotaFilter, verifiedOnly }: { plans: SubscriptionPlan[]; snapshot: Snapshot; quotaFilter: QuotaCategory | 'all'; verifiedOnly: boolean }) {
+  const categories: QuotaCategory[] = quotaFilter === 'all' ? ['chat', 'agent', 'coding_agent'] : [quotaFilter];
+  const quotasFor = (plan: SubscriptionPlan, category: QuotaCategory) => snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (quotaFilter === 'all' || quotaFilter === category) && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
+  return <div className="table-scroll"><table className="data-table plan-comparison-table"><thead><tr><th>公司與方案</th><th>月繳／年繳價格</th><th>產品、模型與推出狀態</th>{categories.map((category) => <th key={category}>{quotaCategoryLabel(category)}</th>)}<th>方案資訊與來源</th></tr></thead>
+    <tbody>{plans.length ? plans.map((plan) => <tr key={plan.id}>
+      <td><b>{plan.provider_name}</b><small>{planLabel(plan.name)}</small><small>{plan.tier === 'free' ? '免費方案' : '個人方案'} · 地區：{plan.region}</small><small>資料核對日 {plan.checked_at}</small></td>
+      <td><b>{formatPrice(plan.monthly_price, plan.currency)}<small>月繳 · {plan.currency}</small></b><small>{plan.annual_billed_total === null ? `年繳：${MISSING}` : `年繳總額 ${formatPrice(plan.annual_billed_total, plan.currency)}`}</small><small>{plan.annual_monthly_price === null ? '年繳月均尚未公布' : `年繳月均 ${formatPrice(plan.annual_monthly_price, plan.currency)}`}</small><small>稅金：{plan.tax === 'extra' ? '另計' : plan.tax === 'included' ? '已含' : plan.tax === 'varies' ? '依地區或結帳頁而異' : '未知'}</small></td>
+      <td><PlanProducts plan={plan} sources={snapshot.sources} />{(plan.promo || plan.trial) && <div className="table-cell-item table-cell-item--promo"><b>優惠／試用</b><small>{translateUiText(plan.promo || plan.trial)}</small></div>}{plan.note && <small className="table-note">{translateUiText(plan.note)}</small>}</td>
+      {categories.map((category) => <td key={category}><QuotaCell rows={quotasFor(plan, category)} sources={snapshot.sources} /></td>)}
+      <td><SourceLinks ids={plan.source_ids} sources={snapshot.sources} /></td>
+    </tr>) : <tr><td colSpan={4 + categories.length}><div className="empty-compact">沒有符合篩選條件的方案。</div></td></tr>}</tbody>
+  </table></div>;
 }
 
 function IndexTable({ models, activeIndex }: { models: ModelRecord[]; activeIndex: string }) {
-  return <div className="table-scroll"><table className="data-table index-table"><thead><tr><th>供應商 / 模型</th>{INDEX_KEYS.map((key) => <th key={key}><span className="th-info">{INDEX_LABELS[key].label}<Info title={INDEX_LABELS[key].label}>{INDEX_LABELS[key].description}</Info></span></th>)}<th><span className="th-info">智能評測每任務 API 成本<Info title="智能評測每任務 API 成本（美元）">Artificial Analysis Intelligence Index 基準工作負載的 API 成本。依基準 Token 用量及 API 定價計算；不是訂閱方案月費或訂閱任務保證。Free API 不提供逐 benchmark 原始結果。</Info></span></th></tr></thead>
-    <tbody>{models.length ? models.map((model) => <tr key={model.id}><td><b>{model.name}</b><small>{model.provider} · {model.version ?? '未另行公布模型版本'}{model.retired ? ' · 已淘汰' : ''}<br/>ID：{model.id}</small>{model.benchmarks.length > 0 && <details className="model-benchmark-disclosure"><summary>查看底層 Benchmark（{model.benchmarks.length}）</summary><div className="model-benchmark-list">{model.benchmarks.map((score) => <div className="model-benchmark-item" key={`${score.benchmark_id}-${score.version ?? 'unknown'}`}><b>{benchmarkLabel(score.benchmark_id)}</b><span>{score.score === null ? MISSING : `${score.score}${score.unit === '%' || score.unit.startsWith('%') ? '' : ' '}${score.unit}`}</span><small>版本 {score.version ?? '未另行公布'} · {score.higher_is_better === true ? '越高越佳' : score.higher_is_better === false ? '越低越佳' : '依官方方法'}</small><small>資料更新日 {score.updated_at ?? '未公布'} · 核對日 {model.source_checked_at ?? '見來源核對紀錄'}</small><a href={score.method_url} target="_blank" rel="noreferrer">官方方法 <ExternalLink size={10}/></a></div>)}</div><a className="model-benchmark-source" href={model.public_page_source_url ?? model.source_url} target="_blank" rel="noreferrer">分數來源頁 <ExternalLink size={10}/></a></details>}</td>{INDEX_KEYS.map((key) => <td className={activeIndex === key ? 'selected-score' : ''} key={key}>{model.indices[key] === null || model.indices[key] === undefined ? <span className="muted">{MISSING}</span> : <b>{model.indices[key]}</b>}</td>)}<td>{model.intelligence_cost_per_task_usd === null ? <span className="muted">{MISSING}</span> : <>{formatPrice(model.intelligence_cost_per_task_usd)}<small>{model.intelligence_cost_model_name} · ID {model.intelligence_cost_model_id} · 推理 {model.intelligence_cost_reasoning ?? '未知'} · AA Index {model.intelligence_cost_benchmark_version ?? '版本未知'}</small></>}<small>{model.data_origin === 'aa_free_api' ? '官方 Free API' : model.data_origin === 'aa_free_api+aa_public_page' ? 'Free API + 公開頁快照' : '官方公開頁快照'} · API 資料更新 {model.source_updated_at ?? '未公布'} · 頁面核對 {model.public_page_checked_at ?? model.source_checked_at ?? '見來源核對紀錄'} · <a href={model.source_url} target="_blank" rel="noreferrer">資料來源 <ExternalLink size={10}/></a>{model.public_page_source_url && <> · <a href={model.public_page_source_url} target="_blank" rel="noreferrer">公開頁面 <ExternalLink size={10}/></a></>}</small></td></tr>) : <tr><td colSpan={11}><EmptyState title="尚無已取得的 Artificial Analysis 分數" description="正式 API 需要 AA_API_KEY。免費 API 包含 9 項能力指數與 intelligence cost per task；目前沒有授權金鑰，所以分數保持缺值。" /></td></tr>}</tbody>
+  return <div className="table-scroll"><table className="data-table index-table"><thead><tr><th>公司與模型</th>{INDEX_KEYS.map((key) => <th key={key}><span className="th-info">{INDEX_LABELS[key].label}<Info title={INDEX_LABELS[key].label}>{INDEX_LABELS[key].description}</Info></span></th>)}<th><span className="th-info">智能評測每任務 API 成本（美元）<Info title="智能評測每任務 API 成本（美元）">依 Artificial Analysis 綜合智能指數基準工作負載中的詞元（Token）用量及 API 定價計算；不是訂閱月費或訂閱任務保證。免費 API 不提供逐項基準測試的原始結果。</Info></span></th></tr></thead>
+    <tbody>{models.length ? models.map((model) => <tr key={model.id}><td><b>{model.name}</b><small>{model.provider} · {model.version ?? '模型版本未另行公布'}{model.retired ? ' · 已淘汰' : ''}<br/>模型代碼：{model.id}</small>{model.benchmarks.length > 0 && <details className="model-benchmark-disclosure"><summary>查看底層基準測試（{model.benchmarks.length}）</summary><div className="model-benchmark-list">{model.benchmarks.map((score) => <div className="model-benchmark-item" key={`${score.benchmark_id}-${score.version ?? 'unknown'}`}><b>{benchmarkLabel(score.benchmark_id)}</b><span>{score.score === null ? MISSING : `${score.score}${score.unit === '%' || score.unit.startsWith('%') ? '' : ` ${translateUiText(score.unit)}`}`}</span><small>版本 {score.version ?? '未另行公布'} · {score.higher_is_better === true ? '越高越佳' : score.higher_is_better === false ? '越低越佳' : '依官方方法'}</small><small>資料更新日 {score.updated_at ?? '未公布'} · 核對日 {model.source_checked_at ?? '見來源核對紀錄'}</small><a href={score.method_url} target="_blank" rel="noreferrer">官方方法 <ExternalLink size={10}/></a></div>)}</div><a className="model-benchmark-source" href={model.public_page_source_url ?? model.source_url} target="_blank" rel="noreferrer">分數來源頁 <ExternalLink size={10}/></a></details>}</td>{INDEX_KEYS.map((key) => <td className={activeIndex === key ? 'selected-score' : ''} key={key}>{model.indices[key] === null || model.indices[key] === undefined ? <span className="muted">{MISSING}</span> : <b>{model.indices[key]}</b>}</td>)}<td>{model.intelligence_cost_per_task_usd === null ? <span className="muted">{MISSING}</span> : <>{formatPrice(model.intelligence_cost_per_task_usd)}<small>{model.intelligence_cost_model_name} · 代碼 {model.intelligence_cost_model_id} · 推理強度 {reasoningLabel(model.intelligence_cost_reasoning)} · 評測版本 {model.intelligence_cost_benchmark_version ?? '版本未知'}</small></>}<small>{model.data_origin === 'aa_free_api' ? '官方免費 API' : model.data_origin === 'aa_free_api+aa_public_page' ? '免費 API＋公開頁面快照' : '官方公開頁面快照'} · API 資料更新 {model.source_updated_at ?? '未公布'} · 頁面核對 {model.public_page_checked_at ?? model.source_checked_at ?? '見來源核對紀錄'} · <a href={model.source_url} target="_blank" rel="noreferrer">資料來源 <ExternalLink size={10}/></a>{model.public_page_source_url && <> · <a href={model.public_page_source_url} target="_blank" rel="noreferrer">公開頁面 <ExternalLink size={10}/></a></>}</small></td></tr>) : <tr><td colSpan={11}><EmptyState title="尚無已取得的 Artificial Analysis 分數" description="正式 API 需要 AA_API_KEY。免費 API 包含 9 項能力指數與智能評測每任務成本；目前未載入已授權 API 資料，因此分數維持缺值。" /></td></tr>}</tbody>
     </table></div>;
 }
 
 function ApiPricingTable({ models }: { models: ModelRecord[] }) {
   const money = (value: number | null) => value === null ? MISSING : `$${value.toLocaleString('en-US', { maximumFractionDigits: 6 })}`;
-  return <div className="table-scroll"><table className="data-table api-pricing-table"><thead><tr><th>模型 / 版本</th><th>輸入 / 百萬 Token</th><th>輸出 / 百萬 Token</th><th>快取讀取 / 百萬 Token</th><th>快取寫入 / 百萬 Token</th><th>更新日 / 來源</th></tr></thead><tbody>{models.length ? models.map((model) => <tr key={model.id}><td><b>{model.name}</b><small>{model.id}</small></td><td>{money(model.api_pricing.input_per_million_usd)}</td><td>{money(model.api_pricing.output_per_million_usd)}</td><td>{money(model.api_pricing.cache_read_per_million_usd)}</td><td>{money(model.api_pricing.cache_write_per_million_usd)}</td><td>{model.source_updated_at ?? '來源更新日未公布'}<small>核對日 {model.public_page_checked_at ?? model.source_checked_at ?? '未知'} · {model.source_kind} · <a href={model.source_url} target="_blank" rel="noreferrer">資料來源 <ExternalLink size={10}/></a></small></td></tr>) : <tr><td colSpan={6}><div className="empty-compact">尚未取得 API 定價資料。</div></td></tr>}</tbody></table></div>;
+  return <div className="table-scroll"><table className="data-table api-pricing-table"><thead><tr><th>模型／版本</th><th>輸入／百萬詞元</th><th>輸出／百萬詞元</th><th>快取讀取／百萬詞元</th><th>快取寫入／百萬詞元</th><th>更新日／來源</th></tr></thead><tbody>{models.length ? models.map((model) => <tr key={model.id}><td><b>{model.name}</b><small>{model.id}</small></td><td>{money(model.api_pricing.input_per_million_usd)}</td><td>{money(model.api_pricing.output_per_million_usd)}</td><td>{money(model.api_pricing.cache_read_per_million_usd)}</td><td>{money(model.api_pricing.cache_write_per_million_usd)}</td><td>{model.source_updated_at ?? '來源更新日未公布'}<small>核對日 {model.public_page_checked_at ?? model.source_checked_at ?? '未知'} · {evidenceLabel(model.source_kind)} · <a href={model.source_url} target="_blank" rel="noreferrer">資料來源 <ExternalLink size={10}/></a></small></td></tr>) : <tr><td colSpan={6}><div className="empty-compact">尚未取得 API 定價資料。</div></td></tr>}</tbody></table></div>;
 }
 
 function EmptyState({ title, description }: { title: string; description: string }) {
@@ -188,14 +290,18 @@ function EmptyState({ title, description }: { title: string; description: string
 
 function BenchmarkCatalog({ snapshot, indexId }: { snapshot: Snapshot; indexId: 'intelligence' | 'coding_agent' }) {
   const rows = snapshot.benchmark_catalog.filter((benchmark) => benchmark.index_id === indexId);
-  return <div className="benchmark-list">{rows.map((benchmark) => <BenchmarkCard benchmark={benchmark} key={benchmark.id} />)}</div>;
-}
-
-function BenchmarkCard({ benchmark }: { benchmark: BenchmarkDefinition }) {
-  return <details className="benchmark-card">
-    <summary><span className="benchmark-card__name">{benchmark.name_zh}<small>{benchmark.name} · {benchmark.index_version}</small></span><span className="benchmark-card__metric">{benchmark.actual_score ?? MISSING}<small>{benchmark.metric_unit}</small></span><span className="benchmark-card__weight">{benchmark.index_weight_percent === null ? '未公開權重' : `權重 ${benchmark.index_weight_percent.toFixed(benchmark.index_weight_percent % 1 ? 1 : 0)}%`}</span></summary>
-    <div className="benchmark-card__details"><p>{benchmark.what_it_tests}</p><dl><div><dt>測試版本 / 更新日</dt><dd>{benchmark.index_version} / {benchmark.updated_at}</dd></div><div><dt>測試量與方式</dt><dd>{benchmark.protocol}</dd></div><div><dt>分數方向</dt><dd>{benchmark.direction === 'higher' ? '越高越佳' : benchmark.direction === 'lower' ? '越低越佳' : '依官方方法'} · {benchmark.metric_unit}</dd></div><div><dt>跨模型比較</dt><dd>{benchmark.cross_model_comparable ? '同版本及同評估設定下可比' : '需比對完整模型與 Harness 組態'}</dd></div><div><dt>計入指數</dt><dd>{benchmark.index_id === 'intelligence' ? '綜合智能指數' : benchmark.index_id === 'coding_agent' ? 'Coding Agent Index' : '其他'}</dd></div></dl><p className="caveat">{benchmark.comparability_note}</p><a href={benchmark.method_url} target="_blank" rel="noreferrer">官方測試方法 <ExternalLink size={13} /></a></div>
-  </details>;
+  return <div className="table-scroll"><table className="data-table benchmark-table"><thead><tr><th>基準測試</th><th>測試內容</th><th>分數方向與單位</th><th>實際得分</th><th>版本、樣本與更新日</th><th>指數權重與納入狀態</th><th>跨模型比較與限制</th><th>官方方法</th></tr></thead>
+    <tbody>{rows.length ? rows.map((benchmark) => <tr key={benchmark.id}>
+      <td><b>{benchmark.name_zh}</b><small>官方測試名稱：{benchmark.name}</small></td>
+      <td className="wrapped-cell">{translateUiText(benchmark.what_it_tests)}</td>
+      <td>{benchmark.direction === 'higher' ? '越高越佳' : benchmark.direction === 'lower' ? '越低越佳' : '依官方方法'}<small>單位：{benchmarkUnit(benchmark.metric_unit)}</small></td>
+      <td>{benchmark.actual_score ?? MISSING}</td>
+      <td>{benchmark.index_version}<small>{benchmark.task_count === null ? '樣本數未公布' : `樣本數 ${benchmark.task_count.toLocaleString('zh-Hant')} 項`}</small><small>{translateUiText(benchmark.protocol)}</small><small>更新日 {benchmark.updated_at}</small></td>
+      <td>{benchmark.index_weight_percent === null ? '權重未公開' : `${benchmark.index_weight_percent}%`}<small>{benchmark.index_id === 'intelligence' ? '納入綜合智能指數' : benchmark.index_id === 'coding_agent' ? '納入程式代理指數' : '未確認納入主要指數'}</small></td>
+      <td className="wrapped-cell">{benchmark.cross_model_comparable ? '同版本及同評估設定下可比' : '需比對完整模型與執行框架組態'}<small>{translateUiText(benchmark.comparability_note)}</small></td>
+      <td><a href={benchmark.method_url} target="_blank" rel="noreferrer">查看測試方法 <ExternalLink size={11}/></a></td>
+    </tr>) : <tr><td colSpan={8}><div className="empty-compact">目前沒有可核對的基準測試資料。</div></td></tr>}</tbody>
+  </table></div>;
 }
 
 function ModelPage({ snapshot, models, activeIndex, onIndex, providerFilter }: { snapshot: Snapshot; models: ModelRecord[]; activeIndex: string; onIndex: (id: string) => void; providerFilter: string }) {
@@ -205,21 +311,21 @@ function ModelPage({ snapshot, models, activeIndex, onIndex, providerFilter }: {
   const publicSnapshots = models.filter((model) => model.data_origin === 'aa_public_page' || model.data_origin === 'aa_free_api+aa_public_page').length;
   return <div className="page-stack">
     <section className="section-panel">
-      <div className="snapshot-note"><b>{apiConnected ? 'Artificial Analysis Free API + 官方公開頁面快照' : '官方公開頁面快照'}</b><span>{apiConnected ? `目前有免費 API 模型資料；另保留 ${publicSnapshots} 筆公開頁面 benchmark 快照。` : `以下 ${publicSnapshots} 筆模型組態及底層測試分數於 2026-10-16 從公開官方比較頁人工核對；AA Free API 仍未連接（需要 API key），不代表即時 API 擷取。`}</span></div>
+      <div className="snapshot-note"><b>{apiConnected ? 'Artificial Analysis 免費 API＋官方公開頁面快照' : '官方公開頁面快照'}</b><span>{apiConnected ? `目前有免費 API 模型資料；另保留 ${publicSnapshots} 筆公開頁面基準測試快照。` : `以下 ${publicSnapshots} 筆模型組態及底層測試分數於 2026-10-16 從公開官方比較頁人工核對；免費 API 尚未連接（需要 API 金鑰），不代表即時 API 擷取。`}</span></div>
       <div className="section-title"><div><h2>Artificial Analysis 能力指數</h2><p>目前指數方法版 {snapshot.index_versions.intelligence_methodology ?? '尚未核實'}；API 回傳版 {snapshot.index_versions.intelligence_api ?? '未連接'}。</p></div><label className="select-label">查看欄位<select value={activeIndex} onChange={(e) => onIndex(e.target.value)}>{INDEX_KEYS.map((key) => <option value={key} key={key}>{INDEX_LABELS[key].label}</option>)}</select></label></div>
       <div className="index-cards">{INDEX_KEYS.map((key) => <button className={`index-chip ${activeIndex === key ? 'index-chip--active' : ''}`} onClick={() => onIndex(key)} key={key}><span>{INDEX_LABELS[key].label}<Info title={INDEX_LABELS[key].label}>{INDEX_LABELS[key].description}</Info></span><b>{models.length ? models.filter((model) => model.indices[key] !== null).length : '—'}</b><small>有分數模型</small></button>)}</div>
       <IndexTable models={filtered} activeIndex={activeIndex} />
-      <div className="methodology-box"><div><b>Intelligence Index 分類權重 · {snapshot.index_versions.intelligence_methodology ?? '版本未核實'}</b><p>{snapshot.index_methodology.note}</p></div><div className="weight-list">{Object.entries(snapshot.index_methodology.intelligence_category_weights).map(([name, weight])=><span key={name}><b>{name}</b><strong>{weight}%</strong></span>)}</div><SourceLinks ids={['aa-method']} sources={snapshot.sources} label="指數方法來源" /></div>
-      <div className="capability-gap"><b>免費 API 未提供的其他指標</b><p>多語言、中文、日文、視覺理解、開源程度、長文本理解、指示遵循等項目，免費 API schema 未公開可匯入分數；部分資料可能只在 Pro API 或獨立測試頁面提供。取得授權資料前維持缺值，不以九項指數代替。</p><SourceLinks ids={['aa-api-reference','aa-method']} sources={snapshot.sources} /></div>
-      <div className="source-footnote"><span>API 每百萬 Token 單價會隨輸入/輸出/快取拆分，與每任務成本及訂閱月費分開顯示。公開比較頁未公布的欄位保留缺值。</span><SourceLinks ids={['aa-free-api','aa-api-reference','aa-method','aa-public-gemini-argon-comparison','aa-public-gpt-6-luna-high-comparison']} sources={snapshot.sources} /></div>
+      <div className="methodology-box"><div><b>綜合智能指數分類權重 · {snapshot.index_versions.intelligence_methodology ?? '版本未核實'}</b><p>{translateUiText(snapshot.index_methodology.note)}</p></div><div className="table-scroll"><table className="data-table compact-table"><thead><tr><th>能力類別</th><th>權重</th></tr></thead><tbody>{Object.entries(snapshot.index_methodology.intelligence_category_weights).map(([name, weight])=><tr key={name}><td>{name === 'Agents' ? '代理任務' : name === 'Coding' ? '程式能力' : name === 'Scientific Reasoning' ? '科學推理' : name === 'General' ? '一般能力' : translateUiText(name)}</td><td><b>{weight}%</b></td></tr>)}</tbody></table></div><SourceLinks ids={['aa-method']} sources={snapshot.sources} label="指數方法來源" /></div>
+      <div className="capability-gap"><b>免費 API 尚未提供的其他指標</b><p>多語言、中文、日文、視覺理解、開源程度、長文本理解與指示遵循等項目，目前沒有可匯入的免費 API 分數；部分資料可能僅在 Pro API 或獨立測試頁提供。取得授權資料前維持缺值，不以九項指數代替。</p><SourceLinks ids={['aa-api-reference','aa-method']} sources={snapshot.sources} /></div>
+      <div className="source-footnote"><span>API 每百萬詞元單價會依輸入、輸出及快取分開列示，並與每任務成本及訂閱月費分開。官方公開比較頁未公布的欄位保留缺值。</span><SourceLinks ids={['aa-free-api','aa-api-reference','aa-method','aa-public-gemini-argon-comparison','aa-public-gpt-6-luna-high-comparison']} sources={snapshot.sources} /></div>
     </section>
     <section className="section-panel">
-      <div className="section-title"><div><h2>綜合智能能力 × API 每任務成本</h2><p>只繪製同一 Intelligence Index 版本、且同時有分數與正值成本的模型。{chartData[0] ? `目前顯示版本 ${comparableCostPoints(filtered)[0]?.benchmarkVersion}。` : ''}</p></div></div>
+      <div className="section-title"><div><h2>綜合智能能力 × API 每任務成本</h2><p>只繪製相同綜合智能指數版本且同時有分數與正值成本的模型。{chartData[0] ? `目前顯示版本 ${comparableCostPoints(filtered)[0]?.benchmarkVersion}。` : ''}</p></div></div>
       {chartData.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={300}><ScatterChart margin={{ top: 12, right: 18, bottom: 18, left: 8 }}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="x" name="每任務成本（美元）" tickFormatter={(value) => `$${value}`} label={{ value: '智能評測每任務 API 成本（美元）', position: 'insideBottom', offset: -10 }}/><YAxis type="number" dataKey="y" name="綜合智能指數" label={{ value: '綜合智能指數', angle: -90, position: 'insideLeft' }}/><ChartTooltip cursor={{ strokeDasharray: '3 3' }} formatter={(value: number, name) => [name === 'x' ? `$${value}` : value, name === 'x' ? 'API 成本/任務' : '綜合智能指數']}/><Scatter data={chartData} fill="#247d68"/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="目前沒有可比較的成本點" description="相同 Artificial Analysis 版本至少要有兩筆已驗證的分數與每任務 API 成本，才能繪圖。"/>}
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>API 每百萬 Token 價格</h2><p>輸入、輸出及快取價格獨立列出，與兩種基準任務成本及訂閱月費分開。</p></div></div><ApiPricingTable models={filtered}/></section>
+    <section className="section-panel"><div className="section-title"><div><h2>API 每百萬詞元價格</h2><p>輸入、輸出及快取價格分開列示，與兩種基準測試任務成本及訂閱月費分開。</p></div></div><ApiPricingTable models={filtered}/></section>
     <section className="section-panel">
-      <div className="section-title"><div><h2>底層 Benchmark 目錄</h2><p>每個測試保留自己的單位、方法版與可比性。未取得分數顯示「尚無可靠數據」。</p></div></div>
+      <div className="section-title"><div><h2>底層基準測試目錄</h2><p>各項測試保留自己的單位、方法版本與可比性。未取得分數顯示「尚無可靠數據」。</p></div></div>
       <BenchmarkCatalog snapshot={snapshot} indexId="intelligence" />
     </section>
   </div>;
@@ -227,17 +333,17 @@ function ModelPage({ snapshot, models, activeIndex, onIndex, providerFilter }: {
 
 function CodingPage({ snapshot, agents, verifiedOnly }: { snapshot: Snapshot; agents: CodingAgentRecord[]; verifiedOnly: boolean }) {
   const comparable = comparableCodingAgents(verifiedOnly ? officialCodingCostRows(snapshot, agents) : agents);
-  const data = comparable.records.map((agent) => ({ name: agent.agent, harness: agent.harness ?? 'Harness 未公布', x: agent.cost_per_task_usd!, y: agent.coding_agent_index! }));
+  const data = comparable.records.map((agent) => ({ name: agentLabel(agent.agent), harness: agent.harness ?? '執行框架未公布', x: agent.cost_per_task_usd!, y: agent.coding_agent_index! }));
   const harnessGroups = [...new Set(data.map((item) => item.harness))];
   return <div className="page-stack">
     <section className="section-panel">
-      <div className="section-title"><div><h2>Coding Agent Index {snapshot.index_versions.coding_agent ?? '版本未知'}</h2><p>DeepSWE v1.1、Terminal-Bench 4.0、SWE-Atlas-QnA；各測試等權，依 pooled task metrics 計分。成本圖只納入同 benchmark 版本及同來源類型：{comparable.version ?? '尚無可比資料'}{comparable.costKind ? ` · ${comparable.costKind}` : ''}。</p></div><a className="button button--quiet" href="https://artificialanalysis.ai/agents/coding-agents" target="_blank" rel="noreferrer">官方 Coding Agent 頁面 <ExternalLink size={14}/></a></div>
-      <div className="agent-note"><Bot size={18}/><p><b>每個點代表 Agent 組態，不是純模型分數。</b> 模型、推理強度、Harness 與測試環境都會影響結果；點的顏色依 Harness 分組。Gemini CLI 個人帳號已停止，不代表目前 AI Pro 權限。</p></div>
-      {data.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={300}><ScatterChart margin={{ top: 12,right:18,bottom:18,left:8 }}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="x" name="每任務 API 成本" tickFormatter={(value) => `$${value}`} label={{ value:'程式代理每任務 API 成本（美元）',position:'insideBottom',offset:-10 }}/><YAxis type="number" dataKey="y" name="Coding Agent Index" label={{ value:'Coding Agent Index',angle:-90,position:'insideLeft' }}/><ChartTooltip formatter={(value: number,name)=>[name==='x'?`$${value}`:value,name==='x'?'API 成本/任務':'Coding Agent Index']} labelFormatter={(_,payload)=>`${payload?.[0]?.payload?.name ?? ''} · ${payload?.[0]?.payload?.harness ?? ''}`}/>{harnessGroups.map((harness, index) => <Scatter key={harness} name={harness} data={data.filter((item) => item.harness === harness)} fill={CHART_COLORS[index % CHART_COLORS.length]}/>) }<Legend/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="尚無可核對的代理組態分數" description="Coding Agent API 端點未公開可用的授權匯入方式；目前提供版本化人工匯入範本。資料只會在附官方來源、組態與日期後進入排名。"/>}
-      <div className="table-scroll"><table className="data-table coding-table"><thead><tr><th>代理 / Harness</th><th>模型 / 推理</th><th>Coding Agent Index</th><th>底層測試結果</th><th>基準版本</th><th>每任務平均 Token</th><th>輸入 / 快取 / 輸出</th><th>平均時間</th><th>程式代理每任務 API 成本</th><th>更新日 / 來源 / 備註</th></tr></thead><tbody>{agents.length ? agents.map((agent) => <tr key={agent.id}><td><b>{agent.agent}</b><small>公司：{agent.provider === 'openai' ? 'OpenAI' : agent.provider === 'anthropic' ? 'Anthropic' : agent.provider === 'google' ? 'Google' : 'xAI / X'}</small><small>{agent.harness ?? MISSING}</small></td><td>{agent.model ?? MISSING}<small>{agent.reasoning_effort ?? '推理等級未公布'}</small></td><td>{agent.coding_agent_index ?? MISSING}<small>{agent.cost_kind ?? '來源類型未知'}</small></td><td>{agent.scores.length ? agent.scores.map((score) => <small className="coding-score" key={`${score.benchmark_id}-${score.version}`}><b>{benchmarkLabel(score.benchmark_id)}</b>：{score.score === null ? MISSING : `${score.score}${score.unit === '%' ? '%' : ` ${score.unit}`}`} · {score.version ?? '版本未公布'}<br/>{score.method_url ? <a href={score.method_url} target="_blank" rel="noreferrer">官方方法</a> : null}</small>) : MISSING}</td><td>{agent.benchmark_version ?? MISSING}</td><td>{agent.average_task_tokens?.toLocaleString() ?? MISSING}</td><td>{agent.input_tokens?.toLocaleString() ?? MISSING} / {agent.cached_tokens?.toLocaleString() ?? MISSING} / {agent.output_tokens?.toLocaleString() ?? MISSING}<small>快取命中率 {agent.cache_hit_percent == null ? MISSING : `${agent.cache_hit_percent}%`}</small></td><td>{agent.average_task_seconds === null ? MISSING : `${agent.average_task_seconds.toFixed(1)} 秒`}</td><td>{agent.cost_per_task_usd === null ? MISSING : formatPrice(agent.cost_per_task_usd)}</td><td>{agent.source_updated_at ?? '來源頁未公布'}<small>核對日 {agent.source_checked_at ?? '見來源核對紀錄'}<br/><a href={agent.source_url} target="_blank" rel="noreferrer">來源 <ExternalLink size={10}/></a> · {agent.note}</small></td></tr>) : <tr><td colSpan={10}><div className="empty-compact">目前篩選條件下沒有已核對匯入的 Agent 組態。保留缺值；不從網頁圖表估讀分數。</div></td></tr>}</tbody></table></div>
-      <div className="source-footnote"><span>需要匯入時使用 <code>public/data/imports/coding-agents-v1.template.json</code>，通過 `scripts/import_coding_agents.py` 與 `scripts/validate_data.py` 檢查。</span><SourceLinks ids={['aa-coding-agents','aa-coding-method']} sources={snapshot.sources}/></div>
+      <div className="section-title"><div><h2>程式代理指數 {snapshot.index_versions.coding_agent ?? '版本未知'}</h2><p>DeepSWE v1.1、Terminal-Bench 4.0、SWE-Atlas-QnA；三項測試等權，依合併任務指標計分。成本圖只比較相同基準版本及來源類型：{comparable.version ?? MISSING}{comparable.costKind ? ` · ${evidenceLabel(comparable.costKind)}` : ''}。</p></div><a className="button button--quiet" href="https://artificialanalysis.ai/agents/coding-agents" target="_blank" rel="noreferrer">官方程式代理頁面 <ExternalLink size={14}/></a></div>
+      <div className="agent-note"><Bot size={18}/><p><b>每個資料點代表一組代理設定，不是純模型分數。</b>模型、推理強度、執行框架與測試環境都會影響結果；點的顏色依執行框架分組。Gemini CLI 個人帳號版已停止服務，不代表目前 AI Pro 權益。</p></div>
+      {data.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={300}><ScatterChart margin={{ top: 12,right:18,bottom:18,left:8 }}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="x" name="每任務 API 成本" tickFormatter={(value) => `$${value}`} label={{ value:'程式代理每任務 API 成本（美元）',position:'insideBottom',offset:-10 }}/><YAxis type="number" dataKey="y" name="程式代理指數" label={{ value:'程式代理指數',angle:-90,position:'insideLeft' }}/><ChartTooltip formatter={(value: number,name)=>[name==='x'?`$${value}`:value,name==='x'?'每任務 API 成本':'程式代理指數']} labelFormatter={(_,payload)=>`${payload?.[0]?.payload?.name ?? ''} · ${payload?.[0]?.payload?.harness ?? ''}`}/>{harnessGroups.map((harness, index) => <Scatter key={harness} name={translateUiText(harness)} data={data.filter((item) => item.harness === harness)} fill={CHART_COLORS[index % CHART_COLORS.length]}/>) }<Legend/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="尚無可核對的代理組態分數" description="程式代理 API 尚未提供可用的授權匯入端點；目前採用附來源與版本的人工匯入流程。只有記錄官方來源、組態與日期的資料才會納入比較。"/>}
+      <div className="table-scroll"><table className="data-table coding-table"><thead><tr><th>代理／執行框架</th><th>模型／推理強度</th><th>程式代理指數</th><th>底層測試結果</th><th>基準版本</th><th>每任務平均詞元數</th><th>輸入／快取／輸出詞元</th><th>平均執行時間</th><th>程式代理每任務 API 成本</th><th>更新日／來源／備註</th></tr></thead><tbody>{agents.length ? agents.map((agent) => <tr key={agent.id}><td><b>{agentLabel(agent.agent)}</b><small>公司：{agent.provider === 'openai' ? 'OpenAI' : agent.provider === 'anthropic' ? 'Anthropic' : agent.provider === 'google' ? 'Google' : 'xAI / X'}</small><small>{translateUiText(agent.harness ?? MISSING)}</small></td><td>{agent.model ?? MISSING}<small>推理強度：{reasoningLabel(agent.reasoning_effort)}</small></td><td>{agent.coding_agent_index ?? MISSING}<small>資料類型：{evidenceLabel(agent.cost_kind)}</small></td><td>{agent.scores.length ? agent.scores.map((score) => <small className="coding-score" key={`${score.benchmark_id}-${score.version}`}><b>{benchmarkLabel(score.benchmark_id)}</b>：{score.score === null ? MISSING : `${score.score}${score.unit === '%' ? '%' : ` ${translateUiText(score.unit)}`}`} · {score.version ?? '版本未公布'}<br/>{score.method_url ? <a href={score.method_url} target="_blank" rel="noreferrer">官方測試方法</a> : null}</small>) : MISSING}</td><td>{agent.benchmark_version ?? MISSING}</td><td>{agent.average_task_tokens?.toLocaleString() ?? MISSING}</td><td>{agent.input_tokens?.toLocaleString() ?? MISSING}／{agent.cached_tokens?.toLocaleString() ?? MISSING}／{agent.output_tokens?.toLocaleString() ?? MISSING}<small>快取命中率 {agent.cache_hit_percent == null ? MISSING : `${agent.cache_hit_percent}%`}</small></td><td>{agent.average_task_seconds === null ? MISSING : `${agent.average_task_seconds.toFixed(1)} 秒`}</td><td>{agent.cost_per_task_usd === null ? MISSING : formatPrice(agent.cost_per_task_usd)}</td><td>{agent.source_updated_at ?? '來源頁未公布'}<small>核對日 {agent.source_checked_at ?? '見來源核對紀錄'}<br/><a href={agent.source_url} target="_blank" rel="noreferrer">資料來源 <ExternalLink size={10}/></a> · {translateUiText(agent.note)}</small></td></tr>) : <tr><td colSpan={10}><div className="empty-compact">目前篩選條件下沒有已核對匯入的代理組態。保留缺值，不從圖表估讀分數。</div></td></tr>}</tbody></table></div>
+      <div className="source-footnote"><span>基準資料採版本化匯入範本，並經資料匯入與驗證流程檢查。</span><SourceLinks ids={['aa-coding-agents','aa-coding-method']} sources={snapshot.sources}/></div>
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>Coding Agent Index 底層測試</h2><p>目前列出官方公開比較頁人工核對的組態結果；未公開的測試版本或分數保留缺值。</p></div></div><BenchmarkCatalog snapshot={snapshot} indexId="coding_agent"/></section>
+    <section className="section-panel"><div className="section-title"><div><h2>程式代理指數的底層測試</h2><p>列出官方公開比較頁人工核對的組態結果；未公開的測試版本或分數保留缺值。</p></div></div><BenchmarkCatalog snapshot={snapshot} indexId="coding_agent"/></section>
   </div>;
 }
 
@@ -246,20 +352,34 @@ function ValuePage({ snapshot, plans, models, agents, verifiedOnly }: { snapshot
   const frontier = paretoFrontier(points);
   const codingComparison = comparableCodingAgents(verifiedOnly ? officialCodingCostRows(snapshot, agents) : agents);
   const codingPoints = codingComparison.records;
-  const codingHarnesses = [...new Set(codingPoints.map((agent) => agent.harness ?? 'Harness 未公布'))];
-  const coverage = countScores(snapshot);
+  const codingHarnesses = [...new Set(codingPoints.map((agent) => agent.harness ?? '執行框架未公布'))];
+  const intelligenceCostCount = models.filter((model) => model.intelligence_cost_per_task_usd !== null).length;
+  const apiPriceCount = models.filter((model) => model.api_pricing.input_per_million_usd !== null).length;
+  const codingCostCount = agents.filter((agent) => agent.cost_per_task_usd !== null).length;
+  const frontierIds = new Set(frontier.map((point) => point.id));
   return <div className="page-stack">
-    <section className="section-panel"><div className="section-title"><div><h2>智能能力 × API 成本</h2><p>模型數 {coverage.models} · Intelligence 每任務成本 {coverage.intelligenceCost}/{coverage.models} · 程式代理有成本資料 {coverage.codingScores}/{coverage.codingTasks}</p></div></div>
-      {points.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={310}><ScatterChart margin={{top:12,right:18,bottom:18,left:8}}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="cost" name="每任務 API 成本（美元）" tickFormatter={(v)=>`$${v}`} label={{value:'智能評測每任務 API 成本（美元）',position:'insideBottom',offset:-10}}/><YAxis type="number" dataKey="score" name="綜合智能指數" label={{value:'綜合智能指數',angle:-90,position:'insideLeft'}}/><ChartTooltip formatter={(v:number,n)=>[n==='cost'?`$${v}`:v,n==='cost'?'每任務成本':'綜合智能指數']}/><Scatter name="所有模型" data={points.map(p=>({...p,cost:p.cost,score:p.score}))} fill="#8c939d"/><Scatter name="Pareto 前緣" data={frontier.map(p=>({...p,cost:p.cost,score:p.score}))} fill="#247d68" shape="star"/><Legend/></ScatterChart></ResponsiveContainer><p className="chart-caption">Pareto 前緣：同一基準版本中，沒有其他模型同時分數更高且成本更低的點。</p></div> : <EmptyState title="智能 API 成本覆蓋尚未建立" description="API key 尚未設定，模型分數與 cost_per_task 都缺值。指數/成本互相比較需要同一版基準測試。"/>}
+    <section className="section-panel"><div className="section-title"><div><h2>綜合智能能力 × 每任務 API 成本</h2><p>目前篩選結果：{models.length} 個模型；有智能評測每任務成本 {intelligenceCostCount} 個。圖表與表格只納入相同評測版本。</p></div></div>
+      {points.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={310}><ScatterChart margin={{top:12,right:18,bottom:18,left:8}}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="cost" name="每任務 API 成本（美元）" tickFormatter={(v)=>`$${v}`} label={{value:'智能評測每任務 API 成本（美元）',position:'insideBottom',offset:-10}}/><YAxis type="number" dataKey="score" name="綜合智能指數" label={{value:'綜合智能指數',angle:-90,position:'insideLeft'}}/><ChartTooltip formatter={(v:number,n)=>[n==='cost'?`$${v}`:v,n==='cost'?'每任務成本':'綜合智能指數']}/><Scatter name="所有模型" data={points.map(p=>({...p,cost:p.cost,score:p.score}))} fill="#8c939d"/><Scatter name="帕累托前緣" data={frontier.map(p=>({...p,cost:p.cost,score:p.score}))} fill="#247d68" shape="star"/><Legend/></ScatterChart></ResponsiveContainer><p className="chart-caption">帕累托前緣：在同一評測版本中，沒有其他模型同時分數更高且成本更低。</p></div> : <EmptyState title="尚無可比較的智能評測成本資料" description="需要相同 Artificial Analysis 評測版本的模型分數與正值任務成本，才會納入圖表和效率比較。"/>}
+      <div className="table-scroll"><table className="data-table value-table"><thead><tr><th>模型</th><th>綜合智能指數</th><th>評測版本</th><th>智能評測每任務 API 成本（美元）</th><th>每美元智能指數</th><th>帕累托前緣</th></tr></thead><tbody>{points.length ? points.map((point) => { const model = models.find((item) => item.id === point.id); const efficiency = model ? intelligenceEfficiency(model, point.benchmarkVersion) : null; return <tr key={point.id}><td><b>{point.name}</b><small>{model?.provider ?? ''}</small></td><td>{point.score ?? MISSING}</td><td>{point.benchmarkVersion ?? MISSING}</td><td>{point.cost === null ? MISSING : formatPrice(point.cost)}</td><td>{efficiency === null ? MISSING : efficiency.toFixed(2)}</td><td>{frontierIds.has(point.id) ? '是' : '否'}</td></tr>; }) : <tr><td colSpan={6}><div className="empty-compact">目前沒有相同評測版本下可比較的模型成本資料。</div></td></tr>}</tbody></table></div>
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>程式代理能力 × 每任務 API 成本</h2><p>同 benchmark 版本 {codingComparison.version ?? '尚無可靠數據'}、同來源類型 {codingComparison.costKind ?? '尚無可靠數據'}；顏色依 Harness 分組。不轉換為訂閱月費可執行任務數。</p></div></div>
-      {codingPoints.length>1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={280}><ScatterChart margin={{top:12,right:18,bottom:18,left:8}}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="cost_per_task_usd" name="每任務 API 成本" tickFormatter={(v)=>`$${v}`} label={{value:'程式代理每任務 API 成本（美元）',position:'insideBottom',offset:-10}}/><YAxis type="number" dataKey="coding_agent_index" name="Coding Agent Index" label={{value:'Coding Agent Index',angle:-90,position:'insideLeft'}}/><ChartTooltip formatter={(v:number,n)=>[n==='cost_per_task_usd'?`$${v}`:v,n==='cost_per_task_usd'?'程式代理每任務成本':'Coding Agent Index']} labelFormatter={(_,payload)=>`${payload?.[0]?.payload?.agent ?? ''} · ${payload?.[0]?.payload?.harness ?? ''}`}/>{codingHarnesses.map((harness,index)=><Scatter key={harness} name={harness} data={codingPoints.filter((agent)=> (agent.harness ?? 'Harness 未公布')===harness)} fill={CHART_COLORS[index%CHART_COLORS.length]}/>)}<Legend/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="程式代理成本缺少可比組態數據" description="圖表只會畫同一 benchmark 版本與成本來源類型的組態；等待附來源、模型、推理等級、Harness、Token 和日期的合法匯入資料。"/>}
+    <section className="section-panel"><div className="section-title"><div><h2>程式代理能力 × 每任務 API 成本</h2><p>僅比較相同評測版本 {codingComparison.version ?? MISSING}、相同來源類型 {evidenceLabel(codingComparison.costKind)}；顏色依執行框架分組。此成本不換算為訂閱可執行任務數。</p></div></div>
+      {codingPoints.length>1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={280}><ScatterChart margin={{top:12,right:18,bottom:18,left:8}}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="cost_per_task_usd" name="每任務 API 成本" tickFormatter={(v)=>`$${v}`} label={{value:'程式代理每任務 API 成本（美元）',position:'insideBottom',offset:-10}}/><YAxis type="number" dataKey="coding_agent_index" name="程式代理指數" label={{value:'程式代理指數',angle:-90,position:'insideLeft'}}/><ChartTooltip formatter={(v:number,n)=>[n==='cost_per_task_usd'?`$${v}`:v,n==='cost_per_task_usd'?'程式代理每任務成本':'程式代理指數']} labelFormatter={(_,payload)=>`${agentLabel(payload?.[0]?.payload?.agent ?? '')} · ${translateUiText(payload?.[0]?.payload?.harness ?? '')}`}/>{codingHarnesses.map((harness,index)=><Scatter key={harness} name={translateUiText(harness)} data={codingPoints.filter((agent)=> (agent.harness ?? '執行框架未公布')===harness)} fill={CHART_COLORS[index%CHART_COLORS.length]}/>)}<Legend/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="尚無相同版本的程式代理成本資料" description="圖表只比較相同評測版本和成本來源類型的代理組態。"/>}
+      <div className="table-scroll"><table className="data-table value-table"><thead><tr><th>代理組態</th><th>模型／推理強度</th><th>執行框架</th><th>程式代理指數</th><th>每任務詞元數</th><th>平均時間</th><th>程式代理每任務 API 成本（美元）</th><th>每美元代理指數</th><th>評測版本／資料類型</th></tr></thead><tbody>{codingPoints.length ? codingPoints.map((agent) => <tr key={agent.id}><td><b>{agentLabel(agent.agent)}</b></td><td>{agent.model ?? MISSING}<small>{reasoningLabel(agent.reasoning_effort)}</small></td><td>{translateUiText(agent.harness ?? MISSING)}</td><td>{agent.coding_agent_index ?? MISSING}</td><td>{agent.average_task_tokens?.toLocaleString() ?? MISSING}<small>輸入／快取／輸出：{agent.input_tokens?.toLocaleString() ?? MISSING}／{agent.cached_tokens?.toLocaleString() ?? MISSING}／{agent.output_tokens?.toLocaleString() ?? MISSING}</small></td><td>{agent.average_task_seconds === null ? MISSING : `${agent.average_task_seconds.toFixed(1)} 秒`}</td><td>{agent.cost_per_task_usd === null ? MISSING : formatPrice(agent.cost_per_task_usd)}</td><td>{agent.coding_agent_index === null || agent.cost_per_task_usd === null || agent.cost_per_task_usd <= 0 ? MISSING : (agent.coding_agent_index / agent.cost_per_task_usd).toFixed(2)}</td><td>{agent.benchmark_version ?? MISSING}<small>{evidenceLabel(agent.cost_kind)}</small></td></tr>) : <tr><td colSpan={9}><div className="empty-compact">目前沒有相同評測版本與成本來源類型下可比較的代理組態。</div></td></tr>}</tbody></table></div>
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>每美元能力公式與範圍</h2><p>只在同一基準版本、同一 cost definition 和有效正成本時計算。</p></div></div>
-      <div className="formula-grid"><div className="formula-card"><span>智能評測效率</span><code>綜合智能指數 ÷ Intelligence Index 每任務 API 成本（美元）</code><p>只用同一 Intelligence Index 版本且官方公布的 index cost；不是訂閱價值或用戶每月額度保證。</p></div><div className="formula-card"><span>程式代理效率</span><code>Coding Agent Index ÷ Coding Agent 每任務 API 成本（美元）</code><p>只有相同 Agent benchmark 版、Harness 對照和成本定義的組態可比。</p></div><div className="formula-card"><span>訂閱費</span><code>月繳價格 / 年繳總額 / 年繳月均分列</code><p>不以 API 每任務成本換算訂閱可以跑多少任務；Chat、一般 Agent、Coding Agent 額度分開記錄。</p></div></div>
+    <section className="section-panel"><div className="section-title"><div><h2>每美元價值公式與限制</h2><p>只在相同基準版本、成本定義一致且成本大於零時計算。</p></div></div>
+      <div className="table-scroll"><table className="data-table formula-table"><thead><tr><th>比較項目</th><th>計算公式</th><th>可比較條件</th><th>限制</th></tr></thead><tbody>
+        <tr><td><b>智能評測效率</b></td><td>綜合智能指數 ÷ 智能評測每任務 API 成本（美元）</td><td>相同綜合智能指數版本；使用官方公布的每任務成本</td><td>不是訂閱價值，也不代表每月任務額度。</td></tr>
+        <tr><td><b>程式代理效率</b></td><td>程式代理指數 ÷ 程式代理每任務 API 成本（美元）</td><td>相同代理評測版本、執行框架與成本定義</td><td>不同代理組態的差異不能全歸因於模型。</td></tr>
+        <tr><td><b>消費者訂閱費</b></td><td>月繳價格、年繳總額、年繳月均各自列示</td><td>相同幣別與地區；優惠另行標示</td><td>不以 API 任務成本推算訂閱可執行任務數。</td></tr>
+      </tbody></table></div>
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>三種金錢欄位覆蓋</h2><p>API 費率、基準工作任務成本、消費者訂閱月費使用不同資料欄位與公式。</p></div></div>
-      <div className="money-coverage"><div><small>API 每百萬 Token 價格</small><strong>{coverage.models ? `${models.filter(m=>m.api_pricing.input_per_million_usd!==null).length}/${coverage.models} 模型` : MISSING}</strong><p>依輸入、輸出、快取讀寫分欄。</p></div><div><small>智能評測每任務 API 成本</small><strong>{coverage.models ? `${coverage.intelligenceCost}/${coverage.models} 模型` : MISSING}</strong><p>只採官方 cost_per_task.total_cost。</p></div><div><small>程式代理每任務 API 成本</small><strong>{coverage.codingTasks ? `${coverage.codingScores}/${coverage.codingTasks} 組態` : MISSING}</strong><p>沒有官方數據時保留缺值。</p></div><div><small>訂閱方案月費</small><strong>{plans.length} 個方案</strong><p>非 API 任務成本。</p></div></div>
+    <section className="section-panel"><div className="section-title"><div><h2>三種金錢資料的覆蓋情況</h2><p>API 詞元單價、基準測試任務成本、消費者訂閱月費使用不同欄位與公式。</p></div></div>
+      <div className="table-scroll"><table className="data-table coverage-table"><thead><tr><th>金錢資料</th><th>目前覆蓋</th><th>資料內容</th><th>不得混用的項目</th></tr></thead><tbody>
+        <tr><td><b>API 每百萬詞元價格</b></td><td>{models.length ? `${apiPriceCount}/${models.length} 個模型` : MISSING}</td><td>輸入、輸出、快取讀取與快取寫入價格。</td><td>不可直接當成每任務成本或訂閱月費。</td></tr>
+        <tr><td><b>智能評測每任務 API 成本</b></td><td>{models.length ? `${intelligenceCostCount}/${models.length} 個模型` : MISSING}</td><td>只採官方公布的基準工作負載成本。</td><td>不可換算成訂閱方案保證任務數。</td></tr>
+        <tr><td><b>程式代理每任務 API 成本</b></td><td>{agents.length ? `${codingCostCount}/${agents.length} 組代理設定` : MISSING}</td><td>列出平均詞元數、執行時間、模型與執行框架。</td><td>與智能評測成本、訂閱額度分開比較。</td></tr>
+        <tr><td><b>訂閱方案月費</b></td><td>{plans.length} 個方案</td><td>另列年繳總額、月均、稅金與地區。</td><td>方案額度依對話、一般代理、程式代理分開記錄。</td></tr>
+      </tbody></table></div>
     </section>
   </div>;
 }
@@ -380,35 +500,35 @@ function App() {
   return <div className="app-shell">
     <header className="app-header">
       <div className="brand"><div className="brand-mark"><Sparkles size={18}/></div><div><strong>AI Plan Benchmark</strong><span>AI 方案與模型比較器</span></div></div>
-      <div className="header-actions"><span className="region-chip">美國方案參考 · USD</span><button className="icon-button" onClick={() => void reload()} disabled={refreshing} aria-label="重新載入資料"><RefreshCw size={16}/></button></div>
+      <div className="header-actions"><span className="region-chip">美國方案參考 · 美元計價</span><button className="icon-button" onClick={() => void reload()} disabled={refreshing} aria-label="重新載入資料"><RefreshCw size={16}/></button></div>
     </header>
     <main className="app-main">
       <section className="hero"><div><div className="eyebrow">來源可追溯 · 缺值不補零</div><h1>選擇 AI 方案，<br className="mobile-break"/>看清楚能力與用量。</h1><p>比較訂閱產品、實際模型權限與 Artificial Analysis 評測。每個分數與額度都保留版本、來源及限制。</p></div><div className="hero-note"><span className={`api-dot api-dot--${apiStatus.status}`}/><div><b>{apiStatus.status === 'ready' ? 'Artificial Analysis API 已連接' : apiStatus.status === 'stale' ? 'API 更新失敗，保留舊資料' : apiStatus.status === 'error' ? 'API 連線錯誤' : 'Artificial Analysis API 尚未啟用'}</b><small>{apiStatus.message}</small><small>{apiStatus.models_count} 個模型 · 最後資料更新 {apiStatus.data_updated_at ?? '尚無成功匯入'}</small></div></div></section>
       {apiStatus.status === 'error' || apiStatus.status === 'stale' || apiStatus.methodology_warning ? <div className="alert alert--warning"><b>{apiStatus.methodology_warning ? '評測方法版本需要人工核對' : '來源更新警告'}</b><span>{apiStatus.methodology_warning ?? apiStatus.message}{apiStatus.http_status ? ` HTTP ${apiStatus.http_status}` : ''}{apiStatus.stale_days !== null ? ` · 資料快照已 ${apiStatus.stale_days} 天未更新` : ''}</span></div> : null}
-      {status.source_health?.status === 'warning' && <div className="alert alert--warning"><b>官方來源需要人工核對</b><span>{status.source_health.summary} · {status.source_health.checked_at}<br/>{status.source_health.warnings.map((item) => `${item.label}: ${item.message}`).join(' · ')}</span></div>}
+      {status.source_health?.status === 'warning' && <div className="alert alert--warning"><b>官方來源需要人工核對</b><span>{translateUiText(status.source_health.summary)} · {status.source_health.checked_at}<br/>{status.source_health.warnings.map((item) => `${sourceLabelById(item.source_id, item.label)}：${translateUiText(item.message)}`).join(' · ')}</span></div>}
       {error && <div className="alert alert--warning">{error}；目前未載入快照。</div>}
       <nav className="tab-nav" aria-label="比較分頁">{TABS.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => setTab(id)} className={tab === id ? 'tab-button tab-button--active' : 'tab-button'}><Icon size={16}/><span>{label}</span></button>)}</nav>
       <section className="toolbar">
         <div className="toolbar__search"><Search size={16}/><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="搜尋方案、模型或代理…" aria-label="搜尋"/></div>
         <label><span>公司</span><select value={provider} onChange={(e)=>setProvider(e.target.value)}><option value="all">全部公司</option>{PROVIDERS.map((p)=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label>
-        {tab === 'plans' && <label><span>月費上限</span><div className="cap-input"><span>$</span><input aria-label="月費上限美金" type="number" min="0" value={cap} onChange={(e)=>setCap(e.target.value)}/><span>USD</span></div></label>}
-        {tab === 'plans' && <label><span>額度類別</span><select value={quotaFilter} onChange={(e)=>setQuotaFilter(e.target.value as QuotaCategory|'all')}><option value="all">全部三類</option><option value="chat">Chat</option><option value="agent">一般 Agent</option><option value="coding_agent">Coding Agent</option></select></label>}
+        {tab === 'plans' && <label><span>月費上限</span><div className="cap-input"><span>$</span><input aria-label="月費上限美元" type="number" min="0" value={cap} onChange={(e)=>setCap(e.target.value)}/><span>美元</span></div></label>}
+        {tab === 'plans' && <label><span>額度類別</span><select value={quotaFilter} onChange={(e)=>setQuotaFilter(e.target.value as QuotaCategory|'all')}><option value="all">全部三類</option><option value="chat">對話</option><option value="agent">一般代理</option><option value="coding_agent">程式代理</option></select></label>}
         {modelOptions.length > 0 && <label><span>模型</span><select value={modelFilter} onChange={(e)=>setModelFilter(e.target.value)}><option value="all">全部模型</option>{modelOptions.map((model)=><option key={model} value={model}>{model}</option>)}</select></label>}
-        {reasoningOptions.length > 0 && <label><span>推理等級</span><select value={reasoningFilter} onChange={(e)=>setReasoningFilter(e.target.value)}><option value="all">全部等級</option>{reasoningOptions.map((mode)=><option key={mode} value={mode}>{mode}</option>)}</select></label>}
-        {tab === 'plans' && windowOptions.length > 0 && <label><span>額度窗口</span><select value={windowFilter} onChange={(e)=>setWindowFilter(e.target.value)}><option value="all">全部窗口</option>{windowOptions.map((window)=><option key={window} value={window}>{window}</option>)}</select></label>}
+        {reasoningOptions.length > 0 && <label><span>推理強度</span><select value={reasoningFilter} onChange={(e)=>setReasoningFilter(e.target.value)}><option value="all">全部等級</option>{reasoningOptions.map((mode)=><option key={mode} value={mode}>{reasoningLabel(mode)}</option>)}</select></label>}
+        {tab === 'plans' && windowOptions.length > 0 && <label><span>額度窗口</span><select value={windowFilter} onChange={(e)=>setWindowFilter(e.target.value)}><option value="all">全部窗口</option>{windowOptions.map((window)=><option key={window} value={window}>{quotaWindow(window)}</option>)}</select></label>}
         {tab === 'models' && <label><span>能力指標篩選</span><select value={capabilityFilter} onChange={(e)=>setCapabilityFilter(e.target.value)}><option value="all">不依分數篩選</option>{INDEX_KEYS.map((key)=><option key={key} value={key}>{INDEX_LABELS[key].label}</option>)}</select></label>}
-        {tab === 'plans' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="price-low">月費最低</option><option value="price-high">月費最高</option><option value="quota-chat">Chat 可量化資料最多</option><option value="quota-coding">Coding Agent 可量化資料最多</option><option value="cost-low" disabled={!hasPlanCostSort}>可用模型評測成本最低</option><option value="speed-high" disabled={!hasPlanSpeedSort}>可用模型輸出最快</option></select>{!hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本或速度資料；暫停這兩種排序。</small>}{!hasPlanCostSort && hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本資料；成本排序暫停。</small>}{hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的速度資料；速度排序暫停。</small>}</label>}
+        {tab === 'plans' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="price-low">月費最低</option><option value="price-high">月費最高</option><option value="quota-chat">對話額度可量化資料最多</option><option value="quota-coding">程式代理額度可量化資料最多</option><option value="cost-low" disabled={!hasPlanCostSort}>可用模型評測成本最低</option><option value="speed-high" disabled={!hasPlanSpeedSort}>可用模型輸出最快</option></select>{!hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本或速度資料；暫停這兩種排序。</small>}{!hasPlanCostSort && hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本資料；成本排序暫停。</small>}{hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的速度資料；速度排序暫停。</small>}</label>}
         {tab === 'models' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">能力最高</option><option value="cost-low">每任務成本最低</option><option value="value-high">每美元效率最高</option></select></label>}
-        {tab === 'coding' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">Coding Agent Index 最高</option><option value="cost-low">每任務成本最低</option></select></label>}
+        {tab === 'coding' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">程式代理指數最高</option><option value="cost-low">每任務成本最低</option></select></label>}
         <label className="check-filter"><input type="checkbox" checked={verifiedOnly} onChange={(e)=>setVerifiedOnly(e.target.checked)}/><span>只看官方驗證</span></label>
         <label className="check-filter"><input type="checkbox" checked={includeCommunity} onChange={(e)=>setIncludeCommunity(e.target.checked)}/><span>納入社群實測</span></label>
       </section>
       <div className="tab-heading"><div><h2>{selectedTab.label}</h2><p>{selectedTab.subtitle}</p></div><span className="date-chip">資料基準日 {snapshot.as_of}</span></div>
-      {tab==='plans' && <div className="page-stack">{plans.length ? <div className="plan-grid">{plans.map((plan)=><PlanCard key={plan.id} plan={plan} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly}/>)}</div> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}</div>}
+      {tab==='plans' && <div className="page-stack">{plans.length ? <><p className="table-hint">方案、可用產品、模型權限，以及對話／一般代理／程式代理額度分欄比較。手機上可左右滑動表格。</p><PlanComparisonTable plans={plans} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly}/></> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}</div>}
       {tab==='models' && <ModelPage snapshot={snapshot} models={models} activeIndex={activeIndex} onIndex={setActiveIndex} providerFilter={provider}/>}
       {tab==='coding' && <CodingPage snapshot={snapshot} agents={agents} verifiedOnly={verifiedOnly}/>}
       {tab==='value' && <ValuePage snapshot={snapshot} plans={plans} models={models} agents={agents} verifiedOnly={verifiedOnly}/>}
-      <footer className="app-footer"><div><b>可信度標記</b><Evidence kind="official"/><Evidence kind="measured"/><Evidence kind="community"/><Evidence kind="estimate"/><Evidence confidence="unknown"/></div><p>量化數據以來源頁面與產品內額度提示為準。API 評測成本、訂閱價格與任務額度是三種不同數據。</p><p>資料更新與錯誤狀態記錄在靜態快照；本頁不會公開或呼叫前端 API Key。</p></footer>
+      <footer className="app-footer"><div><b>可信度標記</b><Evidence kind="official"/><Evidence kind="measured"/><Evidence kind="community"/><Evidence kind="estimate"/><Evidence confidence="unknown"/></div><p>量化數據以來源頁面與產品內額度提示為準。API 評測成本、訂閱價格與任務額度是三種不同資料。</p><p>資料更新與錯誤狀態記錄在靜態快照；本頁不會公開或呼叫前端 API 金鑰。</p></footer>
     </main>
   </div>;
 }

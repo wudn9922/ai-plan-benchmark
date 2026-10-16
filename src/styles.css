@@ -321,3 +321,49 @@ a { color: inherit; }
   .check-filter { font-size: 8px; }
   .date-chip { white-space: normal; text-align: right; }
 }
+
+/* Translation and dense comparison tables */
+.table-hint { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.plan-comparison-table { min-width: 1680px; }
+.plan-comparison-table th:nth-child(1) { min-width: 150px; }
+.plan-comparison-table th:nth-child(2) { min-width: 190px; }
+.plan-comparison-table th:nth-child(3) { min-width: 340px; }
+.plan-comparison-table th:nth-child(4), .plan-comparison-table th:nth-child(5), .plan-comparison-table th:nth-child(6) { min-width: 300px; }
+.plan-comparison-table th:nth-child(7) { min-width: 190px; }
+.table-cell-list { display: grid; min-width: 240px; gap: 8px; white-space: normal; }
+.table-cell-item { display: grid; gap: 4px; padding: 8px; border: 1px solid #e8edee; border-radius: 7px; background: #fcfdfd; white-space: normal; }
+.table-cell-item > b { color: #37464d; font-size: 10px; }
+.table-cell-item > strong { color: #384c4a; font-size: 10px; line-height: 1.45; }
+.table-cell-item > small, .data-table td .table-cell-item > small { max-width: 320px; margin: 0; color: #69777d; font-size: 9px; line-height: 1.55; white-space: normal; overflow-wrap: anywhere; }
+.table-cell-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+.table-cell-heading > b { color: #37464d; font-size: 10px; }
+.table-cell-item--promo { margin-top: 7px; border-color: #eee3d0; background: #fdfaf4; }
+.table-note { max-width: 340px !important; margin-top: 8px !important; white-space: normal !important; }
+.benchmark-table { min-width: 1450px; }
+.benchmark-table th:nth-child(1) { min-width: 180px; }
+.benchmark-table th:nth-child(2), .benchmark-table th:nth-child(7) { min-width: 260px; }
+.benchmark-table th:nth-child(5) { min-width: 240px; }
+.benchmark-table td.wrapped-cell { min-width: 240px; white-space: normal; line-height: 1.55; }
+.benchmark-table td.wrapped-cell small { min-width: 220px; }
+.compact-table { min-width: 280px; max-width: 480px; }
+.value-table { min-width: 1050px; }
+.formula-table { min-width: 1000px; }
+.coverage-table { min-width: 900px; }
+.formula-table td, .coverage-table td { white-space: normal; line-height: 1.55; }
+.formula-table td:nth-child(2), .formula-table td:nth-child(3), .formula-table td:nth-child(4), .coverage-table td:nth-child(3), .coverage-table td:nth-child(4) { min-width: 210px; }
+.coding-table { min-width: 1510px; }
+.coding-table td { white-space: normal; }
+.coding-table td small { min-width: 130px; }
+.index-table td:first-child { min-width: 220px; white-space: normal; }
+.index-table td:last-child { min-width: 270px; white-space: normal; }
+.api-pricing-table { min-width: 950px; }
+
+@media (max-width: 680px) {
+  .table-hint { font-size: 9px; }
+  .plan-comparison-table { min-width: 1580px; }
+  .benchmark-table { min-width: 1320px; }
+  .coding-table { min-width: 1440px; }
+  .value-table { min-width: 980px; }
+  .formula-table { min-width: 930px; }
+  .coverage-table { min-width: 820px; }
+}

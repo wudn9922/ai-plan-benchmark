@@ -1,0 +1,84 @@
+name: Update data and deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '17 4 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Update Artificial Analysis free API snapshot
+        continue-on-error: true
+        env:
+          AA_API_KEY: ${{ secrets.Artificial_Analysis_API || vars.Artificial_Analysis_API }}
+        run: python scripts/update_data.py
+
+      - name: Check official public source changes
+        run: python scripts/source_health.py
+
+      - name: Validate snapshot
+        run: python scripts/validate_data.py
+
+      - name: Run tests
+        run: npm run test:all
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Commit changed data only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- public/data/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh verified AI plan data"
+            git push
+          else
+            echo "No data changes; no commit created."
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

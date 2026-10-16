@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Artificial Analysis Coding Agent Index manual import",
+  "type": "object",
+  "required": ["schema_version", "index_version", "checked_at", "region", "source_url", "method_url", "evidence_kind", "records"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "index_version": { "type": "string", "pattern": "^v[0-9]+\\.[0-9]+$" },
+    "checked_at": { "type": "string", "format": "date" },
+    "region": { "type": "string", "minLength": 1 },
+    "source_url": { "type": "string", "format": "uri", "pattern": "^https://artificialanalysis\\.ai/" },
+    "method_url": { "type": "string", "format": "uri", "pattern": "^https://artificialanalysis\\.ai/" },
+    "evidence_kind": { "const": "official" },
+    "review_notes": { "type": "string" },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "agent", "harness", "model", "reasoning_effort", "coding_agent_index", "scores", "average_task_tokens", "input_tokens", "cached_tokens", "output_tokens", "average_task_seconds", "cost_per_task_usd", "cost_kind", "benchmark_version", "source_url", "source_updated_at", "note"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "provider": { "enum": ["openai", "anthropic", "google", "xai"] },
+          "agent": { "type": "string", "minLength": 1 },
+          "harness": { "type": ["string", "null"] },
+          "model": { "type": ["string", "null"] },
+          "reasoning_effort": { "type": ["string", "null"] },
+          "coding_agent_index": { "type": ["number", "null"] },
+          "scores": { "type": "array" },
+          "average_task_tokens": { "type": ["number", "null"] },
+          "input_tokens": { "type": ["number", "null"] },
+          "cached_tokens": { "type": ["number", "null"] },
+          "output_tokens": { "type": ["number", "null"] },
+          "average_task_seconds": { "type": ["number", "null"] },
+          "cache_hit_percent": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+          "cost_per_task_usd": { "type": ["number", "null"] },
+          "cost_kind": { "enum": ["official", "measured", "community", "estimate", null] },
+          "benchmark_version": { "type": ["string", "null"] },
+          "source_url": { "type": "string", "format": "uri", "pattern": "^https://" },
+          "source_updated_at": { "type": ["string", "null"] },
+          "source_checked_at": { "type": ["string", "null"], "format": "date" },
+          "note": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

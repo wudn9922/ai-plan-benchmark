@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0.0",
+  "index_version": "v1.5",
+  "checked_at": "2026-10-16",
+  "region": "Global",
+  "source_url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex",
+  "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+  "evidence_kind": "official",
+  "review_notes": "人工核對官方公開比較頁於 2026-10-16 的兩組官方 Coding Agent Index v1.5 組態；不是付費 API 資料，也不代表訂閱方案每任務支出。",
+  "records": [
+    {
+      "id": "claude-code-sonnet-5-5-max-coding-agent-v1-5",
+      "agent": "Claude Code + Sonnet 5.5 (Max)",
+      "harness": "Claude Code",
+      "model": "Sonnet 5.5",
+      "reasoning_effort": "Max",
+      "coding_agent_index": 68,
+      "scores": [
+        {
+          "benchmark_id": "deepswe",
+          "score": 72,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "v1.1",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "terminal_bench",
+          "score": 66,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "4.0",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "swe_atlas_qna",
+          "score": 67,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "version not shown",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        }
+      ],
+      "average_task_tokens": 27700000,
+      "cache_hit_percent": 95,
+      "input_tokens": null,
+      "cached_tokens": null,
+      "output_tokens": null,
+      "average_task_seconds": 5400,
+      "cost_per_task_usd": 14.19,
+      "cost_kind": "official",
+      "benchmark_version": "v1.5",
+      "source_url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex",
+      "source_updated_at": null,
+      "source_checked_at": "2026-10-16",
+      "note": "官方頁面顯示總 Token 約 27.7M、快取命中率 95%、平均任務 1.5 小時及 API 每任務成本 $14.19。輸入/快取/輸出 Token 分拆未公開；頁面未顯示逐列更新日期，本次人工核對日為 2026-10-16。成本是基準 API 任務成本，不是訂閱支出或保證任務額度。",
+      "provider": "anthropic"
+    },
+    {
+      "id": "codex-gpt-6-1-sol-xhigh-coding-agent-v1-5",
+      "agent": "Codex + GPT-6.1 Sol (xhigh)",
+      "harness": "Codex",
+      "model": "GPT-6.1 Sol",
+      "reasoning_effort": "xhigh",
+      "coding_agent_index": 63,
+      "scores": [
+        {
+          "benchmark_id": "deepswe",
+          "score": 73,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "v1.1",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "terminal_bench",
+          "score": 55,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "4.0",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "swe_atlas_qna",
+          "score": 61,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "version not shown",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        }
+      ],
+      "average_task_tokens": 3200000,
+      "cache_hit_percent": 93,
+      "input_tokens": null,
+      "cached_tokens": null,
+      "output_tokens": null,
+      "average_task_seconds": 930,
+      "cost_per_task_usd": 1.04,
+      "cost_kind": "official",
+      "benchmark_version": "v1.5",
+      "source_url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex",
+      "source_updated_at": null,
+      "source_checked_at": "2026-10-16",
+      "note": "官方頁面顯示總 Token 約 3.2M、快取命中率 93%、平均任務 15.5 分鐘及 API 每任務成本 $1.04。輸入/快取/輸出 Token 分拆未公開；頁面未顯示逐列更新日期，本次人工核對日為 2026-10-16。成本是基準 API 任務成本，不是訂閱支出或保證任務額度。",
+      "provider": "openai"
+    }
+  ]
+}

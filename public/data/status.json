@@ -1,0 +1,14 @@
+{
+  "aa": {
+    "configured": false,
+    "status": "disabled",
+    "message": "尚未設定 Artificial Analysis API Key；目前顯示最後一次儲存的公開資料。",
+    "checked_at": null,
+    "data_updated_at": null,
+    "stale_days": null,
+    "http_status": null,
+    "last_error": null,
+    "models_count": 0,
+    "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free"
+  }
+}

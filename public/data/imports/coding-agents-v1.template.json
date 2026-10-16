@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "index_version": "v1.5",
+  "checked_at": "",
+  "region": "Global",
+  "source_url": "https://artificialanalysis.ai/agents/coding-agents",
+  "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+  "evidence_kind": "official",
+  "review_notes": "僅匯入有合法公開來源可核對的官方組態分數。不得由圖表估讀補值或填入推估分數。",
+  "records": []
+}

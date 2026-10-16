@@ -66,11 +66,8 @@ python scripts/source_health.py --ack SOURCE_ID
 
 `.github/workflows/update-and-deploy.yml` 每日 UTC 04:17 檢查 API 和官方方案來源，通過資料驗證、Python/前端測試後建立靜態網站，並把有變更的 JSON 快照提交到目前 repository。
 
-部署到獨立 repository 前：
+此專案的獨立 repository：<https://github.com/wudn9922/ai-plan-benchmark>。
 
-1. 把此專案放進獨立 repository（例如 `ai-plan-benchmark`），不要放進其他既有產品 repo。
-2. 在 **Settings → Pages** 設定建置來源為 **GitHub Actions**。
-3. 可選擇新增 `Artificial_Analysis_API` Actions Secret（或使用相容的同名 repository variable）以啟用官方免費 API 更新；不設定時前端會標示停用。
-4. 在 **Actions** 手動執行 `Update data and deploy`；每日排程之後會自動執行。
+Workflow 會在推送到 `main`、手動執行及每日 UTC 04:17 時驗證、建置並部署。請在 **Settings → Pages** 設定建置來源為 **GitHub Actions**。首次成功部署後，實際網站網址會顯示於 Actions workflow run 的 deployment 摘要；未成功部署前不預設網址。
 
-目前工作區沒有連接 GitHub repository，故尚未建立 PR 或部署網站網址。
+若尚未設定 `Artificial_Analysis_API` Actions Secret 或同名 repository variable，靜態頁仍可部署，但官方 API 更新會維持停用。

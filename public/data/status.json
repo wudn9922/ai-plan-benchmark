@@ -1,14 +1,94 @@
 {
   "aa": {
-    "configured": false,
-    "status": "disabled",
-    "message": "尚未設定 Artificial Analysis API Key；目前顯示最後一次儲存的公開資料。",
-    "checked_at": null,
-    "data_updated_at": null,
-    "stale_days": null,
+    "checked_at": "2026-10-16T18:15:42Z",
+    "configured": true,
+    "data_updated_at": "2026-10-16T18:15:42Z",
+    "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "models_count": 0,
-    "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free"
+    "last_successful_snapshot_at": "2026-10-16T18:15:42Z",
+    "message": "Artificial Analysis 免費 API 資料已成功更新。",
+    "models_count": 706,
+    "stale_days": 0,
+    "status": "ready"
+  },
+  "source_health": {
+    "checked_at": "2026-10-16T18:15:52Z",
+    "status": "warning",
+    "summary": "12 個官方來源需要人工核對。",
+    "warnings": [
+      {
+        "label": "ChatGPT Go plan",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-go",
+        "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
+      },
+      {
+        "label": "ChatGPT Plus plan",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-plus",
+        "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus"
+      },
+      {
+        "label": "ChatGPT Work and Codex",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-work",
+        "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
+      },
+      {
+        "label": "ChatGPT Work rollout on paid plans",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-work-rollout",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      },
+      {
+        "label": "ChatGPT agent mode availability and limits",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-agent-mode",
+        "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
+      },
+      {
+        "label": "ChatGPT current plan comparison",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-current-pricing",
+        "url": "https://chatgpt.com/pricing/"
+      },
+      {
+        "label": "Claude Pro billing",
+        "message": "來源檢查回傳 HTTP 404",
+        "source_id": "anthropic-pro-cost",
+        "url": "https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost"
+      },
+      {
+        "label": "Codex usage with GPT-6 Astra and GPT-6 models",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-codex-usage",
+        "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
+      },
+      {
+        "label": "Deep research in ChatGPT",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-deep-research",
+        "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
+      },
+      {
+        "label": "Flexible usage credits for ChatGPT personal plans",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-flexible-usage",
+        "url": "https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-freego-pluspro"
+      },
+      {
+        "label": "Models in ChatGPT",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-models",
+        "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
+      },
+      {
+        "label": "Using Codex with a ChatGPT plan",
+        "message": "來源檢查回傳 HTTP 403",
+        "source_id": "openai-codex",
+        "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
+      }
+    ]
   }
 }

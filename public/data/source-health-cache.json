@@ -1,0 +1,400 @@
+{
+  "last_state_change_at": "2026-10-16T18:15:52Z",
+  "pending_warnings": {
+    "error:anthropic-pro-cost": {
+      "label": "Claude Pro billing",
+      "message": "來源檢查回傳 HTTP 404",
+      "source_id": "anthropic-pro-cost",
+      "url": "https://support.anthropic.com/en/articles/8325610-how-much-does-claude-pro-cost"
+    },
+    "error:openai-agent-mode": {
+      "label": "ChatGPT agent mode availability and limits",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-agent-mode",
+      "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
+    },
+    "error:openai-codex": {
+      "label": "Using Codex with a ChatGPT plan",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-codex",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
+    },
+    "error:openai-codex-usage": {
+      "label": "Codex usage with GPT-6 Astra and GPT-6 models",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-codex-usage",
+      "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
+    },
+    "error:openai-current-pricing": {
+      "label": "ChatGPT current plan comparison",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-current-pricing",
+      "url": "https://chatgpt.com/pricing/"
+    },
+    "error:openai-deep-research": {
+      "label": "Deep research in ChatGPT",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-deep-research",
+      "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
+    },
+    "error:openai-flexible-usage": {
+      "label": "Flexible usage credits for ChatGPT personal plans",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-flexible-usage",
+      "url": "https://help.openai.com/en/articles/12642688-using-credits-for-flexible-usage-in-chatgpt-freego-pluspro"
+    },
+    "error:openai-go": {
+      "label": "ChatGPT Go plan",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-go",
+      "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
+    },
+    "error:openai-models": {
+      "label": "Models in ChatGPT",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-models",
+      "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
+    },
+    "error:openai-plus": {
+      "label": "ChatGPT Plus plan",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-plus",
+      "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus"
+    },
+    "error:openai-work": {
+      "label": "ChatGPT Work and Codex",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-work",
+      "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
+    },
+    "error:openai-work-rollout": {
+      "label": "ChatGPT Work rollout on paid plans",
+      "message": "來源檢查回傳 HTTP 403",
+      "source_id": "openai-work-rollout",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    }
+  },
+  "sources": {
+    "aa-api-reference": {
+      "baseline_at": "2026-10-16T18:15:42Z",
+      "error": null,
+      "etag": "\"9ac8024af999c00ccc157c1f5d8b50bd\"",
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "13c0b365162a1678ef911ec6c5bcc6083907d5919c15080c4ae336be16a155a5",
+      "state_changed_at": "2026-10-16T18:15:42Z"
+    },
+    "aa-coding-agent-import-v1.5-2026-10-16": {
+      "baseline_at": "2026-10-16T18:15:52Z",
+      "error": null,
+      "etag": "\"kvu4bbpwc7kige\"",
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "a50c40099e21b1baba7af49f5dba6050f9014908470aab829d4da23b88f1a3fa",
+      "state_changed_at": "2026-10-16T18:15:52Z"
+    },
+    "aa-coding-agents": {
+      "baseline_at": "2026-10-16T18:15:42Z",
+      "error": null,
+      "etag": "\"3xlm100g36kceo\"",
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "9ec2b6fcde06b693491ec0a014b29b046ec0b782c5c03236ff557da77debf758",
+      "state_changed_at": "2026-10-16T18:15:42Z"
+    },
+    "aa-coding-method": {
+      "baseline_at": "2026-10-16T18:15:43Z",
+      "error": null,
+      "etag": "\"tglw0d88bu86rb\"",
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "44141ec278a9e8c45e4000714f7293cc31a845e1c4ff2d6c9aa511e3815cbb86",
+      "state_changed_at": "2026-10-16T18:15:43Z"
+    },
+    "aa-free-api": {
+      "baseline_at": "2026-10-16T18:15:42Z",
+      "error": null,
+      "etag": "\"ed9473c85b7245bccc48e2e00f1627ff\"",
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "e124634d6774f330dbf7bd82b71352de766326a49fba129d55a8aebe82058c96",
+      "state_changed_at": "2026-10-16T18:15:42Z"
+    },
+    "aa-method": {
+      "baseline_at": "2026-10-16T18:15:42Z",
+      "error": null,
+      "etag": "\"8hbjjxoc68kq6o\"",
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "feddfd6fa48032f2a4b393fa0c3bbb0bf26c7593764fc01b312de135978c4056",
+      "state_changed_at": "2026-10-16T18:15:42Z"
+    },
+    "aa-public-gemini-argon-comparison": {
+      "baseline_at": "2026-10-16T18:15:51Z",
+      "error": null,
+      "etag": "\"6tfap4jbznupc0\"",
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "b3f73ad22076cb6cb3b07b6fde1f405d3b1a7f40c7c22d63ffdc485a5952de45",
+      "state_changed_at": "2026-10-16T18:15:51Z"
+    },
+    "aa-public-gpt-6-luna-high-comparison": {
+      "baseline_at": "2026-10-16T18:15:51Z",
+      "error": null,
+      "etag": "\"thjrdgbdzbuorj\"",
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "71fda21951571bbee15e1bb9825a4e8de11f4763885cfe99394f639a65d2d431",
+      "state_changed_at": "2026-10-16T18:15:51Z"
+    },
+    "anthropic-code": {
+      "baseline_at": "2026-10-16T18:15:44Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "b630a39121077d000e46521cc637c2cce24496b40904425d9f5c5000352bc019",
+      "state_changed_at": "2026-10-16T18:15:44Z"
+    },
+    "anthropic-pricing": {
+      "baseline_at": "2026-10-16T18:15:43Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": "Fri, 16 Oct 2026 18:13:43 GMT",
+      "sha256": "40c65d30853f043d35e785b80dded3f6205342db49b950521961f0d58c235fae",
+      "state_changed_at": "2026-10-16T18:15:43Z"
+    },
+    "anthropic-pro-cost": {
+      "error": "HTTP 404",
+      "http_status": 404,
+      "state_changed_at": "2026-10-16T18:15:44Z"
+    },
+    "anthropic-research": {
+      "baseline_at": "2026-10-16T18:15:50Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "ff397903ad925ee3d489f120a1a2931f9a0d4d94befff91a549ffc8939072cb3",
+      "state_changed_at": "2026-10-16T18:15:50Z"
+    },
+    "gemini-cli-deprecation": {
+      "baseline_at": "2026-10-16T18:15:48Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": "Fri, 09 Oct 2026 22:52:17 GMT",
+      "sha256": "17317945fbb37a40e91a22465b192f2adb5be96a38d787edc6cb673d9e1b5308",
+      "state_changed_at": "2026-10-16T18:15:48Z"
+    },
+    "gemini-cli-deprecation-individuals": {
+      "baseline_at": "2026-10-16T18:15:48Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": "Fri, 09 Oct 2026 22:52:17 GMT",
+      "sha256": "69f3bc5e4ec12bfdbe742387f543b24eedf29aef0ef32504c763ebb1f1a9ccde",
+      "state_changed_at": "2026-10-16T18:15:48Z"
+    },
+    "google-ai-plan-benefits": {
+      "baseline_at": "2026-10-16T18:15:50Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": "Wed, 14 Oct 2026 00:48:00 GMT",
+      "sha256": "a37ad23d75d2bcfe996ed86e3b38006008b3176be8f51b3032449a8af522f996",
+      "state_changed_at": "2026-10-16T18:15:50Z"
+    },
+    "google-ai-plus-current": {
+      "baseline_at": "2026-10-16T18:15:45Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "c190802be806ef6daeeb2b81385c60b3adbba5bc37d026423e5b2027bcc4314c",
+      "state_changed_at": "2026-10-16T18:15:45Z"
+    },
+    "google-annual-plus": {
+      "baseline_at": "2026-10-16T18:15:46Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "99e0ab330cc9c8c551817aaa10afb1de88e3294fbfe001e5e9fd6c3e58159f24",
+      "state_changed_at": "2026-10-16T18:15:46Z"
+    },
+    "google-annual-pro": {
+      "baseline_at": "2026-10-16T18:15:46Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "13751bc533dbf322435abb4551441c1426a7bbef9d5d191eadfa406570651c85",
+      "state_changed_at": "2026-10-16T18:15:46Z"
+    },
+    "google-gemini-limits": {
+      "baseline_at": "2026-10-16T18:15:47Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "6a5054cdac63fbc3b2263166479e274900f9500b46a7a18386b06ec7d8e93001",
+      "state_changed_at": "2026-10-16T18:15:47Z"
+    },
+    "google-jules": {
+      "baseline_at": "2026-10-16T18:15:50Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "d17f3c4ef36c4e9c486441ef52530222ef414ed90d3d01cfe23fc07feed2ed13",
+      "state_changed_at": "2026-10-16T18:15:50Z"
+    },
+    "google-one-benefits": {
+      "baseline_at": "2026-10-16T18:15:48Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "9b5ac7a5a8b7bb00bf493e0ce640060e05454a2ad53aadca1b83ce304e67faf8",
+      "state_changed_at": "2026-10-16T18:15:48Z"
+    },
+    "google-plans": {
+      "baseline_at": "2026-10-16T18:15:45Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "8cf5babf912bc74a8781fe2a803fbb389bbc4dcdb5cc572a9b2a7455b99a7c49",
+      "state_changed_at": "2026-10-16T18:15:45Z"
+    },
+    "google-student-offer": {
+      "baseline_at": "2026-10-16T18:15:47Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "ce5968ba12190b990b91abbd314d3ff29d70de2d5c28082884e7a8fcd16fe562",
+      "state_changed_at": "2026-10-16T18:15:47Z"
+    },
+    "openai-agent-mode": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:50Z"
+    },
+    "openai-codex": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:43Z"
+    },
+    "openai-codex-usage": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:43Z"
+    },
+    "openai-current-pricing": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:51Z"
+    },
+    "openai-deep-research": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:50Z"
+    },
+    "openai-flexible-usage": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:50Z"
+    },
+    "openai-go": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:43Z"
+    },
+    "openai-models": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:43Z"
+    },
+    "openai-plus": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:43Z"
+    },
+    "openai-work": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:50Z"
+    },
+    "openai-work-rollout": {
+      "error": "HTTP 403",
+      "http_status": 403,
+      "state_changed_at": "2026-10-16T18:15:50Z"
+    },
+    "xai-build": {
+      "baseline_at": "2026-10-16T18:15:49Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "9564924fe3da122c3a2bbb6b85041d3161948efa2759b432463b5274ed4122a6",
+      "state_changed_at": "2026-10-16T18:15:49Z"
+    },
+    "xai-build-all": {
+      "baseline_at": "2026-10-16T18:15:49Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "882ad8ab82396ea0a5ab06111b91bc714b60b45c3b59008aac8264445ef637ac",
+      "state_changed_at": "2026-10-16T18:15:49Z"
+    },
+    "xai-faq": {
+      "baseline_at": "2026-10-16T18:15:49Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "bcb4e1f688c1c4f8490e7cf4e99b3d823e96f59c12624ea24a6cfa0993026bf3",
+      "state_changed_at": "2026-10-16T18:15:49Z"
+    },
+    "xai-grok": {
+      "baseline_at": "2026-10-16T18:15:49Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "bccf9bb2d1b9c1d2612ab992833596c19a1f17faa308b4ba266f0b4c6308c559",
+      "state_changed_at": "2026-10-16T18:15:49Z"
+    },
+    "xai-grok-bot": {
+      "baseline_at": "2026-10-16T18:15:49Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "7f72d7b7f4e016df1af965b908eb4c857a85584ddd38cc0ae0aa11928dcebab5",
+      "state_changed_at": "2026-10-16T18:15:49Z"
+    },
+    "xai-pricing": {
+      "baseline_at": "2026-10-16T18:15:48Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "ee6abb7a2a51447e3b5d8edaa4369fcb91f39b37885e68b2152237f9b01a2930",
+      "state_changed_at": "2026-10-16T18:15:48Z"
+    },
+    "xai-pricing-web": {
+      "baseline_at": "2026-10-16T18:15:51Z",
+      "error": null,
+      "etag": null,
+      "http_status": 200,
+      "last_modified": null,
+      "sha256": "80c8de1c58dc6783add42e227834d512f1ef4e9fdb3bab2c4ef138a3b908bbc0",
+      "state_changed_at": "2026-10-16T18:15:51Z"
+    }
+  }
+}

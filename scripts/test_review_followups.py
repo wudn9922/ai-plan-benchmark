@@ -25,15 +25,33 @@ class ReviewFollowupTests(unittest.TestCase):
 
     def test_snapshot_rejects_cross_model_claim_without_version_or_established_unit(self) -> None:
         no_version = copy.deepcopy(self.snapshot)
-        score = next(score for score in no_version["models"][0]["benchmarks"] if score["benchmark_id"] == "automationbench_aa")
-        self.assertIsNone(score["version"])
-        score["cross_model_comparable"] = True
+        no_version["models"][0]["benchmarks"].append({
+            "benchmark_id": "fixture_unversioned",
+            "score": 75.0,
+            "unit": "completion rate %",
+            "version": None,
+            "updated_at": None,
+            "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+            "higher_is_better": True,
+            "included_in_index": True,
+            "cross_model_comparable": True,
+            "source_kind": "official",
+        })
         self.assertTrue(any("established version and unit" in error for error in validate_data.validate(no_version)))
 
         unclear_unit = copy.deepcopy(self.snapshot)
-        score = unclear_unit["models"][0]["benchmarks"][0]
-        score["unit"] = "unit not established"
-        score["cross_model_comparable"] = True
+        unclear_unit["models"][0]["benchmarks"].append({
+            "benchmark_id": "fixture_unclear_unit",
+            "score": 75.0,
+            "unit": "unit not established",
+            "version": "v1",
+            "updated_at": None,
+            "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+            "higher_is_better": True,
+            "included_in_index": True,
+            "cross_model_comparable": True,
+            "source_kind": "official",
+        })
         self.assertTrue(any("established version and unit" in error for error in validate_data.validate(unclear_unit)))
 
     def test_snapshot_requires_supported_provider_for_coding_agents(self) -> None:

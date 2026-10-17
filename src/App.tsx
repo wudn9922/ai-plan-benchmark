@@ -234,42 +234,89 @@ function officialCodingCostRows(snapshot: Snapshot, agents: CodingAgentRecord[])
   });
 }
 
-function quotaCategoryLabel(category: QuotaCategory): string {
-  return category === 'chat' ? '對話額度' : category === 'agent' ? '一般代理額度' : '程式代理額度';
+function PriceBlock({ plan }: { plan: SubscriptionPlan }) {
+  return <div className="price-block">
+    <strong>{formatPrice(plan.monthly_price, plan.currency)}</strong><span>/ 月</span>
+    {plan.annual_billed_total !== null && <small>年繳 {formatPrice(plan.annual_billed_total, plan.currency)}，月均 {formatPrice(plan.annual_monthly_price, plan.currency)}</small>}
+    {plan.annual_billed_total === null && plan.annual_monthly_price === null && <small>年繳價格：尚無可靠數據</small>}
+    <small>稅金：{plan.tax === 'extra' ? '另計' : plan.tax === 'included' ? '已含' : plan.tax === 'varies' ? '依地區／結帳頁而異' : '未知'} · {plan.region} · {plan.currency}</small>
+  </div>;
 }
 
-function QuotaCell({ rows, sources }: { rows: QuotaObservation[]; sources: SourceRef[] }) {
-  if (!rows.length) return <span className="muted">{MISSING}</span>;
-  return <div className="table-cell-list">{rows.map((quota) => <div className="table-cell-item" key={quota.id}>
-    <b>{productLabel(quota.product)}</b>
-    <strong>{quotaValue(quota)}</strong>
-    <small>{quotaWindow(quota.window)}{quota.model ? ` · ${quota.model}` : ''}{quota.reasoning_mode ? ` · 推理強度：${reasoningLabel(quota.reasoning_mode)}` : ''}</small>
-    <small>{translateUiText(quota.note)}</small>
-    <small>可信度：{quota.confidence === 'high' ? '高' : quota.confidence === 'medium' ? '中' : quota.confidence === 'low' ? '低' : '未知'} · {quota.region} · 取樣日 {quota.sampled_at}{quota.shared_with.length ? ` · 共用：${quota.shared_with.map(productLabel).join('、')}` : ''}</small>
+function PlanQuotaCard({ quota, sources }: { quota: QuotaObservation; sources: SourceRef[] }) {
+  const value = quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
+  return <article className="quota-card">
+    <div className="quota-card__top"><strong>{productLabel(quota.product)}</strong><Evidence confidence={quota.confidence} /></div>
+    <div className="quota-card__value">{value}</div>
+    <div className="quota-card__meta">{quotaWindow(quota.window)}{quota.model ? ` · ${quota.model}` : ''}{quota.reasoning_mode ? ` · 推理強度：${reasoningLabel(quota.reasoning_mode)}` : ''}</div>
+    {quota.note && <p>{translateUiText(quota.note)}</p>}
+    <div className="quota-card__meta">{quota.region} · 取樣日 {quota.sampled_at}{quota.shared_with.length ? ` · 共用：${quota.shared_with.map(productLabel).join('、')}` : ''}</div>
     <SourceLinks ids={quota.source_ids} sources={sources} />
-  </div>)}</div>;
+  </article>;
 }
 
-function PlanProducts({ plan, sources }: { plan: SubscriptionPlan; sources: SourceRef[] }) {
-  return <div className="table-cell-list">{plan.products.map((product) => <div className="table-cell-item" key={product.product}>
-    <div className="table-cell-heading"><b>{productLabel(product.product)}</b><Badge value={product.included} />{product.rollout === 'discontinued' && <span className="status-tag">已停止</span>}{product.rollout === 'limited' && <span className="status-tag">推出／地區限制</span>}{product.rollout === 'beta' && <span className="status-tag">測試版</span>}</div>
-    {product.model_access.length > 0 && <small>可用模型：{product.model_access.map((m) => `${m.model}${m.reasoning_modes.length ? `（${m.reasoning_modes.map(reasoningLabel).join('、')}）` : ''}${m.mapping === 'unmapped' ? ' · 無精確對應' : m.mapping === 'approximate' ? ' · 近似對應' : ''}`).join('、')}</small>}
-    {product.note && <small>{translateUiText(product.note)}</small>}
-    {product.source_ids.length > 0 && <SourceLinks ids={product.source_ids} sources={sources} label="產品權限來源" />}
-  </div>)}</div>;
+function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly }: { plan: SubscriptionPlan; snapshot: Snapshot; quotaFilter: QuotaCategory | 'all'; verifiedOnly: boolean }) {
+  const quotas = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && (quotaFilter === 'all' || quota.category === quotaFilter) && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
+  const categoryInfo: Array<{ id: QuotaCategory; name: string }> = [
+    { id: 'chat', name: '對話額度' }, { id: 'agent', name: '一般代理額度' }, { id: 'coding_agent', name: '程式代理額度' },
+  ];
+  const promo = plan.promo || plan.trial;
+  const surfaces: Record<string, string> = { web: '網頁', mobile: '手機', cli: '命令列', cloud: '雲端', desktop: '桌面', agent: '代理' };
+  return <article className="plan-card">
+    <div className="plan-card__heading">
+      <div><span className={`provider-dot provider-dot--${plan.provider}`} /><span className="provider-name">{plan.provider_name}</span><span className="plan-tier">{plan.tier === 'free' ? '免費方案' : '個人方案'}</span></div>
+      <h3>{planLabel(plan.name)}</h3>
+    </div>
+    <PriceBlock plan={plan} />
+    {promo && <div className="promo-note"><Sparkles size={15} /><span>{translateUiText(promo)}</span></div>}
+    {plan.note && <p className="plan-note">{translateUiText(plan.note)}</p>}
+    <div className="plan-card__section">
+      <h4>產品與模型權限</h4>
+      <div className="product-list">{plan.products.map((product) => <div className={`product-row ${product.rollout === 'discontinued' ? 'product-row--retired' : ''}`} key={product.product}>
+        <div className="product-row__head"><span>{productLabel(product.product)}</span><Badge value={product.included} />{product.rollout === 'discontinued' && <span className="status-tag">已停止</span>}{product.rollout === 'limited' && <span className="status-tag">推出／地區限制</span>}{product.rollout === 'beta' && <span className="status-tag">測試版</span>}</div>
+        {product.surface.length > 0 && <div className="product-note">{product.surface.map((surface) => surfaces[surface] ?? surface).join(' · ')}</div>}
+        {product.model_access.length > 0 && <div className="product-models">可用模型：{product.model_access.map((model) => `${model.model}${model.reasoning_modes.length ? `（${model.reasoning_modes.map(reasoningLabel).join('、')}）` : ''}${model.mapping === 'unmapped' ? ' · 無精確對應' : model.mapping === 'approximate' ? ' · 近似對應' : ''}`).join('、')}</div>}
+        {product.note && <div className="product-note">{translateUiText(product.note)}</div>}
+        {product.source_ids.length > 0 && <SourceLinks ids={product.source_ids} sources={snapshot.sources} label="產品權限來源" />}
+      </div>)}</div>
+    </div>
+    <div className="plan-card__section">
+      <h4>用量與限制</h4>
+      {categoryInfo.filter((category) => quotaFilter === 'all' || quotaFilter === category.id).map((category) => {
+        const rows = quotas.filter((quota) => quota.category === category.id);
+        return <div className="quota-group" key={category.id}><h5>{category.name}</h5>{rows.length ? rows.map((quota) => <PlanQuotaCard quota={quota} sources={snapshot.sources} key={quota.id} />) : <div className="empty-compact">尚無可靠數據</div>}</div>;
+      })}
+    </div>
+    <div className="plan-card__footer"><span>方案核對日 {plan.checked_at}</span><SourceLinks ids={plan.source_ids} sources={snapshot.sources} /></div>
+  </article>;
 }
 
-function PlanComparisonTable({ plans, snapshot, quotaFilter, verifiedOnly }: { plans: SubscriptionPlan[]; snapshot: Snapshot; quotaFilter: QuotaCategory | 'all'; verifiedOnly: boolean }) {
-  const categories: QuotaCategory[] = quotaFilter === 'all' ? ['chat', 'agent', 'coding_agent'] : [quotaFilter];
-  const quotasFor = (plan: SubscriptionPlan, category: QuotaCategory) => snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (quotaFilter === 'all' || quotaFilter === category) && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
-  return <div className="table-scroll"><table className="data-table plan-comparison-table"><thead><tr><th>公司與方案</th><th>月繳／年繳價格</th><th>產品、模型與推出狀態</th>{categories.map((category) => <th key={category}>{quotaCategoryLabel(category)}</th>)}<th>方案資訊與來源</th></tr></thead>
-    <tbody>{plans.length ? plans.map((plan) => <tr key={plan.id}>
-      <td><b>{plan.provider_name}</b><small>{planLabel(plan.name)}</small><small>{plan.tier === 'free' ? '免費方案' : '個人方案'} · 地區：{plan.region}</small><small>資料核對日 {plan.checked_at}</small></td>
-      <td><b>{formatPrice(plan.monthly_price, plan.currency)}<small>月繳 · {plan.currency}</small></b><small>{plan.annual_billed_total === null ? `年繳：${MISSING}` : `年繳總額 ${formatPrice(plan.annual_billed_total, plan.currency)}`}</small><small>{plan.annual_monthly_price === null ? '年繳月均尚未公布' : `年繳月均 ${formatPrice(plan.annual_monthly_price, plan.currency)}`}</small><small>稅金：{plan.tax === 'extra' ? '另計' : plan.tax === 'included' ? '已含' : plan.tax === 'varies' ? '依地區或結帳頁而異' : '未知'}</small></td>
-      <td><PlanProducts plan={plan} sources={snapshot.sources} />{(plan.promo || plan.trial) && <div className="table-cell-item table-cell-item--promo"><b>優惠／試用</b><small>{translateUiText(plan.promo || plan.trial)}</small></div>}{plan.note && <small className="table-note">{translateUiText(plan.note)}</small>}</td>
-      {categories.map((category) => <td key={category}><QuotaCell rows={quotasFor(plan, category)} sources={snapshot.sources} /></td>)}
-      <td><SourceLinks ids={plan.source_ids} sources={snapshot.sources} /></td>
-    </tr>) : <tr><td colSpan={4 + categories.length}><div className="empty-compact">沒有符合篩選條件的方案。</div></td></tr>}</tbody>
+function compactQuotaWindow(window: string | null): string {
+  if (!window) return '';
+  if (/5\s*[- ]?hour|five.hour/i.test(window)) return '每 5 小時';
+  if (/3\s*[- ]?hour|three.hour/i.test(window)) return '每 3 小時';
+  if (/daily|per day|day/i.test(window)) return '每日';
+  if (/weekly|per week|week/i.test(window)) return '每週';
+  if (/monthly|per month|month/i.test(window)) return '每月';
+  return translateUiText(window);
+}
+
+function compactQuotaSummary(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean): string {
+  const rows = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
+  if (!rows.length) return MISSING;
+  return rows.map((quota) => {
+    const value = quota.value_type === 'variable' ? '動態' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
+    const window = compactQuotaWindow(quota.window);
+    return `${productLabel(quota.product)}：${value}${window ? `／${window}` : ''}`;
+  }).join('；');
+}
+
+function CompactPlanTable({ plans, snapshot, verifiedOnly }: { plans: SubscriptionPlan[]; snapshot: Snapshot; verifiedOnly: boolean }) {
+  return <div className="table-scroll compact-plan-scroll"><table className="data-table compact-plan-table"><thead><tr><th>公司／方案</th><th>月繳／年繳月均</th><th>可用模型</th><th>對話額度</th><th>一般代理</th><th>程式代理</th></tr></thead>
+    <tbody>{plans.length ? plans.map((plan) => {
+      const models = [...new Set(plan.products.filter((product) => product.included !== false).flatMap((product) => product.model_access.map((access) => access.model)))];
+      return <tr key={plan.id}><td><b>{plan.provider_name}</b><small>{planLabel(plan.name)}</small></td><td>{formatPrice(plan.monthly_price, plan.currency)}<small>年繳月均 {formatPrice(plan.annual_monthly_price, plan.currency)}</small></td><td className="compact-model-cell">{models.length ? models.join('、') : MISSING}</td><td>{compactQuotaSummary(snapshot, plan, 'chat', verifiedOnly)}</td><td>{compactQuotaSummary(snapshot, plan, 'agent', verifiedOnly)}</td><td>{compactQuotaSummary(snapshot, plan, 'coding_agent', verifiedOnly)}</td></tr>;
+    }) : <tr><td colSpan={6}>{MISSING}</td></tr>}</tbody>
   </table></div>;
 }
 
@@ -524,7 +571,7 @@ function App() {
         <label className="check-filter"><input type="checkbox" checked={includeCommunity} onChange={(e)=>setIncludeCommunity(e.target.checked)}/><span>納入社群實測</span></label>
       </section>
       <div className="tab-heading"><div><h2>{selectedTab.label}</h2><p>{selectedTab.subtitle}</p></div><span className="date-chip">資料基準日 {snapshot.as_of}</span></div>
-      {tab==='plans' && <div className="page-stack">{plans.length ? <><p className="table-hint">方案、可用產品、模型權限，以及對話／一般代理／程式代理額度分欄比較。手機上可左右滑動表格。</p><PlanComparisonTable plans={plans} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly}/></> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}</div>}
+      {tab==='plans' && <div className="page-stack">{plans.length ? <><div className="plan-grid">{plans.map((plan)=><PlanCard key={plan.id} plan={plan} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly}/>)}</div><section className="section-panel compact-plan-panel"><div className="section-title"><div><h2>精簡比較表</h2></div></div><CompactPlanTable plans={plans} snapshot={snapshot} verifiedOnly={verifiedOnly}/></section></> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}</div>}
       {tab==='models' && <ModelPage snapshot={snapshot} models={models} activeIndex={activeIndex} onIndex={setActiveIndex} providerFilter={provider}/>}
       {tab==='coding' && <CodingPage snapshot={snapshot} agents={agents} verifiedOnly={verifiedOnly}/>}
       {tab==='value' && <ValuePage snapshot={snapshot} plans={plans} models={models} agents={agents} verifiedOnly={verifiedOnly}/>}

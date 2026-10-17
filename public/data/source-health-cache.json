@@ -1,6 +1,31 @@
 {
-  "last_state_change_at": "2026-10-17T20:03:39Z",
-  "pending_warnings": {},
+  "last_state_change_at": "2026-10-17T20:06:43Z",
+  "pending_warnings": {
+    "change:google-annual-plus": {
+      "label": "Google AI Plus annual billing availability",
+      "message": "官方頁面內容已變更（4e99fab25bc2 → e461c84271a1）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-annual-plus",
+      "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
+    },
+    "change:google-annual-pro": {
+      "label": "Google AI Pro annual billing availability",
+      "message": "官方頁面內容已變更（05c919df26c9 → 7e20a8b57705）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-annual-pro",
+      "url": "https://support.google.com/googleone/answer/16476811?hl=en"
+    },
+    "change:google-gemini-limits": {
+      "label": "Gemini Apps usage limits",
+      "message": "官方頁面內容已變更（9da8da439ab3 → 91032bdba143）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-gemini-limits",
+      "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
+    },
+    "change:google-one-benefits": {
+      "label": "Google AI plan benefits",
+      "message": "官方頁面內容已變更（f2eaaf6847e7 → bbd1070c0bd8）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-one-benefits",
+      "url": "https://support.google.com/googleone/answer/14534406?hl=en"
+    }
+  },
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -261,7 +286,7 @@
       "error": null,
       "etag": "\"LgQjWQ\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google Antigravity model access",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:39Z",
@@ -277,7 +302,7 @@
       "error": null,
       "etag": "\"LgQjWQ\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google Antigravity plans and limits",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:39Z",
@@ -364,11 +389,11 @@
       "http_status": 200,
       "label": "Google AI Plus annual billing availability",
       "last_modified": null,
-      "last_success_at": "2026-10-17T20:03:32Z",
+      "last_success_at": "2026-10-17T20:06:28Z",
       "reviewed_at": "2026-10-17T20:04:00Z",
       "reviewed_sha256": "4e99fab25bc2fee0e6c10646e41da19dc6e7c3e4989abd040ad0293f72a7b09e",
-      "sha256": "4e99fab25bc2fee0e6c10646e41da19dc6e7c3e4989abd040ad0293f72a7b09e",
-      "state_changed_at": "2026-10-17T20:03:32Z",
+      "sha256": "e461c84271a160e0a47d5ca57620633887706742daf4ca8bb9a14498bbe75330",
+      "state_changed_at": "2026-10-17T20:06:28Z",
       "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
     },
     "google-annual-pro": {
@@ -381,11 +406,11 @@
       "http_status": 200,
       "label": "Google AI Pro annual billing availability",
       "last_modified": null,
-      "last_success_at": "2026-10-17T20:03:32Z",
+      "last_success_at": "2026-10-17T20:06:29Z",
       "reviewed_at": "2026-10-17T20:04:00Z",
       "reviewed_sha256": "05c919df26c9919fb4e58f49bda82f8dba48e7c93a93e12a6bc917924f709969",
-      "sha256": "05c919df26c9919fb4e58f49bda82f8dba48e7c93a93e12a6bc917924f709969",
-      "state_changed_at": "2026-10-17T20:03:32Z",
+      "sha256": "7e20a8b57705a859a2594e146549405a408b31235b61d9f0aaf8fde5b1854d29",
+      "state_changed_at": "2026-10-17T20:06:29Z",
       "url": "https://support.google.com/googleone/answer/16476811?hl=en"
     },
     "google-gemini-limits": {
@@ -398,11 +423,11 @@
       "http_status": 200,
       "label": "Gemini Apps usage limits",
       "last_modified": null,
-      "last_success_at": "2026-10-17T20:03:33Z",
+      "last_success_at": "2026-10-17T20:06:29Z",
       "reviewed_at": "2026-10-17T20:04:00Z",
       "reviewed_sha256": "9da8da439ab365fb2b066ddc91d54b38248a378d45a82113149b8937d9bfccd4",
-      "sha256": "9da8da439ab365fb2b066ddc91d54b38248a378d45a82113149b8937d9bfccd4",
-      "state_changed_at": "2026-10-17T20:03:33Z",
+      "sha256": "91032bdba143a7593bcb70f44ce30c82cd6170a87940927ec6dbab674b506619",
+      "state_changed_at": "2026-10-17T20:06:29Z",
       "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
     },
     "google-jules": {
@@ -432,11 +457,11 @@
       "http_status": 200,
       "label": "Google AI plan benefits",
       "last_modified": null,
-      "last_success_at": "2026-10-17T20:03:34Z",
+      "last_success_at": "2026-10-17T20:06:30Z",
       "reviewed_at": "2026-10-17T20:04:00Z",
       "reviewed_sha256": "f2eaaf6847e7f740fcca5434fbf6a4b76ce54aa9adcf50efe70fb06fadcfa727",
-      "sha256": "f2eaaf6847e7f740fcca5434fbf6a4b76ce54aa9adcf50efe70fb06fadcfa727",
-      "state_changed_at": "2026-10-17T20:03:34Z",
+      "sha256": "bbd1070c0bd8be6a0ad09615b00aac905823dbc90e867f37ceab1fa64db7886b",
+      "state_changed_at": "2026-10-17T20:06:30Z",
       "url": "https://support.google.com/googleone/answer/14534406?hl=en"
     },
     "google-plans": {
@@ -480,7 +505,7 @@
       "error": null,
       "etag": "\"_ImteA\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Jules model changelog",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:39Z",
@@ -496,7 +521,7 @@
       "error": null,
       "etag": "\"_ImteA\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Jules plan limits",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:39Z",

@@ -11,6 +11,7 @@ import unittest
 import urllib.error
 from pathlib import Path
 from typing import Any
+from unittest.mock import patch
 
 import import_coding_agents
 import update_data
@@ -141,6 +142,78 @@ class PipelineTests(unittest.TestCase):
                 self.assertEqual(outcome["aa"]["http_status"], code)
                 self.assertEqual(outcome["aa"]["status"], "stale")
                 self.assertTrue(status_path.exists())
+
+    def test_unchanged_success_refreshes_check_time_without_changing_data_time(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            snapshot_path = root / "public/data/snapshot.json"
+            status_path = root / "public/data/status.json"
+            snapshot_path.parent.mkdir(parents=True)
+            first_fetch = "2026-10-16T20:00:00Z"
+            latest_check = "2026-10-17T19:28:00Z"
+            api_model = update_data.normalize_model(aa_model(), first_fetch, "4.3")
+            existing_model = update_data.merge_model_sources([api_model], [], first_fetch)[0]
+            snapshot_path.write_text(json.dumps({
+                "schema_version": "1.0.0",
+                "models": [existing_model],
+                "index_versions": {"intelligence_api": "4.3", "intelligence_methodology": "v4.3.2"},
+            }), encoding="utf-8")
+            previous_status = {
+                "aa": {
+                    "configured": True,
+                    "status": "ready",
+                    "checked_at": first_fetch,
+                    "last_successful_snapshot_at": first_fetch,
+                    "data_updated_at": first_fetch,
+                    "stale_days": 0,
+                    "models_count": 1,
+                    "endpoint": update_data.ENDPOINT,
+                    "message": "Artificial Analysis 免費 API 資料已成功更新。",
+                }
+            }
+            status_path.write_text(json.dumps(previous_status), encoding="utf-8")
+
+            with patch.object(update_data, "fetch_all_models", return_value=([api_model], "4.3", latest_check, [])):
+                outcome = update_data.run_update(root, {"AA_API_KEY": "fixture-key"})
+
+            self.assertEqual(outcome["aa"]["checked_at"], latest_check)
+            self.assertEqual(outcome["aa"]["last_successful_snapshot_at"], latest_check)
+            self.assertEqual(outcome["aa"]["data_updated_at"], first_fetch)
+            self.assertEqual(json.loads(snapshot_path.read_text(encoding="utf-8"))["models"], [existing_model])
+
+    def test_repeated_api_failure_refreshes_check_time_but_preserves_good_snapshot(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            snapshot_path = root / "public/data/snapshot.json"
+            status_path = root / "public/data/status.json"
+            snapshot_path.parent.mkdir(parents=True)
+            original = {"schema_version": "1.0.0", "models": [{"id": "last-good"}], "index_versions": {"intelligence_api": "4.3"}}
+            original_bytes = (json.dumps(original, indent=2) + "\n").encode()
+            snapshot_path.write_bytes(original_bytes)
+            last_successful = "2026-10-16T20:00:00Z"
+            status_path.write_text(json.dumps({
+                "aa": {
+                    "configured": True,
+                    "status": "stale",
+                    "checked_at": last_successful,
+                    "last_successful_snapshot_at": last_successful,
+                    "data_updated_at": last_successful,
+                    "last_error": "Artificial Analysis API returned HTTP 403",
+                    "http_status": 403,
+                }
+            }), encoding="utf-8")
+            latest_check = "2026-10-17T19:28:00Z"
+
+            def forbidden(_request, timeout=40):
+                raise urllib.error.HTTPError("https://artificialanalysis.ai/api", 403, "forbidden", {}, io.BytesIO(b""))
+
+            with patch.object(update_data, "now_iso", return_value=latest_check):
+                outcome = update_data.run_update(root, {"AA_API_KEY": "fixture-key"}, forbidden)
+
+            self.assertEqual(snapshot_path.read_bytes(), original_bytes)
+            self.assertEqual(outcome["aa"]["checked_at"], latest_check)
+            self.assertEqual(outcome["aa"]["last_successful_snapshot_at"], last_successful)
+            self.assertEqual(outcome["aa"]["http_status"], 403)
 
     def test_api_404_keeps_last_good_model_snapshot(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -501,8 +501,8 @@ def run_update(root: Path = ROOT, environ: dict[str, str] | None = None, opener:
         status["aa"].update({
             "status": "ready",
             "message": "Artificial Analysis 免費 API 資料已成功更新。" if data_changed else "每日 API 檢查成功；資料內容與快照相同。",
-            "checked_at": fetched_at if data_changed or previous_aa_status.get("status") != "ready" else previous_status_time,
-            "last_successful_snapshot_at": fetched_at if data_changed or previous_aa_status.get("status") != "ready" else last_successful_snapshot_at,
+            "checked_at": fetched_at,
+            "last_successful_snapshot_at": fetched_at,
             "data_updated_at": data_updated_at,
             "stale_days": 0,
             "models_count": len(models),
@@ -513,7 +513,7 @@ def run_update(root: Path = ROOT, environ: dict[str, str] | None = None, opener:
             "message": f"Artificial Analysis API 更新失敗（HTTP {exc.status}）；保留最後一次合法儲存的資料。" if exc.status else "Artificial Analysis API 連線失敗；保留最後一次合法儲存的資料。",
             "http_status": exc.status,
             "last_error": str(exc),
-            "checked_at": checked_at if previous_aa_status.get("status") != ("stale" if old_models else "error") or previous_aa_status.get("last_error") != str(exc) else previous_status_time,
+            "checked_at": checked_at,
             "last_successful_snapshot_at": last_successful_snapshot_at,
             "stale_days": _age_since(last_successful_snapshot_at),
         })
@@ -522,7 +522,7 @@ def run_update(root: Path = ROOT, environ: dict[str, str] | None = None, opener:
             "status": "stale" if old_models else "error",
             "message": "Artificial Analysis 資料驗證失敗；保留最後一次合法儲存的資料。",
             "last_error": str(exc),
-            "checked_at": checked_at if previous_aa_status.get("status") != ("stale" if old_models else "error") or previous_aa_status.get("last_error") != str(exc) else previous_status_time,
+            "checked_at": checked_at,
             "last_successful_snapshot_at": last_successful_snapshot_at,
             "stale_days": _age_since(last_successful_snapshot_at),
         })

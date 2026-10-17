@@ -479,6 +479,7 @@ html, body, #root { width: 100%; max-width: 100%; }
 @media (max-width: 680px) {
   html, body, #root { width: 100%; max-width: 100%; }
   .app-shell { font-size: 16px; }
+  .tab-button { font-size: 14px; }
   .app-header { height: 54px; padding: 0 12px; }
   .brand { gap: 8px; }
   .brand-mark { width: 32px; height: 32px; }

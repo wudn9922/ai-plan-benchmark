@@ -143,7 +143,7 @@
       "kind": "official",
       "checked_at": "2026-10-17",
       "region": "US",
-      "notes": "Current US Gemini plan page; AI Plus gets Gemini 3.6 Flash, AI Pro adds Gemini 4 Argon and Gemini 3.1 Pro access. Exact usage is model and feature dependent."
+      "notes": "Current US plan page lists Gemini 3.6 Flash for AI Plus and Gemini 4 Argon plus the Pro model for AI Pro; Gemini 4 Argon is restricted to Pro/Ultra. The separate Gemini Omni Flash model belongs to Google Flow, not Gemini Apps. Usage is model and feature dependent; annual billed amounts require checkout."
     },
     {
       "id": "google-annual-plus",
@@ -186,7 +186,8 @@
       "url": "https://support.google.com/googleone/answer/14534406?hl=en",
       "kind": "official",
       "checked_at": "2026-10-17",
-      "region": "US"
+      "region": "US",
+      "notes": "Current benefits page confirms Google AI Pro includes higher Antigravity access, Jules, and eligible AI-credit overages. Antigravity, Jules, and Gemini chat are separate products and limits."
     },
     {
       "id": "gemini-cli-deprecation",
@@ -262,7 +263,7 @@
       "kind": "official",
       "checked_at": "2026-10-17",
       "region": "US",
-      "notes": "Current plans list Jules task limits separately from Antigravity usage limits."
+      "notes": "Google AI plan matrix lists Antigravity and Jules separately. Antigravity uses its own plan-based dynamic agent quota; Jules has distinct task and concurrency limits. Their usage is not added to Gemini chat."
     },
     {
       "id": "google-jules",
@@ -388,6 +389,42 @@
       "checked_at": "2026-10-17",
       "region": "Global",
       "notes": "OpenCode + GLM-5.3 組態以第二個官方比較頁交叉核對。"
+    },
+    {
+      "id": "antigravity-models",
+      "label": "Google Antigravity model access",
+      "url": "https://antigravity.google/docs/models/",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Official per-plan reasoning model matrix, reasoning modes, and model-specific surface caveats. Several models are scheduled for removal on 2026-11-02."
+    },
+    {
+      "id": "antigravity-plans",
+      "label": "Google Antigravity plans and limits",
+      "url": "https://antigravity.google/docs/plans",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Official baseline limits: Free/Plus weekly; Pro five-hour refresh plus weekly cap. Workload-dependent; Pro/Ultra may buy AI credits for overage."
+    },
+    {
+      "id": "jules-usage-limits",
+      "label": "Jules plan limits",
+      "url": "https://jules.google/docs/usage-limits",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Official daily rolling-24-hour tasks and concurrent-task limits for Jules, Jules in Pro, and Jules in Ultra."
+    },
+    {
+      "id": "jules-changelog",
+      "label": "Jules model changelog",
+      "url": "https://jules.google/docs/changelog/",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Official model updates: Gemini 3 Flash is the base model for all users since 2026-01-30; Gemini 3.1 Pro replaced Gemini 3 Pro for Pro users on 2026-03-09."
     }
   ],
   "plans": [
@@ -1176,8 +1213,8 @@
         "google-plus-chat",
         "google-plus-antigravity",
         "google-plus-jules",
-        "google-plus-agent",
-        "google-ai-plus-agent-research"
+        "google-ai-plus-agent-research",
+        "google-plus-jules-concurrency"
       ],
       "note": "美國月繳 $4.99；官方提供月繳與年繳選項。美國年繳實付金額需在 Google One 購買流程確認，公開頁未固定列價，因此保留空值。",
       "products": [
@@ -1194,12 +1231,6 @@
               "reasoning_modes": [],
               "mapping": "approximate",
               "note": "官方方案明列模型；AA 公開評測可能固定推理模式，方案未保證 High 組態。"
-            },
-            {
-              "model": "Gemini Omni Flash（有限使用）",
-              "reasoning_modes": [],
-              "mapping": "unmapped",
-              "note": "官方方案頁列有限使用；不套用不同模型的分數。"
             }
           ],
           "quota_ids": [
@@ -1217,51 +1248,89 @@
           "included": true,
           "surface": [
             "desktop",
+            "cli",
             "agent"
           ],
           "model_access": [
             {
-              "model": "Antigravity 可用模型依目前產品介面",
-              "reasoning_modes": [],
+              "model": "Gemini 3.8 Flash (Medium)",
+              "reasoning_modes": [
+                "Medium"
+              ],
+              "mapping": "exact",
+              "note": "官方 Antigravity 模型表列有與 AA 相同的 Gemini 3.8 Flash Medium 組態；此分數只代表模型測試，不是 Antigravity 代理執行結果。"
+            },
+            {
+              "model": "Gemini 3.8 Flash (Fast)",
+              "reasoning_modes": [
+                "Fast"
+              ],
               "mapping": "unmapped",
-              "note": null
+              "note": "AA 公開免費 API 沒有可核對的 Fast 推理組態分數。"
+            },
+            {
+              "model": "Claude Sonnet 4.6 (Thinking)",
+              "reasoning_modes": [
+                "Thinking"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 公開資料使用不同推理組態；沒有與 Antigravity Thinking 模式一致的分數。"
+            },
+            {
+              "model": "Claude Opus 4.6 (Thinking)",
+              "reasoning_modes": [
+                "Thinking"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 公開資料使用不同推理組態；沒有與 Antigravity Thinking 模式一致的分數。"
+            },
+            {
+              "model": "GPT-OSS-120b (Medium)",
+              "reasoning_modes": [
+                "Medium"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 免費 API 只列 High 與 Low 推理組態，未提供 Medium 組態分數。"
             }
           ],
           "quota_ids": [
             "google-plus-antigravity"
           ],
           "source_ids": [
-            "google-one-benefits",
+            "antigravity-models",
+            "antigravity-plans",
             "google-plans"
           ],
           "rollout": "generally_available",
-          "note": "Google AI Plus 的 Antigravity 代理請求級別為「有限（Limited）」；與 Jules 及 Gemini 對話分開計量，官方未公布固定任務數。"
+          "note": "Free 與 AI Plus 共用基礎模型清單及每週動態配額；官方未公布固定任務數。AI Plus 不取得 Pro 專屬的五小時配額；Gemini Apps 的 Gemini 4 Argon 權益不代表 Antigravity IDE 可用。"
         },
         {
           "product": "Jules",
           "included": true,
           "surface": [
             "web",
-            "agent"
+            "cloud",
+            "cli"
           ],
           "model_access": [
             {
-              "model": "Jules 可用模型依產品介面",
+              "model": "Gemini 3 Flash",
               "reasoning_modes": [],
               "mapping": "unmapped",
-              "note": null
+              "note": "AI Plus 沒有 Jules Pro 升級；沿用 Jules 標準層。AA 目前只有 Gemini 3 Flash Preview 評測，不套用預覽版分數。"
             }
           ],
           "quota_ids": [
-            "google-plus-jules"
+            "google-plus-jules",
+            "google-plus-jules-concurrency"
           ],
           "source_ids": [
-            "google-ai-plan-benefits",
-            "google-jules",
-            "google-plans"
+            "jules-usage-limits",
+            "jules-changelog",
+            "google-ai-plan-benefits"
           ],
           "rollout": "generally_available",
-          "note": "Google AI Plus 的 Jules 任務、並行上限及模型存取級別皆為「有限（Limited）」；固定數量未公布，且與 Antigravity 分開。"
+          "note": "AI Plus 不包含 Jules Pro 升級，Jules 仍為標準層：每滾動 24 小時最多 15 個新任務、最多 3 個同時執行；與 Antigravity 分開。18 歲以上，官方僅支援英文。"
         },
         {
           "product": "Gemini Deep Research",
@@ -1297,6 +1366,28 @@
           ],
           "rollout": "unknown",
           "note": "官方功能矩陣目前未列為 Free / AI Plus 權益。"
+        },
+        {
+          "product": "Google Flow",
+          "included": true,
+          "surface": [
+            "web"
+          ],
+          "model_access": [
+            {
+              "model": "Gemini Omni Flash",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "Google Flow 專用模型，不是 Gemini Apps 對話模型；沒有可套用的同組態 AA 分數。"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "google-ai-plus-current",
+            "google-plans"
+          ],
+          "rollout": "generally_available",
+          "note": "每月 200 Google Flow Credits，含 Gemini Omni Flash；屬創作工作室點數，與 Gemini 對話及代理任務分開。"
         }
       ],
       "annual_billing_available": true
@@ -1331,10 +1422,10 @@
         "google-pro-chat",
         "google-pro-antigravity",
         "google-pro-jules",
-        "google-pro-agent",
         "google-ai-pro-agent-research",
         "google-pro-gemini-tasks",
-        "google-ai-pro-chrome-agent"
+        "google-ai-pro-chrome-agent",
+        "google-pro-jules-concurrency"
       ],
       "note": "美國月繳 $19.99；官方提供月繳與年繳選項。美國年繳實付金額需在 Google One 購買流程確認，公開頁未固定列價，因此保留空值。個人 Google 帳號的舊 Gemini CLI 權益已停止。",
       "products": [
@@ -1359,10 +1450,10 @@
               "note": "官方 Pro model 存取；實際版本/推出依帳號介面。"
             },
             {
-              "model": "Gemini Omni Flash",
+              "model": "Gemini Flash（版本未公布）",
               "reasoning_modes": [],
               "mapping": "unmapped",
-              "note": "官方方案頁列出，但目前沒有可直接套用的同組態免費 API 分數。"
+              "note": "官方只標示 Flash model，沒有固定版本名稱；不套用舊版或其他推理模式分數。"
             }
           ],
           "quota_ids": [
@@ -1380,25 +1471,77 @@
           "included": true,
           "surface": [
             "desktop",
+            "cli",
             "agent"
           ],
           "model_access": [
             {
-              "model": "Antigravity 可用模型依目前產品介面",
-              "reasoning_modes": [],
+              "model": "Gemini 3.8 Flash (Medium)",
+              "reasoning_modes": [
+                "Medium"
+              ],
+              "mapping": "exact",
+              "note": "官方 Antigravity 模型表列有與 AA 相同的 Gemini 3.8 Flash Medium 組態；此分數只代表模型測試，不是 Antigravity 代理執行結果。"
+            },
+            {
+              "model": "Gemini 3.8 Flash (Fast)",
+              "reasoning_modes": [
+                "Fast"
+              ],
               "mapping": "unmapped",
-              "note": null
+              "note": "AA 公開免費 API 沒有可核對的 Fast 推理組態分數。"
+            },
+            {
+              "model": "Claude Sonnet 5.5 (Thinking)",
+              "reasoning_modes": [
+                "Thinking"
+              ],
+              "mapping": "unmapped",
+              "note": "僅付費 Google AI Pro（不含試用）；AA 提供 High／Max 結果，沒有與此 Thinking 組態完全相同的分數。"
+            },
+            {
+              "model": "Claude Opus 5.5 (Thinking)",
+              "reasoning_modes": [
+                "Thinking"
+              ],
+              "mapping": "unmapped",
+              "note": "僅付費 Google AI Pro（不含試用）；AA 提供 High／Max 結果，沒有與此 Thinking 組態完全相同的分數。"
+            },
+            {
+              "model": "Claude Sonnet 4.6 (Thinking)",
+              "reasoning_modes": [
+                "Thinking"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 公開資料使用不同推理組態；沒有與 Antigravity Thinking 模式一致的分數。"
+            },
+            {
+              "model": "Claude Opus 4.6 (Thinking)",
+              "reasoning_modes": [
+                "Thinking"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 公開資料使用不同推理組態；沒有與 Antigravity Thinking 模式一致的分數。"
+            },
+            {
+              "model": "GPT-OSS-120b (Medium)",
+              "reasoning_modes": [
+                "Medium"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 免費 API 只列 High 與 Low 推理組態，未提供 Medium 組態分數。"
             }
           ],
           "quota_ids": [
             "google-pro-antigravity"
           ],
           "source_ids": [
-            "google-one-benefits",
+            "antigravity-models",
+            "antigravity-plans",
             "google-plans"
           ],
           "rollout": "generally_available",
-          "note": "Google AI Pro 的 Antigravity 使用級別為「擴充（Expanded）」；額度與 Jules 分開，官方未公布可保證的任務數。"
+          "note": "付費 Pro 配額每五小時刷新並另受每週上限約束；用量依工作負載變動且無固定任務數。付費 Pro 可購買 AI 額度作超額使用；模型分數不代表代理組態成績；Gemini Apps 的 Gemini 4 Argon 權益不代表 Antigravity IDE 可用。"
         },
         {
           "product": "Gemini CLI (舊個人登入產品)",
@@ -1420,26 +1563,28 @@
           "included": true,
           "surface": [
             "web",
-            "agent"
+            "cloud",
+            "cli"
           ],
           "model_access": [
             {
-              "model": "Jules 可用模型依產品介面",
+              "model": "Gemini 3.1 Pro",
               "reasoning_modes": [],
-              "mapping": "unmapped",
-              "note": null
+              "mapping": "approximate",
+              "note": "官方變更紀錄說明 Pro 使用 Gemini 3.1 Pro；AA 公開 API 目前僅有 3.1 Pro Preview 分數，因此只標近似對應。"
             }
           ],
           "quota_ids": [
-            "google-pro-jules"
+            "google-pro-jules",
+            "google-pro-jules-concurrency"
           ],
           "source_ids": [
-            "google-ai-plan-benefits",
-            "google-jules",
-            "google-plans"
+            "jules-usage-limits",
+            "jules-changelog",
+            "google-ai-plan-benefits"
           ],
           "rollout": "generally_available",
-          "note": "Google AI Pro 將 Jules 任務、並行上限及模型存取提高至「擴充（Expanded）」；固定數量未公布。"
+          "note": "Jules Pro：每滾動 24 小時最多 100 個新任務、最多 15 個同時執行；與 Antigravity 分開。18 歲以上，官方僅支援英文。"
         },
         {
           "product": "Gemini Deep Research",
@@ -1495,6 +1640,29 @@
           ],
           "rollout": "limited",
           "note": "需符合地區及帳號推出條件；官方未公布固定任務數。"
+        },
+        {
+          "product": "Google Flow",
+          "included": true,
+          "surface": [
+            "web"
+          ],
+          "model_access": [
+            {
+              "model": "Gemini Omni Flash",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "Google Flow 專用模型，不是 Gemini Apps 對話模型；沒有可套用的同組態 AA 分數。"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "google-ai-plus-current",
+            "google-one-benefits",
+            "google-plans"
+          ],
+          "rollout": "generally_available",
+          "note": "每月 1,000 Google Flow Credits，含 Gemini Omni Flash；屬創作工作室點數，與 Gemini 對話及代理任務分開。"
         }
       ],
       "annual_billing_available": true
@@ -1904,8 +2072,9 @@
       "quota_ids": [
         "google-free-chat",
         "google-free-jules",
-        "google-free-agent",
-        "google-ai-free-agent-research"
+        "google-ai-free-agent-research",
+        "google-free-antigravity",
+        "google-free-jules-concurrency"
       ],
       "note": "免費 Gemini Apps 與 Jules 基本使用層；固定配額沒有公開數據。",
       "products": [
@@ -1938,24 +2107,28 @@
           "included": true,
           "surface": [
             "web",
-            "agent"
+            "cloud",
+            "cli"
           ],
           "model_access": [
             {
-              "model": "Jules 可用模型依產品介面",
+              "model": "Gemini 3 Flash",
               "reasoning_modes": [],
               "mapping": "unmapped",
-              "note": null
+              "note": "官方變更紀錄指出此為 Jules 全方案基礎模型；AA 目前只有 Gemini 3 Flash Preview 評測，不套用預覽版分數。"
             }
           ],
           "quota_ids": [
-            "google-free-jules"
+            "google-free-jules",
+            "google-free-jules-concurrency"
           ],
           "source_ids": [
-            "google-jules"
+            "jules-usage-limits",
+            "jules-changelog",
+            "google-ai-plan-benefits"
           ],
           "rollout": "generally_available",
-          "note": "免費使用層；固定任務與並行數未公布。"
+          "note": "Jules 標準層：每滾動 24 小時最多 15 個新任務、最多 3 個同時執行；與 Antigravity 額度分開。18 歲以上，官方僅支援英文。"
         },
         {
           "product": "Gemini Deep Research",
@@ -1991,6 +2164,89 @@
           ],
           "rollout": "unknown",
           "note": "官方功能矩陣目前未列為 Free / AI Plus 權益。"
+        },
+        {
+          "product": "Antigravity Desktop",
+          "included": true,
+          "surface": [
+            "desktop",
+            "cli",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Gemini 3.8 Flash (Medium)",
+              "reasoning_modes": [
+                "Medium"
+              ],
+              "mapping": "exact",
+              "note": "官方 Antigravity 模型表列有與 AA 相同的 Gemini 3.8 Flash Medium 組態；此分數只代表模型測試，不是 Antigravity 代理執行結果。"
+            },
+            {
+              "model": "Gemini 3.8 Flash (Fast)",
+              "reasoning_modes": [
+                "Fast"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 公開免費 API 沒有可核對的 Fast 推理組態分數。"
+            },
+            {
+              "model": "Claude Sonnet 4.6 (Thinking)",
+              "reasoning_modes": [
+                "Thinking"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 公開資料使用不同推理組態；沒有與 Antigravity Thinking 模式一致的分數。"
+            },
+            {
+              "model": "Claude Opus 4.6 (Thinking)",
+              "reasoning_modes": [
+                "Thinking"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 公開資料使用不同推理組態；沒有與 Antigravity Thinking 模式一致的分數。"
+            },
+            {
+              "model": "GPT-OSS-120b (Medium)",
+              "reasoning_modes": [
+                "Medium"
+              ],
+              "mapping": "unmapped",
+              "note": "AA 免費 API 只列 High 與 Low 推理組態，未提供 Medium 組態分數。"
+            }
+          ],
+          "quota_ids": [
+            "google-free-antigravity"
+          ],
+          "source_ids": [
+            "antigravity-models",
+            "antigravity-plans",
+            "google-plans"
+          ],
+          "rollout": "generally_available",
+          "note": "Antigravity 個人免費層可用桌面版與命令列；每週配額依任務工作量與資源動態變化，官方未公布固定任務數。AA 模型分數不代表 Antigravity 代理組態成績；Gemini Apps 的 Gemini 4 Argon 權益不代表 Antigravity IDE 可用。"
+        },
+        {
+          "product": "Google Flow",
+          "included": true,
+          "surface": [
+            "web"
+          ],
+          "model_access": [
+            {
+              "model": "Nano Banana Pro（有限使用）",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "影像生成模型，非 Gemini 對話模型；沒有可套用的同組態 AA 分數。"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "google-ai-plus-current",
+            "google-plans"
+          ],
+          "rollout": "generally_available",
+          "note": "免費方案包含創作工作室基本使用；官方列有 Nano Banana Pro 有限使用。此為創作功能，不換算成代理任務。"
         }
       ],
       "annual_billing_available": false
@@ -2349,19 +2605,19 @@
       "id": "google-plus-antigravity",
       "category": "coding_agent",
       "product": "Antigravity Desktop",
-      "metric": "代理使用量",
+      "metric": "代理配額",
       "value": null,
       "value_type": "variable",
-      "unit": "動態用量",
-      "window": "動態代理請求上限；AI Plus 級別：有限（Limited）（官方未公布固定任務數）",
+      "unit": "代理使用量",
+      "window": "每週重設；依工作負載與可用容量動態調整",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "Google AI 方案矩陣將 AI Plus 的 Antigravity 代理請求級別列為「有限（Limited）」；固定任務數未公布。與 Gemini 對話、Jules 分開計量，可依官方規則購買 AI 額度補充。",
+      "note": "AI Plus 與 Free 共用每週基礎額度級別；固定任務數未公布，不能視為 Pro 五小時額度。",
       "confidence": "high",
       "source_ids": [
-        "google-one-benefits",
-        "google-plans"
+        "antigravity-plans",
+        "antigravity-models"
       ],
       "sampled_at": "2026-10-17",
       "region": "US",
@@ -2397,20 +2653,20 @@
       "id": "google-pro-antigravity",
       "category": "coding_agent",
       "product": "Antigravity Desktop",
-      "metric": "代理使用量",
+      "metric": "代理配額",
       "value": null,
       "value_type": "variable",
-      "unit": "動態用量",
-      "window": "動態代理請求上限；AI Pro 級別：擴充（Expanded）（官方未公布固定任務數）",
+      "unit": "代理使用量",
+      "window": "每 5 小時刷新；另受每週上限限制；依工作負載動態調整",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "Google AI 方案矩陣將 AI Pro 的 Antigravity 代理請求級別列為「擴充（Expanded）」；固定任務數未公布。與 Gemini 對話、Jules 分開計量，可依官方規則購買 AI 額度補充。",
+      "note": "官方表示付費 Pro 有較高額度，每 5 小時刷新直到每週上限；固定任務數未公布。付費 Pro 可使用購買的 AI 額度補充超額用量。",
       "confidence": "high",
       "source_ids": [
+        "antigravity-plans",
         "google-one-benefits",
-        "google-ai-plus-current",
-        "google-plans"
+        "antigravity-models"
       ],
       "sampled_at": "2026-10-17",
       "region": "US",
@@ -2593,48 +2849,22 @@
       "id": "google-plus-jules",
       "category": "coding_agent",
       "product": "Jules",
-      "metric": "非同步程式代理任務／並行上限",
-      "value": null,
-      "value_type": "variable",
-      "unit": "Jules 任務／並行任務",
-      "window": "依官方動態限額；AI Plus 任務與並行級別：有限（Limited），固定數量未公布",
+      "metric": "滾動 24 小時新任務上限",
+      "value": 15,
+      "value_type": "exact",
+      "unit": "項任務",
+      "window": "滾動 24 小時",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "AI Plus 的 Jules 任務、並行上限與最新模型存取級別為「有限（Limited）」；固定數量未公布，且與 Antigravity 分開。",
+      "note": "Jules 官方 標準層；AI Plus 不包含 Jules Pro 升級 上限：每個滾動 24 小時最多 15 個新任務。",
       "confidence": "high",
       "source_ids": [
-        "google-ai-plan-benefits",
-        "google-jules",
-        "google-plans"
+        "jules-usage-limits"
       ],
       "sampled_at": "2026-10-17",
       "region": "US",
       "estimate_range": null,
-      "plan_id": "google-ai-plus",
-      "plan_name": "Google AI Plus"
-    },
-    {
-      "category": "agent",
-      "product": "Gemini Deep Research / Agent",
-      "metric": "任務/credits 配額",
-      "value": null,
-      "value_type": "not_published",
-      "unit": "任務或 credits",
-      "window": "尚無可靠公開配額窗口",
-      "model": null,
-      "reasoning_mode": null,
-      "shared_with": [],
-      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
-      "confidence": "unknown",
-      "sampled_at": "2026-10-17",
-      "region": "US",
-      "estimate_range": null,
-      "id": "google-plus-agent",
-      "source_ids": [
-        "google-gemini-limits",
-        "google-ai-plan-benefits"
-      ],
       "plan_id": "google-ai-plus",
       "plan_name": "Google AI Plus"
     },
@@ -2642,49 +2872,22 @@
       "id": "google-pro-jules",
       "category": "coding_agent",
       "product": "Jules",
-      "metric": "非同步程式代理任務／並行上限",
-      "value": null,
-      "value_type": "variable",
-      "unit": "Jules 任務／並行任務",
-      "window": "依官方動態限額；AI Pro 任務與並行級別：擴充（Expanded），固定數量未公布",
+      "metric": "滾動 24 小時新任務上限",
+      "value": 100,
+      "value_type": "exact",
+      "unit": "項任務",
+      "window": "滾動 24 小時",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "AI Pro 的 Jules 任務、並行上限與最新模型存取級別為「擴充（Expanded）」；固定數量未公布，且與 Antigravity 分開。",
+      "note": "Jules 官方 Jules Pro 上限：每個滾動 24 小時最多 100 個新任務。",
       "confidence": "high",
       "source_ids": [
-        "google-ai-plan-benefits",
-        "google-jules",
-        "google-ai-plus-current",
-        "google-plans"
+        "jules-usage-limits"
       ],
       "sampled_at": "2026-10-17",
       "region": "US",
       "estimate_range": null,
-      "plan_id": "google-ai-pro",
-      "plan_name": "Google AI Pro"
-    },
-    {
-      "category": "agent",
-      "product": "Gemini Deep Research / Agent",
-      "metric": "任務/credits 配額",
-      "value": null,
-      "value_type": "not_published",
-      "unit": "任務或 credits",
-      "window": "尚無可靠公開配額窗口",
-      "model": null,
-      "reasoning_mode": null,
-      "shared_with": [],
-      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
-      "confidence": "unknown",
-      "sampled_at": "2026-10-17",
-      "region": "US",
-      "estimate_range": null,
-      "id": "google-pro-agent",
-      "source_ids": [
-        "google-gemini-limits",
-        "google-ai-plan-benefits"
-      ],
       "plan_id": "google-ai-pro",
       "plan_name": "Google AI Pro"
     },
@@ -2715,46 +2918,22 @@
       "id": "google-free-jules",
       "category": "coding_agent",
       "product": "Jules",
-      "metric": "非同步程式代理任務／並行上限",
-      "value": null,
-      "value_type": "variable",
-      "unit": "Jules 任務／並行任務",
-      "window": "依產品內動態限額；固定任務與並行數未公布",
+      "metric": "滾動 24 小時新任務上限",
+      "value": 15,
+      "value_type": "exact",
+      "unit": "項任務",
+      "window": "滾動 24 小時",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "Jules 提供免費使用層；固定任務與並行額度未公布。Google AI 付費方案提高限制，且與 Antigravity 分開計量。",
+      "note": "Jules 官方 標準層 上限：每個滾動 24 小時最多 15 個新任務。",
       "confidence": "high",
       "source_ids": [
-        "google-ai-plan-benefits",
-        "google-jules"
+        "jules-usage-limits"
       ],
       "sampled_at": "2026-10-17",
       "region": "US",
       "estimate_range": null,
-      "plan_id": "google-ai-free",
-      "plan_name": "Google AI Free"
-    },
-    {
-      "category": "agent",
-      "product": "Gemini Deep Research / Agent",
-      "metric": "任務/credits 配額",
-      "value": null,
-      "value_type": "not_published",
-      "unit": "任務或 credits",
-      "window": "尚無可靠公開配額窗口",
-      "model": null,
-      "reasoning_mode": null,
-      "shared_with": [],
-      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
-      "confidence": "unknown",
-      "sampled_at": "2026-10-17",
-      "region": "US",
-      "estimate_range": null,
-      "id": "google-free-agent",
-      "source_ids": [
-        "google-gemini-limits"
-      ],
       "plan_id": "google-ai-free",
       "plan_name": "Google AI Free"
     },
@@ -3272,6 +3451,91 @@
       "note": "Pro 方案列有 Claude in Chrome；官方未公布可核對的固定任務數或額度共享關係。",
       "source_ids": [
         "anthropic-pricing"
+      ]
+    },
+    {
+      "id": "google-free-antigravity",
+      "category": "coding_agent",
+      "product": "Antigravity Desktop",
+      "value": null,
+      "estimate_range": null,
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "confidence": "high",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "metric": "代理配額",
+      "value_type": "variable",
+      "unit": "代理使用量",
+      "window": "每週重設；依工作負載與可用容量動態調整",
+      "note": "官方說明 Free/Plus 採每週額度；限制依任務工作量及容量變化，未公布固定任務或請求數。",
+      "source_ids": [
+        "antigravity-plans",
+        "antigravity-models"
+      ]
+    },
+    {
+      "id": "google-free-jules-concurrency",
+      "category": "coding_agent",
+      "product": "Jules",
+      "value": 3,
+      "estimate_range": null,
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "confidence": "high",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "metric": "同時執行上限",
+      "value_type": "exact",
+      "unit": "項任務",
+      "window": "同時執行",
+      "note": "Jules 官方 標準層 上限：最多同時執行 3 個任務；不代表同一時間窗口的額外任務數。",
+      "source_ids": [
+        "jules-usage-limits"
+      ]
+    },
+    {
+      "id": "google-plus-jules-concurrency",
+      "category": "coding_agent",
+      "product": "Jules",
+      "value": 3,
+      "estimate_range": null,
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "confidence": "high",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "metric": "同時執行上限",
+      "value_type": "exact",
+      "unit": "項任務",
+      "window": "同時執行",
+      "note": "Jules 官方 標準層；AI Plus 不包含 Jules Pro 升級 上限：最多同時執行 3 個任務；不代表同一時間窗口的額外任務數。",
+      "source_ids": [
+        "jules-usage-limits"
+      ]
+    },
+    {
+      "id": "google-pro-jules-concurrency",
+      "category": "coding_agent",
+      "product": "Jules",
+      "value": 15,
+      "estimate_range": null,
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "confidence": "high",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "metric": "同時執行上限",
+      "value_type": "exact",
+      "unit": "項任務",
+      "window": "同時執行",
+      "note": "Jules 官方 Jules Pro 上限：最多同時執行 15 個任務；不代表同一時間窗口的額外任務數。",
+      "source_ids": [
+        "jules-usage-limits"
       ]
     }
   ],

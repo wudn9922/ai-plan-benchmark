@@ -47,7 +47,7 @@ jobs:
       - name: Update Artificial Analysis free API snapshot
         continue-on-error: true
         env:
-          AA_API_KEY: ${{ secrets.Artificial_Analysis_API || vars.Artificial_Analysis_API }}
+          AA_API_KEY: ${{ secrets.Artificial_Analysis_API }}
         run: python scripts/update_data.py
 
       - name: Apply reviewed plans, quotas and benchmark catalog

@@ -5,9 +5,10 @@
 ## 目前資料狀態
 
 - 方案參考地區為 US，幣別為 USD；每筆方案和額度都保留來源、核對日、窗口、地區及限制。
-- Artificial Analysis API 尚未連接：本快照的 `status.json` 標示 `disabled`，前端不會把它說成即時資料。
-- Intelligence Index 有少量來自 Artificial Analysis 公開模型頁面的人工核對快照；其他無公開授權數值的模型指標維持 `null`。免費 API 不含逐 benchmark 原始結果或加權分項。
-- Coding Agent Index 沒有可用的公開授權 API 匯入端點，使用版本化 JSON 匯入範本。空值不代表 0。
+- 最近一次成功的 Artificial Analysis API 檢查（2026-10-17 19:31 UTC）取得 706 個模型；快照保留九項指數空值，不會把缺少分數補成 0。workflow 的後續即時狀態見 `public/data/status.json`。
+- 最近一次已發布快照中，696 個模型有綜合智能指數，198 個有官方智能評測每任務 API 成本；API 免費端點不含完整底層 benchmark 結果或所有加權分項。
+- 程式代理資料使用版本化 JSON 匯入流程；目前 28 組官方組態有指數、每任務成本、總詞元和執行時間。官方未公開輸入／快取／輸出詞元分拆的組態維持空值。
+- 方案資料涵蓋 OpenAI、Anthropic、Google、xAI 四家公司，共 11 個方案與 51 筆分開分類的 Chat／Agent／Coding Agent 額度觀察。
 - 官方方案頁內容變更只會產生人工核對警告；監測器不會根據網頁文字自動改寫價格、權限或額度。
 
 ## 本機執行
@@ -37,7 +38,7 @@ npm run build
 AA_API_KEY='...' python scripts/update_data.py
 ```
 
-正式自動更新會優先讀取 GitHub Actions Secret `Artificial_Analysis_API`，並相容讀取既有的 `vars.Artificial_Analysis_API` repository variable。由於這是 API Key，建議存為 Secret；workflow 只會注入 `AA_API_KEY` 環境變數，不會寫入前端或資料快照。不要把 `.env`、Secrets 或 API Key 放入 `public/`、前端程式或 Git。沒有金鑰時，連接器會保留最後一次合法快照，狀態維持停用。
+正式自動更新只讀取 GitHub Actions Secret `Artificial_Analysis_API`。GitHub repository variable 不是 Secret，因此不會作為 API 金鑰使用；若金鑰目前存在於 Variable，需將同一把金鑰移至 Actions Secrets 才會啟用 API 自動更新。金鑰不會寫入前端或資料快照。不要把 `.env`、Secrets 或 API Key 放入 `public/`、前端程式或 Git。沒有 Secret 時，連接器會保留最後一次合法快照，狀態顯示停用。
 
 ## Coding Agent 資料匯入
 
@@ -48,7 +49,7 @@ python scripts/import_coding_agents.py /path/to/reviewed-coding-agents.json
 python scripts/validate_data.py
 ```
 
-匯入器拒絕非官方來源、無限值、負數和缺少組態欄位的紀錄。不同 Harness、benchmark 版本及成本來源類型分開比較。
+匯入器拒絕非官方來源、無限值、負數和缺少組態欄位的紀錄。每筆 Coding Agent 資料是一組完整的模型、推理強度、執行框架與測試環境設定；效率表只在同一評測版本及成本來源類型中比較組態，不把差異歸因於單一模型。
 
 ## 官方方案來源監測
 
@@ -66,8 +67,8 @@ python scripts/source_health.py --ack SOURCE_ID
 
 `.github/workflows/update-and-deploy.yml` 每日 UTC 04:17 檢查 API 和官方方案來源，通過資料驗證、Python/前端測試後建立靜態網站，並把有變更的 JSON 快照提交到目前 repository。
 
-此專案的獨立 repository：<https://github.com/wudn9922/ai-plan-benchmark>。
+此專案的獨立 repository：<https://github.com/wudn9922/ai-plan-benchmark>。目前網站：<https://wudn9922.github.io/ai-plan-benchmark/>。
 
-Workflow 會在推送到 `main`、手動執行及每日 UTC 04:17 時驗證、建置並部署。請在 **Settings → Pages** 設定建置來源為 **GitHub Actions**。首次成功部署後，實際網站網址會顯示於 Actions workflow run 的 deployment 摘要；未成功部署前不預設網址。
+Workflow 會在推送到 `main`、手動執行及每日 UTC 04:17 時驗證、建置並部署。GitHub Pages 建置來源須設為 **GitHub Actions**；部署失敗時以 workflow run 結果為準。
 
-若尚未設定 `Artificial_Analysis_API` Actions Secret 或同名 repository variable，靜態頁仍可部署，但官方 API 更新會維持停用。
+若尚未設定 `Artificial_Analysis_API` Actions Secret，靜態頁仍可部署並提供最後一份核對快照，但官方 API 更新會維持停用。

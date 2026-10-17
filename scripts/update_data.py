@@ -440,8 +440,14 @@ def run_update(root: Path = ROOT, environ: dict[str, str] | None = None, opener:
     old_models = snapshot.get("models", []) if isinstance(snapshot, dict) else []
     previous_status = _load_json(status_path, {})
     previous_aa_status = previous_status.get("aa", {}) if isinstance(previous_status, dict) else {}
+    previous_aa_raw = _load_json(root / "public" / "data" / "aa-raw.json", {})
+    raw_retrieved_at = previous_aa_raw.get("retrieved_at") if isinstance(previous_aa_raw, dict) else None
     previous_status_time = previous_aa_status.get("checked_at")
     last_successful_snapshot_at = previous_aa_status.get("last_successful_snapshot_at") or previous_aa_status.get("data_updated_at")
+    known_data_updated_at = raw_retrieved_at or previous_aa_status.get("data_updated_at") or max(
+        (model.get("source_updated_at") for model in old_models if isinstance(model, dict) and model.get("source_updated_at")),
+        default=None,
+    )
     checked_at = now_iso()
     api_key = env.get("AA_API_KEY", "").strip()
     status: dict[str, Any] = dict(previous_status) if isinstance(previous_status, dict) else {}
@@ -450,7 +456,7 @@ def run_update(root: Path = ROOT, environ: dict[str, str] | None = None, opener:
             "status": "disabled" if not api_key else "error",
             "message": "尚未設定 Artificial Analysis API Key；保留最後一次合法儲存的資料。" if not api_key else "更新尚未完成。",
             "checked_at": checked_at if previous_aa_status.get("status") != "disabled" else previous_status_time,
-            "data_updated_at": max((model.get("source_updated_at") for model in old_models if isinstance(model, dict) and model.get("source_updated_at")), default=None),
+            "data_updated_at": known_data_updated_at,
             "last_successful_snapshot_at": last_successful_snapshot_at,
             "stale_days": _age_since(last_successful_snapshot_at),
             "http_status": None,
@@ -497,7 +503,10 @@ def run_update(root: Path = ROOT, environ: dict[str, str] | None = None, opener:
                 "intelligence_index_version": api_version,
                 "pages": raw_pages,
             })
-        data_updated_at = fetched_at if data_changed else previous_aa_status.get("data_updated_at") or max((model.get("source_updated_at") for model in old_models if isinstance(model, dict) and model.get("source_updated_at")), default=fetched_at)
+        # aa-raw.json is the recorded payload that produced this snapshot. It
+        # is the source of truth for unchanged data; a stale/mixed status file
+        # must not claim that the API data changed after that payload was read.
+        data_updated_at = fetched_at if data_changed else known_data_updated_at or fetched_at
         status["aa"].update({
             "status": "ready",
             "message": "Artificial Analysis 免費 API 資料已成功更新。" if data_changed else "每日 API 檢查成功；資料內容與快照相同。",

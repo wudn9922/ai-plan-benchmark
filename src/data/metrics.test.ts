@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { MISSING, comparableCostPoints, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, formatQuota, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, priceWithinCap } from './metrics';
+import { MISSING, comparableCodingAgents, comparableCostPoints, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, formatQuota, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, priceWithinCap } from './metrics';
 import type { CodingAgentRecord, ModelRecord, QuotaObservation, SubscriptionPlan } from './types';
 
 function model(id: string, score: number | null, cost: number | null, version: string | null): ModelRecord {
@@ -62,6 +62,20 @@ describe('missing-data-safe metrics', () => {
     const comparable = comparableCostPoints(rows);
     expect(comparable.map((row) => row.id)).toEqual(['a', 'b']);
     expect(paretoFrontier(comparable).map((row) => row.id).sort()).toEqual(['a', 'b']);
+  });
+
+  it('compares Coding Agent results as complete configurations with matching version and evidence kind', () => {
+    const rows = [
+      codingAgent({ id: 'codex', harness: 'Codex Cloud', benchmark_version: 'v1.5', cost_kind: 'official' }),
+      codingAgent({ id: 'claude', provider: 'anthropic', agent: 'Claude Code', harness: 'Claude Code', benchmark_version: 'v1.5', cost_kind: 'official' }),
+      codingAgent({ id: 'old-version', benchmark_version: 'v1.4', cost_kind: 'official' }),
+      codingAgent({ id: 'community-cost', benchmark_version: 'v1.5', cost_kind: 'community' }),
+    ];
+    const result = comparableCodingAgents(rows);
+    expect(result.version).toBe('v1.5');
+    expect(result.costKind).toBe('official');
+    expect(result.records.map((agent) => agent.id)).toEqual(['codex', 'claude']);
+    expect(result.records.map((agent) => agent.harness)).toEqual(['Codex Cloud', 'Claude Code']);
   });
 
   it('requires official task-cost evidence as well as an official score for official-only Coding Agent rows', () => {

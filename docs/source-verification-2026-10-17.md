@@ -78,3 +78,33 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 | `xai-grok-bot`、`xai-build`、`xai-build-all`、`xai-faq`、`xai-grok`、`xai-pricing-web`、`xai-pricing` | [X Subscription 價格](https://docs.x.ai/x-subscription/pricing)確認 Plus $8／月或 $80／年、Premium $30／月或 $300／年；含用量按週重設，Grok 與 Cursor 共用池，Premium 為 Plus 的 4 倍。 [Grok Bot 說明](https://docs.x.ai/x-subscription/grok-bot)確認 Premium 以上包含 Bot 並共用週池；[Grok Build 公告](https://x.ai/news/grok-build-for-everyone)確認網頁／手機版開放所有方案。CLI 舊公告仍只列 SuperGrok／舊 X Premium Plus 測試資格，因此新方案 CLI 權益維持未確認。 |
 
 官方變動監測已改為比對 HTML 的可見文字並忽略指令碼、樣式與 SVG 標記；第一次轉換指紋格式時以本次人工核對後的頁面作新基準。後續只有可見文字內容變更才新增待核對警告；403、404、429 及暫時錯誤仍保留最後成功快照。
+
+## 2026-10-17 第三輪官方頁面複核
+
+本輪處理最新自動檢查提出的 8 個內容變更警告。以下內容已重新比對官方頁面並同步到 `data/curated.json`；自動監測仍保留原始 HTTP 狀態及新內容雜湊，人工確認後只更新已核對來源的基準。
+
+| 來源 ID | 人工複核結果 |
+| --- | --- |
+| `anthropic-cowork` | [Claude Cowork 公告](https://claude.com/blog/cowork-is-now-claude)確認 Cowork 正整合為 Claude 功能，先向 Pro／Max 推出後再擴大；沒有獨立的固定任務上限。 |
+| `anthropic-pricing`、`anthropic-pro-cost` | [Claude 官方價格頁](https://claude.com/pricing)確認 Pro 月繳 $20 或年繳一次付 $200（月均 $16.67，頁面約顯示 $17），適用稅金另計；Pro 包含 Claude Code，Claude 對話與程式代理共用變動額度。 |
+| `google-gemini-limits` | [Gemini Apps 限額頁](https://support.google.com/gemini/answer/16275805?gl=US&hl=en)及目前方案頁確認 Plus 約為 Free 的 2 倍、Pro 約為 4 倍；每五小時重設並受每週上限約束，實際用量依模型、功能與工作負載變化，這些倍數不是固定訊息數。 |
+| `google-annual-plus`、`google-annual-pro` | [AI Plus 年繳說明](https://support.google.com/googleone/answer/16548195?hl=en-uk)及 [AI Pro 年繳說明](https://support.google.com/googleone/answer/16476811?hl=en)確認可選年繳；美國公開頁未列固定年繳實付金額，故年繳總價和月均價格保持空值。 |
+| `google-one-benefits` | [Google AI 權益頁](https://support.google.com/googleone/answer/14534406?hl=en)確認 AI Pro 內含 Antigravity／Jules 額度與 AI credits。Antigravity 與 Jules 為不同程式代理，credits 不當作固定任務數或與其他額度相加。 |
+| `google-ai-plus-current` | [Google AI 美國訂閱頁](https://gemini.google/subscriptions/?currencyCode=USD)確認 AI Plus $4.99／月並對應 Gemini 3.6 Flash；AI Pro $19.99／月並提供 Gemini 4 Argon、Pro 模型及 Flash。Gemini Omni Flash 位於 Google Flow 創作工作室，不映射成 Gemini Apps 聊天模型。AI Plus／Pro 的美國年繳確切金額需在登入結帳流程確認。 |
+
+同輪另核對了四份 Google Coding Agent 官方文件，補入來源登錄表：
+
+| 來源 ID | 人工複核結果 |
+| --- | --- |
+| `antigravity-models` | [Antigravity 官方模型表](https://antigravity.google/docs/models/)分列方案、模型與推理模式。Gemini 3.8 Flash Medium 可與 AA 同組態分數精確對應；Fast、Antigravity 專屬 Thinking 組態或未對應的 GPT-OSS Medium 不套用其他模式分數。Gemini Apps 的 Gemini 4 Argon 權益不代表 Antigravity IDE 權益。模型評測不代表 Antigravity Harness 成績。 |
+| `antigravity-plans` | [Antigravity 方案額度](https://antigravity.google/docs/plans)說明 Free／Plus 以每週動態額度為主；Pro 每五小時刷新，另受每週上限限制。官方不保證固定任務數；付費 Pro 可購買額外 AI credits。 |
+| `jules-usage-limits` | [Jules 官方用量上限](https://jules.google/docs/usage-limits)列出標準層每滾動 24 小時最多 15 個新任務、3 個並行；Pro 為 100 個新任務、15 個並行。任務上限與並行上限分開記錄。 |
+| `jules-changelog` | [Jules 官方變更紀錄](https://jules.google/docs/changelog/)說明標準層使用 Gemini 3 Flash，Pro 使用 Gemini 3.1 Pro；AA 免費 API 目前僅有相應 Preview 條目，因此標準層不映射分數、Pro 僅標示近似映射。模型名稱不填入 reasoning mode 欄位。 |
+
+獨立複核並移除三筆舊版 Google「一般 Agent」額度；目前 Gemini 深度研究、Gemini 任務、Antigravity、Jules 與 Chrome 代理各自只掛在所屬產品列，Flow 點數則不計入代理額度。
+
+## 本輪自動來源錯誤處理
+
+- 11 個 OpenAI 官方 Help／定價來源回 HTTP 403，仍列為「自動擷取受阻」；這些錯誤沒有被當成內容變更。本輪沿用先前已完成的官方頁面核對結果，保留資料並提供可開啟的官方來源連結。
+- Claude 舊 Pro 計費網址曾回 HTTP 404；該來源已改為仍可讀取的 `https://claude.com/pricing`，不把舊網址失效推定成 Pro 方案停止。
+- 已核對的 8 個內容變更會只針對其來源 ID 更新核對雜湊。其他不可讀來源維持最後已核對資料與錯誤狀態，不會因人工核對其他頁面而被清除。

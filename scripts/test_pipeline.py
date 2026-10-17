@@ -148,6 +148,7 @@ class PipelineTests(unittest.TestCase):
             root = Path(tmp)
             snapshot_path = root / "public/data/snapshot.json"
             status_path = root / "public/data/status.json"
+            raw_path = root / "public/data/aa-raw.json"
             snapshot_path.parent.mkdir(parents=True)
             first_fetch = "2026-10-16T20:00:00Z"
             latest_check = "2026-10-17T19:28:00Z"
@@ -158,13 +159,14 @@ class PipelineTests(unittest.TestCase):
                 "models": [existing_model],
                 "index_versions": {"intelligence_api": "4.3", "intelligence_methodology": "v4.3.2"},
             }), encoding="utf-8")
+            raw_path.write_text(json.dumps({"retrieved_at": first_fetch, "pages": []}), encoding="utf-8")
             previous_status = {
                 "aa": {
                     "configured": True,
                     "status": "ready",
                     "checked_at": first_fetch,
                     "last_successful_snapshot_at": first_fetch,
-                    "data_updated_at": first_fetch,
+                    "data_updated_at": "2026-10-17T18:00:00Z",
                     "stale_days": 0,
                     "models_count": 1,
                     "endpoint": update_data.ENDPOINT,
@@ -237,9 +239,19 @@ class PipelineTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             snapshot_path = root / "public/data/snapshot.json"
+            status_path = root / "public/data/status.json"
+            raw_path = root / "public/data/aa-raw.json"
             snapshot_path.parent.mkdir(parents=True)
             original = b'{"schema_version":"1.0.0","models":[]}\n'
             snapshot_path.write_bytes(original)
+            raw_updated_at = "2026-10-16T14:08:58Z"
+            raw_path.write_text(json.dumps({"retrieved_at": raw_updated_at, "pages": []}), encoding="utf-8")
+            status_path.write_text(json.dumps({"aa": {
+                "status": "ready",
+                "checked_at": "2026-10-17T19:06:10Z",
+                "last_successful_snapshot_at": "2026-10-17T19:06:10Z",
+                "data_updated_at": "2026-10-17T19:06:10Z",
+            }}), encoding="utf-8")
 
             def should_not_run(*_args, **_kwargs):
                 self.fail("network opener should not run without an API key")
@@ -247,6 +259,7 @@ class PipelineTests(unittest.TestCase):
             result = update_data.run_update(root, {}, should_not_run)
             self.assertEqual(snapshot_path.read_bytes(), original)
             self.assertEqual(result["aa"]["status"], "disabled")
+            self.assertEqual(result["aa"]["data_updated_at"], raw_updated_at)
 
     def test_coding_agent_import_rejects_nonfinite_numbers_and_untrusted_source(self) -> None:
         record = {

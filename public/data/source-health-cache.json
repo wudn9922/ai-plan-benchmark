@@ -1,6 +1,127 @@
 {
-  "last_state_change_at": "2026-10-17T19:13:55Z",
-  "pending_warnings": {},
+  "last_state_change_at": "2026-10-17T19:17:19Z",
+  "pending_warnings": {
+    "change:aa-coding-agents": {
+      "label": "Artificial Analysis Coding Agents",
+      "message": "官方頁面內容已變更（ab08258f14a9 → 340867940a6a）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "aa-coding-agents",
+      "url": "https://artificialanalysis.ai/agents/coding-agents"
+    },
+    "change:anthropic-code": {
+      "label": "Claude Code with a Claude plan",
+      "message": "官方頁面內容已變更（c2772dbda68b → 7b653e29ed5f）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "anthropic-code",
+      "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
+    },
+    "change:anthropic-cowork": {
+      "label": "Claude Cowork transition and rollout",
+      "message": "官方頁面內容已變更（0426f00ce991 → 3716e2907e81）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "anthropic-cowork",
+      "url": "https://claude.com/blog/cowork-is-now-claude"
+    },
+    "change:anthropic-pricing": {
+      "label": "Claude pricing",
+      "message": "官方頁面內容已變更（88257fb2e240 → b30072824007）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "anthropic-pricing",
+      "url": "https://claude.com/pricing"
+    },
+    "change:anthropic-pro-cost": {
+      "label": "Claude Pro billing",
+      "message": "官方頁面內容已變更（88257fb2e240 → 2aef70eed3e2）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "anthropic-pro-cost",
+      "url": "https://claude.com/pricing"
+    },
+    "change:anthropic-research": {
+      "label": "Use Research on Claude",
+      "message": "官方頁面內容已變更（dee21faae3af → 463845ad016b）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "anthropic-research",
+      "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
+    },
+    "change:gemini-cli-deprecation": {
+      "label": "Gemini CLI and individual Code Assist deprecation",
+      "message": "官方頁面內容已變更（599f73d5602f → 433a1bfe82a8）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "gemini-cli-deprecation",
+      "url": "https://developers.google.com/gemini-code-assist/docs/deprecations"
+    },
+    "change:gemini-cli-deprecation-individuals": {
+      "label": "Individual users deprecation details",
+      "message": "官方頁面內容已變更（27cbf0aa1002 → f9588c80b675）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "gemini-cli-deprecation-individuals",
+      "url": "https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals"
+    },
+    "change:google-ai-plus-current": {
+      "label": "Google AI subscriptions (current US pricing and model access)",
+      "message": "官方頁面內容已變更（53737ef1b88c → bbc77d9b9269）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-ai-plus-current",
+      "url": "https://gemini.google/subscriptions/?currencyCode=USD"
+    },
+    "change:google-annual-plus": {
+      "label": "Google AI Plus annual billing availability",
+      "message": "官方頁面內容已變更（f57e9af65418 → 01f193f3fcce）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-annual-plus",
+      "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
+    },
+    "change:google-annual-pro": {
+      "label": "Google AI Pro annual billing availability",
+      "message": "官方頁面內容已變更（ef10b5d0753e → 0bd9fa69b2f0）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-annual-pro",
+      "url": "https://support.google.com/googleone/answer/16476811?hl=en"
+    },
+    "change:google-gemini-limits": {
+      "label": "Gemini Apps usage limits",
+      "message": "官方頁面內容已變更（93e7424cd49a → e10ce7fade59）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-gemini-limits",
+      "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
+    },
+    "change:google-one-benefits": {
+      "label": "Google AI plan benefits",
+      "message": "官方頁面內容已變更（1ea3c5445aac → bc9a97a10046）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-one-benefits",
+      "url": "https://support.google.com/googleone/answer/14534406?hl=en"
+    },
+    "change:xai-build": {
+      "label": "Grok Build CLI announcement",
+      "message": "官方頁面內容已變更（d016c3c40249 → 12385b771404）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "xai-build",
+      "url": "https://x.ai/news/grok-build-cli"
+    },
+    "change:xai-build-all": {
+      "label": "Grok Build web and mobile availability",
+      "message": "官方頁面內容已變更（7825fddc2009 → f8bba3baced0）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "xai-build-all",
+      "url": "https://x.ai/news/grok-build-for-everyone"
+    },
+    "change:xai-faq": {
+      "label": "Grok FAQ",
+      "message": "官方頁面內容已變更（fc9a82bd4fc9 → f1ce40133fd5）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "xai-faq",
+      "url": "https://docs.x.ai/grok/faq"
+    },
+    "change:xai-grok": {
+      "label": "Grok overview and usage",
+      "message": "官方頁面內容已變更（89e2f427b5c5 → be5cc467a4a9）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "xai-grok",
+      "url": "https://docs.x.ai/grok/overview"
+    },
+    "change:xai-grok-bot": {
+      "label": "Grok Bot plan availability",
+      "message": "官方頁面內容已變更（304f148efb76 → 298463076434）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "xai-grok-bot",
+      "url": "https://docs.x.ai/x-subscription/grok-bot"
+    },
+    "change:xai-pricing": {
+      "label": "xAI X Subscription pricing",
+      "message": "官方頁面內容已變更（6ea55448dcd8 → ee75ecd5de5f）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "xai-pricing",
+      "url": "https://docs.x.ai/x-subscription/pricing"
+    },
+    "change:xai-pricing-web": {
+      "label": "xAI X Subscription plans and pricing",
+      "message": "官方頁面內容已變更（126be327a39c → 3c61765843e9）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "xai-pricing-web",
+      "url": "https://x.ai/pricing"
+    }
+  },
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -29,25 +150,53 @@
       "state_changed_at": "2026-10-17T19:06:27Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
     },
+    "aa-coding-agent-import-v1.5-2026-10-17": {
+      "availability": "available",
+      "baseline_at": "2026-10-17T19:17:19Z",
+      "error": null,
+      "etag": "\"onio4x0ib7kilu\"",
+      "http_status": 200,
+      "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
+      "last_modified": null,
+      "last_success_at": "2026-10-17T19:17:19Z",
+      "reviewed_sha256": "993cc43c4eecdcdc7ec2513a4cc41887f5a4bac7b41aaa79d14809dbacaefe8e",
+      "sha256": "993cc43c4eecdcdc7ec2513a4cc41887f5a4bac7b41aaa79d14809dbacaefe8e",
+      "state_changed_at": "2026-10-17T19:17:19Z",
+      "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
+    },
+    "aa-coding-agent-opencode-import-v1.5-2026-10-17": {
+      "availability": "available",
+      "baseline_at": "2026-10-17T19:17:19Z",
+      "error": null,
+      "etag": "\"sggrjmruf2jp6u\"",
+      "http_status": 200,
+      "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
+      "last_modified": null,
+      "last_success_at": "2026-10-17T19:17:19Z",
+      "reviewed_sha256": "ef9202b381139df1aa0d1e0226b6103ae7359115bc074f475c5847c06e22055c",
+      "sha256": "ef9202b381139df1aa0d1e0226b6103ae7359115bc074f475c5847c06e22055c",
+      "state_changed_at": "2026-10-17T19:17:19Z",
+      "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
+    },
     "aa-coding-agents": {
       "availability": "available",
       "error": null,
-      "etag": "\"gxvhgdx3gdkdb8\"",
+      "etag": "\"qz3u7obawukdb8\"",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agents",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:11Z",
+      "last_success_at": "2026-10-17T19:17:10Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "ab08258f14a9df0295a440533315e7fdf8d0637777d8243002b84b13952e564b",
-      "sha256": "ab08258f14a9df0295a440533315e7fdf8d0637777d8243002b84b13952e564b",
-      "state_changed_at": "2026-10-17T19:06:11Z",
+      "sha256": "340867940a6a46bf2151e01a141cedfab2d5e6d865ea6028aba33ff6892b6069",
+      "state_changed_at": "2026-10-17T19:17:10Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
     "aa-coding-method": {
       "availability": "available",
       "error": null,
       "etag": "\"3adkvukp5y86wr\"",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Artificial Analysis Coding Agent Benchmark Methodology",
       "last_modified": null,
       "last_success_at": "2026-10-17T19:06:12Z",
@@ -74,7 +223,7 @@
       "availability": "available",
       "error": null,
       "etag": "\"298age0xwxkqc4\"",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
       "last_modified": null,
       "last_success_at": "2026-10-17T19:06:11Z",
@@ -88,7 +237,7 @@
       "availability": "available",
       "error": null,
       "etag": "\"brlf794o1ruket\"",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
       "last_success_at": "2026-10-17T19:06:25Z",
@@ -102,7 +251,7 @@
       "availability": "available",
       "error": null,
       "etag": "\"k4clyx93n5ujux\"",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
       "last_success_at": "2026-10-17T19:06:26Z",
@@ -119,11 +268,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:18Z",
+      "last_success_at": "2026-10-17T19:17:12Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "c2772dbda68bea1614f43d0a4e0b42aa6c84028058bf395063f67362a799882a",
-      "sha256": "c2772dbda68bea1614f43d0a4e0b42aa6c84028058bf395063f67362a799882a",
-      "state_changed_at": "2026-10-17T19:06:18Z",
+      "sha256": "7b653e29ed5f162d3c3dc462a4c1c0638e8fde7f524a3630b7338675f28fc244",
+      "state_changed_at": "2026-10-17T19:17:12Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -134,10 +283,10 @@
       "http_status": 200,
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:27Z",
+      "last_success_at": "2026-10-17T19:17:19Z",
       "reviewed_sha256": "0426f00ce99175145ee38f91b26966991629e826707942890907faca10d790ec",
-      "sha256": "0426f00ce99175145ee38f91b26966991629e826707942890907faca10d790ec",
-      "state_changed_at": "2026-10-17T19:06:27Z",
+      "sha256": "3716e2907e8194d9fffc8af2ee2a240304b7202002525aff4124ad36248d46d1",
+      "state_changed_at": "2026-10-17T19:17:19Z",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "anthropic-pricing": {
@@ -146,12 +295,12 @@
       "etag": null,
       "http_status": 200,
       "label": "Claude pricing",
-      "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:17Z",
+      "last_modified": "Sat, 17 Oct 2026 19:15:27 GMT",
+      "last_success_at": "2026-10-17T19:17:11Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "88257fb2e240d0d03cc701c623ad588b39033f17ec3ed20fa34963ed5da073c7",
-      "sha256": "88257fb2e240d0d03cc701c623ad588b39033f17ec3ed20fa34963ed5da073c7",
-      "state_changed_at": "2026-10-17T19:06:17Z",
+      "sha256": "b300728240079efa39039703b641280c7d7da447fd87ccd1987abbd6ef345406",
+      "state_changed_at": "2026-10-17T19:17:11Z",
       "url": "https://claude.com/pricing"
     },
     "anthropic-pro-cost": {
@@ -161,11 +310,11 @@
       "etag": null,
       "http_status": 200,
       "label": "Claude Pro billing",
-      "last_modified": "Sat, 17 Oct 2026 19:06:17 GMT",
-      "last_success_at": "2026-10-17T19:06:17Z",
+      "last_modified": "Sat, 17 Oct 2026 19:16:02 GMT",
+      "last_success_at": "2026-10-17T19:17:11Z",
       "reviewed_sha256": "88257fb2e240d0d03cc701c623ad588b39033f17ec3ed20fa34963ed5da073c7",
-      "sha256": "88257fb2e240d0d03cc701c623ad588b39033f17ec3ed20fa34963ed5da073c7",
-      "state_changed_at": "2026-10-17T19:06:17Z",
+      "sha256": "2aef70eed3e250f64910b84ab1b586ffe8029aba507b695ca60df5fd7b1c6043",
+      "state_changed_at": "2026-10-17T19:17:11Z",
       "url": "https://claude.com/pricing"
     },
     "anthropic-research": {
@@ -175,11 +324,11 @@
       "http_status": 200,
       "label": "Use Research on Claude",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:24Z",
+      "last_success_at": "2026-10-17T19:17:18Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "dee21faae3af60916abb085aea4fd2f0142c0bc70c916b8073e2af2240ff85f2",
-      "sha256": "dee21faae3af60916abb085aea4fd2f0142c0bc70c916b8073e2af2240ff85f2",
-      "state_changed_at": "2026-10-17T19:06:24Z",
+      "sha256": "463845ad016bb6edc54b2593c6038778176f6b8a54d0a9666a413aa0b7307255",
+      "state_changed_at": "2026-10-17T19:17:18Z",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "gemini-cli-deprecation": {
@@ -189,11 +338,11 @@
       "http_status": 200,
       "label": "Gemini CLI and individual Code Assist deprecation",
       "last_modified": "Fri, 09 Oct 2026 22:52:17 GMT",
-      "last_success_at": "2026-10-17T19:06:21Z",
+      "last_success_at": "2026-10-17T19:17:15Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "599f73d5602f201ee2379c940d452de1f05a54d951cb997db204e761daee9c95",
-      "sha256": "599f73d5602f201ee2379c940d452de1f05a54d951cb997db204e761daee9c95",
-      "state_changed_at": "2026-10-17T19:06:21Z",
+      "sha256": "433a1bfe82a867b9bcfe0fea4c14ebc861f967e7978e93db3ad7d94363cf4dd9",
+      "state_changed_at": "2026-10-17T19:17:15Z",
       "url": "https://developers.google.com/gemini-code-assist/docs/deprecations"
     },
     "gemini-cli-deprecation-individuals": {
@@ -203,11 +352,11 @@
       "http_status": 200,
       "label": "Individual users deprecation details",
       "last_modified": "Fri, 09 Oct 2026 22:52:17 GMT",
-      "last_success_at": "2026-10-17T19:06:22Z",
+      "last_success_at": "2026-10-17T19:17:16Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "27cbf0aa10021850db680fadfc9631f9c807801164fe70527a3d12cdd8a073e8",
-      "sha256": "27cbf0aa10021850db680fadfc9631f9c807801164fe70527a3d12cdd8a073e8",
-      "state_changed_at": "2026-10-17T19:06:22Z",
+      "sha256": "f9588c80b675a4fe07af485521af801fac65c3175576c716024f02b8d3efef89",
+      "state_changed_at": "2026-10-17T19:17:16Z",
       "url": "https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals"
     },
     "google-ai-plan-benefits": {
@@ -229,11 +378,11 @@
       "http_status": 200,
       "label": "Google AI subscriptions (current US pricing and model access)",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:18Z",
+      "last_success_at": "2026-10-17T19:17:12Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "53737ef1b88cea6ca170c5e4e11014201f6e643d2a21ede481215c6bae0ab99a",
-      "sha256": "53737ef1b88cea6ca170c5e4e11014201f6e643d2a21ede481215c6bae0ab99a",
-      "state_changed_at": "2026-10-17T19:06:18Z",
+      "sha256": "bbc77d9b92698f996b4a166e6bb0461b7c8dd9bae45ea5f13898a5b67175f167",
+      "state_changed_at": "2026-10-17T19:17:12Z",
       "url": "https://gemini.google/subscriptions/?currencyCode=USD"
     },
     "google-annual-plus": {
@@ -243,11 +392,11 @@
       "http_status": 200,
       "label": "Google AI Plus annual billing availability",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:19Z",
+      "last_success_at": "2026-10-17T19:17:12Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "f57e9af65418c87466059003aee33debe089710a5d8b4924c18d19397ee18190",
-      "sha256": "f57e9af65418c87466059003aee33debe089710a5d8b4924c18d19397ee18190",
-      "state_changed_at": "2026-10-17T19:06:19Z",
+      "sha256": "01f193f3fcce565a2ee38907be1f805319730a83768903ac6e08951e6bd115c4",
+      "state_changed_at": "2026-10-17T19:17:12Z",
       "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
     },
     "google-annual-pro": {
@@ -257,11 +406,11 @@
       "http_status": 200,
       "label": "Google AI Pro annual billing availability",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:19Z",
+      "last_success_at": "2026-10-17T19:17:13Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "ef10b5d0753e02076d9cae0f8357465d5a9388e23492f75aa16d394ea5004549",
-      "sha256": "ef10b5d0753e02076d9cae0f8357465d5a9388e23492f75aa16d394ea5004549",
-      "state_changed_at": "2026-10-17T19:06:19Z",
+      "sha256": "0bd9fa69b2f01b121a0f1eccc9987bd1c020a14e2be91dd3c298cbe045da8e5e",
+      "state_changed_at": "2026-10-17T19:17:13Z",
       "url": "https://support.google.com/googleone/answer/16476811?hl=en"
     },
     "google-gemini-limits": {
@@ -271,11 +420,11 @@
       "http_status": 200,
       "label": "Gemini Apps usage limits",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:20Z",
+      "last_success_at": "2026-10-17T19:17:14Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "93e7424cd49a952d54b105521a9618c9540c045d47b7077fd55317ef2e244c2f",
-      "sha256": "93e7424cd49a952d54b105521a9618c9540c045d47b7077fd55317ef2e244c2f",
-      "state_changed_at": "2026-10-17T19:06:20Z",
+      "sha256": "e10ce7fade5961507a5cc5e5abc2a8d5c08ad1fddd08c462d80e6463b574e76a",
+      "state_changed_at": "2026-10-17T19:17:14Z",
       "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
     },
     "google-jules": {
@@ -287,11 +436,11 @@
       "label": "Jules asynchronous coding agent",
       "last_modified": null,
       "last_success_at": "2026-10-17T19:06:23Z",
+      "reviewed_at": "2026-10-17",
       "reviewed_sha256": "644b5b22764b597fe19a2df15ad293791569b4114c514a90d232ad667a07589e",
       "sha256": "644b5b22764b597fe19a2df15ad293791569b4114c514a90d232ad667a07589e",
       "state_changed_at": "2026-10-17T19:06:23Z",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/",
-      "reviewed_at": "2026-10-17"
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
     },
     "google-one-benefits": {
       "availability": "available",
@@ -300,18 +449,18 @@
       "http_status": 200,
       "label": "Google AI plan benefits",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:21Z",
+      "last_success_at": "2026-10-17T19:17:14Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "1ea3c5445aaccf7cfc3b7c2c2912452acff78c7c63c2f227fda94190a98c0b6e",
-      "sha256": "1ea3c5445aaccf7cfc3b7c2c2912452acff78c7c63c2f227fda94190a98c0b6e",
-      "state_changed_at": "2026-10-17T19:06:21Z",
+      "sha256": "bc9a97a10046a98079ea48ab267dd78cbeb32e6c1ab189e9ee91955a159a69d8",
+      "state_changed_at": "2026-10-17T19:17:14Z",
       "url": "https://support.google.com/googleone/answer/14534406?hl=en"
     },
     "google-plans": {
       "availability": "available",
       "error": null,
       "etag": null,
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI plans",
       "last_modified": "Wed, 14 Oct 2026 00:48:00 GMT",
       "last_success_at": "2026-10-17T19:06:18Z",
@@ -430,11 +579,11 @@
       "http_status": 200,
       "label": "Grok Build CLI announcement",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:22Z",
+      "last_success_at": "2026-10-17T19:17:16Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "d016c3c40249755ff79457eec1aa466f77752149a4276023f38f2cf95e2704d1",
-      "sha256": "d016c3c40249755ff79457eec1aa466f77752149a4276023f38f2cf95e2704d1",
-      "state_changed_at": "2026-10-17T19:06:22Z",
+      "sha256": "12385b771404a68d8e77ab8779ef69e739894bceeb84a83565cd6075f81f0aa4",
+      "state_changed_at": "2026-10-17T19:17:16Z",
       "url": "https://x.ai/news/grok-build-cli"
     },
     "xai-build-all": {
@@ -444,11 +593,11 @@
       "http_status": 200,
       "label": "Grok Build web and mobile availability",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:23Z",
+      "last_success_at": "2026-10-17T19:17:17Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "7825fddc20096c732cf1c5cc379bc8593335936f8d2dd7e777d5d20f79d79315",
-      "sha256": "7825fddc20096c732cf1c5cc379bc8593335936f8d2dd7e777d5d20f79d79315",
-      "state_changed_at": "2026-10-17T19:06:23Z",
+      "sha256": "f8bba3baced0668255610d5b402c843cfa44fd8a3b0e45812668915b43160e5a",
+      "state_changed_at": "2026-10-17T19:17:17Z",
       "url": "https://x.ai/news/grok-build-for-everyone"
     },
     "xai-faq": {
@@ -458,11 +607,11 @@
       "http_status": 200,
       "label": "Grok FAQ",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:22Z",
+      "last_success_at": "2026-10-17T19:17:16Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "fc9a82bd4fc90e3492c4a8e33f5c0dca0f59bb5d2b927bff40cefcfc8b4a1e5a",
-      "sha256": "fc9a82bd4fc90e3492c4a8e33f5c0dca0f59bb5d2b927bff40cefcfc8b4a1e5a",
-      "state_changed_at": "2026-10-17T19:06:22Z",
+      "sha256": "f1ce40133fd5bac0712ee266ad820331ed610af54a37ff5cb4e9c4d26f82b862",
+      "state_changed_at": "2026-10-17T19:17:16Z",
       "url": "https://docs.x.ai/grok/faq"
     },
     "xai-grok": {
@@ -472,11 +621,11 @@
       "http_status": 200,
       "label": "Grok overview and usage",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:22Z",
+      "last_success_at": "2026-10-17T19:17:16Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "89e2f427b5c5ac844e6243ee4c2b933af85cc293c05829c575f6324a83be676f",
-      "sha256": "89e2f427b5c5ac844e6243ee4c2b933af85cc293c05829c575f6324a83be676f",
-      "state_changed_at": "2026-10-17T19:06:22Z",
+      "sha256": "be5cc467a4a9e978b2464d08038a110f5135be0b120d6219a04eaa6d4b0a221a",
+      "state_changed_at": "2026-10-17T19:17:16Z",
       "url": "https://docs.x.ai/grok/overview"
     },
     "xai-grok-bot": {
@@ -486,11 +635,11 @@
       "http_status": 200,
       "label": "Grok Bot plan availability",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:23Z",
+      "last_success_at": "2026-10-17T19:17:17Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "304f148efb76990ca4646b064e0bb6cd9dd74733e81cb88a56ff17083c70b531",
-      "sha256": "304f148efb76990ca4646b064e0bb6cd9dd74733e81cb88a56ff17083c70b531",
-      "state_changed_at": "2026-10-17T19:06:23Z",
+      "sha256": "298463076434178e934351b642074a97a752013aa52bfae2573ec7985b6edeed",
+      "state_changed_at": "2026-10-17T19:17:17Z",
       "url": "https://docs.x.ai/x-subscription/grok-bot"
     },
     "xai-pricing": {
@@ -500,11 +649,11 @@
       "http_status": 200,
       "label": "xAI X Subscription pricing",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:22Z",
+      "last_success_at": "2026-10-17T19:17:16Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "6ea55448dcd8c2fb4f5af660038f69b9c895743bc2eeb08097d47b08ac0647e3",
-      "sha256": "6ea55448dcd8c2fb4f5af660038f69b9c895743bc2eeb08097d47b08ac0647e3",
-      "state_changed_at": "2026-10-17T19:06:22Z",
+      "sha256": "ee75ecd5de5ffc9df0a8b17fb5a91f65e52ca192e2f1599bb6735237a045a3e0",
+      "state_changed_at": "2026-10-17T19:17:16Z",
       "url": "https://docs.x.ai/x-subscription/pricing"
     },
     "xai-pricing-web": {
@@ -514,11 +663,11 @@
       "http_status": 200,
       "label": "xAI X Subscription plans and pricing",
       "last_modified": null,
-      "last_success_at": "2026-10-17T19:06:24Z",
+      "last_success_at": "2026-10-17T19:17:18Z",
       "reviewed_at": "2026-10-17",
       "reviewed_sha256": "126be327a39cb65956e3d3f91fdc7827ddfcaad8a818e2d6f2367757ccedea1b",
-      "sha256": "126be327a39cb65956e3d3f91fdc7827ddfcaad8a818e2d6f2367757ccedea1b",
-      "state_changed_at": "2026-10-17T19:06:24Z",
+      "sha256": "3c61765843e9b3e825487d14a28257555dae1a0ba03648cce2e4009165e2f80a",
+      "state_changed_at": "2026-10-17T19:17:18Z",
       "url": "https://x.ai/pricing"
     }
   }

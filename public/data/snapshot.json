@@ -2538,11 +2538,11 @@
       "value": null,
       "value_type": "variable",
       "unit": "訊息",
-      "window": "依使用量及工作負載動態調整",
+      "window": "滾動 5 小時重設；依需求、對話長度、模型與工作負載動態調整",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "Free 方案限制會因需求、對話長度與模型而變；官方未公布固定訊息數。",
+      "note": "官方說明所有方案均有滾動五小時工作階段限制；付費方案另受每週限制。Free 未公布固定訊息數。",
       "confidence": "high",
       "source_ids": [
         "anthropic-pricing"

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Activity, BadgeDollarSign, Bot, CircleHelp, Code2, ExternalLink, Layers3, RefreshCw, Search, Sparkles } from 'lucide-react';
+import { Activity, BadgeDollarSign, Bot, CircleHelp, Code2, ExternalLink, Layers3, RefreshCw, Search, SlidersHorizontal, Sparkles } from 'lucide-react';
 import {
   CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip as ChartTooltip, XAxis, YAxis,
 } from 'recharts';
@@ -132,6 +132,11 @@ function agentLabel(value: string): string { return value.replace(' + ', '＋').
 function evidenceLabel(value: string | null | undefined): string {
   return value === 'official' ? '官方' : value === 'measured' ? '實測' : value === 'community' ? '社群觀察' : value === 'estimate' ? '推估' : value ? translateUiText(value) : '尚無資料';
 }
+function shortDate(value: string | null | undefined): string {
+  if (!value) return '未公布';
+  const isoDate = value.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
+  return isoDate ?? value;
+}
 
 function quotaValue(quota: QuotaObservation): string {
   if (quota.value_type === 'range' && quota.estimate_range) return `${quota.estimate_range.min.toLocaleString('zh-Hant')}–${quota.estimate_range.max.toLocaleString('zh-Hant')} ${quotaUnit(quota.unit)}（估計）`;
@@ -202,6 +207,16 @@ function Badge({ value }: { value: boolean | null }) {
   return <span className={`product-badge ${value === true ? 'product-badge--yes' : value === false ? 'product-badge--no' : 'product-badge--unknown'}`}>{value === true ? '包含' : value === false ? '未包含' : '未確認'}</span>;
 }
 
+type QuotaEntitlement = 'included' | 'excluded' | 'unknown';
+
+function quotaEntitlement(plan: SubscriptionPlan, quota: QuotaObservation): QuotaEntitlement {
+  const linkedProducts = plan.products.filter((product) => product.quota_ids.includes(quota.id));
+  if (!linkedProducts.length) return 'unknown';
+  const states = new Set(linkedProducts.map((product) => product.included));
+  if (states.size !== 1 || states.has(null)) return 'unknown';
+  return states.has(false) ? 'excluded' : 'included';
+}
+
 function numericQuotaCount(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory): number {
   return snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (quota.value !== null || quota.estimate_range !== null && quota.estimate_range !== undefined)).length;
 }
@@ -243,12 +258,22 @@ function PriceBlock({ plan }: { plan: SubscriptionPlan }) {
   </div>;
 }
 
-function PlanQuotaCard({ quota, sources }: { quota: QuotaObservation; sources: SourceRef[] }) {
-  const value = quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
+function quotaDisplayValue(quota: QuotaObservation): string {
+  return quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
+}
+
+function quotaModelReason(quota: QuotaObservation): string {
+  return [quota.model, quota.reasoning_mode ? `推理${reasoningLabel(quota.reasoning_mode)}` : null].filter(Boolean).join(' · ');
+}
+
+function PlanQuotaCard({ plan, quota, sources }: { plan: SubscriptionPlan; quota: QuotaObservation; sources: SourceRef[] }) {
+  const entitlement = quotaEntitlement(plan, quota);
+  const value = entitlement === 'excluded' ? '未包含' : quotaDisplayValue(quota);
+  const modelReason = quotaModelReason(quota);
   return <article className="quota-card">
     <div className="quota-card__top"><strong>{productLabel(quota.product)}</strong><Evidence confidence={quota.confidence} /></div>
     <div className="quota-card__value">{value}</div>
-    <div className="quota-card__meta">{quotaWindow(quota.window)}{quota.model ? ` · ${quota.model}` : ''}{quota.reasoning_mode ? ` · 推理強度：${reasoningLabel(quota.reasoning_mode)}` : ''}</div>
+    <div className="quota-card__meta">{entitlement === 'excluded' ? '此方案未包含此產品；以下為來源記錄的條件' : entitlement === 'unknown' ? '權益未確認' : ''}{entitlement === 'excluded' || entitlement === 'unknown' ? ' · ' : ''}{quotaWindow(quota.window)}{modelReason ? ` · ${modelReason}` : ''}</div>
     {quota.note && <p>{translateUiText(quota.note)}</p>}
     <div className="quota-card__meta">{quota.region} · 取樣日 {quota.sampled_at}{quota.shared_with.length ? ` · 共用：${quota.shared_with.map(productLabel).join('、')}` : ''}</div>
     <SourceLinks ids={quota.source_ids} sources={sources} />
@@ -262,53 +287,115 @@ function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly }: { plan: Subscri
   ];
   const promo = plan.promo || plan.trial;
   const surfaces: Record<string, string> = { web: '網頁', mobile: '手機', cli: '命令列', cloud: '雲端', desktop: '桌面', agent: '代理' };
+  const modelNames = [...new Set(plan.products.filter((product) => product.included !== false).flatMap((product) => product.model_access.map((model) => model.model)))];
   return <article className="plan-card">
     <div className="plan-card__heading">
       <div><span className={`provider-dot provider-dot--${plan.provider}`} /><span className="provider-name">{plan.provider_name}</span><span className="plan-tier">{plan.tier === 'free' ? '免費方案' : '個人方案'}</span></div>
       <h3>{planLabel(plan.name)}</h3>
     </div>
     <PriceBlock plan={plan} />
-    {promo && <div className="promo-note"><Sparkles size={15} /><span>{translateUiText(promo)}</span></div>}
-    {plan.note && <p className="plan-note">{translateUiText(plan.note)}</p>}
-    <div className="plan-card__section">
-      <h4>產品與模型權限</h4>
-      <div className="product-list">{plan.products.map((product) => <div className={`product-row ${product.rollout === 'discontinued' ? 'product-row--retired' : ''}`} key={product.product}>
-        <div className="product-row__head"><span>{productLabel(product.product)}</span><Badge value={product.included} />{product.rollout === 'discontinued' && <span className="status-tag">已停止</span>}{product.rollout === 'limited' && <span className="status-tag">推出／地區限制</span>}{product.rollout === 'beta' && <span className="status-tag">測試版</span>}</div>
-        {product.surface.length > 0 && <div className="product-note">{product.surface.map((surface) => surfaces[surface] ?? surface).join(' · ')}</div>}
-        {product.model_access.length > 0 && <div className="product-models">可用模型：{product.model_access.map((model) => `${model.model}${model.reasoning_modes.length ? `（${model.reasoning_modes.map(reasoningLabel).join('、')}）` : ''}${model.mapping === 'unmapped' ? ' · 無精確對應' : model.mapping === 'approximate' ? ' · 近似對應' : ''}`).join('、')}</div>}
-        {product.note && <div className="product-note">{translateUiText(product.note)}</div>}
-        {product.source_ids.length > 0 && <SourceLinks ids={product.source_ids} sources={snapshot.sources} label="產品權限來源" />}
-      </div>)}</div>
+    <div className="plan-card__summary">
+      <div className="plan-summary-models"><b>可用模型</b><span>{modelNames.length ? `${modelNames.slice(0, 3).join('、')}${modelNames.length > 3 ? ` 等 ${modelNames.length} 款` : ''}` : '方案資料未明列'}</span></div>
+      <div className="plan-summary-quotas" aria-label="三類額度摘要">
+        {categoryInfo.map((category) => <div className={`plan-summary-quota ${quotaFilter === category.id ? 'plan-summary-quota--focused' : ''}`} key={category.id}>
+          <b>{category.name}</b><span>{compactQuotaCardSummary(snapshot, plan, category.id, verifiedOnly)}</span>
+        </div>)}
+      </div>
     </div>
-    <div className="plan-card__section">
-      <h4>用量與限制</h4>
-      {categoryInfo.filter((category) => quotaFilter === 'all' || quotaFilter === category.id).map((category) => {
-        const rows = quotas.filter((quota) => quota.category === category.id);
-        return <div className="quota-group" key={category.id}><h5>{category.name}</h5>{rows.length ? rows.map((quota) => <PlanQuotaCard quota={quota} sources={snapshot.sources} key={quota.id} />) : <div className="empty-compact">尚無可靠數據</div>}</div>;
-      })}
-    </div>
-    <div className="plan-card__footer"><span>方案核對日 {plan.checked_at}</span><SourceLinks ids={plan.source_ids} sources={snapshot.sources} /></div>
+    <details className="plan-detail">
+      <summary>查看完整產品權限、額度條件與來源</summary>
+      <div className="plan-detail__body">
+        {promo && <div className="promo-note"><Sparkles size={15} /><span>{translateUiText(promo)}</span></div>}
+        {plan.note && <p className="plan-note">{translateUiText(plan.note)}</p>}
+        <div className="plan-card__section">
+          <h4>產品與模型權限</h4>
+          <div className="product-list">{plan.products.map((product) => <div className={`product-row ${product.rollout === 'discontinued' ? 'product-row--retired' : ''}`} key={product.product}>
+            <div className="product-row__head"><span>{productLabel(product.product)}</span><Badge value={product.included} />{product.rollout === 'discontinued' && <span className="status-tag">已停止</span>}{product.rollout === 'limited' && <span className="status-tag">推出／地區限制</span>}{product.rollout === 'beta' && <span className="status-tag">測試版</span>}</div>
+            {product.surface.length > 0 && <div className="product-note">{product.surface.map((surface) => surfaces[surface] ?? surface).join(' · ')}</div>}
+            {product.model_access.length > 0 && <div className="product-models">可用模型：{product.model_access.map((model) => `${model.model}${model.reasoning_modes.length ? `（${model.reasoning_modes.map(reasoningLabel).join('、')}）` : ''}${model.mapping === 'unmapped' ? ' · 無精確對應' : model.mapping === 'approximate' ? ' · 近似對應' : ''}`).join('、')}</div>}
+            {product.note && <div className="product-note">{translateUiText(product.note)}</div>}
+            {product.source_ids.length > 0 && <SourceLinks ids={product.source_ids} sources={snapshot.sources} label="產品權限來源" />}
+          </div>)}</div>
+        </div>
+        <div className="plan-card__section">
+          <h4>用量與限制</h4>
+          {categoryInfo.filter((category) => quotaFilter === 'all' || quotaFilter === category.id).map((category) => {
+            const rows = quotas.filter((quota) => quota.category === category.id);
+            return <div className="quota-group" key={category.id}><h5>{category.name}</h5>{rows.length ? rows.map((quota) => <PlanQuotaCard plan={plan} quota={quota} sources={snapshot.sources} key={quota.id} />) : <div className="empty-compact">尚無可靠數據</div>}</div>;
+          })}
+        </div>
+        <div className="plan-card__footer"><span>方案核對日 {plan.checked_at} · {plan.region} · 稅金：{plan.tax === 'extra' ? '另計' : plan.tax === 'included' ? '已含' : plan.tax === 'varies' ? '依地區／結帳頁而異' : '未知'}</span><SourceLinks ids={plan.source_ids} sources={snapshot.sources} /></div>
+      </div>
+    </details>
   </article>;
 }
 
 function compactQuotaWindow(window: string | null): string {
   if (!window) return '';
-  if (/5\s*[- ]?hour|five.hour/i.test(window)) return '每 5 小時';
-  if (/3\s*[- ]?hour|three.hour/i.test(window)) return '每 3 小時';
-  if (/daily|per day|day/i.test(window)) return '每日';
-  if (/weekly|per week|week/i.test(window)) return '每週';
-  if (/monthly|per month|month/i.test(window)) return '每月';
-  return translateUiText(window);
+  const lower = window.toLowerCase();
+  const variable = /may|vary|variable|dynamic|depends|effort|task|model|setting|workload|可能|視|依|動態|變動/.test(lower);
+  const fiveHour = /5\s*[- ]?hour|five.hour|5\s*小時/i.test(lower);
+  const threeHour = /3\s*[- ]?hour|three.hour|3\s*小時/i.test(lower);
+  const weekly = /weekly|per week|week|週/i.test(lower);
+  const shared = /shared|pool|共用|共享/i.test(lower);
+  if (/尚無.*窗口|未公布.*窗口|窗口.*尚未公布/.test(window)) return '配額窗口尚未公布';
+  if (fiveHour && /可能.{0,8}週|週上限|weekly cap/i.test(window)) return '每 5 小時；可能另有週上限';
+  if (fiveHour && weekly && variable) return '五小時／每週窗口，依任務或設定變動';
+  if (weekly && shared) return '每週共享額度，實際用量依工作負載';
+  if (fiveHour && variable) return '五小時窗口，實際用量依任務變動';
+  if (weekly && variable) return '每週窗口，實際用量依工作負載';
+  if (variable) return '窗口或用量依功能動態調整';
+  if (/daily|per day|day|每日|每天/i.test(lower)) return '每日';
+  if (weekly) return '每週';
+  if (/monthly|per month|month|每月/i.test(lower)) return '每月';
+  if (fiveHour) return '每 5 小時';
+  if (threeHour) return '每 3 小時';
+  return '窗口依來源說明';
 }
 
 function compactQuotaSummary(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean): string {
   const rows = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
   if (!rows.length) return MISSING;
   return rows.map((quota) => {
-    const value = quota.value_type === 'variable' ? '動態' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
+    const entitlement = quotaEntitlement(plan, quota);
+    if (entitlement === 'excluded') return `${productLabel(quota.product)}：未包含`;
+    const value = quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
     const window = compactQuotaWindow(quota.window);
-    return `${productLabel(quota.product)}：${value}${window ? `／${window}` : ''}`;
+    const modelReason = quotaModelReason(quota);
+    const shared = quota.shared_with.length ? ' · 共用額度' : '';
+    const entitlementNote = entitlement === 'unknown' ? ' · 權益未確認' : '';
+    return `${productLabel(quota.product)}：${value}${modelReason ? `（${modelReason}）` : ''}${window ? `／${window}` : '／窗口未公布'}${shared}${entitlementNote}`;
   }).join('；');
+}
+
+function compactQuotaCardSummary(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean): string {
+  const rows = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
+  if (!rows.length) return '尚無資料';
+  const includedRows = rows.filter((quota) => quotaEntitlement(plan, quota) === 'included');
+  const excludedCount = rows.filter((quota) => quotaEntitlement(plan, quota) === 'excluded').length;
+  const unknownRows = rows.filter((quota) => quotaEntitlement(plan, quota) === 'unknown');
+  const unknownSummary = unknownRows.map((quota) => {
+    const value = quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
+    const modelReason = quotaModelReason(quota);
+    return `${value}${modelReason ? `（${modelReason}）` : ''}`;
+  });
+  const statusNotes = [
+    excludedCount ? excludedCount === 1 ? '未包含' : `${excludedCount} 項未包含` : '',
+    unknownRows.length ? `${unknownSummary.join('、')}（權益未確認）` : '',
+  ].filter(Boolean);
+  if (!includedRows.length) return statusNotes.join(' · ') || '尚無資料';
+
+  const modelNames = [...new Set(includedRows.map((quota) => quota.model).filter((model): model is string => Boolean(model)))];
+  let summary: string;
+  if (modelNames.length > 1) summary = `${modelNames.length} 組模型額度`;
+  else if (includedRows.length > 1) summary = `${includedRows.length} 項產品額度`;
+  else {
+    const quota = includedRows[0];
+    const value = quota.value_type === 'not_published' ? '官方未公布' : quotaDisplayValue(quota);
+    const modelReason = quotaModelReason(quota);
+    summary = `${productLabel(quota.product)}：${value}${modelReason ? `（${modelReason}）` : ''}`;
+  }
+  return statusNotes.length ? `${summary} · ${statusNotes.join(' · ')}` : summary;
 }
 
 function CompactPlanTable({ plans, snapshot, verifiedOnly }: { plans: SubscriptionPlan[]; snapshot: Snapshot; verifiedOnly: boolean }) {
@@ -353,6 +440,7 @@ function BenchmarkCatalog({ snapshot, indexId }: { snapshot: Snapshot; indexId: 
 
 function ModelPage({ snapshot, models, activeIndex, onIndex, providerFilter }: { snapshot: Snapshot; models: ModelRecord[]; activeIndex: string; onIndex: (id: string) => void; providerFilter: string }) {
   const filtered = providerFilter === 'all' ? models : models.filter((model) => `${model.provider} ${model.id}`.toLowerCase().includes(providerFilter));
+  const summaryModels = filtered.slice(0, 6);
   const chartData = comparableCostPoints(filtered).map((item) => ({ name: item.name, provider: item.id, x: item.cost, y: item.score }));
   const apiConnected = models.some((model) => model.data_origin === 'aa_free_api' || model.data_origin === 'aa_free_api+aa_public_page');
   const publicSnapshots = models.filter((model) => model.data_origin === 'aa_public_page' || model.data_origin === 'aa_free_api+aa_public_page').length;
@@ -360,20 +448,28 @@ function ModelPage({ snapshot, models, activeIndex, onIndex, providerFilter }: {
     <section className="section-panel">
       <div className="snapshot-note"><b>{apiConnected ? 'Artificial Analysis 免費 API＋官方公開頁面快照' : '官方公開頁面快照'}</b><span>{apiConnected ? `目前有免費 API 模型資料；另保留 ${publicSnapshots} 筆公開頁面基準測試快照。` : `以下 ${publicSnapshots} 筆模型組態及底層測試分數於 2026-10-16 從公開官方比較頁人工核對；免費 API 尚未連接（需要 API 金鑰），不代表即時 API 擷取。`}</span></div>
       <div className="section-title"><div><h2>Artificial Analysis 能力指數</h2><p>目前指數方法版 {snapshot.index_versions.intelligence_methodology ?? '尚未核實'}；API 回傳版 {snapshot.index_versions.intelligence_api ?? '未連接'}。</p></div><label className="select-label">查看欄位<select value={activeIndex} onChange={(e) => onIndex(e.target.value)}>{INDEX_KEYS.map((key) => <option value={key} key={key}>{INDEX_LABELS[key].label}</option>)}</select></label></div>
-      <div className="index-cards">{INDEX_KEYS.map((key) => <button className={`index-chip ${activeIndex === key ? 'index-chip--active' : ''}`} onClick={() => onIndex(key)} key={key}><span>{INDEX_LABELS[key].label}<Info title={INDEX_LABELS[key].label}>{INDEX_LABELS[key].description}</Info></span><b>{models.length ? models.filter((model) => model.indices[key] !== null).length : '—'}</b><small>有分數模型</small></button>)}</div>
-      <IndexTable models={filtered} activeIndex={activeIndex} />
-      <div className="methodology-box"><div><b>綜合智能指數分類權重 · {snapshot.index_versions.intelligence_methodology ?? '版本未核實'}</b><p>{translateUiText(snapshot.index_methodology.note)}</p></div><div className="table-scroll"><table className="data-table compact-table"><thead><tr><th>能力類別</th><th>權重</th></tr></thead><tbody>{Object.entries(snapshot.index_methodology.intelligence_category_weights).map(([name, weight])=><tr key={name}><td>{name === 'Agents' ? '代理任務' : name === 'Coding' ? '程式能力' : name === 'Scientific Reasoning' ? '科學推理' : name === 'General' ? '一般能力' : translateUiText(name)}</td><td><b>{weight}%</b></td></tr>)}</tbody></table></div><SourceLinks ids={['aa-method']} sources={snapshot.sources} label="指數方法來源" /></div>
-      <div className="capability-gap"><b>免費 API 尚未提供的其他指標</b><p>多語言、中文、日文、視覺理解、開源程度、長文本理解與指示遵循等項目，目前沒有可匯入的免費 API 分數；部分資料可能僅在 Pro API 或獨立測試頁提供。取得授權資料前維持缺值，不以九項指數代替。</p><SourceLinks ids={['aa-api-reference','aa-method']} sources={snapshot.sources} /></div>
+      <div className="model-summary-block">
+        <div className="summary-block-heading"><h3>{INDEX_LABELS[activeIndex]?.label ?? '能力指數'}摘要</h3><span>{filtered.length > summaryModels.length ? `顯示前 ${summaryModels.length} 個` : `顯示全部 ${summaryModels.length} 個`}／共 {filtered.length} 個模型 · 依目前排序</span></div>
+        {summaryModels.length ? <div className="model-summary-grid">{summaryModels.map((model) => <article className="summary-card" key={model.id}>
+          <span className="summary-card__eyebrow">{translateUiText(model.provider)}</span><h4>{model.name}</h4>
+          <div className="summary-card__metric"><b>{model.indices[activeIndex] ?? MISSING}</b><span>{INDEX_LABELS[activeIndex]?.label}</span></div>
+          <p>智能評測每任務成本：{model.intelligence_cost_per_task_usd === null ? MISSING : formatPrice(model.intelligence_cost_per_task_usd)}</p>
+          <small>模型版本 {model.version ?? '未公布'} · {evidenceLabel(model.source_kind)}</small>
+        </article>)}</div> : <EmptyState title="目前篩選條件沒有模型" description="調整公司、模型或來源條件。"/>}
+      </div>
+      <details className="data-disclosure"><summary>查看九項能力的資料覆蓋</summary><div className="index-cards">{INDEX_KEYS.map((key) => <button className={`index-chip ${activeIndex === key ? 'index-chip--active' : ''}`} onClick={() => onIndex(key)} key={key}><span>{INDEX_LABELS[key].label}<Info title={INDEX_LABELS[key].label}>{INDEX_LABELS[key].description}</Info></span><b>{models.length ? models.filter((model) => model.indices[key] !== null).length : '—'}</b><small>有分數模型</small></button>)}</div></details>
+      <details className="data-disclosure"><summary>完整模型指數、底層測試與資料來源（{filtered.length} 個模型）</summary><IndexTable models={filtered} activeIndex={activeIndex} /></details>
+      <details className="data-disclosure"><summary>指數方法與分類權重</summary><div className="methodology-box"><div><b>綜合智能指數分類權重 · {snapshot.index_versions.intelligence_methodology ?? '版本未核實'}</b><p>{translateUiText(snapshot.index_methodology.note)}</p></div><div className="table-scroll"><table className="data-table compact-table"><thead><tr><th>能力類別</th><th>權重</th></tr></thead><tbody>{Object.entries(snapshot.index_methodology.intelligence_category_weights).map(([name, weight])=><tr key={name}><td>{name === 'Agents' ? '代理任務' : name === 'Coding' ? '程式能力' : name === 'Scientific Reasoning' ? '科學推理' : name === 'General' ? '一般能力' : translateUiText(name)}</td><td><b>{weight}%</b></td></tr>)}</tbody></table></div><SourceLinks ids={['aa-method']} sources={snapshot.sources} label="指數方法來源" /></div><div className="capability-gap"><b>免費 API 尚未提供的其他指標</b><p>多語言、中文、日文、視覺理解、開源程度、長文本理解與指示遵循等項目，目前沒有可匯入的免費 API 分數；部分資料可能僅在 Pro API 或獨立測試頁提供。取得授權資料前維持缺值，不以九項指數代替。</p><SourceLinks ids={['aa-api-reference','aa-method']} sources={snapshot.sources} /></div></details>
       <div className="source-footnote"><span>API 每百萬詞元單價會依輸入、輸出及快取分開列示，並與每任務成本及訂閱月費分開。官方公開比較頁未公布的欄位保留缺值。</span><SourceLinks ids={['aa-free-api','aa-api-reference','aa-method','aa-public-gemini-argon-comparison','aa-public-gpt-6-luna-high-comparison']} sources={snapshot.sources} /></div>
     </section>
     <section className="section-panel">
       <div className="section-title"><div><h2>綜合智能能力 × API 每任務成本</h2><p>只繪製相同綜合智能指數版本且同時有分數與正值成本的模型。{chartData[0] ? `目前顯示版本 ${comparableCostPoints(filtered)[0]?.benchmarkVersion}。` : ''}</p></div></div>
-      {chartData.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={300}><ScatterChart margin={{ top: 12, right: 18, bottom: 18, left: 8 }}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="x" name="每任務成本（美元）" tickFormatter={(value) => `$${value}`} label={{ value: '智能評測每任務 API 成本（美元）', position: 'insideBottom', offset: -10 }}/><YAxis type="number" dataKey="y" name="綜合智能指數" label={{ value: '綜合智能指數', angle: -90, position: 'insideLeft' }}/><ChartTooltip cursor={{ strokeDasharray: '3 3' }} formatter={(value: number, name) => [name === 'x' ? `$${value}` : value, name === 'x' ? 'API 成本/任務' : '綜合智能指數']}/><Scatter data={chartData} fill="#247d68"/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="目前沒有可比較的成本點" description="相同 Artificial Analysis 版本至少要有兩筆已驗證的分數與每任務 API 成本，才能繪圖。"/>}
+      <details className="chart-disclosure"><summary>查看成本與分數散點圖</summary>{chartData.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={300}><ScatterChart margin={{ top: 12, right: 18, bottom: 18, left: 8 }}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="x" name="每任務成本（美元）" tickFormatter={(value) => `$${value}`} label={{ value: '智能評測每任務 API 成本（美元）', position: 'insideBottom', offset: -10 }}/><YAxis type="number" dataKey="y" name="綜合智能指數" label={{ value: '綜合智能指數', angle: -90, position: 'insideLeft' }}/><ChartTooltip cursor={{ strokeDasharray: '3 3' }} formatter={(value: number, name) => [name === 'x' ? `$${value}` : value, name === 'x' ? 'API 成本/任務' : '綜合智能指數']}/><Scatter data={chartData} fill="#247d68"/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="目前沒有可比較的成本點" description="相同 Artificial Analysis 版本至少要有兩筆已驗證的分數與每任務 API 成本，才能繪圖。"/>}</details>
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>API 每百萬詞元價格</h2><p>輸入、輸出及快取價格分開列示，與兩種基準測試任務成本及訂閱月費分開。</p></div></div><ApiPricingTable models={filtered}/></section>
+    <section className="section-panel"><div className="section-title"><div><h2>API 每百萬詞元價格</h2><p>輸入、輸出及快取價格分開列示，與兩種基準測試任務成本及訂閱月費分開。</p></div></div><details className="data-disclosure"><summary>查看 API 價格、快取費率與來源</summary><ApiPricingTable models={filtered}/></details></section>
     <section className="section-panel">
       <div className="section-title"><div><h2>底層基準測試目錄</h2><p>各項測試保留自己的單位、方法版本與可比性。未取得分數顯示「尚無可靠數據」。</p></div></div>
-      <BenchmarkCatalog snapshot={snapshot} indexId="intelligence" />
+      <details className="data-disclosure"><summary>查看測試單位、版本、權重與限制</summary><BenchmarkCatalog snapshot={snapshot} indexId="intelligence" /></details>
     </section>
   </div>;
 }
@@ -382,15 +478,31 @@ function CodingPage({ snapshot, agents, verifiedOnly }: { snapshot: Snapshot; ag
   const comparable = comparableCodingAgents(verifiedOnly ? officialCodingCostRows(snapshot, agents) : agents);
   const data = comparable.records.map((agent) => ({ name: agentLabel(agent.agent), harness: agent.harness ?? '執行框架未公布', x: agent.cost_per_task_usd!, y: agent.coding_agent_index! }));
   const harnessGroups = [...new Set(data.map((item) => item.harness))];
+  const summaryAgents = agents.slice(0, 6);
   return <div className="page-stack">
     <section className="section-panel">
       <div className="section-title"><div><h2>程式代理指數 {snapshot.index_versions.coding_agent ?? '版本未知'}</h2><p>DeepSWE v1.1、Terminal-Bench 4.0、SWE-Atlas-QnA；三項測試等權，依合併任務指標計分。成本圖只比較相同基準版本及來源類型：{comparable.version ?? MISSING}{comparable.costKind ? ` · ${evidenceLabel(comparable.costKind)}` : ''}。</p></div><a className="button button--quiet" href="https://artificialanalysis.ai/agents/coding-agents" target="_blank" rel="noreferrer">官方程式代理頁面 <ExternalLink size={14}/></a></div>
+      <div className="agent-summary-block">
+        <div className="summary-block-heading"><h3>代理組態摘要</h3><span>{agents.length} 組設定 · 依目前排序</span></div>
+        {summaryAgents.length ? <div className="agent-summary-grid">{summaryAgents.map((agent) => <article className="summary-card" key={agent.id}>
+          <span className="summary-card__eyebrow">{agent.provider === 'openai' ? 'OpenAI' : agent.provider === 'anthropic' ? 'Anthropic' : agent.provider === 'google' ? 'Google' : 'xAI / X'}</span>
+          <h4>{agentLabel(agent.agent)}</h4>
+          <div className="summary-card__metric"><b>{agent.coding_agent_index ?? MISSING}</b><span>程式代理指數</span></div>
+          <p>{agent.model ?? MISSING} · {reasoningLabel(agent.reasoning_effort)}</p>
+          <p>執行框架：{translateUiText(agent.harness ?? MISSING)}</p>
+          <small>每任務 API 成本：{agent.cost_per_task_usd === null ? MISSING : formatPrice(agent.cost_per_task_usd)} · {evidenceLabel(agent.cost_kind)}</small>
+        </article>)}</div> : <EmptyState title="目前篩選條件沒有代理組態" description="調整公司、模型或來源條件。"/>}
+      </div>
       <div className="agent-note"><Bot size={18}/><p><b>每個資料點代表一組代理設定，不是純模型分數。</b>模型、推理強度、執行框架與測試環境都會影響結果；點的顏色依執行框架分組。Gemini CLI 個人帳號版已停止服務，不代表目前 AI Pro 權益。</p></div>
+      <details className="chart-disclosure"><summary>查看程式代理成本散點圖</summary>
       {data.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={300}><ScatterChart margin={{ top: 12,right:18,bottom:18,left:8 }}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="x" name="每任務 API 成本" tickFormatter={(value) => `$${value}`} label={{ value:'程式代理每任務 API 成本（美元）',position:'insideBottom',offset:-10 }}/><YAxis type="number" dataKey="y" name="程式代理指數" label={{ value:'程式代理指數',angle:-90,position:'insideLeft' }}/><ChartTooltip formatter={(value: number,name)=>[name==='x'?`$${value}`:value,name==='x'?'每任務 API 成本':'程式代理指數']} labelFormatter={(_,payload)=>`${payload?.[0]?.payload?.name ?? ''} · ${payload?.[0]?.payload?.harness ?? ''}`}/>{harnessGroups.map((harness, index) => <Scatter key={harness} name={translateUiText(harness)} data={data.filter((item) => item.harness === harness)} fill={CHART_COLORS[index % CHART_COLORS.length]}/>) }<Legend/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="尚無可核對的代理組態分數" description="程式代理 API 尚未提供可用的授權匯入端點；目前採用附來源與版本的人工匯入流程。只有記錄官方來源、組態與日期的資料才會納入比較。"/>}
+      </details>
+      <details className="data-disclosure"><summary>完整代理組態、詞元、分數來源與日期（{agents.length} 組）</summary>
       <div className="table-scroll"><table className="data-table coding-table"><thead><tr><th>代理／執行框架</th><th>模型／推理強度</th><th>程式代理指數</th><th>底層測試結果</th><th>基準版本</th><th>每任務平均詞元數</th><th>輸入／快取／輸出詞元</th><th>平均執行時間</th><th>程式代理每任務 API 成本</th><th>更新日／來源／備註</th></tr></thead><tbody>{agents.length ? agents.map((agent) => <tr key={agent.id}><td><b>{agentLabel(agent.agent)}</b><small>公司：{agent.provider === 'openai' ? 'OpenAI' : agent.provider === 'anthropic' ? 'Anthropic' : agent.provider === 'google' ? 'Google' : 'xAI / X'}</small><small>{translateUiText(agent.harness ?? MISSING)}</small></td><td>{agent.model ?? MISSING}<small>推理強度：{reasoningLabel(agent.reasoning_effort)}</small></td><td>{agent.coding_agent_index ?? MISSING}<small>資料類型：{evidenceLabel(agent.cost_kind)}</small></td><td>{agent.scores.length ? agent.scores.map((score) => <small className="coding-score" key={`${score.benchmark_id}-${score.version}`}><b>{benchmarkLabel(score.benchmark_id)}</b>：{score.score === null ? MISSING : `${score.score}${score.unit === '%' ? '%' : ` ${translateUiText(score.unit)}`}`} · {score.version ?? '版本未公布'}<br/>{score.method_url ? <a href={score.method_url} target="_blank" rel="noreferrer">官方測試方法</a> : null}</small>) : MISSING}</td><td>{agent.benchmark_version ?? MISSING}</td><td>{agent.average_task_tokens?.toLocaleString() ?? MISSING}</td><td>{agent.input_tokens?.toLocaleString() ?? MISSING}／{agent.cached_tokens?.toLocaleString() ?? MISSING}／{agent.output_tokens?.toLocaleString() ?? MISSING}<small>快取命中率 {agent.cache_hit_percent == null ? MISSING : `${agent.cache_hit_percent}%`}</small></td><td>{agent.average_task_seconds === null ? MISSING : `${agent.average_task_seconds.toFixed(1)} 秒`}</td><td>{agent.cost_per_task_usd === null ? MISSING : formatPrice(agent.cost_per_task_usd)}</td><td>{agent.source_updated_at ?? '來源頁未公布'}<small>核對日 {agent.source_checked_at ?? '見來源核對紀錄'}<br/><a href={agent.source_url} target="_blank" rel="noreferrer">資料來源 <ExternalLink size={10}/></a> · {translateUiText(agent.note)}</small></td></tr>) : <tr><td colSpan={10}><div className="empty-compact">目前篩選條件下沒有已核對匯入的代理組態。保留缺值，不從圖表估讀分數。</div></td></tr>}</tbody></table></div>
+      </details>
       <div className="source-footnote"><span>基準資料採版本化匯入範本，並經資料匯入與驗證流程檢查。</span><SourceLinks ids={['aa-coding-agents','aa-coding-method']} sources={snapshot.sources}/></div>
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>程式代理指數的底層測試</h2><p>列出官方公開比較頁人工核對的組態結果；未公開的測試版本或分數保留缺值。</p></div></div><BenchmarkCatalog snapshot={snapshot} indexId="coding_agent"/></section>
+    <section className="section-panel"><div className="section-title"><div><h2>程式代理指數的底層測試</h2><p>列出官方公開比較頁人工核對的組態結果；未公開的測試版本或分數保留缺值。</p></div></div><details className="data-disclosure"><summary>查看底層測試內容、版本與方法</summary><BenchmarkCatalog snapshot={snapshot} indexId="coding_agent"/></details></section>
   </div>;
 }
 
@@ -404,29 +516,37 @@ function ValuePage({ snapshot, plans, models, agents, verifiedOnly }: { snapshot
   const apiPriceCount = models.filter((model) => model.api_pricing.input_per_million_usd !== null).length;
   const codingCostCount = agents.filter((agent) => agent.cost_per_task_usd !== null).length;
   const frontierIds = new Set(frontier.map((point) => point.id));
+  const topIntelligence = [...points].sort((a, b) => (intelligenceEfficiency(models.find((model) => model.id === b.id)!, b.benchmarkVersion) ?? -Infinity) - (intelligenceEfficiency(models.find((model) => model.id === a.id)!, a.benchmarkVersion) ?? -Infinity)).slice(0, 6);
+  const topCoding = [...codingPoints].sort((a, b) => (b.coding_agent_index! / b.cost_per_task_usd!) - (a.coding_agent_index! / a.cost_per_task_usd!)).slice(0, 6);
   return <div className="page-stack">
     <section className="section-panel"><div className="section-title"><div><h2>綜合智能能力 × 每任務 API 成本</h2><p>目前篩選結果：{models.length} 個模型；有智能評測每任務成本 {intelligenceCostCount} 個。圖表與表格只納入相同評測版本。</p></div></div>
-      {points.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={310}><ScatterChart margin={{top:12,right:18,bottom:18,left:8}}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="cost" name="每任務 API 成本（美元）" tickFormatter={(v)=>`$${v}`} label={{value:'智能評測每任務 API 成本（美元）',position:'insideBottom',offset:-10}}/><YAxis type="number" dataKey="score" name="綜合智能指數" label={{value:'綜合智能指數',angle:-90,position:'insideLeft'}}/><ChartTooltip formatter={(v:number,n)=>[n==='cost'?`$${v}`:v,n==='cost'?'每任務成本':'綜合智能指數']}/><Scatter name="所有模型" data={points.map(p=>({...p,cost:p.cost,score:p.score}))} fill="#8c939d"/><Scatter name="帕累托前緣" data={frontier.map(p=>({...p,cost:p.cost,score:p.score}))} fill="#247d68" shape="star"/><Legend/></ScatterChart></ResponsiveContainer><p className="chart-caption">帕累托前緣：在同一評測版本中，沒有其他模型同時分數更高且成本更低。</p></div> : <EmptyState title="尚無可比較的智能評測成本資料" description="需要相同 Artificial Analysis 評測版本的模型分數與正值任務成本，才會納入圖表和效率比較。"/>}
+      <div className="value-summary-block"><div className="summary-block-heading"><h3>智能評測每美元效率摘要</h3><span>{points.length} 個同版本可比較模型</span></div>{topIntelligence.length ? <div className="value-summary-grid">{topIntelligence.map((point) => { const model = models.find((item) => item.id === point.id); const efficiency = model ? intelligenceEfficiency(model, point.benchmarkVersion) : null; return <article className="summary-card" key={point.id}><span className="summary-card__eyebrow">{model?.provider ?? ''}</span><h4>{point.name}</h4><div className="summary-card__metric"><b>{efficiency === null ? MISSING : efficiency.toFixed(2)}</b><span>綜合智能指數／美元</span></div><p>指數 {point.score ?? MISSING} · 每任務成本 {point.cost === null ? MISSING : formatPrice(point.cost)}</p><small>同一評測版本 {point.benchmarkVersion ?? MISSING}{frontierIds.has(point.id) ? ' · 帕累托前緣' : ''}</small></article>; })}</div> : <EmptyState title="尚無可比較的智能評測成本資料" description="需要相同 Artificial Analysis 評測版本的模型分數與正值任務成本，才會納入效率比較。"/>}</div>
+      <details className="chart-disclosure"><summary>查看智能能力與每任務成本散點圖</summary>{points.length > 1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={310}><ScatterChart margin={{top:12,right:18,bottom:18,left:8}}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="cost" name="每任務 API 成本（美元）" tickFormatter={(v)=>`$${v}`} label={{value:'智能評測每任務 API 成本（美元）',position:'insideBottom',offset:-10}}/><YAxis type="number" dataKey="score" name="綜合智能指數" label={{value:'綜合智能指數',angle:-90,position:'insideLeft'}}/><ChartTooltip formatter={(v:number,n)=>[n==='cost'?`$${v}`:v,n==='cost'?'每任務成本':'綜合智能指數']}/><Scatter name="所有模型" data={points.map(p=>({...p,cost:p.cost,score:p.score}))} fill="#8c939d"/><Scatter name="帕累托前緣" data={frontier.map(p=>({...p,cost:p.cost,score:p.score}))} fill="#247d68" shape="star"/><Legend/></ScatterChart></ResponsiveContainer><p className="chart-caption">帕累托前緣：在同一評測版本中，沒有其他模型同時分數更高且成本更低。</p></div> : <EmptyState title="尚無可比較的智能評測成本資料" description="需要相同 Artificial Analysis 評測版本的模型分數與正值任務成本，才會納入圖表和效率比較。"/>}</details>
+      <details className="data-disclosure"><summary>完整智能模型成本與效率表（{points.length} 個模型）</summary>
       <div className="table-scroll"><table className="data-table value-table"><thead><tr><th>模型</th><th>綜合智能指數</th><th>評測版本</th><th>智能評測每任務 API 成本（美元）</th><th>每美元智能指數</th><th>帕累托前緣</th></tr></thead><tbody>{points.length ? points.map((point) => { const model = models.find((item) => item.id === point.id); const efficiency = model ? intelligenceEfficiency(model, point.benchmarkVersion) : null; return <tr key={point.id}><td><b>{point.name}</b><small>{model?.provider ?? ''}</small></td><td>{point.score ?? MISSING}</td><td>{point.benchmarkVersion ?? MISSING}</td><td>{point.cost === null ? MISSING : formatPrice(point.cost)}</td><td>{efficiency === null ? MISSING : efficiency.toFixed(2)}</td><td>{frontierIds.has(point.id) ? '是' : '否'}</td></tr>; }) : <tr><td colSpan={6}><div className="empty-compact">目前沒有相同評測版本下可比較的模型成本資料。</div></td></tr>}</tbody></table></div>
+      </details>
     </section>
     <section className="section-panel"><div className="section-title"><div><h2>程式代理能力 × 每任務 API 成本</h2><p>僅比較相同評測版本 {codingComparison.version ?? MISSING}、相同來源類型 {evidenceLabel(codingComparison.costKind)}；顏色依執行框架分組。此成本不換算為訂閱可執行任務數。</p></div></div>
-      {codingPoints.length>1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={280}><ScatterChart margin={{top:12,right:18,bottom:18,left:8}}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="cost_per_task_usd" name="每任務 API 成本" tickFormatter={(v)=>`$${v}`} label={{value:'程式代理每任務 API 成本（美元）',position:'insideBottom',offset:-10}}/><YAxis type="number" dataKey="coding_agent_index" name="程式代理指數" label={{value:'程式代理指數',angle:-90,position:'insideLeft'}}/><ChartTooltip formatter={(v:number,n)=>[n==='cost_per_task_usd'?`$${v}`:v,n==='cost_per_task_usd'?'程式代理每任務成本':'程式代理指數']} labelFormatter={(_,payload)=>`${agentLabel(payload?.[0]?.payload?.agent ?? '')} · ${translateUiText(payload?.[0]?.payload?.harness ?? '')}`}/>{codingHarnesses.map((harness,index)=><Scatter key={harness} name={translateUiText(harness)} data={codingPoints.filter((agent)=> (agent.harness ?? '執行框架未公布')===harness)} fill={CHART_COLORS[index%CHART_COLORS.length]}/>)}<Legend/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="尚無相同版本的程式代理成本資料" description="圖表只比較相同評測版本和成本來源類型的代理組態。"/>}
+      <div className="value-summary-block"><div className="summary-block-heading"><h3>程式代理每美元效率摘要</h3><span>{codingPoints.length} 組同版本、同來源設定</span></div>{topCoding.length ? <div className="value-summary-grid">{topCoding.map((agent) => <article className="summary-card" key={agent.id}><span className="summary-card__eyebrow">{agent.provider === 'openai' ? 'OpenAI' : agent.provider === 'anthropic' ? 'Anthropic' : agent.provider === 'google' ? 'Google' : 'xAI / X'}</span><h4>{agentLabel(agent.agent)}</h4><div className="summary-card__metric"><b>{(agent.coding_agent_index! / agent.cost_per_task_usd!).toFixed(2)}</b><span>程式代理指數／美元</span></div><p>{agent.model ?? MISSING} · {translateUiText(agent.harness ?? MISSING)}</p><small>指數 {agent.coding_agent_index} · 每任務成本 {formatPrice(agent.cost_per_task_usd)} · {evidenceLabel(agent.cost_kind)}</small></article>)}</div> : <EmptyState title="尚無相同版本的程式代理成本資料" description="摘要只列相同評測版本和來源類型下的代理組態。"/>}</div>
+      <details className="chart-disclosure"><summary>查看程式代理能力與成本散點圖</summary>{codingPoints.length>1 ? <div className="chart-box"><ResponsiveContainer width="100%" height={280}><ScatterChart margin={{top:12,right:18,bottom:18,left:8}}><CartesianGrid strokeDasharray="3 3" stroke="#e6e9eb"/><XAxis type="number" dataKey="cost_per_task_usd" name="每任務 API 成本" tickFormatter={(v)=>`$${v}`} label={{value:'程式代理每任務 API 成本（美元）',position:'insideBottom',offset:-10}}/><YAxis type="number" dataKey="coding_agent_index" name="程式代理指數" label={{value:'程式代理指數',angle:-90,position:'insideLeft'}}/><ChartTooltip formatter={(v:number,n)=>[n==='cost_per_task_usd'?`$${v}`:v,n==='cost_per_task_usd'?'程式代理每任務成本':'程式代理指數']} labelFormatter={(_,payload)=>`${agentLabel(payload?.[0]?.payload?.agent ?? '')} · ${translateUiText(payload?.[0]?.payload?.harness ?? '')}`}/>{codingHarnesses.map((harness,index)=><Scatter key={harness} name={translateUiText(harness)} data={codingPoints.filter((agent)=> (agent.harness ?? '執行框架未公布')===harness)} fill={CHART_COLORS[index%CHART_COLORS.length]}/>)}<Legend/></ScatterChart></ResponsiveContainer></div> : <EmptyState title="尚無相同版本的程式代理成本資料" description="圖表只比較相同評測版本和成本來源類型的代理組態。"/>}</details>
+      <details className="data-disclosure"><summary>完整代理詞元、時間、成本與效率表（{codingPoints.length} 組）</summary>
       <div className="table-scroll"><table className="data-table value-table"><thead><tr><th>代理組態</th><th>模型／推理強度</th><th>執行框架</th><th>程式代理指數</th><th>每任務詞元數</th><th>平均時間</th><th>程式代理每任務 API 成本（美元）</th><th>每美元代理指數</th><th>評測版本／資料類型</th></tr></thead><tbody>{codingPoints.length ? codingPoints.map((agent) => <tr key={agent.id}><td><b>{agentLabel(agent.agent)}</b></td><td>{agent.model ?? MISSING}<small>{reasoningLabel(agent.reasoning_effort)}</small></td><td>{translateUiText(agent.harness ?? MISSING)}</td><td>{agent.coding_agent_index ?? MISSING}</td><td>{agent.average_task_tokens?.toLocaleString() ?? MISSING}<small>輸入／快取／輸出：{agent.input_tokens?.toLocaleString() ?? MISSING}／{agent.cached_tokens?.toLocaleString() ?? MISSING}／{agent.output_tokens?.toLocaleString() ?? MISSING}</small></td><td>{agent.average_task_seconds === null ? MISSING : `${agent.average_task_seconds.toFixed(1)} 秒`}</td><td>{agent.cost_per_task_usd === null ? MISSING : formatPrice(agent.cost_per_task_usd)}</td><td>{agent.coding_agent_index === null || agent.cost_per_task_usd === null || agent.cost_per_task_usd <= 0 ? MISSING : (agent.coding_agent_index / agent.cost_per_task_usd).toFixed(2)}</td><td>{agent.benchmark_version ?? MISSING}<small>{evidenceLabel(agent.cost_kind)}</small></td></tr>) : <tr><td colSpan={9}><div className="empty-compact">目前沒有相同評測版本與成本來源類型下可比較的代理組態。</div></td></tr>}</tbody></table></div>
+      </details>
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>每美元價值公式與限制</h2><p>只在相同基準版本、成本定義一致且成本大於零時計算。</p></div></div>
+    <section className="section-panel"><div className="section-title"><div><h2>每美元價值公式與限制</h2><p>只在相同基準版本、成本定義一致且成本大於零時計算。</p></div></div><details className="data-disclosure"><summary>查看計算方式與限制</summary>
       <div className="table-scroll"><table className="data-table formula-table"><thead><tr><th>比較項目</th><th>計算公式</th><th>可比較條件</th><th>限制</th></tr></thead><tbody>
         <tr><td><b>智能評測效率</b></td><td>綜合智能指數 ÷ 智能評測每任務 API 成本（美元）</td><td>相同綜合智能指數版本；使用官方公布的每任務成本</td><td>不是訂閱價值，也不代表每月任務額度。</td></tr>
         <tr><td><b>程式代理效率</b></td><td>程式代理指數 ÷ 程式代理每任務 API 成本（美元）</td><td>相同代理評測版本、執行框架與成本定義</td><td>不同代理組態的差異不能全歸因於模型。</td></tr>
         <tr><td><b>消費者訂閱費</b></td><td>月繳價格、年繳總額、年繳月均各自列示</td><td>相同幣別與地區；優惠另行標示</td><td>不以 API 任務成本推算訂閱可執行任務數。</td></tr>
-      </tbody></table></div>
+      </tbody></table></div></details>
     </section>
-    <section className="section-panel"><div className="section-title"><div><h2>三種金錢資料的覆蓋情況</h2><p>API 詞元單價、基準測試任務成本、消費者訂閱月費使用不同欄位與公式。</p></div></div>
+    <section className="section-panel"><div className="section-title"><div><h2>三種金錢資料的覆蓋情況</h2><p>API 詞元單價、基準測試任務成本、消費者訂閱月費使用不同欄位與公式。</p></div></div><details className="data-disclosure"><summary>查看三類成本資料的覆蓋與差異</summary>
       <div className="table-scroll"><table className="data-table coverage-table"><thead><tr><th>金錢資料</th><th>目前覆蓋</th><th>資料內容</th><th>不得混用的項目</th></tr></thead><tbody>
         <tr><td><b>API 每百萬詞元價格</b></td><td>{models.length ? `${apiPriceCount}/${models.length} 個模型` : MISSING}</td><td>輸入、輸出、快取讀取與快取寫入價格。</td><td>不可直接當成每任務成本或訂閱月費。</td></tr>
         <tr><td><b>智能評測每任務 API 成本</b></td><td>{models.length ? `${intelligenceCostCount}/${models.length} 個模型` : MISSING}</td><td>只採官方公布的基準工作負載成本。</td><td>不可換算成訂閱方案保證任務數。</td></tr>
         <tr><td><b>程式代理每任務 API 成本</b></td><td>{agents.length ? `${codingCostCount}/${agents.length} 組代理設定` : MISSING}</td><td>列出平均詞元數、執行時間、模型與執行框架。</td><td>與智能評測成本、訂閱額度分開比較。</td></tr>
         <tr><td><b>訂閱方案月費</b></td><td>{plans.length} 個方案</td><td>另列年繳總額、月均、稅金與地區。</td><td>方案額度依對話、一般代理、程式代理分開記錄。</td></tr>
-      </tbody></table></div>
+      </tbody></table></div></details>
     </section>
   </div>;
 }
@@ -434,6 +554,7 @@ function ValuePage({ snapshot, plans, models, agents, verifiedOnly }: { snapshot
 function App() {
   const { snapshot, status, error, refreshing, reload } = useSnapshot();
   const [tab, setTab] = useState<Tab>('plans');
+  const [planView, setPlanView] = useState<'cards' | 'table'>('cards');
   const [provider, setProvider] = useState('all');
   const [cap, setCap] = useState('30');
   const [quotaFilter, setQuotaFilter] = useState<QuotaCategory | 'all'>('all');
@@ -448,6 +569,7 @@ function App() {
   const [capabilityFilter, setCapabilityFilter] = useState('all');
   const capNumber = cap.trim() === '' ? null : Number(cap);
   const selectedTab = TABS.find((item) => item.id === tab)!;
+  const activeAdvancedFilters = [quotaFilter !== 'all', modelFilter !== 'all', reasoningFilter !== 'all', windowFilter !== 'all', capabilityFilter !== 'all', !verifiedOnly, includeCommunity].filter(Boolean).length;
 
   useEffect(() => { setSort(defaultSortForTab(tab)); }, [tab]);
 
@@ -550,28 +672,38 @@ function App() {
       <div className="header-actions"><span className="region-chip">美國方案參考 · 美元計價</span><button className="icon-button" onClick={() => void reload()} disabled={refreshing} aria-label="重新載入資料"><RefreshCw size={16}/></button></div>
     </header>
     <main className="app-main">
-      <section className="hero"><div><div className="eyebrow">來源可追溯 · 缺值不補零</div><h1>選擇 AI 方案，<br className="mobile-break"/>看清楚能力與用量。</h1><p>比較訂閱產品、實際模型權限與 Artificial Analysis 評測。每個分數與額度都保留版本、來源及限制。</p></div><div className="hero-note"><span className={`api-dot api-dot--${apiStatus.status}`}/><div><b>{apiStatus.status === 'ready' ? 'Artificial Analysis API 已連接' : apiStatus.status === 'stale' ? 'API 更新失敗，保留舊資料' : apiStatus.status === 'error' ? 'API 連線錯誤' : 'Artificial Analysis API 尚未啟用'}</b><small>{apiStatus.message}</small><small>{apiStatus.models_count} 個模型 · 最後資料更新 {apiStatus.data_updated_at ?? '尚無成功匯入'}</small></div></div></section>
-      {apiStatus.status === 'error' || apiStatus.status === 'stale' || apiStatus.methodology_warning ? <div className="alert alert--warning"><b>{apiStatus.methodology_warning ? '評測方法版本需要人工核對' : '來源更新警告'}</b><span>{apiStatus.methodology_warning ?? apiStatus.message}{apiStatus.http_status ? ` HTTP ${apiStatus.http_status}` : ''}{apiStatus.stale_days !== null ? ` · 資料快照已 ${apiStatus.stale_days} 天未更新` : ''}</span></div> : null}
-      {status.source_health?.status === 'warning' && <div className="alert alert--warning"><b>官方來源需要人工核對</b><span>{translateUiText(status.source_health.summary)} · {status.source_health.checked_at}<br/>{status.source_health.warnings.map((item) => `${sourceLabelById(item.source_id, item.label)}：${translateUiText(item.message)}`).join(' · ')}</span></div>}
+      <section className="hero"><div><div className="eyebrow">來源可追溯 · 缺值不補零</div><h1>選擇 AI 方案，<br className="mobile-break"/>看清楚能力與用量。</h1><p>比較訂閱產品、實際模型權限與 Artificial Analysis 評測。每個分數與額度都保留版本、來源及限制。</p></div><details className="hero-note"><summary><span className={`api-dot api-dot--${apiStatus.status}`}/><span><b>{apiStatus.status === 'ready' ? 'Artificial Analysis API 已連接' : apiStatus.status === 'stale' ? 'API 更新失敗，保留舊資料' : apiStatus.status === 'error' ? 'API 連線錯誤' : 'Artificial Analysis API 尚未啟用'}</b><small>{apiStatus.models_count} 個模型 · 最後資料更新 {shortDate(apiStatus.data_updated_at)}</small></span></summary><div className="hero-note__detail"><small>{apiStatus.message}</small></div></details></section>
+      {apiStatus.status === 'error' || apiStatus.status === 'stale' || apiStatus.methodology_warning ? <details className="alert alert--warning alert-disclosure"><summary><b>{apiStatus.methodology_warning ? '評測方法版本需要人工核對' : apiStatus.status === 'stale' ? '來源更新失敗，保留現有快照' : 'Artificial Analysis API 連線錯誤'}</b><span>{apiStatus.http_status ? `HTTP ${apiStatus.http_status} · ` : ''}最後檢查 {shortDate(apiStatus.checked_at)}</span></summary><div className="alert-disclosure__body"><p>{apiStatus.methodology_warning ?? apiStatus.message}</p>{apiStatus.last_error && <p>最新錯誤：{apiStatus.last_error}</p>}{apiStatus.stale_days !== null && <p>資料快照已 {apiStatus.stale_days} 天未更新。</p>}</div></details> : null}
+      {status.source_health?.status === 'warning' && <details className="alert alert--warning alert-disclosure"><summary><b>官方來源需要人工核對</b><span>{status.source_health.warnings.length} 個來源 · 檢查日 {shortDate(status.source_health.checked_at)}</span></summary><div className="alert-disclosure__body"><p>{translateUiText(status.source_health.summary)}</p><ul className="source-warning-list">{status.source_health.warnings.map((item) => <li key={item.source_id}><a href={item.url} target="_blank" rel="noreferrer">{sourceLabelById(item.source_id, item.label)} <ExternalLink size={12}/></a><span>{translateUiText(item.message)}</span></li>)}</ul></div></details>}
       {error && <div className="alert alert--warning">{error}；目前未載入快照。</div>}
-      <nav className="tab-nav" aria-label="比較分頁">{TABS.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => setTab(id)} className={tab === id ? 'tab-button tab-button--active' : 'tab-button'}><Icon size={16}/><span>{label}</span></button>)}</nav>
+      <nav className="tab-nav" aria-label="比較分頁">{TABS.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => { setTab(id); window.scrollTo({ top: 0, behavior: 'auto' }); }} className={tab === id ? 'tab-button tab-button--active' : 'tab-button'}><Icon size={16}/><span>{label}</span></button>)}</nav>
       <section className="toolbar">
-        <div className="toolbar__search"><Search size={16}/><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="搜尋方案、模型或代理…" aria-label="搜尋"/></div>
-        <label><span>公司</span><select value={provider} onChange={(e)=>setProvider(e.target.value)}><option value="all">全部公司</option>{PROVIDERS.map((p)=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label>
-        {tab === 'plans' && <label><span>月費上限</span><div className="cap-input"><span>$</span><input aria-label="月費上限美元" type="number" min="0" value={cap} onChange={(e)=>setCap(e.target.value)}/><span>美元</span></div></label>}
-        {tab === 'plans' && <label><span>額度類別</span><select value={quotaFilter} onChange={(e)=>setQuotaFilter(e.target.value as QuotaCategory|'all')}><option value="all">全部三類</option><option value="chat">對話</option><option value="agent">一般代理</option><option value="coding_agent">程式代理</option></select></label>}
-        {modelOptions.length > 0 && <label><span>模型</span><select value={modelFilter} onChange={(e)=>setModelFilter(e.target.value)}><option value="all">全部模型</option>{modelOptions.map((model)=><option key={model} value={model}>{model}</option>)}</select></label>}
-        {reasoningOptions.length > 0 && <label><span>推理強度</span><select value={reasoningFilter} onChange={(e)=>setReasoningFilter(e.target.value)}><option value="all">全部等級</option>{reasoningOptions.map((mode)=><option key={mode} value={mode}>{reasoningLabel(mode)}</option>)}</select></label>}
-        {tab === 'plans' && windowOptions.length > 0 && <label><span>額度窗口</span><select value={windowFilter} onChange={(e)=>setWindowFilter(e.target.value)}><option value="all">全部窗口</option>{windowOptions.map((window)=><option key={window} value={window}>{quotaWindow(window)}</option>)}</select></label>}
-        {tab === 'models' && <label><span>能力指標篩選</span><select value={capabilityFilter} onChange={(e)=>setCapabilityFilter(e.target.value)}><option value="all">不依分數篩選</option>{INDEX_KEYS.map((key)=><option key={key} value={key}>{INDEX_LABELS[key].label}</option>)}</select></label>}
-        {tab === 'plans' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="price-low">月費最低</option><option value="price-high">月費最高</option><option value="quota-chat">對話額度可量化資料最多</option><option value="quota-coding">程式代理額度可量化資料最多</option><option value="cost-low" disabled={!hasPlanCostSort}>可用模型評測成本最低</option><option value="speed-high" disabled={!hasPlanSpeedSort}>可用模型輸出最快</option></select>{!hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本或速度資料；暫停這兩種排序。</small>}{!hasPlanCostSort && hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本資料；成本排序暫停。</small>}{hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的速度資料；速度排序暫停。</small>}</label>}
-        {tab === 'models' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">能力最高</option><option value="cost-low">每任務成本最低</option><option value="value-high">每美元效率最高</option></select></label>}
-        {tab === 'coding' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">程式代理指數最高</option><option value="cost-low">每任務成本最低</option></select></label>}
-        <label className="check-filter"><input type="checkbox" checked={verifiedOnly} onChange={(e)=>setVerifiedOnly(e.target.checked)}/><span>只看官方驗證</span></label>
-        <label className="check-filter"><input type="checkbox" checked={includeCommunity} onChange={(e)=>setIncludeCommunity(e.target.checked)}/><span>納入社群實測</span></label>
+        <div className="toolbar__primary">
+          <div className="toolbar__search"><Search size={18}/><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="搜尋方案、模型或代理…" aria-label="搜尋"/></div>
+          <label><span>公司</span><select value={provider} onChange={(e)=>setProvider(e.target.value)}><option value="all">全部公司</option>{PROVIDERS.map((p)=><option key={p.id} value={p.id}>{p.name}</option>)}</select></label>
+          {tab === 'plans' && <label><span>月費上限</span><div className="cap-input"><span>$</span><input aria-label="月費上限美元" type="number" min="0" value={cap} onChange={(e)=>setCap(e.target.value)}/><span>美元</span></div></label>}
+        </div>
+        <details className="advanced-filters">
+          <summary><SlidersHorizontal size={17}/><span>進階篩選</span><span className="advanced-filters__state">{activeAdvancedFilters ? `${activeAdvancedFilters} 項已設定` : verifiedOnly ? '只看官方來源' : '全部來源'}</span></summary>
+          <div className="advanced-filters__grid">
+            {tab === 'plans' && <label><span>額度類別焦點</span><select value={quotaFilter} onChange={(e)=>setQuotaFilter(e.target.value as QuotaCategory|'all')}><option value="all">全部三類</option><option value="chat">對話</option><option value="agent">一般代理</option><option value="coding_agent">程式代理</option></select></label>}
+            {modelOptions.length > 0 && <label><span>模型</span><select value={modelFilter} onChange={(e)=>setModelFilter(e.target.value)}><option value="all">全部模型</option>{modelOptions.map((model)=><option key={model} value={model}>{model}</option>)}</select></label>}
+            {reasoningOptions.length > 0 && <label><span>推理強度</span><select value={reasoningFilter} onChange={(e)=>setReasoningFilter(e.target.value)}><option value="all">全部等級</option>{reasoningOptions.map((mode)=><option key={mode} value={mode}>{reasoningLabel(mode)}</option>)}</select></label>}
+            {tab === 'plans' && windowOptions.length > 0 && <label><span>額度窗口</span><select value={windowFilter} onChange={(e)=>setWindowFilter(e.target.value)}><option value="all">全部窗口</option>{windowOptions.map((window)=><option key={window} value={window}>{quotaWindow(window)}</option>)}</select></label>}
+            {tab === 'models' && <label><span>能力指標篩選</span><select value={capabilityFilter} onChange={(e)=>setCapabilityFilter(e.target.value)}><option value="all">不依分數篩選</option>{INDEX_KEYS.map((key)=><option key={key} value={key}>{INDEX_LABELS[key].label}</option>)}</select></label>}
+            {tab === 'plans' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="price-low">月費最低</option><option value="price-high">月費最高</option><option value="quota-chat">對話額度可量化資料最多</option><option value="quota-coding">程式代理額度可量化資料最多</option><option value="cost-low" disabled={!hasPlanCostSort}>可用模型評測成本最低</option><option value="speed-high" disabled={!hasPlanSpeedSort}>可用模型輸出最快</option></select>{!hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本或速度資料；暫停這兩種排序。</small>}{!hasPlanCostSort && hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本資料；成本排序暫停。</small>}{hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的速度資料；速度排序暫停。</small>}</label>}
+            {tab === 'models' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">能力最高</option><option value="cost-low">每任務成本最低</option><option value="value-high">每美元效率最高</option></select></label>}
+            {tab === 'coding' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">程式代理指數最高</option><option value="cost-low">每任務成本最低</option></select></label>}
+            <label className="check-filter"><input type="checkbox" checked={verifiedOnly} onChange={(e)=>setVerifiedOnly(e.target.checked)}/><span>只看官方驗證</span></label>
+            <label className="check-filter"><input type="checkbox" checked={includeCommunity} onChange={(e)=>setIncludeCommunity(e.target.checked)}/><span>納入社群實測</span></label>
+          </div>
+        </details>
       </section>
-      <div className="tab-heading"><div><h2>{selectedTab.label}</h2><p>{selectedTab.subtitle}</p></div><span className="date-chip">資料基準日 {snapshot.as_of}</span></div>
-      {tab==='plans' && <div className="page-stack">{plans.length ? <><div className="plan-grid">{plans.map((plan)=><PlanCard key={plan.id} plan={plan} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly}/>)}</div><section className="section-panel compact-plan-panel"><div className="section-title"><div><h2>精簡比較表</h2></div></div><CompactPlanTable plans={plans} snapshot={snapshot} verifiedOnly={verifiedOnly}/></section></> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}</div>}
+      <div className={`tab-heading ${tab === 'plans' ? 'tab-heading--plans' : ''}`}><div><h2>{selectedTab.label}</h2><p>{selectedTab.subtitle}</p></div><span className="date-chip">資料基準日 {snapshot.as_of}</span></div>
+      {tab==='plans' && <div className="page-stack">
+        <div className="plan-view-toolbar"><span>方案呈現方式</span><div role="group" aria-label="方案呈現方式"><button type="button" aria-pressed={planView === 'cards'} className={planView === 'cards' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('cards')}>方案卡片</button><button type="button" aria-pressed={planView === 'table'} className={planView === 'table' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('table')}>精簡表格</button></div><small>三類額度分開列示，不相加</small></div>
+        {plans.length ? planView === 'cards' ? <div className="plan-grid">{plans.map((plan)=><PlanCard key={plan.id} plan={plan} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly}/>)}</div> : <section className="section-panel compact-plan-panel"><CompactPlanTable plans={plans} snapshot={snapshot} verifiedOnly={verifiedOnly}/></section> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}
+      </div>}
       {tab==='models' && <ModelPage snapshot={snapshot} models={models} activeIndex={activeIndex} onIndex={setActiveIndex} providerFilter={provider}/>}
       {tab==='coding' && <CodingPage snapshot={snapshot} agents={agents} verifiedOnly={verifiedOnly}/>}
       {tab==='value' && <ValuePage snapshot={snapshot} plans={plans} models={models} agents={agents} verifiedOnly={verifiedOnly}/>}

@@ -50,6 +50,9 @@ jobs:
           AA_API_KEY: ${{ secrets.Artificial_Analysis_API || vars.Artificial_Analysis_API }}
         run: python scripts/update_data.py
 
+      - name: Apply reviewed plans, quotas and benchmark catalog
+        run: python scripts/apply_curated_data.py
+
       - name: Check official public source changes
         run: python scripts/source_health.py
 

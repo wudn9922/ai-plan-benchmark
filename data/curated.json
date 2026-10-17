@@ -1,0 +1,3638 @@
+{
+  "schema_version": "1.0.0",
+  "region": "US",
+  "currency": "USD",
+  "index_versions": {
+    "intelligence_methodology": "v4.3.2",
+    "coding": null,
+    "coding_agent": "v1.5"
+  },
+  "sources": [
+    {
+      "id": "aa-free-api",
+      "label": "Artificial Analysis Free Language Models API",
+      "url": "https://artificialanalysis.ai/data-api/docs",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "API key is injected by GitHub Actions at runtime. The public snapshot reflects the last successful authorized API update; no credential is included in this repository or frontend."
+    },
+    {
+      "id": "aa-api-reference",
+      "label": "Artificial Analysis API Reference",
+      "url": "https://artificialanalysis.ai/data-api/docs/reference",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "The free endpoint publishes Intelligence, Coding, Agentic and six Capability Index fields, plus selected price and performance fields; it does not provide the full Pro benchmark set or every per-evaluation score."
+    },
+    {
+      "id": "aa-free-endpoint",
+      "label": "Artificial Analysis Free Models Endpoint",
+      "url": "https://artificialanalysis.ai/api/v2/language/models/free",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global"
+    },
+    {
+      "id": "aa-method",
+      "label": "Artificial Analysis Intelligence Benchmark Methodology",
+      "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global"
+    },
+    {
+      "id": "aa-coding-agents",
+      "label": "Artificial Analysis Coding Agents",
+      "url": "https://artificialanalysis.ai/agents/coding-agents",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "Current public Coding Agent Index v1.5 comparison and dataset page; metric is an Agent + model + Harness result."
+    },
+    {
+      "id": "aa-coding-method",
+      "label": "Artificial Analysis Coding Agent Benchmark Methodology",
+      "url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "Current v1.5 method uses DeepSWE v1.1, Terminal-Bench 4.0 and SWE-Atlas-QnA with equal benchmark weighting; compare full agent configurations."
+    },
+    {
+      "id": "openai-go",
+      "label": "ChatGPT Go plan",
+      "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "openai-plus",
+      "label": "ChatGPT Plus plan",
+      "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "openai-codex",
+      "label": "Using Codex with a ChatGPT plan",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "openai-codex-usage",
+      "label": "Codex usage with GPT-6 Astra and GPT-6 models",
+      "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Local-message ranges are estimates, not guarantees; cloud tasks can consume more and weekly caps may apply."
+    },
+    {
+      "id": "openai-models",
+      "label": "Models in ChatGPT",
+      "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "anthropic-pricing",
+      "label": "Claude pricing",
+      "url": "https://claude.com/pricing",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "anthropic-pro-cost",
+      "label": "Claude Pro billing",
+      "url": "https://claude.com/pricing",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "The former Help Center billing URL returned 404 after migration. Current Claude pricing page confirms Pro at $20 monthly or $200 billed annually ($16.67/month average), excluding applicable tax."
+    },
+    {
+      "id": "anthropic-code",
+      "label": "Claude Code with a Claude plan",
+      "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Pro and Max include Claude Code. Chat and Claude Code usage is shared; usage limits are variable and may include five-hour session and weekly limits."
+    },
+    {
+      "id": "google-plans",
+      "label": "Google AI plans",
+      "url": "https://one.google.com/about/google-ai-plans/",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Current US plan matrix lists AI Plus $4.99/mo, AI Pro $19.99/mo, relative 2x/4x usage, model access and separate Antigravity/Jules/Chrome limits."
+    },
+    {
+      "id": "google-ai-plus-current",
+      "label": "Google AI subscriptions (current US pricing and model access)",
+      "url": "https://gemini.google/subscriptions/?currencyCode=USD",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Current US Gemini plan page; AI Plus gets Gemini 3.6 Flash, AI Pro adds Gemini 4 Argon and Gemini 3.1 Pro access. Exact usage is model and feature dependent."
+    },
+    {
+      "id": "google-annual-plus",
+      "label": "Google AI Plus annual billing availability",
+      "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Annual billing can be selected; public source did not expose a static US annual amount."
+    },
+    {
+      "id": "google-annual-pro",
+      "label": "Google AI Pro annual billing availability",
+      "url": "https://support.google.com/googleone/answer/16476811?hl=en",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Annual billing can be selected; public source did not expose a static US annual amount."
+    },
+    {
+      "id": "google-student-offer",
+      "label": "Google AI student offer",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "Eligibility differs by country; redemption through 2026-12-31. Not a standard list price."
+    },
+    {
+      "id": "google-gemini-limits",
+      "label": "Gemini Apps usage limits",
+      "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "google-one-benefits",
+      "label": "Google AI plan benefits",
+      "url": "https://support.google.com/googleone/answer/14534406?hl=en",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "gemini-cli-deprecation",
+      "label": "Gemini CLI and individual Code Assist deprecation",
+      "url": "https://developers.google.com/gemini-code-assist/docs/deprecations",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "Consumer Google account access to Gemini CLI/IDE stopped 2026-06-18; legacy product, not counted as a current AI Pro entitlement."
+    },
+    {
+      "id": "gemini-cli-deprecation-individuals",
+      "label": "Individual users deprecation details",
+      "url": "https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global"
+    },
+    {
+      "id": "xai-pricing",
+      "label": "xAI X Subscription pricing",
+      "url": "https://docs.x.ai/x-subscription/pricing",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Current self-serve plan matrix: Plus $8/mo or $80/year, Premium $30/mo or $300/year; usage pool refreshes weekly and covers Grok models across Grok and Cursor. Third-party Cursor models are excluded; tax is added where required."
+    },
+    {
+      "id": "xai-grok",
+      "label": "Grok overview and usage",
+      "url": "https://docs.x.ai/grok/overview",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global"
+    },
+    {
+      "id": "xai-faq",
+      "label": "Grok FAQ",
+      "url": "https://docs.x.ai/grok/faq",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global"
+    },
+    {
+      "id": "xai-build",
+      "label": "Grok Build CLI announcement",
+      "url": "https://x.ai/news/grok-build-cli",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global"
+    },
+    {
+      "id": "xai-grok-bot",
+      "label": "Grok Bot plan availability",
+      "url": "https://docs.x.ai/x-subscription/grok-bot",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "xai-build-all",
+      "label": "Grok Build web and mobile availability",
+      "url": "https://x.ai/news/grok-build-for-everyone",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "Grok Build web/mobile availability is distinct from Grok Build CLI eligibility."
+    },
+    {
+      "id": "google-ai-plan-benefits",
+      "label": "Google AI Plus / Pro / Ultra benefits",
+      "url": "https://one.google.com/about/google-ai-plans/",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Current plans list Jules task limits separately from Antigravity usage limits."
+    },
+    {
+      "id": "google-jules",
+      "label": "Jules asynchronous coding agent",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "Jules public availability; paid plans include higher or expanded limits."
+    },
+    {
+      "id": "openai-agent-mode",
+      "label": "ChatGPT agent mode availability and limits",
+      "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Current article says Agent mode is no longer available and directs users to ChatGPT Work."
+    },
+    {
+      "id": "openai-work",
+      "label": "ChatGPT Work and Codex",
+      "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US"
+    },
+    {
+      "id": "openai-work-rollout",
+      "label": "ChatGPT Work rollout on paid plans",
+      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Earlier rollout documentation described an initial exclusion; current ChatGPT pricing page now lists limited Free and Go Work desktop access. Use current pricing page for present plan mapping."
+    },
+    {
+      "id": "openai-deep-research",
+      "label": "Deep research in ChatGPT",
+      "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Current ChatGPT pricing page lists limited Deep Research access on Free and Go; exact allowance varies by usage counters and may change."
+    },
+    {
+      "id": "openai-flexible-usage",
+      "label": "Flexible usage credits for ChatGPT personal plans",
+      "url": "https://help.openai.com/en/articles/12642688",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Plus/Pro supported agentic products may share usage and credit pool."
+    },
+    {
+      "id": "anthropic-research",
+      "label": "Use Research on Claude",
+      "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Research is for paid plans; it shares standard Claude conversation limits and can consume them faster. The current article says it uses Opus 5.5 with fallback to Opus 4.8."
+    },
+    {
+      "id": "xai-pricing-web",
+      "label": "xAI X Subscription plans and pricing",
+      "url": "https://x.ai/pricing",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Current official marketing/pricing page for the new self-serve X Subscription plans; existing legacy X and SuperGrok subscriptions continue separately."
+    },
+    {
+      "id": "openai-current-pricing",
+      "label": "ChatGPT current plan comparison",
+      "url": "https://chatgpt.com/pricing/?locale=en-US",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Current US pricing table confirms Free/Go everyday text chat and limited Codex/Work access; fixed message counts vary by feature and model."
+    },
+    {
+      "id": "aa-public-gemini-argon-comparison",
+      "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
+      "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "Public page snapshot manually reviewed 2026-10-16. Not fetched through the authenticated Free API connector."
+    },
+    {
+      "id": "aa-public-gpt-6-luna-high-comparison",
+      "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
+      "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "Public page snapshot manually reviewed 2026-10-16. Not fetched through the authenticated Free API connector."
+    },
+    {
+      "id": "aa-coding-agent-import-v1.5-2026-10-16",
+      "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
+      "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "Global",
+      "notes": "版本化匯入檔建立於 2026-10-16；其來源比較頁及兩組官方組態已於 2026-10-17 再次核對，分數未變。"
+    },
+    {
+      "id": "anthropic-cowork",
+      "label": "Claude Cowork transition and rollout",
+      "url": "https://claude.com/blog/cowork-is-now-claude",
+      "kind": "official",
+      "checked_at": "2026-10-17",
+      "region": "US",
+      "notes": "Cowork is now a Claude capability and is rolling out to Pro and Max first; more plans will follow. The transition announcement does not publish a separate fixed task allowance."
+    }
+  ],
+  "plans": [
+    {
+      "id": "openai-free",
+      "provider": "openai",
+      "provider_name": "OpenAI",
+      "name": "ChatGPT Free",
+      "tier": "free",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 0,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "varies",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "openai-models",
+        "openai-codex",
+        "openai-deep-research",
+        "openai-work",
+        "openai-agent-mode",
+        "openai-current-pricing"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "oa-free-chat",
+        "oa-free-codex",
+        "openai-free-agent-unknown",
+        "oa-free-work-agent-unknown"
+      ],
+      "note": "Free 方案；可用性與部分功能會依地區、模型及推出狀態變動。",
+      "products": [
+        {
+          "product": "ChatGPT",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "GPT-6 Luna",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "方案頁確認 Free 可用 GPT-6 Luna；Go 的實際模型選項依帳號介面。AA 評測含多種推理強度，未把其分數當成方案體驗保證。"
+            }
+          ],
+          "quota_ids": [
+            "oa-free-chat"
+          ],
+          "source_ids": [
+            "openai-models"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Codex Local",
+          "included": true,
+          "surface": [
+            "cli",
+            "desktop"
+          ],
+          "model_access": [
+            {
+              "model": "GPT-5.6 Terra",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "限量 Codex / Work 桌面使用；不等同 Codex Cloud。"
+            }
+          ],
+          "quota_ids": [
+            "oa-free-codex"
+          ],
+          "source_ids": [
+            "openai-codex"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Codex Cloud",
+          "included": null,
+          "surface": [
+            "cloud"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "openai-codex",
+            "openai-current-pricing"
+          ],
+          "rollout": "unknown",
+          "note": "方案頁只確認有限 Codex 權益；沒有將本機使用權推定為 Cloud 任務權益，雲端資格依帳號產品介面確認。"
+        },
+        {
+          "product": "ChatGPT Agent mode",
+          "included": false,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "openai-agent-mode"
+          ],
+          "rollout": "discontinued",
+          "note": "舊 Agent mode 已停止；官方改引導使用 ChatGPT Work。"
+        },
+        {
+          "product": "ChatGPT Deep Research",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "openai-free-agent-unknown"
+          ],
+          "source_ids": [
+            "openai-deep-research",
+            "openai-current-pricing"
+          ],
+          "rollout": "limited",
+          "note": "Free／Go 有有限 Deep Research 權益；官方沒有公布固定任務數，實際用量依帳號內計數器。"
+        },
+        {
+          "product": "ChatGPT Work",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "GPT-5.6 Terra",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "Free/Go 的有限桌面 Work/Codex 權限；可用範圍依帳號推出狀態。"
+            }
+          ],
+          "quota_ids": [
+            "oa-free-work-agent-unknown"
+          ],
+          "source_ids": [
+            "openai-work-rollout",
+            "openai-current-pricing"
+          ],
+          "rollout": "limited",
+          "note": "Free／Go 為有限桌面版 Work 存取；目前功能與模型依帳號推出狀態。"
+        }
+      ]
+    },
+    {
+      "id": "openai-go",
+      "provider": "openai",
+      "provider_name": "OpenAI",
+      "name": "ChatGPT Go",
+      "tier": "paid",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 8,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "varies",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "openai-go",
+        "openai-models",
+        "openai-codex",
+        "openai-deep-research",
+        "openai-work",
+        "openai-agent-mode",
+        "openai-current-pricing"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "oa-go-chat",
+        "oa-go-codex",
+        "openai-go-agent-unknown",
+        "oa-go-work-agent-unknown"
+      ],
+      "note": "US 月繳參考價；地區可用性和稅金依結帳頁為準。",
+      "products": [
+        {
+          "product": "ChatGPT",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "GPT-6 Luna",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "方案頁確認 Free 可用 GPT-6 Luna；Go 的實際模型選項依帳號介面。AA 評測含多種推理強度，未把其分數當成方案體驗保證。"
+            }
+          ],
+          "quota_ids": [
+            "oa-go-chat"
+          ],
+          "source_ids": [
+            "openai-go",
+            "openai-models"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Codex Local",
+          "included": true,
+          "surface": [
+            "cli",
+            "desktop"
+          ],
+          "model_access": [
+            {
+              "model": "GPT-5.6 Terra",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "限量 Codex / Work 桌面使用；不等同 Codex Cloud。"
+            }
+          ],
+          "quota_ids": [
+            "oa-go-codex"
+          ],
+          "source_ids": [
+            "openai-codex"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Codex Cloud",
+          "included": null,
+          "surface": [
+            "cloud"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "openai-codex",
+            "openai-current-pricing"
+          ],
+          "rollout": "unknown",
+          "note": "方案頁只確認有限 Codex 權益；沒有將本機使用權推定為 Cloud 任務權益，雲端資格依帳號產品介面確認。"
+        },
+        {
+          "product": "ChatGPT Agent mode",
+          "included": false,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "openai-agent-mode"
+          ],
+          "rollout": "discontinued",
+          "note": "舊 Agent mode 已停止；官方改引導使用 ChatGPT Work。"
+        },
+        {
+          "product": "ChatGPT Deep Research",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "openai-go-agent-unknown"
+          ],
+          "source_ids": [
+            "openai-deep-research",
+            "openai-current-pricing"
+          ],
+          "rollout": "limited",
+          "note": "Free／Go 有有限 Deep Research 權益；官方沒有公布固定任務數，實際用量依帳號內計數器。"
+        },
+        {
+          "product": "ChatGPT Work",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "GPT-5.6 Terra",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "Free/Go 的有限桌面 Work/Codex 權限；可用範圍依帳號推出狀態。"
+            }
+          ],
+          "quota_ids": [
+            "oa-go-work-agent-unknown"
+          ],
+          "source_ids": [
+            "openai-work-rollout",
+            "openai-current-pricing"
+          ],
+          "rollout": "limited",
+          "note": "Free／Go 為有限桌面版 Work 存取；目前功能與模型依帳號推出狀態。"
+        }
+      ]
+    },
+    {
+      "id": "openai-plus",
+      "provider": "openai",
+      "provider_name": "OpenAI",
+      "name": "ChatGPT Plus",
+      "tier": "paid",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 20,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "varies",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "openai-plus",
+        "openai-models",
+        "openai-codex",
+        "openai-deep-research",
+        "openai-work",
+        "openai-agent-mode",
+        "openai-flexible-usage",
+        "openai-work-rollout",
+        "openai-current-pricing"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "oa-plus-chat",
+        "oa-plus-codex-astra",
+        "oa-plus-codex-sol61",
+        "oa-plus-codex-sol",
+        "oa-plus-codex-luna",
+        "oa-plus-codex-weekly",
+        "openai-plus-agent-unknown",
+        "oa-plus-agent-work"
+      ],
+      "note": "美國月繳參考價；Codex local 與 Work 共用用量。Cloud 任務消耗可能較高，且可能另受 weekly cap 限制。",
+      "products": [
+        {
+          "product": "ChatGPT",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "依 ChatGPT 帳號當前模型選單",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "模型及選擇權限會動態變更；請勿套用其他版本的分數。"
+            }
+          ],
+          "quota_ids": [
+            "oa-plus-chat"
+          ],
+          "source_ids": [
+            "openai-plus",
+            "openai-models"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Codex Local",
+          "included": true,
+          "surface": [
+            "cli",
+            "desktop"
+          ],
+          "model_access": [
+            {
+              "model": "GPT-6 Astra",
+              "reasoning_modes": [
+                "xHigh"
+              ],
+              "mapping": "approximate",
+              "note": null
+            },
+            {
+              "model": "GPT-6.1 Sol",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": null
+            },
+            {
+              "model": "GPT-6 Sol",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": null
+            },
+            {
+              "model": "GPT-6 Luna",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "oa-plus-codex-astra",
+            "oa-plus-codex-sol61",
+            "oa-plus-codex-sol",
+            "oa-plus-codex-luna",
+            "oa-plus-codex-weekly"
+          ],
+          "source_ids": [
+            "openai-codex",
+            "openai-codex-usage",
+            "openai-current-pricing"
+          ],
+          "rollout": "generally_available",
+          "note": "官方列出模型與 Local messages 估計；平台模型標籤與 AA benchmark 精確版本尚未映射。"
+        },
+        {
+          "product": "Codex Cloud",
+          "included": true,
+          "surface": [
+            "cloud"
+          ],
+          "model_access": [
+            {
+              "model": "Codex Cloud 可選模型依帳號介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "oa-plus-codex-weekly"
+          ],
+          "source_ids": [
+            "openai-codex",
+            "openai-codex-usage"
+          ],
+          "rollout": "generally_available",
+          "note": "Cloud 任務可能消耗較多共用額度，Local messages 次數估計不可套用到 Cloud。"
+        },
+        {
+          "product": "ChatGPT Agent mode",
+          "included": false,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "openai-agent-mode"
+          ],
+          "rollout": "discontinued",
+          "note": "舊 Agent mode 已停止；官方改引導使用 ChatGPT Work。"
+        },
+        {
+          "product": "ChatGPT Deep Research",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "oa-plus-agent-work"
+          ],
+          "source_ids": [
+            "openai-deep-research"
+          ],
+          "rollout": "generally_available",
+          "note": "使用量依方案、地區與帳號內 usage counter；Free/Go 的當前權益未以固定數字映射。"
+        },
+        {
+          "product": "ChatGPT Work",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "desktop",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "oa-plus-agent-work"
+          ],
+          "source_ids": [
+            "openai-work",
+            "openai-work-rollout",
+            "openai-flexible-usage"
+          ],
+          "rollout": "limited",
+          "note": "付費方案功能，Plus rollout/工作區設定可能影響可用性；與 Codex 共用 agentic allowance。"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-free",
+      "provider": "anthropic",
+      "provider_name": "Anthropic",
+      "name": "Claude Free",
+      "tier": "free",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 0,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "varies",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "anthropic-pricing",
+        "anthropic-research"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "claude-free-chat",
+        "anthropic-free-agent-unknown"
+      ],
+      "note": "免費方案；固定訊息數未公布，使用量隨工作負載變動。",
+      "products": [
+        {
+          "product": "Claude Chat",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Claude 模型依 Free 帳號當前介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "claude-free-chat"
+          ],
+          "source_ids": [
+            "anthropic-pricing"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Claude Code",
+          "included": false,
+          "surface": [
+            "cli"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "anthropic-code"
+          ],
+          "rollout": "unknown",
+          "note": "Pro 方案官方確認包含 Claude Code；Free 不列為已確認權益。"
+        },
+        {
+          "product": "Claude Research",
+          "included": false,
+          "surface": [
+            "web",
+            "desktop",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "anthropic-free-agent-unknown"
+          ],
+          "source_ids": [
+            "anthropic-research"
+          ],
+          "rollout": "unknown",
+          "note": "Research requires a paid Claude plan."
+        },
+        {
+          "product": "Claude Cowork／代理任務",
+          "included": false,
+          "surface": [
+            "web",
+            "desktop",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "anthropic-cowork"
+          ],
+          "rollout": "limited",
+          "note": "目前公告先向 Pro／Max 推出；尚未確認 Free 已納入。"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-pro",
+      "provider": "anthropic",
+      "provider_name": "Anthropic",
+      "name": "Claude Pro",
+      "tier": "paid",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 20,
+      "annual_monthly_price": 16.67,
+      "annual_billed_total": 200,
+      "tax": "extra",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "anthropic-pricing",
+        "anthropic-pro-cost",
+        "anthropic-code",
+        "anthropic-research",
+        "anthropic-cowork"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "claude-pro-shared",
+        "anthropic-pro-agent-unknown",
+        "anthropic-pro-cowork-unknown",
+        "anthropic-pro-chrome-unknown"
+      ],
+      "note": "Claude Pro 月繳 $20；年繳一次付 $200，月均 $16.67（官方頁約顯示 $17/月）；價格未含適用稅金。Chat、Research 與 Claude Code 都沒有公開保證任務數。",
+      "products": [
+        {
+          "product": "Claude Chat",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Claude 模型依 Pro 帳號當前介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "claude-pro-shared"
+          ],
+          "source_ids": [
+            "anthropic-pricing",
+            "anthropic-code"
+          ],
+          "rollout": "generally_available",
+          "note": "網頁、桌面和手機均可用；固定訊息上限未公布。"
+        },
+        {
+          "product": "Claude Code",
+          "included": true,
+          "surface": [
+            "cli"
+          ],
+          "model_access": [
+            {
+              "model": "Claude Code 可用模型依帳號當前介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "claude-pro-shared"
+          ],
+          "source_ids": [
+            "anthropic-code"
+          ],
+          "rollout": "generally_available",
+          "note": "Pro 包含 Claude Code CLI／相容 IDE；使用量與 Claude conversations 共用，受模型、任務和工作負載影響。"
+        },
+        {
+          "product": "Claude Research",
+          "included": true,
+          "surface": [
+            "web",
+            "desktop",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Claude Opus 5.5（必要時回退 Opus 4.8）",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "Research 可使用這些模型，與對話中手動選擇的模型無關。"
+            }
+          ],
+          "quota_ids": [
+            "anthropic-pro-agent-unknown"
+          ],
+          "source_ids": [
+            "anthropic-research"
+          ],
+          "rollout": "generally_available",
+          "note": "Research 僅含於付費方案；與標準 Claude 對話使用相同限制，但多來源研究可能更快耗用額度。官方當前頁列 Opus 5.5，必要時回退 Opus 4.8。"
+        },
+        {
+          "product": "Claude Cowork／代理任務",
+          "included": true,
+          "surface": [
+            "web",
+            "desktop",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "anthropic-pro-cowork-unknown"
+          ],
+          "source_ids": [
+            "anthropic-cowork",
+            "anthropic-pricing"
+          ],
+          "rollout": "limited",
+          "note": "Cowork 已併入 Claude，正先向 Pro／Max 推出；沒有獨立固定任務配額，使用量以 Claude 方案內用量為準。"
+        },
+        {
+          "product": "Claude in Chrome／瀏覽器代理",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "anthropic-pro-chrome-unknown"
+          ],
+          "source_ids": [
+            "anthropic-pricing"
+          ],
+          "rollout": "generally_available",
+          "note": "Pro 方案官方列為包含；固定瀏覽器代理任務數未公布。"
+        }
+      ]
+    },
+    {
+      "id": "google-ai-plus",
+      "provider": "google",
+      "provider_name": "Google",
+      "name": "Google AI Plus",
+      "tier": "paid",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 4.99,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "varies",
+      "promo": "符合資格的非美國學生可獲 1 年免費 AI Plus，之後依當地月費計價；美國及 Bolivia、Albania、Canada、Macau、Hong Kong、Tunisia 不符合此優惠，至 2026-12-31 可兌換。",
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "google-ai-plus-current",
+        "google-annual-plus",
+        "google-student-offer",
+        "google-gemini-limits",
+        "google-one-benefits",
+        "google-ai-plan-benefits"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "google-plus-chat",
+        "google-plus-antigravity",
+        "google-plus-jules",
+        "google-plus-agent",
+        "google-ai-plus-agent-research"
+      ],
+      "note": "美國現行月繳價 $4.99；年繳可選但公開資料未列美國年費。",
+      "products": [
+        {
+          "product": "Gemini Apps",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Gemini 3.6 Flash",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "官方方案明列模型；AA 公開評測可能固定推理模式，方案未保證 High 組態。"
+            },
+            {
+              "model": "Gemini Omni Flash（有限使用）",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "官方方案頁列有限使用；不套用不同模型的分數。"
+            }
+          ],
+          "quota_ids": [
+            "google-plus-chat"
+          ],
+          "source_ids": [
+            "google-gemini-limits",
+            "google-ai-plus-current"
+          ],
+          "rollout": "generally_available",
+          "note": "AI Plus 模型可用量約為 Free 的 2 倍；模型與使用上限依地區/帳號狀態而異。"
+        },
+        {
+          "product": "Antigravity Desktop",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Antigravity 可用模型依目前產品介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "google-plus-antigravity"
+          ],
+          "source_ids": [
+            "google-one-benefits"
+          ],
+          "rollout": "generally_available",
+          "note": "Google AI Plus 對 Antigravity 提供 Limited agent requests；與 Jules 及 Gemini 聊天分開計量，官方沒有公開固定任務數。"
+        },
+        {
+          "product": "Jules",
+          "included": true,
+          "surface": [
+            "web",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Jules 可用模型依產品介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "google-plus-jules"
+          ],
+          "source_ids": [
+            "google-ai-plan-benefits",
+            "google-jules"
+          ],
+          "rollout": "generally_available",
+          "note": "Google AI Plus 的 Jules task、並行數及模型存取均列 Limited；未公布固定數值，與 Antigravity 分開。"
+        },
+        {
+          "product": "Gemini Deep Research",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "google-ai-plus-agent-research"
+          ],
+          "source_ids": [
+            "google-gemini-limits",
+            "google-ai-plus-current"
+          ],
+          "rollout": "generally_available",
+          "note": "方案頁列有 Deep Research；不同方案限額不同，研究會耗用聊天工具額度，官方沒有公布固定報告數。"
+        },
+        {
+          "product": "Gemini Tasks in Gemini",
+          "included": false,
+          "surface": [
+            "web",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "google-gemini-limits"
+          ],
+          "rollout": "unknown",
+          "note": "官方功能矩陣目前未列為 Free / AI Plus 權益。"
+        }
+      ]
+    },
+    {
+      "id": "google-ai-pro",
+      "provider": "google",
+      "provider_name": "Google",
+      "name": "Google AI Pro",
+      "tier": "paid",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 19.99,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "varies",
+      "promo": "美國符合資格學生可獲 1 年免費 AI Pro，之後依月費計價；學生方案資格、期限和地區限制見官方說明。",
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "google-plans",
+        "google-ai-plus-current",
+        "google-annual-pro",
+        "google-student-offer",
+        "google-gemini-limits",
+        "google-one-benefits",
+        "gemini-cli-deprecation",
+        "google-ai-plan-benefits"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "google-pro-chat",
+        "google-pro-antigravity",
+        "google-pro-jules",
+        "google-pro-agent",
+        "google-ai-pro-agent-research",
+        "google-pro-gemini-tasks",
+        "google-ai-pro-chrome-agent"
+      ],
+      "note": "美國月繳參考價。Gemini CLI 已停止個人 Google 帳號服務，不列為 AI Pro 權益；Antigravity 額度依動態使用政策。",
+      "products": [
+        {
+          "product": "Gemini Apps",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Gemini 4 Argon",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "方案明確提供 Argon；AA 分數是 High 組態，方案未保證推理強度。"
+            },
+            {
+              "model": "Gemini 3.1 Pro",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "官方 Pro model 存取；實際版本/推出依帳號介面。"
+            },
+            {
+              "model": "Gemini Omni Flash",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "官方方案頁列出，但目前沒有可直接套用的同組態免費 API 分數。"
+            }
+          ],
+          "quota_ids": [
+            "google-pro-chat"
+          ],
+          "source_ids": [
+            "google-gemini-limits",
+            "google-one-benefits"
+          ],
+          "rollout": "generally_available",
+          "note": "AI Pro 模型可用量約為 Free 的 4 倍；精確上限依 Gemini 產品內用量提示。"
+        },
+        {
+          "product": "Antigravity Desktop",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Antigravity 可用模型依目前產品介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "google-pro-antigravity"
+          ],
+          "source_ids": [
+            "google-one-benefits"
+          ],
+          "rollout": "generally_available",
+          "note": "Google AI Pro 的 Antigravity 使用級別為 Expanded；額度與 Jules 分開，官方未公布可保證的任務數。"
+        },
+        {
+          "product": "Gemini CLI (舊個人登入產品)",
+          "included": false,
+          "surface": [
+            "cli"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "gemini-cli-deprecation",
+            "gemini-cli-deprecation-individuals"
+          ],
+          "rollout": "discontinued",
+          "note": "消費者 Google 帳號登入已於 2026-06-18 停止服務。開源 repo 仍存在；企業或 API key 認證不等於此消費者方案權益。Antigravity CLI/desktop 是後續產品路徑。"
+        },
+        {
+          "product": "Jules",
+          "included": true,
+          "surface": [
+            "web",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Jules 可用模型依產品介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "google-pro-jules"
+          ],
+          "source_ids": [
+            "google-ai-plan-benefits",
+            "google-jules"
+          ],
+          "rollout": "generally_available",
+          "note": "Google AI Pro 將 task、並行數及模型存取提升至 Expanded；沒有固定任務/併行數。"
+        },
+        {
+          "product": "Gemini Deep Research",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "google-ai-pro-agent-research"
+          ],
+          "source_ids": [
+            "google-gemini-limits",
+            "google-ai-plus-current"
+          ],
+          "rollout": "generally_available",
+          "note": "方案頁列有 Deep Research；研究會耗用對話限制，實際額度依模型與帳號介面，沒有固定報告數。"
+        },
+        {
+          "product": "Gemini Tasks in Gemini",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "google-pro-gemini-tasks"
+          ],
+          "source_ids": [
+            "google-gemini-limits"
+          ],
+          "rollout": "generally_available",
+          "note": "AI Pro 方案列有 Tasks in Gemini；固定任務數未公開，且與 Jules／Antigravity 分別列示。"
+        },
+        {
+          "product": "Chrome agent",
+          "included": true,
+          "surface": [
+            "web",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "google-ai-pro-chrome-agent"
+          ],
+          "source_ids": [
+            "google-ai-plus-current",
+            "google-one-benefits"
+          ],
+          "rollout": "limited",
+          "note": "需符合地區/帳號 rollout；任務數尚未公布。"
+        }
+      ]
+    },
+    {
+      "id": "xai-free",
+      "provider": "xai",
+      "provider_name": "xAI / X",
+      "name": "The X Subscription Free",
+      "tier": "free",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 0,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "varies",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "xai-grok",
+        "xai-faq",
+        "xai-build-all",
+        "xai-grok-bot",
+        "xai-pricing",
+        "xai-pricing-web"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "xai-free-grok",
+        "xai-free-agent-unknown",
+        "xai-free-agent-bot"
+      ],
+      "note": "免費自助訂閱層；使用量依官方產品內週池及動態限制，沒有固定任務數。",
+      "products": [
+        {
+          "product": "Grok",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 模型依帳號當前介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "xai-free-grok"
+          ],
+          "source_ids": [
+            "xai-grok",
+            "xai-faq"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Grok Build Web",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "xai-free-grok"
+          ],
+          "source_ids": [
+            "xai-build-all",
+            "xai-pricing-web"
+          ],
+          "rollout": "generally_available",
+          "note": "Grok Build 網頁/手機產品；不代表 CLI 權益。"
+        },
+        {
+          "product": "Grok Bot / 雲端電腦",
+          "included": false,
+          "surface": [
+            "web",
+            "mobile",
+            "desktop",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "xai-free-agent-bot"
+          ],
+          "source_ids": [
+            "xai-grok-bot",
+            "xai-pricing",
+            "xai-pricing-web"
+          ],
+          "rollout": "unknown",
+          "note": "Grok Bot is not included in this tier."
+        }
+      ]
+    },
+    {
+      "id": "xai-plus",
+      "provider": "xai",
+      "provider_name": "xAI / X",
+      "name": "The X Subscription Plus",
+      "tier": "paid",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 8,
+      "annual_monthly_price": 6.67,
+      "annual_billed_total": 80,
+      "tax": "extra",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "xai-pricing",
+        "xai-grok",
+        "xai-faq",
+        "xai-build-all",
+        "xai-build",
+        "xai-grok-bot",
+        "xai-pricing-web"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "xai-plus-grok",
+        "xai-plus-coding",
+        "xai-plus-agent-unknown",
+        "xai-plus-agent-bot"
+      ],
+      "note": "月繳 $8；年繳 $80（官方顯示約 $7/月，精確算術月均 $6.67）。稅金另計。包含 Grok/Cursor 共用週池與 Cursor 權益；不含 Grok Bot。Grok Build CLI 對新方案的資格未確認。",
+      "products": [
+        {
+          "product": "Grok",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 模型依帳號當前介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "xai-plus-grok"
+          ],
+          "source_ids": [
+            "xai-pricing",
+            "xai-grok"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Grok Build Web",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "xai-plus-grok"
+          ],
+          "source_ids": [
+            "xai-build-all",
+            "xai-pricing-web"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Cursor Agent",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Cursor-supported models",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "使用者在 Cursor 內選擇；第三方供應商 API 費用依其方案/API 帳單，並非 X 訂閱額度。"
+            }
+          ],
+          "quota_ids": [
+            "xai-plus-coding"
+          ],
+          "source_ids": [
+            "xai-pricing",
+            "xai-pricing-web"
+          ],
+          "rollout": "generally_available",
+          "note": "Cursor 中的 Grok 模型使用 X 訂閱共用週池；第三方模型不含在免費額度內，從首次使用起另以額外用量計費。"
+        },
+        {
+          "product": "Grok Build CLI",
+          "included": null,
+          "surface": [
+            "cli"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "xai-plus-coding"
+          ],
+          "source_ids": [
+            "xai-build"
+          ],
+          "rollout": "unknown",
+          "note": "舊公告為 SuperGrok/X Premium Plus beta；新 X Plus 資格未確認。"
+        },
+        {
+          "product": "Grok Bot / 雲端電腦",
+          "included": false,
+          "surface": [
+            "web",
+            "mobile",
+            "desktop",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "xai-plus-agent-bot"
+          ],
+          "source_ids": [
+            "xai-grok-bot",
+            "xai-pricing",
+            "xai-pricing-web"
+          ],
+          "rollout": "unknown",
+          "note": "Grok Bot is not included in this tier."
+        }
+      ]
+    },
+    {
+      "id": "xai-premium",
+      "provider": "xai",
+      "provider_name": "xAI / X",
+      "name": "The X Subscription Premium",
+      "tier": "paid",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 30,
+      "annual_monthly_price": 25,
+      "annual_billed_total": 300,
+      "tax": "extra",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "xai-pricing",
+        "xai-grok",
+        "xai-faq",
+        "xai-grok-bot",
+        "xai-build",
+        "xai-build-all",
+        "xai-pricing-web"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "xai-premium-grok",
+        "xai-premium-coding",
+        "xai-premium-build-cli-uncertain",
+        "xai-premium-agent-unknown",
+        "xai-premium-agent-bot"
+      ],
+      "note": "月繳 $30；年繳 $300（月均 $25）。稅金另計。官方表示 Grok/Cursor 共享池為 Plus 的 4 倍，並包含 Grok Bot、Cursor 與雲端代理。Grok Build CLI 對新方案的資格仍未確認。",
+      "products": [
+        {
+          "product": "Grok",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 模型依帳號當前介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "xai-premium-grok"
+          ],
+          "source_ids": [
+            "xai-pricing",
+            "xai-grok"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Grok Build Web",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "xai-premium-grok"
+          ],
+          "source_ids": [
+            "xai-build-all",
+            "xai-pricing-web"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Cursor Agent",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Cursor-supported models",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "使用者在 Cursor 內選擇；第三方供應商 API 費用依其方案/API 帳單，並非 X 訂閱額度。"
+            }
+          ],
+          "quota_ids": [
+            "xai-premium-coding"
+          ],
+          "source_ids": [
+            "xai-pricing",
+            "xai-pricing-web"
+          ],
+          "rollout": "generally_available",
+          "note": "Cursor 中的 Grok 模型使用 X 訂閱共用週池；第三方模型不含在免費額度內，從首次使用起另以額外用量計費。"
+        },
+        {
+          "product": "Grok Build CLI",
+          "included": null,
+          "surface": [
+            "cli"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "xai-premium-build-cli-uncertain"
+          ],
+          "source_ids": [
+            "xai-build"
+          ],
+          "rollout": "unknown",
+          "note": "舊公告為 SuperGrok/X Premium Plus beta；新 X Premium 資格未確認，未視為確定權益。"
+        },
+        {
+          "product": "Grok Bot / 雲端電腦",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "desktop",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "xai-premium-agent-bot"
+          ],
+          "source_ids": [
+            "xai-grok-bot",
+            "xai-pricing",
+            "xai-pricing-web"
+          ],
+          "rollout": "generally_available",
+          "note": "Persistent cloud computer with browser, filesystem, and terminal. Premium includes it; Plus does not."
+        }
+      ]
+    },
+    {
+      "id": "google-ai-free",
+      "provider": "google",
+      "provider_name": "Google",
+      "name": "Google AI Free",
+      "tier": "free",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 0,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "varies",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "google-gemini-limits",
+        "google-jules",
+        "google-ai-plan-benefits"
+      ],
+      "checked_at": "2026-10-17",
+      "quota_ids": [
+        "google-free-chat",
+        "google-free-jules",
+        "google-free-agent",
+        "google-ai-free-agent-research"
+      ],
+      "note": "免費 Gemini Apps 與 Jules 基本使用層；固定配額沒有公開數據。",
+      "products": [
+        {
+          "product": "Gemini Apps",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Gemini Flash-Lite（版本未公布）",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": "Free 方案官方僅標示 Flash-Lite；未宣稱是 AA 評測中的其他 Flash 型號。"
+            }
+          ],
+          "quota_ids": [
+            "google-free-chat"
+          ],
+          "source_ids": [
+            "google-gemini-limits"
+          ],
+          "rollout": "generally_available",
+          "note": "Free 基礎用量；Google AI Plus 約為 2 倍 Free，AI Pro 約為 4 倍 Free，實際限制依官方用量頁。"
+        },
+        {
+          "product": "Jules",
+          "included": true,
+          "surface": [
+            "web",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Jules 可用模型依產品介面",
+              "reasoning_modes": [],
+              "mapping": "unmapped",
+              "note": null
+            }
+          ],
+          "quota_ids": [
+            "google-free-jules"
+          ],
+          "source_ids": [
+            "google-jules"
+          ],
+          "rollout": "generally_available",
+          "note": "免費使用層；固定任務與並行數未公布。"
+        },
+        {
+          "product": "Gemini Deep Research",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [
+            "google-ai-free-agent-research"
+          ],
+          "source_ids": [
+            "google-gemini-limits",
+            "google-ai-plus-current"
+          ],
+          "rollout": "limited",
+          "note": "方案頁列有 Deep Research；不同方案限額不同，研究會耗用聊天工具額度，官方沒有公布固定報告數。"
+        },
+        {
+          "product": "Gemini Tasks in Gemini",
+          "included": false,
+          "surface": [
+            "web",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "google-gemini-limits"
+          ],
+          "rollout": "unknown",
+          "note": "官方功能矩陣目前未列為 Free / AI Plus 權益。"
+        }
+      ]
+    }
+  ],
+  "quotas": [
+    {
+      "id": "oa-free-chat",
+      "category": "chat",
+      "product": "ChatGPT",
+      "metric": "日常文字訊息",
+      "value": null,
+      "value_type": "variable",
+      "unit": "訊息",
+      "window": "每日；依模型/工具而異",
+      "model": "一般文字聊天",
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "官方稱日常文字聊天可持續使用，但有防濫用例外；推理模型、影像、檔案、搜尋等各自有不同上限，未提供固定數字。",
+      "confidence": "high",
+      "source_ids": [
+        "openai-models"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "openai-free",
+      "plan_name": "ChatGPT Free"
+    },
+    {
+      "id": "oa-free-codex",
+      "category": "coding_agent",
+      "product": "Codex Local",
+      "metric": "Local messages",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "Local messages",
+      "window": "每 5 小時；可能另有週上限",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "ChatGPT Work"
+      ],
+      "note": "官方僅列有限 Codex 權益，未公布固定 local-message 數；不得套用 Plus 使用量估計。Cloud 使用資格與本機 Codex 分開確認。",
+      "confidence": "unknown",
+      "source_ids": [
+        "openai-codex",
+        "openai-current-pricing"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "openai-free",
+      "plan_name": "ChatGPT Free"
+    },
+    {
+      "id": "oa-go-chat",
+      "category": "chat",
+      "product": "ChatGPT",
+      "metric": "模型及工具使用上限",
+      "value": null,
+      "value_type": "variable",
+      "unit": "訊息/工具呼叫",
+      "window": "依模型/工具而異",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Go 有更高使用量，但官方固定數值會依模型、推理模式與工具而變；此處不將其折算為固定訊息數。",
+      "confidence": "high",
+      "source_ids": [
+        "openai-go",
+        "openai-models"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "openai-go",
+      "plan_name": "ChatGPT Go"
+    },
+    {
+      "id": "oa-go-codex",
+      "category": "coding_agent",
+      "product": "Codex Local",
+      "metric": "Local messages",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "Local messages",
+      "window": "每 5 小時；可能另有週上限",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "ChatGPT Work"
+      ],
+      "note": "官方僅列有限 Codex 權益，未公布固定 local-message 數；不得套用 Plus 使用量估計。Cloud 使用資格與本機 Codex 分開確認。",
+      "confidence": "unknown",
+      "source_ids": [
+        "openai-codex",
+        "openai-current-pricing"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "openai-go",
+      "plan_name": "ChatGPT Go"
+    },
+    {
+      "id": "oa-plus-chat",
+      "category": "chat",
+      "product": "ChatGPT",
+      "metric": "模型及工具使用上限",
+      "value": null,
+      "value_type": "variable",
+      "unit": "訊息/工具呼叫",
+      "window": "依模型/工具而異",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "依模型、推理強度和工具而變；沒有官方公布的通用固定聊天訊息數。",
+      "confidence": "high",
+      "source_ids": [
+        "openai-plus",
+        "openai-models"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus"
+    },
+    {
+      "id": "oa-plus-codex-astra",
+      "category": "coding_agent",
+      "product": "Codex Local / ChatGPT Work",
+      "metric": "Local messages",
+      "value": null,
+      "value_type": "range",
+      "unit": "Local messages",
+      "window": "每 5 小時；可能另有週上限",
+      "model": "GPT-6 Astra",
+      "reasoning_mode": null,
+      "shared_with": [
+        "Codex Local",
+        "ChatGPT Work"
+      ],
+      "note": "官方估計區間，不保證次數；會隨模型、任務和設定改變。文件沒有把區間細分至 reasoning effort。此數值僅適用 Local messages，不可套用 Cloud task。",
+      "confidence": "high",
+      "source_ids": [
+        "openai-codex-usage"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": {
+        "min": 5,
+        "max": 45,
+        "sample_size": null,
+        "workload": "官方使用量文件的估計範圍；模型/任務/設定不同，非保證值。"
+      },
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus"
+    },
+    {
+      "id": "oa-plus-codex-sol61",
+      "category": "coding_agent",
+      "product": "Codex Local / ChatGPT Work",
+      "metric": "Local messages",
+      "value": null,
+      "value_type": "range",
+      "unit": "Local messages",
+      "window": "每 5 小時；可能另有週上限",
+      "model": "GPT-6.1 Sol",
+      "reasoning_mode": null,
+      "shared_with": [
+        "Codex Local",
+        "ChatGPT Work"
+      ],
+      "note": "官方估計區間，不保證次數；會隨模型、任務、設定而變。僅適用 local messages，不可套用 Cloud task。",
+      "confidence": "high",
+      "source_ids": [
+        "openai-codex-usage"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": {
+        "min": 15,
+        "max": 160,
+        "sample_size": null,
+        "workload": "官方使用量文件的估計範圍；模型/任務/設定不同，非保證值。"
+      },
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus"
+    },
+    {
+      "id": "oa-plus-codex-sol",
+      "category": "coding_agent",
+      "product": "Codex Local / ChatGPT Work",
+      "metric": "Local messages",
+      "value": null,
+      "value_type": "range",
+      "unit": "Local messages",
+      "window": "每 5 小時；可能另有週上限",
+      "model": "GPT-6 Sol",
+      "reasoning_mode": null,
+      "shared_with": [
+        "Codex Local",
+        "ChatGPT Work"
+      ],
+      "note": "官方估計區間，不保證次數；會隨模型、任務、設定而變。僅適用 local messages，不可套用 Cloud task。",
+      "confidence": "high",
+      "source_ids": [
+        "openai-codex-usage"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": {
+        "min": 15,
+        "max": 150,
+        "sample_size": null,
+        "workload": "官方使用量文件的估計範圍；模型/任務/設定不同，非保證值。"
+      },
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus"
+    },
+    {
+      "id": "oa-plus-codex-luna",
+      "category": "coding_agent",
+      "product": "Codex Local / ChatGPT Work",
+      "metric": "Local messages",
+      "value": null,
+      "value_type": "range",
+      "unit": "Local messages",
+      "window": "每 5 小時；可能另有週上限",
+      "model": "GPT-6 Luna",
+      "reasoning_mode": null,
+      "shared_with": [
+        "Codex Local",
+        "ChatGPT Work"
+      ],
+      "note": "官方估計區間，不保證次數；會隨模型、任務、設定而變。僅適用 local messages，不可套用 Cloud task。",
+      "confidence": "high",
+      "source_ids": [
+        "openai-codex-usage"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": {
+        "min": 350,
+        "max": 3000,
+        "sample_size": null,
+        "workload": "官方使用量文件的估計範圍；模型/任務/設定不同，非保證值。"
+      },
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus"
+    },
+    {
+      "id": "oa-plus-codex-weekly",
+      "category": "coding_agent",
+      "product": "Codex Local / Codex Cloud",
+      "metric": "額外週上限",
+      "value": null,
+      "value_type": "variable",
+      "unit": "訊息/任務",
+      "window": "每週；具體條件依使用量而異",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Codex Local",
+        "Codex Cloud",
+        "ChatGPT Work"
+      ],
+      "note": "官方說明可能另有 weekly cap；未公布一致的固定數值。Cloud 執行任務可能消耗較多額度。",
+      "confidence": "high",
+      "source_ids": [
+        "openai-codex-usage",
+        "openai-codex"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus"
+    },
+    {
+      "id": "claude-free-chat",
+      "category": "chat",
+      "product": "Claude",
+      "metric": "訊息使用量",
+      "value": null,
+      "value_type": "variable",
+      "unit": "訊息",
+      "window": "依使用量及工作負載動態調整",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Free 方案限制會因需求、對話長度與模型而變；官方未公布固定訊息數。",
+      "confidence": "high",
+      "source_ids": [
+        "anthropic-pricing"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "anthropic-free",
+      "plan_name": "Claude Free"
+    },
+    {
+      "id": "claude-pro-shared",
+      "category": "chat",
+      "product": "Claude Chat + Claude Code",
+      "metric": "共享使用量",
+      "value": null,
+      "value_type": "variable",
+      "unit": "訊息/Agent 使用",
+      "window": "每 5 小時工作階段及每週限制；額度依模型、上下文和工作負載動態調整",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Claude Chat",
+        "Claude Code"
+      ],
+      "note": "Claude Chat 與 Claude Code 共用 Pro 使用量；官方未公布固定訊息或任務數，並可能同時受五小時及每週限制。",
+      "confidence": "high",
+      "source_ids": [
+        "anthropic-code",
+        "anthropic-pricing"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "anthropic-pro",
+      "plan_name": "Claude Pro"
+    },
+    {
+      "id": "google-plus-chat",
+      "category": "chat",
+      "product": "Gemini Apps",
+      "metric": "標準使用限制倍數",
+      "value": 2,
+      "value_type": "exact",
+      "unit": "倍標準限制（非固定次數）",
+      "window": "依模型及工具的動態限制",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "官方將 AI Plus 額度描述為標準限制的 2 倍；實際上限依模型與工具而變，不能視為固定訊息數。",
+      "confidence": "high",
+      "source_ids": [
+        "google-gemini-limits"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "google-ai-plus",
+      "plan_name": "Google AI Plus"
+    },
+    {
+      "id": "google-plus-antigravity",
+      "category": "coding_agent",
+      "product": "Antigravity Desktop",
+      "metric": "代理使用量",
+      "value": null,
+      "value_type": "variable",
+      "unit": "動態用量",
+      "window": "依官方動態限額；AI Plus：Limited agent requests",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Google AI 官方方案矩陣列 AI Plus 為 Limited agent requests。未公布固定任務數。",
+      "confidence": "high",
+      "source_ids": [
+        "google-one-benefits"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "google-ai-plus",
+      "plan_name": "Google AI Plus"
+    },
+    {
+      "id": "google-pro-chat",
+      "category": "chat",
+      "product": "Gemini Apps",
+      "metric": "標準使用限制倍數",
+      "value": 4,
+      "value_type": "exact",
+      "unit": "倍標準限制（非固定次數）",
+      "window": "依模型及工具的動態限制",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "官方將 AI Pro 額度描述為標準限制的 4 倍；實際上限依模型與工具而變，不能視為固定訊息數。",
+      "confidence": "high",
+      "source_ids": [
+        "google-gemini-limits",
+        "google-ai-plus-current"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro"
+    },
+    {
+      "id": "google-pro-antigravity",
+      "category": "coding_agent",
+      "product": "Antigravity Desktop",
+      "metric": "代理使用量",
+      "value": null,
+      "value_type": "variable",
+      "unit": "動態用量",
+      "window": "依官方動態限額；AI Pro：Expanded agent requests",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Google AI 官方方案矩陣列 AI Pro 為 Expanded agent requests；不是固定任務數。",
+      "confidence": "high",
+      "source_ids": [
+        "google-one-benefits",
+        "google-ai-plus-current"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro"
+    },
+    {
+      "id": "xai-free-grok",
+      "category": "chat",
+      "product": "Grok / Grok Build Web",
+      "metric": "共享使用量",
+      "value": null,
+      "value_type": "variable",
+      "unit": "Grok 使用量",
+      "window": "每週共享池；依工作負載變動",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Grok",
+        "Grok Build"
+      ],
+      "note": "xAI 說明使用量由跨產品共享池控制，任務耗用量會變動；官方未公布可保證固定任務數。",
+      "confidence": "high",
+      "source_ids": [
+        "xai-grok",
+        "xai-faq",
+        "xai-build-all",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "xai-free",
+      "plan_name": "Grok Free"
+    },
+    {
+      "id": "xai-plus-grok",
+      "category": "chat",
+      "product": "Grok / Grok Build Web",
+      "metric": "共享使用量",
+      "value": 1,
+      "value_type": "exact",
+      "unit": "X Plus 共享池基準（非任務數）",
+      "window": "每週共享池；依工作負載變動",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Grok",
+        "Cursor（Grok 模型）",
+        "Grok Build Web"
+      ],
+      "note": "X Plus 為 Base 共用週池；Grok 與 Cursor 內的 xAI 模型共用。第三方 Cursor 模型不包含；不得把同一週池重複加總。",
+      "confidence": "high",
+      "source_ids": [
+        "xai-grok",
+        "xai-faq",
+        "xai-pricing",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "xai-plus",
+      "plan_name": "X Plus"
+    },
+    {
+      "id": "xai-plus-coding",
+      "category": "coding_agent",
+      "product": "Grok Build CLI（新方案資格未確認）",
+      "metric": "編程代理使用量",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "代理使用量",
+      "window": "每週共享池；CLI 方案資格未確認",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Grok 共用週池"
+      ],
+      "note": "Cursor 內的 Grok 模型另見 X Plus 共用週池；本筆只記錄 Grok Build CLI 新 X Plus 方案資格尚未獲官方確認，不能當成已包含權益。",
+      "confidence": "unknown",
+      "source_ids": [
+        "xai-pricing",
+        "xai-build",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "xai-plus",
+      "plan_name": "X Plus"
+    },
+    {
+      "id": "xai-premium-grok",
+      "category": "chat",
+      "product": "Grok / Grok Bot / Grok Build Web",
+      "metric": "共享使用量",
+      "value": 4,
+      "value_type": "exact",
+      "unit": "X Plus 共享池倍數（非任務數）",
+      "window": "每週共享池；依工作負載變動",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Grok",
+        "Grok Bot",
+        "Cursor（Grok 模型）",
+        "Grok Build Web"
+      ],
+      "note": "X Premium 為 Plus 共用池的 4 倍，並包含 Grok Bot；Grok 與 Cursor 內的 xAI 模型共用。這不是額外任務池。",
+      "confidence": "high",
+      "source_ids": [
+        "xai-pricing",
+        "xai-grok",
+        "xai-faq",
+        "xai-grok-bot",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "xai-premium",
+      "plan_name": "X Premium"
+    },
+    {
+      "id": "xai-premium-coding",
+      "category": "coding_agent",
+      "product": "Cursor Agent（Grok 模型）",
+      "metric": "編程代理使用量",
+      "value": null,
+      "value_type": "variable",
+      "unit": "共享週用量池",
+      "window": "每週共享池；依工作負載變動",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Grok",
+        "Grok Bot",
+        "Cursor"
+      ],
+      "note": "編程代理使用的是 X Premium 共用週池，不是額外任務池；第三方 Cursor 模型需另購用量。官方未公布可換算的固定 Coding Agent 任務數。",
+      "confidence": "high",
+      "source_ids": [
+        "xai-pricing",
+        "xai-faq",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "xai-premium",
+      "plan_name": "X Premium"
+    },
+    {
+      "id": "xai-premium-build-cli-uncertain",
+      "category": "coding_agent",
+      "product": "Grok Build CLI",
+      "metric": "方案資格",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "未核實",
+      "window": "不適用：方案權益尚未確認",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "舊公告列 SuperGrok / X Premium Plus beta；目前 X Premium 新方案是否延續此 CLI 資格未有官方明確對照，故不計入確定 entitlement。",
+      "confidence": "unknown",
+      "source_ids": [
+        "xai-build",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "xai-premium",
+      "plan_name": "X Premium"
+    },
+    {
+      "id": "google-plus-jules",
+      "category": "coding_agent",
+      "product": "Jules",
+      "metric": "Asynchronous coding tasks / concurrency",
+      "value": null,
+      "value_type": "variable",
+      "unit": "Jules tasks / concurrent tasks",
+      "window": "依官方動態限額；AI Plus task／並行額度 Limited",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "AI Plus 的 Jules task limits、並行上限與最新模型存取皆為 Limited；固定數量未公布，且與 Antigravity 分開。",
+      "confidence": "high",
+      "source_ids": [
+        "google-ai-plan-benefits",
+        "google-jules"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "google-ai-plus",
+      "plan_name": "Google AI Plus"
+    },
+    {
+      "category": "agent",
+      "product": "Gemini Deep Research / Agent",
+      "metric": "任務/credits 配額",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "任務或 credits",
+      "window": "尚無可靠公開配額窗口",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
+      "confidence": "unknown",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "id": "google-plus-agent",
+      "source_ids": [
+        "google-gemini-limits",
+        "google-ai-plan-benefits"
+      ],
+      "plan_id": "google-ai-plus",
+      "plan_name": "Google AI Plus"
+    },
+    {
+      "id": "google-pro-jules",
+      "category": "coding_agent",
+      "product": "Jules",
+      "metric": "Asynchronous coding tasks / concurrency",
+      "value": null,
+      "value_type": "variable",
+      "unit": "Jules tasks / concurrent tasks",
+      "window": "依官方動態限額；AI Pro task／並行額度 Expanded",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "AI Pro 的 Jules task limits、並行上限與最新模型存取為 Expanded；固定數量未公布，且與 Antigravity 分開。",
+      "confidence": "high",
+      "source_ids": [
+        "google-ai-plan-benefits",
+        "google-jules",
+        "google-ai-plus-current"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro"
+    },
+    {
+      "category": "agent",
+      "product": "Gemini Deep Research / Agent",
+      "metric": "任務/credits 配額",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "任務或 credits",
+      "window": "尚無可靠公開配額窗口",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
+      "confidence": "unknown",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "id": "google-pro-agent",
+      "source_ids": [
+        "google-gemini-limits",
+        "google-ai-plan-benefits"
+      ],
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro"
+    },
+    {
+      "id": "google-free-chat",
+      "category": "chat",
+      "product": "Gemini Apps",
+      "metric": "模型/工具使用上限",
+      "value": null,
+      "value_type": "variable",
+      "unit": "訊息/工具使用量",
+      "window": "依模型、工具及需求動態調整",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "免費 Gemini Apps 的模型與工具有各自限制；官方未提供可比的通用固定訊息數。",
+      "confidence": "high",
+      "source_ids": [
+        "google-gemini-limits"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "google-ai-free",
+      "plan_name": "Google AI Free"
+    },
+    {
+      "id": "google-free-jules",
+      "category": "coding_agent",
+      "product": "Jules",
+      "metric": "Asynchronous coding tasks / concurrency",
+      "value": null,
+      "value_type": "variable",
+      "unit": "Jules tasks / concurrent tasks",
+      "window": "動態額度；固定任務/並行數未公布",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Jules 有公開免費使用層；固定 task/concurrency 額度未公布。付費 Google AI 方案提高限制，與 Antigravity 分開。",
+      "confidence": "high",
+      "source_ids": [
+        "google-ai-plan-benefits",
+        "google-jules"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "google-ai-free",
+      "plan_name": "Google AI Free"
+    },
+    {
+      "category": "agent",
+      "product": "Gemini Deep Research / Agent",
+      "metric": "任務/credits 配額",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "任務或 credits",
+      "window": "尚無可靠公開配額窗口",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
+      "confidence": "unknown",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "id": "google-free-agent",
+      "source_ids": [
+        "google-gemini-limits"
+      ],
+      "plan_id": "google-ai-free",
+      "plan_name": "Google AI Free"
+    },
+    {
+      "id": "openai-free-agent-unknown",
+      "plan_id": "openai-free",
+      "plan_name": "ChatGPT Free",
+      "category": "agent",
+      "product": "ChatGPT Deep Research / ChatGPT Work",
+      "metric": "General agent usage allowance",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "messages or tasks",
+      "window": "Varies by plan and agent feature",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Current monthly allowance depends on plan; the in-product usage counter is authoritative. This value is not a Codex task count.",
+      "confidence": "high",
+      "source_ids": [
+        "openai-deep-research"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "openai-go-agent-unknown",
+      "plan_id": "openai-go",
+      "plan_name": "ChatGPT Go",
+      "category": "agent",
+      "product": "ChatGPT Deep Research / ChatGPT Work",
+      "metric": "General agent usage allowance",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "messages or tasks",
+      "window": "Varies by plan and agent feature",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Current monthly allowance depends on plan; the in-product usage counter is authoritative. This value is not a Codex task count.",
+      "confidence": "high",
+      "source_ids": [
+        "openai-deep-research"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "openai-plus-agent-unknown",
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus",
+      "category": "agent",
+      "product": "ChatGPT Deep Research / ChatGPT Work",
+      "metric": "General agent usage allowance",
+      "value": null,
+      "value_type": "variable",
+      "unit": "messages or tasks",
+      "window": "Varies by plan and agent feature",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "ChatGPT Work",
+        "Codex"
+      ],
+      "note": "Current monthly allowance depends on plan; the in-product usage counter is authoritative. This value is not a Codex task count.",
+      "confidence": "high",
+      "source_ids": [
+        "openai-deep-research"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "anthropic-free-agent-unknown",
+      "plan_id": "anthropic-free",
+      "plan_name": "Claude Free",
+      "category": "agent",
+      "product": "Claude Research",
+      "metric": "Research task usage",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "messages / research sessions",
+      "window": "Same as conversation allowance; variable by workload",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Research is available on paid plans and draws from standard conversation limits; sessions may consume limits faster.",
+      "confidence": "high",
+      "source_ids": [
+        "anthropic-research"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "anthropic-pro-agent-unknown",
+      "plan_id": "anthropic-pro",
+      "plan_name": "Claude Pro",
+      "category": "agent",
+      "product": "Claude Research",
+      "metric": "Research task usage",
+      "value": null,
+      "value_type": "variable",
+      "unit": "messages / research sessions",
+      "window": "同 Claude 對話限制（五小時工作階段／每週；依工作負載動態變化）",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Claude Chat",
+        "Claude Code",
+        "Claude Research"
+      ],
+      "note": "Research 與標準 Claude 對話使用相同限制且更快耗用；此為共用用量的產品分類，不是新增的 Research 任務池。",
+      "confidence": "high",
+      "source_ids": [
+        "anthropic-research"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "xai-free-agent-unknown",
+      "plan_id": "xai-free",
+      "plan_name": "Grok Free",
+      "category": "agent",
+      "product": "一般 Agent 功能",
+      "metric": "任務/credits 配額",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "任務或 credits",
+      "window": "尚無可靠公開配額窗口",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
+      "confidence": "unknown",
+      "source_ids": [
+        "xai-grok",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "xai-plus-agent-unknown",
+      "plan_id": "xai-plus",
+      "plan_name": "X Plus",
+      "category": "agent",
+      "product": "一般 Agent 功能",
+      "metric": "任務/credits 配額",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "任務或 credits",
+      "window": "尚無可靠公開配額窗口",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
+      "confidence": "unknown",
+      "source_ids": [
+        "xai-pricing",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "xai-premium-agent-unknown",
+      "plan_id": "xai-premium",
+      "plan_name": "X Premium",
+      "category": "agent",
+      "product": "一般 Agent 功能",
+      "metric": "任務/credits 配額",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "任務或 credits",
+      "window": "尚無可靠公開配額窗口",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "目前沒有足以核實此方案一般 Agent（非聊天及非編程代理）固定配額的來源；未知不代表 0 或已確認包含。",
+      "confidence": "unknown",
+      "source_ids": [
+        "xai-pricing",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "oa-plus-agent-work",
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus",
+      "category": "agent",
+      "product": "ChatGPT Work",
+      "metric": "Agentic usage allowance",
+      "value": null,
+      "value_type": "variable",
+      "unit": "Work allowance / agent tasks",
+      "window": "May use a five-hour or weekly window; task/model/settings vary",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Codex Local",
+        "Codex Cloud",
+        "ChatGPT Excel"
+      ],
+      "note": "ChatGPT Work shares an agentic allowance with Codex for applicable plans. Work usage varies by task; no fixed task count is published. API task costs are separate.",
+      "confidence": "high",
+      "source_ids": [
+        "openai-work",
+        "openai-flexible-usage"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "google-ai-free-agent-research",
+      "plan_id": "google-ai-free",
+      "plan_name": "Google AI Free",
+      "category": "agent",
+      "product": "Gemini Deep Research",
+      "metric": "Deep Research reports",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "reports",
+      "window": "Dynamic model/feature limits; reports consume high relative usage",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Deep Research is available in the Gemini Apps feature matrix. It has high relative usage cost; fixed task counts are not published. Free access may be reduced during peak demand.",
+      "confidence": "high",
+      "source_ids": [
+        "google-gemini-limits"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "google-ai-plus-agent-research",
+      "plan_id": "google-ai-plus",
+      "plan_name": "Google AI Plus",
+      "category": "agent",
+      "product": "Gemini Deep Research",
+      "metric": "Deep Research reports",
+      "value": null,
+      "value_type": "variable",
+      "unit": "reports",
+      "window": "依 Gemini 對話/工具動態限額；固定報告數未公布",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Deep Research 使用模型與聊天工具限制；研究成本較高，官方沒有公開可保證的報告數。",
+      "confidence": "high",
+      "source_ids": [
+        "google-gemini-limits"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "google-ai-pro-agent-research",
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro",
+      "category": "agent",
+      "product": "Gemini Deep Research",
+      "metric": "Deep Research reports",
+      "value": null,
+      "value_type": "variable",
+      "unit": "reports",
+      "window": "依 Gemini 對話/工具動態限額；固定報告數未公布",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Deep Research 使用模型與聊天工具限制；研究成本較高，官方沒有公開可保證的報告數。",
+      "confidence": "high",
+      "source_ids": [
+        "google-gemini-limits",
+        "google-ai-plus-current"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "google-pro-gemini-tasks",
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro",
+      "category": "agent",
+      "product": "Gemini Tasks in Gemini",
+      "metric": "Automated task usage",
+      "value": null,
+      "value_type": "variable",
+      "unit": "tasks",
+      "window": "依產品內動態限額；固定任務數未公布",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Tasks in Gemini is listed for AI Pro; use limits are dynamic and not published as a fixed count.",
+      "confidence": "high",
+      "source_ids": [
+        "google-gemini-limits",
+        "google-ai-plus-current"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "xai-free-agent-bot",
+      "plan_id": "xai-free",
+      "plan_name": "Grok Free",
+      "category": "agent",
+      "product": "Grok Bot",
+      "metric": "Grok Bot / persistent cloud computer use",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "tasks from shared weekly pool",
+      "window": "Weekly shared pool with Grok and Cursor; effort varies",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Grok Bot is not included on Free/Plus. This records the product entitlement and does not imply a zero quota.",
+      "confidence": "high",
+      "source_ids": [
+        "xai-grok-bot",
+        "xai-pricing",
+        "xai-faq",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "xai-plus-agent-bot",
+      "plan_id": "xai-plus",
+      "plan_name": "X Plus",
+      "category": "agent",
+      "product": "Grok Bot",
+      "metric": "Grok Bot / persistent cloud computer use",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "tasks from shared weekly pool",
+      "window": "Weekly shared pool with Grok and Cursor; effort varies",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "Grok Bot is not included on Free/Plus. This records the product entitlement and does not imply a zero quota.",
+      "confidence": "high",
+      "source_ids": [
+        "xai-grok-bot",
+        "xai-pricing",
+        "xai-faq",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "xai-premium-agent-bot",
+      "plan_id": "xai-premium",
+      "plan_name": "X Premium",
+      "category": "agent",
+      "product": "Grok Bot",
+      "metric": "Grok Bot / persistent cloud computer use",
+      "value": null,
+      "value_type": "variable",
+      "unit": "tasks from shared weekly pool",
+      "window": "Weekly shared pool with Grok and Cursor; effort varies",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [
+        "Grok",
+        "Cursor"
+      ],
+      "note": "Grok Bot runs multi-step work on a persistent cloud computer; included only on Premium and higher. Usage is shared, not a separate additive allowance; fixed task count is not published.",
+      "confidence": "high",
+      "source_ids": [
+        "xai-grok-bot",
+        "xai-pricing",
+        "xai-faq",
+        "xai-pricing-web"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "google-ai-pro-chrome-agent",
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro",
+      "category": "agent",
+      "product": "Chrome agent",
+      "metric": "browser agent tasks",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "tasks",
+      "window": "尚未公布；依產品內限制",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "官方方案頁列出 Chrome agent 權益；沒有可核對的固定任務數，與 Gemini Deep Research、Jules、Antigravity 分開記錄。",
+      "confidence": "high",
+      "source_ids": [
+        "google-ai-plus-current",
+        "google-one-benefits"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null
+    },
+    {
+      "id": "oa-free-work-agent-unknown",
+      "category": "agent",
+      "product": "ChatGPT Work",
+      "metric": "Work agent actions / tasks",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "tasks / actions",
+      "window": "尚未公布；依帳號用量狀態",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "方案頁列有限 Work 桌面存取，但未提供固定 agent task/action 數；依帳號介面與推出狀態。",
+      "confidence": "unknown",
+      "source_ids": [
+        "openai-current-pricing",
+        "openai-work"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "openai-free",
+      "plan_name": "ChatGPT Free"
+    },
+    {
+      "id": "oa-go-work-agent-unknown",
+      "category": "agent",
+      "product": "ChatGPT Work",
+      "metric": "Work agent actions / tasks",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "tasks / actions",
+      "window": "尚未公布；依帳號用量狀態",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "方案頁列有限 Work 桌面存取，但未提供固定 agent task/action 數；依帳號介面與推出狀態。",
+      "confidence": "unknown",
+      "source_ids": [
+        "openai-current-pricing",
+        "openai-work"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "plan_id": "openai-go",
+      "plan_name": "ChatGPT Go"
+    },
+    {
+      "plan_id": "anthropic-pro",
+      "plan_name": "Claude Pro",
+      "category": "agent",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "代理任務",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "confidence": "high",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "id": "anthropic-pro-cowork-unknown",
+      "product": "Claude Cowork",
+      "metric": "Cowork 代理任務數",
+      "window": "方案正分階段推出；固定任務數未公布",
+      "note": "Pro 正逐步推出 Cowork。官方未公布獨立固定任務數或明確說明其與其他功能的額度共享關係。",
+      "source_ids": [
+        "anthropic-cowork",
+        "anthropic-pricing"
+      ]
+    },
+    {
+      "plan_id": "anthropic-pro",
+      "plan_name": "Claude Pro",
+      "category": "agent",
+      "value": null,
+      "value_type": "not_published",
+      "unit": "代理任務",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "confidence": "high",
+      "sampled_at": "2026-10-17",
+      "region": "US",
+      "estimate_range": null,
+      "id": "anthropic-pro-chrome-unknown",
+      "product": "Claude in Chrome",
+      "metric": "瀏覽器代理任務數",
+      "window": "固定任務數與重設窗口未公布",
+      "note": "Pro 方案列有 Claude in Chrome；官方未公布可核對的固定任務數或額度共享關係。",
+      "source_ids": [
+        "anthropic-pricing"
+      ]
+    }
+  ],
+  "coding_agents": [
+    {
+      "id": "claude-code-sonnet-5-5-max-coding-agent-v1-5",
+      "agent": "Claude Code + Sonnet 5.5 (Max)",
+      "harness": "Claude Code",
+      "model": "Sonnet 5.5",
+      "reasoning_effort": "Max",
+      "coding_agent_index": 68,
+      "scores": [
+        {
+          "benchmark_id": "deepswe",
+          "score": 72,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "v1.1",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "terminal_bench",
+          "score": 66,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "4.0",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "swe_atlas_qna",
+          "score": 67,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "version not shown",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        }
+      ],
+      "average_task_tokens": 27700000,
+      "cache_hit_percent": 95,
+      "input_tokens": null,
+      "cached_tokens": null,
+      "output_tokens": null,
+      "average_task_seconds": 5400,
+      "cost_per_task_usd": 14.19,
+      "cost_kind": "official",
+      "benchmark_version": "v1.5",
+      "source_url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex",
+      "source_updated_at": null,
+      "source_checked_at": "2026-10-17",
+      "note": "官方頁面顯示總 Token 約 27.7M、快取命中率 95%、平均任務 1.5 小時及 API 每任務成本 $14.19。輸入/快取/輸出 Token 分拆未公開；頁面未顯示逐列更新日期，本次人工核對日為 2026-10-17。成本是基準 API 任務成本，不是訂閱支出或保證任務額度。",
+      "provider": "anthropic"
+    },
+    {
+      "id": "codex-gpt-6-1-sol-xhigh-coding-agent-v1-5",
+      "agent": "Codex + GPT-6.1 Sol (xhigh)",
+      "harness": "Codex",
+      "model": "GPT-6.1 Sol",
+      "reasoning_effort": "xhigh",
+      "coding_agent_index": 63,
+      "scores": [
+        {
+          "benchmark_id": "deepswe",
+          "score": 73,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "v1.1",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "terminal_bench",
+          "score": 55,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "4.0",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "swe_atlas_qna",
+          "score": 61,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "version not shown",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        }
+      ],
+      "average_task_tokens": 3200000,
+      "cache_hit_percent": 93,
+      "input_tokens": null,
+      "cached_tokens": null,
+      "output_tokens": null,
+      "average_task_seconds": 930,
+      "cost_per_task_usd": 1.04,
+      "cost_kind": "official",
+      "benchmark_version": "v1.5",
+      "source_url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex",
+      "source_updated_at": null,
+      "source_checked_at": "2026-10-17",
+      "note": "官方頁面顯示總 Token 約 3.2M、快取命中率 93%、平均任務 15.5 分鐘及 API 每任務成本 $1.04。輸入/快取/輸出 Token 分拆未公開；頁面未顯示逐列更新日期，本次人工核對日為 2026-10-17。成本是基準 API 任務成本，不是訂閱支出或保證任務額度。",
+      "provider": "openai"
+    }
+  ],
+  "index_methodology": {
+    "intelligence_category_weights": {
+      "Agents": 30,
+      "Coding": 20,
+      "Scientific Reasoning": 20,
+      "General": 30
+    },
+    "coding_agent_method": "Coding Agent Index v1.5 組合 DeepSWE v1.1、Terminal-Bench 4.0 與 SWE-Atlas-QnA；等權 benchmark 組合並依 pooled task metrics 計算。分數屬於 Agent + model + Harness 組態，不能歸因為純模型能力。",
+    "note": "Intelligence Index 與各底層測試有自己的方法、權重及原生單位；Elo、通過率、標準化指數不可混成單一尺度。類別權重與各測試權重分開呈現。"
+  },
+  "benchmark_catalog": [
+    {
+      "id": "aa_briefcase",
+      "name": "AA-Briefcase",
+      "name_zh": "AA-Briefcase 專業工作任務",
+      "what_it_tests": "91 項工作任務，涵蓋 4 種情境；比較模型處理專業工作產出的能力。",
+      "metric_unit": "Elo",
+      "direction": "higher",
+      "task_count": 91,
+      "protocol": "v1.1；91 tasks / 4 scenarios。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 15,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "僅比較同一測試版本與官方相同評分方式；Elo 不可與 pass@1 或指數分數直接比較。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "gdpval_aa",
+      "name": "GDPval-AA",
+      "name_zh": "GDPval-AA 經濟價值任務",
+      "what_it_tests": "220 項具經濟價值的專業工作任務。",
+      "metric_unit": "Elo",
+      "direction": "higher",
+      "task_count": 220,
+      "protocol": "v2.1；220 tasks。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 10,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "僅比較同一版本/任務集；Elo 不是正確率百分比。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "automationbench_aa",
+      "name": "AutomationBench-AA",
+      "name_zh": "AutomationBench-AA 自動化任務",
+      "what_it_tests": "657 個 REST SaaS 工作流程自動化任務的目標完成情況。",
+      "metric_unit": "Objective completion rate",
+      "direction": "higher",
+      "task_count": 657,
+      "protocol": "657 REST SaaS workflow tasks。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 5,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "僅比較同一版本與工具/環境設定；completion rate 不可與 Elo 混排。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "terminal_bench",
+      "name": "Terminal-Bench",
+      "name_zh": "Terminal-Bench 終端機任務",
+      "what_it_tests": "66 項在終端環境完成的編程與系統任務；Agent 結果會受 Harness 影響。",
+      "metric_unit": "pass@1",
+      "direction": "higher",
+      "task_count": 66,
+      "protocol": "4.0；66 tasks。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 10,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "不同 Harness/執行環境不可當成純模型差異；pass@1 不可與 Elo 直接比較。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "scicode",
+      "name": "SciCode",
+      "name_zh": "SciCode 科學程式任務",
+      "what_it_tests": "288 個科學計算與研究編程子問題。",
+      "metric_unit": "pass@1",
+      "direction": "higher",
+      "task_count": 288,
+      "protocol": "288 subproblems。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 10,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "僅比較相同子問題集合和執行設定；pass@1 不可與其他單位混排。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "aa_omniscience",
+      "name": "AA-Omniscience",
+      "name_zh": "AA-Omniscience 知識與不確定性",
+      "what_it_tests": "6,000 題開放式答案，衡量知識正確度與避免無根據作答的能力。",
+      "metric_unit": "Accuracy + non-hallucination rate",
+      "direction": "higher",
+      "task_count": 6000,
+      "protocol": "Accuracy 對 Intelligence Index 權重 10%；non-hallucination 對權重 5%。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 15,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "官方指數使用兩個子指標；單一 Accuracy 數值不能代表完整 15% 權重。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "gdp_pdf",
+      "name": "GDP.pdf",
+      "name_zh": "GDP.pdf 長文件任務",
+      "what_it_tests": "以 GDP 報告 PDF 進行跨領域長文件工作任務。",
+      "metric_unit": "All-pass rate + task-macro mean pass rate",
+      "direction": "higher",
+      "task_count": 100,
+      "protocol": "100 tasks across 10 domains; see current methodology for task groups and scoring. Index weight 10%。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 10,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "官方使用 all-pass 與 task-macro mean pass 兩種結果；必須同時確認方法版本。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "aa_lcr",
+      "name": "AA-LCR",
+      "name_zh": "AA-LCR 長上下文檢索",
+      "what_it_tests": "長上下文檢索與理解任務。",
+      "metric_unit": "官方 AA-LCR score",
+      "direction": "higher",
+      "task_count": 100,
+      "protocol": "v1.1；100 items × 3 conditions。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 5,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "只在相同 v1.1 條件及官方分數口徑下跨模型比較。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "humanity_last_exam",
+      "name": "Humanity's Last Exam",
+      "name_zh": "Humanity’s Last Exam 人類最後考試",
+      "what_it_tests": "跨學科專家級問題解答。",
+      "metric_unit": "pass@1",
+      "direction": "higher",
+      "task_count": 2158,
+      "protocol": "2,158 questions；pass@1。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 10,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "需使用同一題集及相同工具/推理設定；pass@1 不可與 Elo 混排。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "critpt",
+      "name": "CritPt",
+      "name_zh": "CritPt 物理與科學推理",
+      "what_it_tests": "70 個批判性物理問題，每題 5 次評估。",
+      "metric_unit": "pass@1",
+      "direction": "higher",
+      "task_count": 70,
+      "protocol": "70 questions × 5 evaluations；pass@1。",
+      "index_id": "intelligence",
+      "index_version": "v4.3.2",
+      "index_weight_percent": 10,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+      "cross_model_comparable": true,
+      "comparability_note": "需同版本與相同評分設定；pass@1 不可與 Elo 混排。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "deepswe",
+      "name": "DeepSWE",
+      "name_zh": "DeepSWE 軟體工程代理",
+      "what_it_tests": "軟體工程代理在多個程式庫任務上的完成能力。",
+      "metric_unit": "Pooled task metric (official agent score)",
+      "direction": "higher",
+      "task_count": 113,
+      "protocol": "v1.1；113 tasks × 3 runs；Coding Agent Index v1.5 equal-weight component。",
+      "index_id": "coding_agent",
+      "index_version": "v1.5",
+      "index_weight_percent": 33.3333,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+      "cross_model_comparable": false,
+      "comparability_note": "分數屬於 Agent + model + Harness；不同 Harness/推理強度不可只歸因給模型。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "terminal_bench_agent",
+      "name": "Terminal-Bench",
+      "name_zh": "Terminal-Bench 終端機代理任務",
+      "what_it_tests": "代理在終端環境完成編程任務的能力。",
+      "metric_unit": "Pooled task metric (official agent score)",
+      "direction": "higher",
+      "task_count": 66,
+      "protocol": "4.0；66 tasks × 3 runs；Coding Agent Index v1.5 equal-weight component。",
+      "index_id": "coding_agent",
+      "index_version": "v1.5",
+      "index_weight_percent": 33.3333,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+      "cross_model_comparable": false,
+      "comparability_note": "需比對完整 Agent/Harness/模型/推理強度組態。",
+      "source_checked_at": "2026-10-17"
+    },
+    {
+      "id": "swe_atlas_qna",
+      "name": "SWE-Atlas-QnA",
+      "name_zh": "SWE-Atlas 程式庫問答",
+      "what_it_tests": "軟體程式庫理解與工程任務問答。",
+      "metric_unit": "Pooled task metric (official agent score)",
+      "direction": "higher",
+      "task_count": 124,
+      "protocol": "124 tasks × 3 runs；Coding Agent Index v1.5 equal-weight component。",
+      "index_id": "coding_agent",
+      "index_version": "v1.5",
+      "index_weight_percent": 33.3333,
+      "actual_score": null,
+      "updated_at": null,
+      "method_url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+      "cross_model_comparable": false,
+      "comparability_note": "需比對完整 Agent/Harness/模型/推理強度組態。",
+      "source_checked_at": "2026-10-17"
+    }
+  ],
+  "notes": [
+    "美國／美元為預設比較地區；價格、方案與額度都保留來源。未知或動態額度維持空值，不代表零。",
+    "Artificial Analysis 免費語言模型 API 已由 GitHub Actions 執行環境安全注入授權金鑰；最後一次成功快照為 2026-10-17，706 個模型。API 失敗時保留最後成功資料。",
+    "Artificial Analysis API 回傳 intelligence_index_version 4.3；公開方法頁目前為 Intelligence Index v4.3.2，依官方版本欄位解讀，完整評測方法版本仍另列。",
+    "Artificial Analysis Intelligence Index Cost per Task 是基準測試 API 成本；不是訂閱方案額度，也不能換算每月保證任務數。",
+    "Coding Agent Index v1.5 是按官方公開頁人工維護的版本化資料；結果屬於 Agent、模型與 Harness 組態。",
+    "每項訂閱模型只映射到官方確認的產品權限；推理強度或精確版本未確認時標記近似或無對應。"
+  ]
+}

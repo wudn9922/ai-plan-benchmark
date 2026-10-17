@@ -68,6 +68,38 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(result["api_pricing"]["input_per_million_usd"], 1.2)
         self.assertEqual(result["benchmarks"], [])
 
+    def test_normalizer_maps_official_evaluation_keys_for_all_nine_indices(self) -> None:
+        model = aa_model()
+        for key in (
+            "intelligence_index", "coding_index", "agentic_index", "finance_accounting_index",
+            "strategy_ops_index", "legal_index", "healthcare_medical_index", "engineering_index", "economics_index",
+        ):
+            model.pop(key)
+        model["evaluations"] = {
+            "artificial_analysis_intelligence_index": 81.0,
+            "artificial_analysis_coding_index": 75.0,
+            "artificial_analysis_agentic_index": 72.0,
+            "artificial_analysis_finance_and_accounting_index": 68.0,
+            "artificial_analysis_strategy_and_ops_index": 70.0,
+            "artificial_analysis_legal_index": 65.0,
+            "artificial_analysis_healthcare_and_medical_index": 67.0,
+            "artificial_analysis_engineering_index": 74.0,
+            "artificial_analysis_economics_index": 69.0,
+        }
+
+        result = update_data.normalize_model(model, "2026-10-17T14:08:58Z", "4.3")
+        self.assertEqual(result["indices"], {
+            "intelligence": 81.0,
+            "coding": 75.0,
+            "agentic": 72.0,
+            "finance_accounting": 68.0,
+            "strategy_ops": 70.0,
+            "legal": 65.0,
+            "healthcare_medical": 67.0,
+            "engineering": 74.0,
+            "economics": 69.0,
+        })
+
     def test_api_response_requires_data_and_pagination_schema(self) -> None:
         models, pagination, version = update_data.validate_page(api_page([aa_model()]))
         self.assertEqual(len(models), 1)
@@ -91,7 +123,7 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(len(calls), 2)
 
     def test_auth_rate_limit_and_server_errors_preserve_snapshot(self) -> None:
-        for code in (401, 403, 429, 500):
+        for code in (401, 403, 404, 429, 500):
             with self.subTest(status=code), tempfile.TemporaryDirectory() as tmp:
                 root = Path(tmp)
                 snapshot_path = root / "public/data/snapshot.json"
@@ -109,6 +141,24 @@ class PipelineTests(unittest.TestCase):
                 self.assertEqual(outcome["aa"]["http_status"], code)
                 self.assertEqual(outcome["aa"]["status"], "stale")
                 self.assertTrue(status_path.exists())
+
+    def test_api_404_keeps_last_good_model_snapshot(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            snapshot_path = root / "public/data/snapshot.json"
+            snapshot_path.parent.mkdir(parents=True)
+            original = {"schema_version": "1.0.0", "models": [{"id": "last-good"}], "index_versions": {"intelligence_api": "4.3"}}
+            original_bytes = (json.dumps(original, indent=2) + "\n").encode()
+            snapshot_path.write_bytes(original_bytes)
+
+            def missing_endpoint(_request, timeout=40):
+                raise urllib.error.HTTPError("https://artificialanalysis.ai/api", 404, "not found", {}, io.BytesIO(b""))
+
+            outcome = update_data.run_update(root, {"AA_API_KEY": "fixture-key"}, missing_endpoint)
+            self.assertEqual(snapshot_path.read_bytes(), original_bytes)
+            self.assertEqual(outcome["aa"]["http_status"], 404)
+            self.assertEqual(outcome["aa"]["status"], "stale")
+            self.assertIn("保留最後一次合法儲存的資料", outcome["aa"]["message"])
 
     def test_missing_key_preserves_snapshot_without_network(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

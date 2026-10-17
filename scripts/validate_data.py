@@ -358,9 +358,13 @@ def validate(snapshot: dict[str, Any]) -> list[str]:
         if benchmark_id in benchmark_ids:
             fail(errors, f"Duplicate benchmark id {benchmark_id}")
         benchmark_ids.add(benchmark_id)
-        for field in ("name_zh", "what_it_tests", "metric_unit", "protocol", "method_url", "comparability_note", "updated_at", "index_version"):
+        for field in ("name_zh", "what_it_tests", "metric_unit", "protocol", "method_url", "comparability_note", "index_version"):
             if not definition.get(field):
                 fail(errors, f"{label} must include {field}")
+        if definition.get("updated_at") is not None and not valid_date(definition.get("updated_at")):
+            fail(errors, f"{label}.updated_at must be a published date or null when the source does not state it")
+        if not valid_date(definition.get("source_checked_at")):
+            fail(errors, f"{label}.source_checked_at must record the source review date")
         if definition.get("actual_score") is not None:
             fail(errors, f"{label} template actual_score must stay null until a sourced model result is imported")
         weight = definition.get("index_weight_percent")

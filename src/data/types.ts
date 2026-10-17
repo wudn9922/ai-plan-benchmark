@@ -156,7 +156,8 @@ export interface BenchmarkDefinition {
   index_version: string;
   index_weight_percent: number | null;
   actual_score: null;
-  updated_at: string;
+  updated_at: string | null;
+  source_checked_at: string;
   method_url: string;
   cross_model_comparable: boolean;
   comparability_note: string;
@@ -204,6 +205,7 @@ export interface UpdateStatus {
     checked_at: string;
     summary: string;
     warnings: Array<{ source_id: string; label: string; url: string; message: string }>;
+    unavailable?: Array<{ source_id: string; label: string; url: string; category: 'blocked' | 'not_found' | 'rate_limited' | 'unavailable'; message: string }>;
   };
 }
 

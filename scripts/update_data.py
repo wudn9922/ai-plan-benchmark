@@ -31,12 +31,12 @@ INDEX_ALIASES: dict[str, set[str]] = {
     "intelligence": {"intelligence", "intelligenceindex", "artificialanalysisintelligenceindex", "aaintelligenceindex"},
     "coding": {"coding", "codingindex", "artificialanalysiscodingindex", "aacodingindex"},
     "agentic": {"agentic", "agenticindex", "artificialanalysisagenticindex", "aaagenticindex"},
-    "finance_accounting": {"financeaccounting", "financeaccountingindex", "financeandaccountingindex"},
-    "strategy_ops": {"strategyops", "strategyopsindex", "businessstrategyoperationsindex", "strategyandoperationsindex"},
-    "legal": {"legal", "legalindex"},
-    "healthcare_medical": {"healthcaremedical", "healthcaremedicalindex", "healthcareindex", "medicalindex"},
-    "engineering": {"engineering", "engineeringindex"},
-    "economics": {"economics", "economicsindex"},
+    "finance_accounting": {"financeaccounting", "financeaccountingindex", "financeandaccountingindex", "artificialanalysisfinanceandaccountingindex"},
+    "strategy_ops": {"strategyops", "strategyopsindex", "businessstrategyoperationsindex", "strategyandoperationsindex", "artificialanalysisstrategyandopsindex"},
+    "legal": {"legal", "legalindex", "artificialanalysislegalindex"},
+    "healthcare_medical": {"healthcaremedical", "healthcaremedicalindex", "healthcareindex", "medicalindex", "artificialanalysishealthcareandmedicalindex"},
+    "engineering": {"engineering", "engineeringindex", "artificialanalysisengineeringindex"},
+    "economics": {"economics", "economicsindex", "artificialanalysiseconomicsindex"},
 }
 
 
@@ -486,6 +486,9 @@ def run_update(root: Path = ROOT, environ: dict[str, str] | None = None, opener:
         data_changed = models != old_models or api_version != prior_api_version
         if data_changed:
             snapshot["models"] = models
+            # The snapshot date must move with successfully fetched model data,
+            # not remain on the date of the initial scaffold.
+            snapshot["as_of"] = fetched_at[:10]
             snapshot.setdefault("index_versions", {})["intelligence_api"] = api_version
             _write_json(snapshot_path, snapshot)
             _write_json(root / "public" / "data" / "aa-raw.json", {

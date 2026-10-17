@@ -1,49 +1,6 @@
 {
   "last_state_change_at": "2026-10-17T20:08:44Z",
-  "pending_warnings": {
-    "change:anthropic-cowork": {
-      "label": "Claude Cowork transition and rollout",
-      "message": "官方頁面內容已變更（dfab33c03c8d → fac77db8a0af）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "anthropic-cowork",
-      "url": "https://claude.com/blog/cowork-is-now-claude"
-    },
-    "change:anthropic-pricing": {
-      "label": "Claude pricing",
-      "message": "官方頁面內容已變更（a1c54187debc → 6dd79f15ce97）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "anthropic-pricing",
-      "url": "https://claude.com/pricing"
-    },
-    "change:anthropic-pro-cost": {
-      "label": "Claude Pro billing",
-      "message": "官方頁面內容已變更（e733e39e6890 → 6dd79f15ce97）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "anthropic-pro-cost",
-      "url": "https://claude.com/pricing"
-    },
-    "change:google-annual-plus": {
-      "label": "Google AI Plus annual billing availability",
-      "message": "官方頁面內容已變更（e461c84271a1 → f24a12e7fc24）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-annual-plus",
-      "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
-    },
-    "change:google-annual-pro": {
-      "label": "Google AI Pro annual billing availability",
-      "message": "官方頁面內容已變更（7e20a8b57705 → 4b6d2412f433）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-annual-pro",
-      "url": "https://support.google.com/googleone/answer/16476811?hl=en"
-    },
-    "change:google-gemini-limits": {
-      "label": "Gemini Apps usage limits",
-      "message": "官方頁面內容已變更（91032bdba143 → 263932e2c80a）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-gemini-limits",
-      "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
-    },
-    "change:google-one-benefits": {
-      "label": "Google AI plan benefits",
-      "message": "官方頁面內容已變更（bbd1070c0bd8 → 4b54ee540842）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-one-benefits",
-      "url": "https://support.google.com/googleone/answer/14534406?hl=en"
-    }
-  },
+  "pending_warnings": {},
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -240,8 +197,8 @@
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:08:43Z",
-      "reviewed_at": "2026-10-17T19:50:05Z",
-      "reviewed_sha256": "dfab33c03c8d874ca72c75eb47af8deaad198ca498f5876c519ae65248c0152e",
+      "reviewed_at": "2026-10-17T20:10:00Z",
+      "reviewed_sha256": "fac77db8a0af28055cd4452fc1bf82dc272ac9d3a24b31ca21f9099a28362a4c",
       "sha256": "fac77db8a0af28055cd4452fc1bf82dc272ac9d3a24b31ca21f9099a28362a4c",
       "state_changed_at": "2026-10-17T20:08:43Z",
       "url": "https://claude.com/blog/cowork-is-now-claude"
@@ -257,8 +214,8 @@
       "label": "Claude pricing",
       "last_modified": "Sat, 17 Oct 2026 20:06:53 GMT",
       "last_success_at": "2026-10-17T20:08:38Z",
-      "reviewed_at": "2026-10-17T20:04:00Z",
-      "reviewed_sha256": "a1c54187debc73300720ae955b2996e3cb5a2a6648dcef3301dce19cf2f74d7c",
+      "reviewed_at": "2026-10-17T20:10:00Z",
+      "reviewed_sha256": "6dd79f15ce97d39a98caa04df2a11578ef96ff7e559b85570e392338b34d41b2",
       "sha256": "6dd79f15ce97d39a98caa04df2a11578ef96ff7e559b85570e392338b34d41b2",
       "state_changed_at": "2026-10-17T20:08:38Z",
       "url": "https://claude.com/pricing"
@@ -274,8 +231,8 @@
       "label": "Claude Pro billing",
       "last_modified": "Sat, 17 Oct 2026 20:08:38 GMT",
       "last_success_at": "2026-10-17T20:08:38Z",
-      "reviewed_at": "2026-10-17T19:50:05Z",
-      "reviewed_sha256": "e733e39e6890fe5cbc76991c0757c759f5013d735dc4be21a4b2e6aa761205e9",
+      "reviewed_at": "2026-10-17T20:10:00Z",
+      "reviewed_sha256": "6dd79f15ce97d39a98caa04df2a11578ef96ff7e559b85570e392338b34d41b2",
       "sha256": "6dd79f15ce97d39a98caa04df2a11578ef96ff7e559b85570e392338b34d41b2",
       "state_changed_at": "2026-10-17T20:08:38Z",
       "url": "https://claude.com/pricing"
@@ -408,8 +365,8 @@
       "label": "Google AI Plus annual billing availability",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:08:39Z",
-      "reviewed_at": "2026-10-17T20:07:00Z",
-      "reviewed_sha256": "e461c84271a160e0a47d5ca57620633887706742daf4ca8bb9a14498bbe75330",
+      "reviewed_at": "2026-10-17T20:10:00Z",
+      "reviewed_sha256": "f24a12e7fc2473fb1fdf29f5de728c9ea9967681b2e29b7b55620dd6430e1b3d",
       "sha256": "f24a12e7fc2473fb1fdf29f5de728c9ea9967681b2e29b7b55620dd6430e1b3d",
       "state_changed_at": "2026-10-17T20:08:39Z",
       "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
@@ -425,8 +382,8 @@
       "label": "Google AI Pro annual billing availability",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:08:39Z",
-      "reviewed_at": "2026-10-17T20:07:00Z",
-      "reviewed_sha256": "7e20a8b57705a859a2594e146549405a408b31235b61d9f0aaf8fde5b1854d29",
+      "reviewed_at": "2026-10-17T20:10:00Z",
+      "reviewed_sha256": "4b6d2412f43375f225e75d9c87537dd7088bfce47032b784ac6060d848361360",
       "sha256": "4b6d2412f43375f225e75d9c87537dd7088bfce47032b784ac6060d848361360",
       "state_changed_at": "2026-10-17T20:08:39Z",
       "url": "https://support.google.com/googleone/answer/16476811?hl=en"
@@ -442,8 +399,8 @@
       "label": "Gemini Apps usage limits",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:08:40Z",
-      "reviewed_at": "2026-10-17T20:07:00Z",
-      "reviewed_sha256": "91032bdba143a7593bcb70f44ce30c82cd6170a87940927ec6dbab674b506619",
+      "reviewed_at": "2026-10-17T20:10:00Z",
+      "reviewed_sha256": "263932e2c80abd6804bae94465554ae7eac936d8b45719da40a7bec8bbd3e905",
       "sha256": "263932e2c80abd6804bae94465554ae7eac936d8b45719da40a7bec8bbd3e905",
       "state_changed_at": "2026-10-17T20:08:40Z",
       "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
@@ -476,8 +433,8 @@
       "label": "Google AI plan benefits",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:08:40Z",
-      "reviewed_at": "2026-10-17T20:07:00Z",
-      "reviewed_sha256": "bbd1070c0bd8be6a0ad09615b00aac905823dbc90e867f37ceab1fa64db7886b",
+      "reviewed_at": "2026-10-17T20:10:00Z",
+      "reviewed_sha256": "4b54ee540842594d98df04e731dfe0c9b174a0cd090baec0ec08e883f3adbd3e",
       "sha256": "4b54ee540842594d98df04e731dfe0c9b174a0cd090baec0ec08e883f3adbd3e",
       "state_changed_at": "2026-10-17T20:08:40Z",
       "url": "https://support.google.com/googleone/answer/14534406?hl=en"

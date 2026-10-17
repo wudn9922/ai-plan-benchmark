@@ -122,3 +122,7 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 | `google-ai-plus-current`、`google-plans` | [Google AI 方案頁](https://gemini.google/subscriptions/?currencyCode=USD)確認美國 Plus 月費 $4.99、2 倍 Gemini 使用量、200 Flow Credits；Pro 月費 $19.99、4 倍使用量、1,000 Flow Credits，並列 Gemini 4 Argon、Pro 與 Flash。方案頁未列出可登入帳戶以外確認的年繳金額。Plus 的 Gemini 3.6 Flash 名稱另由目前 [Google One AI 方案矩陣](https://one.google.com/about/google-ai-plans/)核對。Flow Credits 是創作產品點數，不計入 Chat 或 Agent 額度。 |
 
 四個 Google Help URL 在下一次每日檢查又出現可見文字雜湊變化，因此重新開啟目前官方頁面的方案與用量段落核對。AI Plus／Pro 年繳選項仍可在 Google One 選擇，年費須登入並查看結帳金額；Gemini 限制仍為 Plus 2x、Pro 4x，每五小時刷新並另受每週上限限制，且沒有固定訊息數；Pro 權益頁仍將 Antigravity、Jules、Deep Research、Tasks in Gemini 與 credits 分別說明。上述值與快照一致。這些 Help 頁的自動雜湊是整頁可見文字指紋，故資料狀態會記錄本次已檢查的版本；未公開的固定額度仍不填數字。
+
+## 2026-10-17 第五輪官方頁面複核
+
+再次執行的來源監測回報 Claude 價格、Cowork 公告及三個 Google Help 頁面有新內容。已重讀其方案、額度和產品推出段落：Claude Pro 仍為 $20 月繳／$200 年繳預付（頁面約顯示 $17 月均）、價格未含適用稅；Claude Code 列為 Pro 權益，與對話共用滾動五小時額度及付費方案每週上限；Cowork 併入 Claude，正先向 Pro／Max 推出。依官方明確的重設說明，Claude Free 資料也補上滾動五小時窗口。Google 的年繳頁仍要求登入後確認支付金額；Gemini 仍是 Plus 2x、Pro 4x、每五小時及每週動態上限；AI Pro 的 Antigravity、Jules、Deep Research、Tasks 與 AI credits 仍按各產品分別記錄。這些頁面可見內容雜湊在相鄰排程執行間再變動；目前核心價格、權益與額度事實經官方頁重新確認後未改變，未公布的固定額度維持缺值。

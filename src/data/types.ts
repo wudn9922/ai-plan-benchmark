@@ -60,6 +60,7 @@ export interface SubscriptionPlan {
   region: string;
   currency: string;
   monthly_price: number | null;
+  annual_billing_available: boolean | null;
   annual_monthly_price: number | null;
   annual_billed_total: number | null;
   tax: 'included' | 'extra' | 'varies' | 'unknown';

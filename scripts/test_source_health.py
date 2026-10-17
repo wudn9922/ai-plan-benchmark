@@ -21,7 +21,7 @@ class SourceHealthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             self.create_root(root)
-            state = {"sha256": "same", "reviewed_sha256": "same", "etag": "abc", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method", "last_success_at": "2026-10-17T00:00:00Z", "state_changed_at": "2026-10-17T00:00:00Z"}
+            state = {"sha256": "same", "hash_version": source_health.HASH_VERSION, "reviewed_sha256": "same", "etag": "abc", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method", "last_success_at": "2026-10-17T00:00:00Z", "state_changed_at": "2026-10-17T00:00:00Z"}
             cache_path = root / "public/data/source-health-cache.json"
             cache_path.write_text(json.dumps({"sources": {"sample": state}, "pending_warnings": {}}), encoding="utf-8")
             with patch.object(source_health, "request_source", return_value=("ok", None, dict(state))):
@@ -37,7 +37,7 @@ class SourceHealthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             self.create_root(root)
-            old = {"sha256": "old", "reviewed_sha256": "old", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method"}
+            old = {"sha256": "old", "hash_version": source_health.HASH_VERSION, "reviewed_sha256": "old", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method"}
             (root / "public/data/source-health-cache.json").write_text(json.dumps({"sources": {"sample": old}, "pending_warnings": {}}), encoding="utf-8")
             with patch.object(source_health, "request_source", return_value=("ok", None, {**old, "sha256": "new"})):
                 result = source_health.check_sources(root)
@@ -54,7 +54,7 @@ class SourceHealthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             self.create_root(root)
-            old = {"sha256": "last-good", "reviewed_sha256": "last-good", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method"}
+            old = {"sha256": "last-good", "hash_version": source_health.HASH_VERSION, "reviewed_sha256": "last-good", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method"}
             cache_path = root / "public/data/source-health-cache.json"
             cache_path.write_text(json.dumps({"sources": {"sample": old}, "pending_warnings": {}}), encoding="utf-8")
             result_state = {**old, "availability": "blocked", "http_status": 403, "error": "HTTP 403: forbidden"}
@@ -76,7 +76,7 @@ class SourceHealthTests(unittest.TestCase):
             self.create_root(root)
             snapshot_path = root / "public/data/snapshot.json"
             snapshot_before = snapshot_path.read_bytes()
-            old = {"sha256": "last-good", "reviewed_sha256": "last-good", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method"}
+            old = {"sha256": "last-good", "hash_version": source_health.HASH_VERSION, "reviewed_sha256": "last-good", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method"}
             (root / "public/data/source-health-cache.json").write_text(json.dumps({"sources": {"sample": old}, "pending_warnings": {}}), encoding="utf-8")
             result_state = {**old, "availability": "not_found", "http_status": 404, "error": "HTTP 404: not found"}
             with patch.object(source_health, "request_source", return_value=("not_found", "HTTP 404: not found", result_state)):
@@ -92,7 +92,7 @@ class SourceHealthTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             self.create_root(root)
-            changed = {"sha256": "new", "reviewed_sha256": "old", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method"}
+            changed = {"sha256": "new", "hash_version": source_health.HASH_VERSION, "reviewed_sha256": "old", "http_status": 200, "availability": "available", "error": None, "label": "Official source", "url": "https://artificialanalysis.ai/method"}
             cache = {"sources": {"sample": changed}, "pending_warnings": {"change:sample": {"source_id": "sample", "label": "Official source", "url": changed["url"], "message": "changed"}}}
             cache_path = root / "public/data/source-health-cache.json"
             cache_path.write_text(json.dumps(cache), encoding="utf-8")
@@ -118,6 +118,37 @@ class SourceHealthTests(unittest.TestCase):
             self.assertEqual(result["pending_warnings"], 0)
             persisted = json.loads(cache_path.read_text(encoding="utf-8"))
             self.assertEqual(persisted["pending_warnings"], {})
+
+    def test_visible_text_hash_ignores_html_script_and_layout_changes(self) -> None:
+        first = b'<html><head><title>Plan</title><script>var nonce="one";</script></head><body><h1>Plan</h1><p>$20 per month</p></body></html>'
+        second = b'<html><head><script>var nonce="two";</script></head><body class="new"><main><h1> Plan </h1><p>$20   per month</p></main></body></html>'
+        self.assertEqual(
+            source_health.content_fingerprint(first, "text/html; charset=utf-8"),
+            source_health.content_fingerprint(second, "text/html; charset=utf-8"),
+        )
+
+    def test_visible_text_hash_detects_reader_facing_changes(self) -> None:
+        first = b"<html><body><p>$20 per month</p></body></html>"
+        changed = b"<html><body><p>$25 per month</p></body></html>"
+        self.assertNotEqual(
+            source_health.content_fingerprint(first, "text/html"),
+            source_health.content_fingerprint(changed, "text/html"),
+        )
+
+    def test_hash_migration_resets_old_raw_html_baseline_after_review(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.create_root(root)
+            old = {"sha256": "raw-html-hash", "reviewed_sha256": "raw-html-hash", "availability": "available", "http_status": 200}
+            cache_path = root / "public/data/source-health-cache.json"
+            cache_path.write_text(json.dumps({"sources": {"sample": old}, "pending_warnings": {"change:sample": {"source_id": "sample"}}}), encoding="utf-8")
+            current = {**old, "sha256": "visible-text-hash", "hash_version": source_health.HASH_VERSION}
+            with patch.object(source_health, "request_source", return_value=("ok", None, current)):
+                result = source_health.check_sources(root)
+            persisted = json.loads(cache_path.read_text(encoding="utf-8"))
+            self.assertEqual(result["pending_warnings"], 0)
+            self.assertEqual(persisted["pending_warnings"], {})
+            self.assertEqual(persisted["sources"]["sample"]["reviewed_sha256"], "visible-text-hash")
 
 
 if __name__ == "__main__":

@@ -62,3 +62,19 @@
 ## 自動更新與人工資料維護
 
 Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；訂閱方案、額度、來源、測試目錄及 Coding Agent 組態由版本控制中的 `data/curated.json` 維護。工作流程先更新模型，再套用已核對的固定資料，避免 API 更新覆蓋方案研究結果。模型評測中的空值仍保留為缺值。
+
+## 2026-10-17 第二輪官方頁面複核
+
+第二次自動檢查回報 20 個官方頁面內容雜湊變動。本次已逐項重查目前頁面；不把網頁版面或指令碼的變更當成方案權益變更，已核對的資料保留並更新相關窗口說明。
+
+| 來源 ID | 人工複核結果 |
+| --- | --- |
+| `aa-coding-agents` | [現行 Coding Agent 頁](https://artificialanalysis.ai/agents/coding-agents)仍為 v1.5，等權彙整 DeepSWE v1.1、Terminal-Bench 4.0、SWE-Atlas-QnA；頁面新增拒答率與 reward-hacking 區塊，Harness Comparison 仍標示 Coming soon。核心匯入資料只採官方有列出的 28 組代理組態，不把新區塊當作基礎模型分數。 |
+| `anthropic-code`、`anthropic-cowork`、`anthropic-pro-cost`、`anthropic-pricing`、`anthropic-research` | [Claude Code 權益頁](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)確認 Pro 含 Claude Code，與 Claude 共用五小時工作階段及每週上限；官方仍未給固定訊息／任務數。Research 使用同一對話額度但耗用較快，模型為 Opus 5.5，必要時回退 Opus 4.8。Pro 月繳 $20、年繳預付 $200（月均 $16.67，頁面約顯示 $17），價格另加適用稅。Cowork 正整合至 Claude，先向 Pro／Max 分階段推出。 |
+| `google-gemini-limits` | [Gemini Apps 限額頁](https://support.google.com/gemini/answer/16275805?gl=US&hl=en)明列每五小時重設並另受每週上限限制；AI Plus 為標準限額 2 倍、AI Pro 為 4 倍，依模型、功能、提示與對話長度動態變化。已將 5 小時／每週窗口及非固定訊息數寫入資料。 |
+| `gemini-cli-deprecation`、`gemini-cli-deprecation-individuals` | [Google Code Assist 淘汰紀錄](https://developers.google.com/gemini-code-assist/docs/deprecations)確認個人 Google 帳號舊 Gemini CLI 服務於 2026-06-18 停止；不列為 AI Pro 權益。 |
+| `google-annual-plus`、`google-annual-pro` | [AI Plus](https://support.google.com/googleone/answer/16548195?hl=en-uk)與 [AI Pro](https://support.google.com/googleone/answer/16476811?hl=en)官方說明均確認可以選年繳；美國固定年費沒有在公開頁列出，資料增加「年繳可選、價格未公開」，不推算總價或月均。 |
+| `google-one-benefits`、`google-ai-plus-current`、`google-plans` | [Google AI 方案矩陣](https://one.google.com/about/google-ai-plans/)將 Antigravity 與 Jules 分別列出，Plus 為 Limited、Pro 為 Expanded，且未公布固定代理任務數；兩項分開計量。美國月繳價為 Plus $4.99、Pro $19.99；Plus 對應 Gemini 3.6 Flash，Pro 含 Gemini 4 Argon 與 Pro 模型。 |
+| `xai-grok-bot`、`xai-build`、`xai-build-all`、`xai-faq`、`xai-grok`、`xai-pricing-web`、`xai-pricing` | [X Subscription 價格](https://docs.x.ai/x-subscription/pricing)確認 Plus $8／月或 $80／年、Premium $30／月或 $300／年；含用量按週重設，Grok 與 Cursor 共用池，Premium 為 Plus 的 4 倍。 [Grok Bot 說明](https://docs.x.ai/x-subscription/grok-bot)確認 Premium 以上包含 Bot 並共用週池；[Grok Build 公告](https://x.ai/news/grok-build-for-everyone)確認網頁／手機版開放所有方案。CLI 舊公告仍只列 SuperGrok／舊 X Premium Plus 測試資格，因此新方案 CLI 權益維持未確認。 |
+
+官方變動監測已改為比對 HTML 的可見文字並忽略指令碼、樣式與 SVG 標記；第一次轉換指紋格式時以本次人工核對後的頁面作新基準。後續只有可見文字內容變更才新增待核對警告；403、404、429 及暫時錯誤仍保留最後成功快照。

@@ -10,7 +10,9 @@ from __future__ import annotations
 
 import datetime as dt
 import hashlib
+from html.parser import HTMLParser
 import json
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -21,6 +23,70 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 MAX_BODY_BYTES = 2 * 1024 * 1024
 USER_AGENT = "AI-Plan-Benchmark-source-monitor/2.0 (public-source-change-notice)"
+HASH_VERSION = "visible-text-v1"
+
+
+class _VisibleText(HTMLParser):
+    """Collect page text while ignoring code, styles, and non-visible SVG markup."""
+
+    IGNORED_TAGS = {"head", "script", "style", "noscript", "svg", "template"}
+    BLOCK_TAGS = {
+        "address", "article", "blockquote", "br", "dd", "div", "dl", "dt", "fieldset",
+        "figcaption", "figure", "h1", "h2", "h3", "h4", "h5", "h6", "hr", "li",
+        "main", "ol", "p", "pre", "section", "table", "td", "th", "tr", "ul",
+    }
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.parts: list[str] = []
+        self.ignored_depth = 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in self.IGNORED_TAGS:
+            self.ignored_depth += 1
+        elif self.ignored_depth == 0 and tag in self.BLOCK_TAGS:
+            self.parts.append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in self.IGNORED_TAGS and self.ignored_depth:
+            self.ignored_depth -= 1
+        elif self.ignored_depth == 0 and tag in self.BLOCK_TAGS:
+            self.parts.append("\n")
+
+    def handle_data(self, data: str) -> None:
+        if self.ignored_depth == 0:
+            self.parts.append(data)
+
+
+def content_fingerprint(body: bytes, content_type: str | None) -> str:
+    """Hash stable, reader-facing content instead of volatile HTML/CSS/JS bytes."""
+    charset_match = re.search(r"charset=([^;\s]+)", content_type or "", re.IGNORECASE)
+    charset = charset_match.group(1).strip("\"'") if charset_match else "utf-8"
+    try:
+        text = body.decode(charset, errors="replace")
+    except LookupError:
+        text = body.decode("utf-8", errors="replace")
+
+    media_type = (content_type or "").split(";", 1)[0].strip().lower()
+    if media_type in {"application/json", "application/ld+json"}:
+        try:
+            parsed = json.loads(text, parse_constant=reject_json_constant)
+            text = json.dumps(parsed, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        except (json.JSONDecodeError, ValueError):
+            pass
+    elif "html" in media_type or (not media_type and "<html" in text[:1024].lower()):
+        parser = _VisibleText()
+        try:
+            parser.feed(text)
+            visible = " ".join(" ".join(parser.parts).split())
+            if visible:
+                text = visible
+        except Exception:
+            # An unusual document should still be checked using whitespace-normalized text.
+            pass
+    else:
+        text = " ".join(text.split())
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
 def now_iso() -> str:
@@ -79,9 +145,10 @@ def _http_failure(code: int, prior: dict[str, Any]) -> tuple[str, str, dict[str,
 def request_source(source: dict[str, Any], prior: dict[str, Any]) -> tuple[str, str | None, dict[str, Any]]:
     url = source["url"]
     headers = {"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.5"}
-    if prior.get("etag"):
+    # Force one full read when migrating from raw-byte hashes to visible-text hashes.
+    if prior.get("hash_version") == HASH_VERSION and prior.get("etag"):
         headers["If-None-Match"] = prior["etag"]
-    if prior.get("last_modified"):
+    if prior.get("hash_version") == HASH_VERSION and prior.get("last_modified"):
         headers["If-Modified-Since"] = prior["last_modified"]
     request = urllib.request.Request(url, headers=headers)
     try:
@@ -94,11 +161,14 @@ def request_source(source: dict[str, Any], prior: dict[str, Any]) -> tuple[str, 
             if len(body) > MAX_BODY_BYTES:
                 message = "來源回應超過 2 MiB 監測上限；保留上次已核實資料。"
                 return "unavailable", message, {**prior, "availability": "unavailable", "http_status": status, "error": message}
-            digest = hashlib.sha256(body).hexdigest()
+            content_type = response.headers.get("Content-Type")
+            digest = content_fingerprint(body, content_type)
             response_headers = response.headers
             state = {
                 **prior,
                 "sha256": digest,
+                "hash_version": HASH_VERSION,
+                "content_type": content_type,
                 "etag": response_headers.get("ETag"),
                 "last_modified": response_headers.get("Last-Modified"),
                 "http_status": status,
@@ -184,6 +254,7 @@ def check_sources(root: Path = ROOT) -> dict[str, Any]:
         if (
             result == "ok"
             and next_state.get("sha256") == prior.get("sha256")
+            and next_state.get("hash_version") == prior.get("hash_version")
             and prior.get("availability", "available") == "available"
         ):
             # Ignore validator/response-header churn when page content is identical.
@@ -194,10 +265,14 @@ def check_sources(root: Path = ROOT) -> dict[str, Any]:
             old_hash = prior.get("sha256")
             new_hash = next_state.get("sha256")
             reviewed_hash = prior.get("reviewed_sha256") or old_hash
-            if not old_hash:
-                # A first successful read establishes a baseline; it is not a change.
+            hash_migrated = bool(old_hash) and prior.get("hash_version") != HASH_VERSION
+            if not old_hash or hash_migrated:
+                # First read or explicit fingerprint migration establishes a baseline.
+                # The migration is recorded so the new, text-only hash is reviewed once.
                 reviewed_hash = new_hash
-                next_state["baseline_at"] = now_iso()
+                next_state["baseline_at"] = prior.get("baseline_at") or now_iso()
+                if hash_migrated:
+                    next_state["reviewed_at"] = now_iso()
                 pending.pop(f"change:{source_id}", None)
             elif new_hash and new_hash != reviewed_hash:
                 pending[f"change:{source_id}"] = {

@@ -166,6 +166,11 @@ def validate(snapshot: dict[str, Any]) -> list[str]:
             price = plan.get(price_field)
             if price is not None and (not is_number(price) or price < 0):
                 fail(errors, f"{label}.{price_field} must be a non-negative number or null")
+        annual_available = plan.get("annual_billing_available")
+        if annual_available not in {True, False, None}:
+            fail(errors, f"{label}.annual_billing_available must be true, false, or null")
+        if annual_available is False and (plan.get("annual_monthly_price") is not None or plan.get("annual_billed_total") is not None):
+            fail(errors, f"{label} has annual prices but marks annual billing unavailable")
         if plan.get("tax") not in {"included", "extra", "varies", "unknown"}:
             fail(errors, f"{label} must state tax handling")
         if not plan.get("checked_at") or not plan.get("region"):

@@ -44,6 +44,9 @@ const PRODUCT_LABELS: Record<string, string> = {
   'Claude Chat + Claude Code': 'Claude 對話＋Claude Code', 'Gemini Deep Research / Agent': 'Gemini 深度研究／代理', 'Grok Bot': 'Grok Bot',
   '一般 Agent 功能': '一般代理功能', 'Codex Local / ChatGPT Work': 'Codex 本機版／ChatGPT 工作區', 'Codex Local / Codex Cloud': 'Codex 本機版／Codex 雲端版',
 };
+const MODEL_ACCESS_LABELS: Record<string, string> = {
+  'Cursor-supported models': 'Cursor 支援的模型',
+};
 const PLAN_LABELS: Record<string, string> = {
   'ChatGPT Free': 'ChatGPT 免費方案', 'Claude Free': 'Claude 免費方案', 'Google AI Free': 'Google AI 免費方案',
   'The X Subscription Free': 'X 免費方案', 'The X Subscription Plus': 'X Plus 方案', 'The X Subscription Premium': 'X Premium 方案',
@@ -122,6 +125,7 @@ function translateUiText(value: string | null | undefined): string {
 function sourceLabel(source: SourceRef): string { return SOURCE_LABELS[source.id] ?? translateUiText(source.label); }
 function sourceLabelById(id: string, fallback: string): string { return SOURCE_LABELS[id] ?? translateUiText(fallback); }
 function productLabel(value: string): string { return PRODUCT_LABELS[value] ?? translateUiText(value); }
+function modelAccessLabel(value: string): string { return MODEL_ACCESS_LABELS[value] ?? translateUiText(value); }
 function planLabel(value: string): string { return PLAN_LABELS[value] ?? translateUiText(value); }
 function quotaUnit(value: string): string { return QUOTA_UNITS[value] ?? translateUiText(value); }
 function quotaWindow(value: string | null): string { return value ? QUOTA_WINDOWS[value] ?? translateUiText(value) : '時間窗口尚未公布'; }
@@ -255,7 +259,7 @@ function PriceBlock({ plan }: { plan: SubscriptionPlan }) {
   return <div className="price-block">
     <strong>{formatPrice(plan.monthly_price, plan.currency)}</strong><span>/ 月</span>
     {plan.annual_billed_total !== null && <small>年繳 {formatPrice(plan.annual_billed_total, plan.currency)}，月均 {formatPrice(plan.annual_monthly_price, plan.currency)}</small>}
-    {plan.annual_billed_total === null && plan.annual_monthly_price === null && <small>年繳價格：尚無可靠數據</small>}
+    {plan.annual_billed_total === null && plan.annual_monthly_price === null && <small>{plan.annual_billing_available === true ? '年繳可選；公開年費尚無可靠數據' : plan.annual_billing_available === false ? '無年繳方案' : '年繳價格：尚無可靠數據'}</small>}
     <small>稅金：{plan.tax === 'extra' ? '另計' : plan.tax === 'included' ? '已含' : plan.tax === 'varies' ? '依地區／結帳頁而異' : '未知'} · {plan.region} · {plan.currency}</small>
   </div>;
 }
@@ -289,7 +293,7 @@ function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly }: { plan: Subscri
   ];
   const promo = plan.promo || plan.trial;
   const surfaces: Record<string, string> = { web: '網頁', mobile: '手機', cli: '命令列', cloud: '雲端', desktop: '桌面', agent: '代理' };
-  const modelNames = [...new Set(plan.products.filter((product) => product.included !== false).flatMap((product) => product.model_access.map((model) => model.model)))];
+  const modelNames = [...new Set(plan.products.filter((product) => product.included !== false).flatMap((product) => product.model_access.map((model) => modelAccessLabel(model.model))))];
   return <article className="plan-card">
     <div className="plan-card__heading">
       <div><span className={`provider-dot provider-dot--${plan.provider}`} /><span className="provider-name">{plan.provider_name}</span><span className="plan-tier">{plan.tier === 'free' ? '免費方案' : '個人方案'}</span></div>
@@ -314,7 +318,7 @@ function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly }: { plan: Subscri
           <div className="product-list">{plan.products.map((product) => <div className={`product-row ${product.rollout === 'discontinued' ? 'product-row--retired' : ''}`} key={product.product}>
             <div className="product-row__head"><span>{productLabel(product.product)}</span><Badge value={product.included} />{product.rollout === 'discontinued' && <span className="status-tag">已停止</span>}{product.rollout === 'limited' && <span className="status-tag">推出／地區限制</span>}{product.rollout === 'beta' && <span className="status-tag">測試版</span>}</div>
             {product.surface.length > 0 && <div className="product-note">{product.surface.map((surface) => surfaces[surface] ?? surface).join(' · ')}</div>}
-            {product.model_access.length > 0 && <div className="product-models">可用模型：{product.model_access.map((model) => `${model.model}${model.reasoning_modes.length ? `（${model.reasoning_modes.map(reasoningLabel).join('、')}）` : ''}${model.mapping === 'unmapped' ? ' · 無精確對應' : model.mapping === 'approximate' ? ' · 近似對應' : ''}`).join('、')}</div>}
+            {product.model_access.length > 0 && <div className="product-models">可用模型：{product.model_access.map((model) => `${modelAccessLabel(model.model)}${model.reasoning_modes.length ? `（${model.reasoning_modes.map(reasoningLabel).join('、')}）` : ''}${model.mapping === 'unmapped' ? ' · 無精確對應' : model.mapping === 'approximate' ? ' · 近似對應' : ''}`).join('、')}</div>}
             {product.note && <div className="product-note">{translateUiText(product.note)}</div>}
             {product.source_ids.length > 0 && <SourceLinks ids={product.source_ids} sources={snapshot.sources} label="產品權限來源" />}
           </div>)}</div>
@@ -404,7 +408,7 @@ function CompactPlanTable({ plans, snapshot, verifiedOnly }: { plans: Subscripti
   return <div className="table-scroll compact-plan-scroll"><table className="data-table compact-plan-table"><thead><tr><th>公司／方案</th><th>月繳／年繳月均</th><th>可用模型</th><th>對話額度</th><th>一般代理</th><th>程式代理</th></tr></thead>
     <tbody>{plans.length ? plans.map((plan) => {
       const models = [...new Set(plan.products.filter((product) => product.included !== false).flatMap((product) => product.model_access.map((access) => access.model)))];
-      return <tr key={plan.id}><td><b>{plan.provider_name}</b><small>{planLabel(plan.name)}</small></td><td>{formatPrice(plan.monthly_price, plan.currency)}<small>年繳月均 {formatPrice(plan.annual_monthly_price, plan.currency)}</small></td><td className="compact-model-cell">{models.length ? models.join('、') : MISSING}</td><td>{compactQuotaSummary(snapshot, plan, 'chat', verifiedOnly)}</td><td>{compactQuotaSummary(snapshot, plan, 'agent', verifiedOnly)}</td><td>{compactQuotaSummary(snapshot, plan, 'coding_agent', verifiedOnly)}</td></tr>;
+      return <tr key={plan.id}><td><b>{plan.provider_name}</b><small>{planLabel(plan.name)}</small></td><td>{formatPrice(plan.monthly_price, plan.currency)}<small>{plan.annual_monthly_price !== null ? `年繳月均 ${formatPrice(plan.annual_monthly_price, plan.currency)}` : plan.annual_billing_available === true ? '年繳可選；價格未公布' : plan.annual_billing_available === false ? '無年繳方案' : '年繳價格未公布'}</small></td><td className="compact-model-cell">{models.length ? models.map(modelAccessLabel).join('、') : MISSING}</td><td>{compactQuotaSummary(snapshot, plan, 'chat', verifiedOnly)}</td><td>{compactQuotaSummary(snapshot, plan, 'agent', verifiedOnly)}</td><td>{compactQuotaSummary(snapshot, plan, 'coding_agent', verifiedOnly)}</td></tr>;
     }) : <tr><td colSpan={6}>{MISSING}</td></tr>}</tbody>
   </table></div>;
 }

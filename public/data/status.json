@@ -13,9 +13,9 @@
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-17T19:17:19Z",
-    "status": "warning",
-    "summary": "有 20 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "checked_at": "2026-10-17T19:28:09Z",
+    "status": "ok",
+    "summary": "內容變更警告為 0；11 個來源自動讀取受限，仍保留最後核實版本。",
     "unavailable": [
       {
         "category": "blocked",
@@ -95,127 +95,6 @@
         "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
       }
     ],
-    "warnings": [
-      {
-        "label": "Artificial Analysis Coding Agents",
-        "message": "官方頁面內容已變更（ab08258f14a9 → 340867940a6a）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "aa-coding-agents",
-        "url": "https://artificialanalysis.ai/agents/coding-agents"
-      },
-      {
-        "label": "Claude Code with a Claude plan",
-        "message": "官方頁面內容已變更（c2772dbda68b → 7b653e29ed5f）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "anthropic-code",
-        "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
-      },
-      {
-        "label": "Claude Cowork transition and rollout",
-        "message": "官方頁面內容已變更（0426f00ce991 → 3716e2907e81）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "anthropic-cowork",
-        "url": "https://claude.com/blog/cowork-is-now-claude"
-      },
-      {
-        "label": "Claude Pro billing",
-        "message": "官方頁面內容已變更（88257fb2e240 → 2aef70eed3e2）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "anthropic-pro-cost",
-        "url": "https://claude.com/pricing"
-      },
-      {
-        "label": "Claude pricing",
-        "message": "官方頁面內容已變更（88257fb2e240 → b30072824007）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "anthropic-pricing",
-        "url": "https://claude.com/pricing"
-      },
-      {
-        "label": "Gemini Apps usage limits",
-        "message": "官方頁面內容已變更（93e7424cd49a → e10ce7fade59）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "google-gemini-limits",
-        "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
-      },
-      {
-        "label": "Gemini CLI and individual Code Assist deprecation",
-        "message": "官方頁面內容已變更（599f73d5602f → 433a1bfe82a8）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "gemini-cli-deprecation",
-        "url": "https://developers.google.com/gemini-code-assist/docs/deprecations"
-      },
-      {
-        "label": "Google AI Plus annual billing availability",
-        "message": "官方頁面內容已變更（f57e9af65418 → 01f193f3fcce）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "google-annual-plus",
-        "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
-      },
-      {
-        "label": "Google AI Pro annual billing availability",
-        "message": "官方頁面內容已變更（ef10b5d0753e → 0bd9fa69b2f0）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "google-annual-pro",
-        "url": "https://support.google.com/googleone/answer/16476811?hl=en"
-      },
-      {
-        "label": "Google AI plan benefits",
-        "message": "官方頁面內容已變更（1ea3c5445aac → bc9a97a10046）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "google-one-benefits",
-        "url": "https://support.google.com/googleone/answer/14534406?hl=en"
-      },
-      {
-        "label": "Google AI subscriptions (current US pricing and model access)",
-        "message": "官方頁面內容已變更（53737ef1b88c → bbc77d9b9269）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "google-ai-plus-current",
-        "url": "https://gemini.google/subscriptions/?currencyCode=USD"
-      },
-      {
-        "label": "Grok Bot plan availability",
-        "message": "官方頁面內容已變更（304f148efb76 → 298463076434）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "xai-grok-bot",
-        "url": "https://docs.x.ai/x-subscription/grok-bot"
-      },
-      {
-        "label": "Grok Build CLI announcement",
-        "message": "官方頁面內容已變更（d016c3c40249 → 12385b771404）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "xai-build",
-        "url": "https://x.ai/news/grok-build-cli"
-      },
-      {
-        "label": "Grok Build web and mobile availability",
-        "message": "官方頁面內容已變更（7825fddc2009 → f8bba3baced0）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "xai-build-all",
-        "url": "https://x.ai/news/grok-build-for-everyone"
-      },
-      {
-        "label": "Grok FAQ",
-        "message": "官方頁面內容已變更（fc9a82bd4fc9 → f1ce40133fd5）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "xai-faq",
-        "url": "https://docs.x.ai/grok/faq"
-      },
-      {
-        "label": "Grok overview and usage",
-        "message": "官方頁面內容已變更（89e2f427b5c5 → be5cc467a4a9）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "xai-grok",
-        "url": "https://docs.x.ai/grok/overview"
-      },
-      {
-        "label": "Individual users deprecation details",
-        "message": "官方頁面內容已變更（27cbf0aa1002 → f9588c80b675）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "gemini-cli-deprecation-individuals",
-        "url": "https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals"
-      },
-      {
-        "label": "Use Research on Claude",
-        "message": "官方頁面內容已變更（dee21faae3af → 463845ad016b）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "anthropic-research",
-        "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
-      },
-      {
-        "label": "xAI X Subscription plans and pricing",
-        "message": "官方頁面內容已變更（126be327a39c → 3c61765843e9）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "xai-pricing-web",
-        "url": "https://x.ai/pricing"
-      },
-      {
-        "label": "xAI X Subscription pricing",
-        "message": "官方頁面內容已變更（6ea55448dcd8 → ee75ecd5de5f）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "xai-pricing",
-        "url": "https://docs.x.ai/x-subscription/pricing"
-      }
-    ]
+    "warnings": []
   }
 }

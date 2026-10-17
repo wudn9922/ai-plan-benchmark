@@ -222,6 +222,13 @@ def check_sources(root: Path = ROOT) -> dict[str, Any]:
             prior_sources[source_id] = next_state
             changed = True
 
+    # Removed source IDs should not leave old warnings in the public report.
+    active_ids = set(source_by_id)
+    for warning_id, warning in list(pending.items()):
+        if not isinstance(warning, dict) or warning.get("source_id") not in active_ids:
+            pending.pop(warning_id, None)
+            changed = True
+
     warnings = sorted(pending.values(), key=lambda item: (item.get("label", ""), item.get("source_id", "")))
     old_report = status.get("source_health", {}) if isinstance(status, dict) else {}
     report = build_report(pending, prior_sources, now_iso())

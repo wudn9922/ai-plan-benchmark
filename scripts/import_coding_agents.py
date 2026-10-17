@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT = ROOT / "public" / "data" / "snapshot.json"
 EVIDENCE = {"official", "community", "measured", "estimate"}
-PROVIDERS = {"openai", "anthropic", "google", "xai"}
+PROVIDERS = {"openai", "anthropic", "google", "xai", "other"}
 
 
 def official_aa_url(value: object) -> bool:

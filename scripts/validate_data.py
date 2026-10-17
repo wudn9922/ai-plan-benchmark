@@ -20,7 +20,7 @@ INDEXES = {
 QUOTA_CATEGORIES = {"chat", "agent", "coding_agent"}
 CONFIDENCES = {"high", "medium", "low", "unknown"}
 EVIDENCE = {"official", "community", "measured", "estimate"}
-PROVIDERS = {"openai", "anthropic", "google", "xai"}
+PROVIDERS = {"openai", "anthropic", "google", "xai", "other"}
 
 
 def fail(errors: list[str], message: str) -> None:

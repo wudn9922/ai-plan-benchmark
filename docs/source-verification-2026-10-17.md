@@ -7,8 +7,9 @@
 | 來源 ID | 結果 |
 | --- | --- |
 | `aa-api-reference` | 已核對 [Free API 文件](https://artificialanalysis.ai/data-api/docs/reference)：免費端點提供主要指數、六項能力指數及部分價格/速度欄位，不含完整 Pro 評測集或全部逐項測試分數。 |
-| `aa-coding-agent-import-v1.5-2026-10-16` | 已重查 [Codex 與 Claude Code 官方比較頁](https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex)；頁面兩組既有組態分數、Token、時間與 Cost per Task 均吻合，匯入資料未改分。 |
-| `aa-coding-agents` | 已核對 [Coding Agents 頁面](https://artificialanalysis.ai/agents/coding-agents)：Coding Agent Index 是 Agent、模型及 Harness 的組態分數，與基礎模型 Coding Index 分開。 |
+| `aa-coding-agent-import-v1.5-2026-10-17` | 已逐列重查 [Codex 與 Claude Code 官方比較頁](https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex)：匯入 27 組 Claude Code／Codex 模型與 reasoning 組態；保留三項底層分數、總 Token、時間和每任務成本，未公開的 Token 分拆留空。 |
+| `aa-coding-agent-opencode-import-v1.5-2026-10-17` | 已核對 [Claude Code 與 OpenCode 比較頁](https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode)：加入 GLM-5.3 組態；以「其他」標示 OpenCode Harness，不套用四家訂閱公司的權益。 |
+| `aa-coding-agents` | 已核對 [Coding Agents 頁面](https://artificialanalysis.ai/agents/coding-agents)：現行 v1.5 指數彙整 DeepSWE、Terminal-Bench 與 SWE-Atlas-QnA；Agent、模型及 Harness 是組態分數，與基礎模型 Coding Index 分開。 |
 | `aa-coding-method` | 已核對 [Coding Agent 方法頁](https://artificialanalysis.ai/methodology/coding-agents-benchmarking)：v1.5 將 DeepSWE v1.1、Terminal-Bench 4.0、SWE-Atlas-QnA 等權納入；現有兩組組態的三項底層值保留原分。 |
 | `aa-free-api` | 已核對 [API 文件](https://artificialanalysis.ai/data-api/docs)及 2026-10-17 14:08:58 UTC 原始回應；API 金鑰由 GitHub Actions 執行環境注入，未進入前端或資料檔。修正 `evaluations` 的完整官方欄位名稱映射後，9 項指數均依 API 實際值匯入；快照含 704 筆 API 模型及 2 筆官方頁面補充模型，共 706 筆。 |
 | `aa-method` | 已核對 [Intelligence Index 方法頁](https://artificialanalysis.ai/methodology/intelligence-benchmarking)：現行公開方法為 v4.3.2，10 項測試；API 的 4.3 版本欄與方法頁精度分開保留。 |
@@ -45,6 +46,7 @@
 | `openai-codex` | 自動擷取回 403；透過[官方 Codex 方案說明](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan)核對 Local 與 Cloud 使用窗口不同，Local 權益不推定為 Cloud 權益。 |
 | `xai-pricing-web` | 已核對[xAI 目前方案頁](https://x.ai/pricing)；美國新自助方案價格與舊 X／SuperGrok 訂閱分開。 |
 | `xai-pricing` | 已核對[xAI 官方用量價格文件](https://docs.x.ai/x-subscription/pricing)：Plus $8/月或 $80/年、Premium $30/月或 $300/年；XAI 模型的 Grok/Cursor 用量共用週池，第三方 Cursor 模型另計，稅金可於結帳另加。 |
+| `google-jules` | 已核對[Google Jules 官方公告](https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/)：Jules 已公開推出，AI Pro 比初始存取有更高限制；公告沒有固定任務數，資料仍標示動態／未公布，不以倍數換算任務數。 |
 
 ## 403／404 處理
 

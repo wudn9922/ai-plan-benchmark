@@ -15,7 +15,7 @@ class ReviewFollowupTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.snapshot = json.loads((validate_data.ROOT / "public/data/snapshot.json").read_text(encoding="utf-8"))
-        cls.import_data = json.loads((validate_data.ROOT / "public/data/imports/coding-agents-v1.5-2026-10-16.json").read_text(encoding="utf-8"))
+        cls.import_data = json.loads((validate_data.ROOT / "public/data/imports/coding-agents-v1.5-2026-10-17.json").read_text(encoding="utf-8"))
 
     def test_coding_agent_import_requires_record_version_to_match_index_version(self) -> None:
         mismatched = copy.deepcopy(self.import_data)

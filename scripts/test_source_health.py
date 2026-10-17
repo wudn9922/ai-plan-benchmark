@@ -102,6 +102,23 @@ class SourceHealthTests(unittest.TestCase):
             self.assertEqual(persisted["sources"]["sample"]["reviewed_sha256"], "new")
             self.assertEqual(persisted["pending_warnings"], {})
 
+    def test_removed_source_does_not_keep_a_stale_content_warning(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.create_root(root)
+            cache_path = root / "public/data/source-health-cache.json"
+            cache_path.write_text(json.dumps({
+                "sources": {"sample": {"availability": "available", "sha256": "same"}},
+                "pending_warnings": {
+                    "change:removed": {"source_id": "removed", "label": "Removed source", "url": "https://example.com", "message": "stale"}
+                },
+            }), encoding="utf-8")
+            with patch.object(source_health, "request_source", return_value=("ok", None, {"availability": "available", "sha256": "same"})):
+                result = source_health.check_sources(root)
+            self.assertEqual(result["pending_warnings"], 0)
+            persisted = json.loads(cache_path.read_text(encoding="utf-8"))
+            self.assertEqual(persisted["pending_warnings"], {})
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

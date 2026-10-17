@@ -12,6 +12,7 @@ const PROVIDERS = [
   { id: 'anthropic', name: 'Anthropic', color: '#a36132' },
   { id: 'google', name: 'Google', color: '#3977c3' },
   { id: 'xai', name: 'xAI / X', color: '#666975' },
+  { id: 'other', name: '其他', color: '#777b88' },
 ];
 const TABS: Array<{ id: Tab; label: string; icon: typeof Layers3; subtitle: string }> = [
   { id: 'plans', label: '訂閱方案', icon: Layers3, subtitle: '比月費、產品權限與三種分開計量的額度。' },
@@ -24,6 +25,7 @@ const CHART_COLORS = ['#247d68', '#a36132', '#3977c3', '#777b88', '#b57b26', '#b
 const SOURCE_LABELS: Record<string, string> = {
   'aa-free-api': 'Artificial Analysis 免費模型 API', 'aa-api-reference': 'Artificial Analysis API 欄位說明', 'aa-free-endpoint': '免費模型資料端點',
   'aa-method': '綜合智能評測方法', 'aa-coding-agents': '程式代理排名', 'aa-coding-method': '程式代理評測方法',
+  'aa-coding-agent-import-v1.5-2026-10-17': '程式代理評測組態資料', 'aa-coding-agent-opencode-import-v1.5-2026-10-17': 'OpenCode 程式代理組態',
   'openai-go': 'ChatGPT Go 方案', 'openai-plus': 'ChatGPT Plus 方案', 'openai-codex': 'ChatGPT 方案中的 Codex', 'openai-codex-usage': 'Codex 用量與模型', 'openai-models': 'ChatGPT 模型清單',
   'anthropic-pricing': 'Claude 方案價格', 'anthropic-pro-cost': 'Claude Pro 計費', 'anthropic-code': 'Claude 訂閱中的 Claude Code',
   'google-plans': 'Google AI 方案', 'google-ai-plus-current': 'Google AI 方案與模型權限', 'google-annual-plus': 'Google AI Plus 年繳', 'google-annual-pro': 'Google AI Pro 年繳', 'google-student-offer': 'Google AI 學生優惠', 'google-gemini-limits': 'Gemini 使用上限', 'google-one-benefits': 'Google AI 方案福利', 'gemini-cli-deprecation': 'Gemini CLI 個人帳號服務狀態', 'gemini-cli-deprecation-individuals': '個人帳號方案說明',

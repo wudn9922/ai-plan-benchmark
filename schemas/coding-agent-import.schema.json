@@ -19,7 +19,7 @@
         "required": ["id", "agent", "harness", "model", "reasoning_effort", "coding_agent_index", "scores", "average_task_tokens", "input_tokens", "cached_tokens", "output_tokens", "average_task_seconds", "cost_per_task_usd", "cost_kind", "benchmark_version", "source_url", "source_updated_at", "note"],
         "properties": {
           "id": { "type": "string", "minLength": 1 },
-          "provider": { "enum": ["openai", "anthropic", "google", "xai"] },
+          "provider": { "enum": ["openai", "anthropic", "google", "xai", "other"] },
           "agent": { "type": "string", "minLength": 1 },
           "harness": { "type": ["string", "null"] },
           "model": { "type": ["string", "null"] },

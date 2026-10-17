@@ -1,43 +1,6 @@
 {
   "last_state_change_at": "2026-10-17T20:03:39Z",
-  "pending_warnings": {
-    "change:anthropic-pricing": {
-      "label": "Claude pricing",
-      "message": "官方頁面內容已變更（6dd79f15ce97 → a1c54187debc）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "anthropic-pricing",
-      "url": "https://claude.com/pricing"
-    },
-    "change:google-ai-plus-current": {
-      "label": "Google AI subscriptions (current US pricing and model access)",
-      "message": "官方頁面內容已變更（152e16968e6d → ad4689ba878a）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-ai-plus-current",
-      "url": "https://gemini.google/subscriptions/?currencyCode=USD"
-    },
-    "change:google-annual-plus": {
-      "label": "Google AI Plus annual billing availability",
-      "message": "官方頁面內容已變更（02514829eb8b → 4e99fab25bc2）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-annual-plus",
-      "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
-    },
-    "change:google-annual-pro": {
-      "label": "Google AI Pro annual billing availability",
-      "message": "官方頁面內容已變更（2803dcaa58d8 → 05c919df26c9）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-annual-pro",
-      "url": "https://support.google.com/googleone/answer/16476811?hl=en"
-    },
-    "change:google-gemini-limits": {
-      "label": "Gemini Apps usage limits",
-      "message": "官方頁面內容已變更（323767316bb4 → 9da8da439ab3）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-gemini-limits",
-      "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
-    },
-    "change:google-one-benefits": {
-      "label": "Google AI plan benefits",
-      "message": "官方頁面內容已變更（bdb8e6a0832a → f2eaaf6847e7）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "google-one-benefits",
-      "url": "https://support.google.com/googleone/answer/14534406?hl=en"
-    }
-  },
+  "pending_warnings": {},
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -251,8 +214,8 @@
       "label": "Claude pricing",
       "last_modified": "Sat, 17 Oct 2026 20:00:22 GMT",
       "last_success_at": "2026-10-17T20:03:30Z",
-      "reviewed_at": "2026-10-17T19:50:05Z",
-      "reviewed_sha256": "6dd79f15ce97d39a98caa04df2a11578ef96ff7e559b85570e392338b34d41b2",
+      "reviewed_at": "2026-10-17T20:04:00Z",
+      "reviewed_sha256": "a1c54187debc73300720ae955b2996e3cb5a2a6648dcef3301dce19cf2f74d7c",
       "sha256": "a1c54187debc73300720ae955b2996e3cb5a2a6648dcef3301dce19cf2f74d7c",
       "state_changed_at": "2026-10-17T20:03:30Z",
       "url": "https://claude.com/pricing"
@@ -385,8 +348,8 @@
       "label": "Google AI subscriptions (current US pricing and model access)",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:31Z",
-      "reviewed_at": "2026-10-17T19:50:05Z",
-      "reviewed_sha256": "152e16968e6d61f2508a19a6567c20fce1de78292514c4fe5668af6309c016c0",
+      "reviewed_at": "2026-10-17T20:04:00Z",
+      "reviewed_sha256": "ad4689ba878a07979ba8ba59d7d35e4713d6e1f9aa0176ddb5d7ce9d23ad3452",
       "sha256": "ad4689ba878a07979ba8ba59d7d35e4713d6e1f9aa0176ddb5d7ce9d23ad3452",
       "state_changed_at": "2026-10-17T20:03:31Z",
       "url": "https://gemini.google/subscriptions/?currencyCode=USD"
@@ -402,8 +365,8 @@
       "label": "Google AI Plus annual billing availability",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:32Z",
-      "reviewed_at": "2026-10-17T19:50:05Z",
-      "reviewed_sha256": "02514829eb8b2012741bdd831cf2b6ac20eaae8fc82074d58cd422395a09ac21",
+      "reviewed_at": "2026-10-17T20:04:00Z",
+      "reviewed_sha256": "4e99fab25bc2fee0e6c10646e41da19dc6e7c3e4989abd040ad0293f72a7b09e",
       "sha256": "4e99fab25bc2fee0e6c10646e41da19dc6e7c3e4989abd040ad0293f72a7b09e",
       "state_changed_at": "2026-10-17T20:03:32Z",
       "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
@@ -419,8 +382,8 @@
       "label": "Google AI Pro annual billing availability",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:32Z",
-      "reviewed_at": "2026-10-17T19:50:05Z",
-      "reviewed_sha256": "2803dcaa58d89086658b5e3e7993b5f1e30efdd522d04a520939f7641f285eec",
+      "reviewed_at": "2026-10-17T20:04:00Z",
+      "reviewed_sha256": "05c919df26c9919fb4e58f49bda82f8dba48e7c93a93e12a6bc917924f709969",
       "sha256": "05c919df26c9919fb4e58f49bda82f8dba48e7c93a93e12a6bc917924f709969",
       "state_changed_at": "2026-10-17T20:03:32Z",
       "url": "https://support.google.com/googleone/answer/16476811?hl=en"
@@ -436,8 +399,8 @@
       "label": "Gemini Apps usage limits",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:33Z",
-      "reviewed_at": "2026-10-17T19:50:05Z",
-      "reviewed_sha256": "323767316bb46117a68e70b98fb626fcc814a93f699bc5cc3049f06743981b33",
+      "reviewed_at": "2026-10-17T20:04:00Z",
+      "reviewed_sha256": "9da8da439ab365fb2b066ddc91d54b38248a378d45a82113149b8937d9bfccd4",
       "sha256": "9da8da439ab365fb2b066ddc91d54b38248a378d45a82113149b8937d9bfccd4",
       "state_changed_at": "2026-10-17T20:03:33Z",
       "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
@@ -470,8 +433,8 @@
       "label": "Google AI plan benefits",
       "last_modified": null,
       "last_success_at": "2026-10-17T20:03:34Z",
-      "reviewed_at": "2026-10-17T19:50:05Z",
-      "reviewed_sha256": "bdb8e6a0832a7cf2f2310178b8841bfd24310ea4fa287c72fc493372b5037fdb",
+      "reviewed_at": "2026-10-17T20:04:00Z",
+      "reviewed_sha256": "f2eaaf6847e7f740fcca5434fbf6a4b76ce54aa9adcf50efe70fb06fadcfa727",
       "sha256": "f2eaaf6847e7f740fcca5434fbf6a4b76ce54aa9adcf50efe70fb06fadcfa727",
       "state_changed_at": "2026-10-17T20:03:34Z",
       "url": "https://support.google.com/googleone/answer/14534406?hl=en"

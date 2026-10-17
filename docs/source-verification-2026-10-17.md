@@ -108,3 +108,15 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 - 11 個 OpenAI 官方 Help／定價來源回 HTTP 403，仍列為「自動擷取受阻」；這些錯誤沒有被當成內容變更。本輪沿用先前已完成的官方頁面核對結果，保留資料並提供可開啟的官方來源連結。
 - Claude 舊 Pro 計費網址曾回 HTTP 404；該來源已改為仍可讀取的 `https://claude.com/pricing`，不把舊網址失效推定成 Pro 方案停止。
 - 已核對的 8 個內容變更會只針對其來源 ID 更新核對雜湊。其他不可讀來源維持最後已核對資料與錯誤狀態，不會因人工核對其他頁面而被清除。
+
+## 2026-10-17 第四輪官方頁面複核
+
+本輪由每日來源監測提出 6 項可讀取官方頁面的內容變更。已逐頁檢視方案價格、權益、模型文字與額度說明，確認以下資料仍與快照一致；已核對雜湊會更新為本輪頁面版本。來源自動讀取受阻的 11 個 OpenAI 頁面維持獨立警示。
+
+| 來源 ID | 人工複核結果 |
+| --- | --- |
+| `anthropic-pricing` | [Claude 官方定價頁](https://claude.com/pricing)仍列 Pro 月繳 $20、年繳預付 $200（頁面約顯示月均 $17），適用稅金另計；Pro 包含 Claude Code、Research 及 Claude in Chrome。頁面說明 Cowork 正改為 Claude 的功能，先向 Pro／Max 分階段推出。方案未承諾固定訊息或代理任務數。 |
+| `google-gemini-limits` | [Gemini Apps 限額及功能頁](https://support.google.com/gemini/answer/16275805?gl=US&hl=en)確認 AI Plus 為標準限額 2 倍、Pro 為 4 倍，Ultra 為 Pro 的 5 倍或 20 倍；用量每五小時刷新並另受每週上限限制。限額會依提示複雜度、對話長度、功能和容量變化；Deep Research 耗用較高，Tasks in Gemini 僅列於 Pro／Ultra。未公布固定任務數的欄位保持空值。 |
+| `google-annual-plus`、`google-annual-pro` | [AI Plus](https://support.google.com/googleone/answer/16548195?hl=en-uk)及 [AI Pro](https://support.google.com/googleone/answer/16476811?hl=en)說明均確認可選月繳或年繳；美國公開頁未顯示登入後的年繳實付價。資料保留年繳月均與總額空值，不以月費推算。 |
+| `google-one-benefits` | [Google AI Pro 權益頁](https://support.google.com/googleone/answer/14534406?hl=en)確認 Pro 的 Antigravity 增額、Jules 增額與可加購 AI credits；這些產品各有獨立用量。Jules 的 15／100 個新任務與 3／15 個並行值取自專屬 [Jules 用量頁](https://jules.google/docs/usage-limits)，沒有混成一個任務池。 |
+| `google-ai-plus-current`、`google-plans` | [Google AI 方案頁](https://gemini.google/subscriptions/?currencyCode=USD)確認美國 Plus 月費 $4.99、2 倍 Gemini 使用量、200 Flow Credits；Pro 月費 $19.99、4 倍使用量、1,000 Flow Credits，並列 Gemini 4 Argon、Pro 與 Flash。方案頁未列出可登入帳戶以外確認的年繳金額。Plus 的 Gemini 3.6 Flash 名稱另由目前 [Google One AI 方案矩陣](https://one.google.com/about/google-ai-plans/)核對。Flow Credits 是創作產品點數，不計入 Chat 或 Agent 額度。 |

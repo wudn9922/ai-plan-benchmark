@@ -552,6 +552,42 @@
       "checked_at": "2026-10-18",
       "region": "未提供",
       "notes": "n=2：貼文作者稱 GPT-6.1 Sol 每個五小時時段約用去每週額度 10%；一位留言者回報約 6%。提示／任務內容、推理等級和使用介面未充分說明，無法判定為 Chat、Work 或 Codex 專屬額度，因此只保留研究紀錄、不拆分或列入現行精簡額度表。"
+    },
+    {
+      "id": "reddit-claude-code-pro-20min-2026-10-11",
+      "label": "Claude Code Pro 五小時額度體感（20 分鐘）",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1x3fz2l/claude_pro_users_how_are_you_actually_making_your/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-10-11 一位 Claude Pro 使用者回報以 Sonnet 5.5 Medium 編程，約 20 分鐘耗盡五小時時段額度；貼文未給程式碼庫大小、提示、工具呼叫或任務數，留言有人質疑該觀察是否具代表性。n=1、低信心，僅呈現該次體感。"
+    },
+    {
+      "id": "reddit-claude-code-pro-weekly-23pct-2026-10-14",
+      "label": "Claude Code Pro 五小時額度占週池體感（23%）",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1x61eqj/one_full_5_hour_limit_resulted_in_23_weekly_usage/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-10-14 一位 Claude Pro 使用者回報使用 Opus 5.5 Extra 的一個完整五小時時段耗用約 23% 週額度；未說明任務工作量。n=1、低信心，且其他方案／模型體感差異大。"
+    },
+    {
+      "id": "reddit-openai-codex-plus-11min-2026-10-09",
+      "label": "Codex Plus 五小時額度體感（多代理工作）",
+      "url": "https://www.reddit.com/r/codex/comments/1x1qj57/possible_codex_bug_since_october_7_gpt_61_sol_has/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-10-09 一位使用者回報 Windows 11 自訂 Codex 環境以 GPT-6.1 Sol High 及兩個 GPT-6 Luna High 子代理處理 APK 逆向工程，約 11 分鐘耗盡五小時額度，週額度由 100% 降至約 82%。作者亦懷疑自訂外部模型整合造成額度異常；本機／雲端執行環境不明。n=1、低信心、特殊多代理工作負載。"
+    },
+    {
+      "id": "reddit-google-antigravity-pro-46pct-2026-10-05",
+      "label": "Google AI Pro Antigravity 五小時額度占週池體感（46%）",
+      "url": "https://www.reddit.com/r/google_antigravity/comments/1wygnf4/google_ai_pro_plan_decreased_antigravity_tokens/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-10-05 一位 Google AI Pro 使用者在 Antigravity 社群回報一次 Gemini 五小時使用時段約耗用 46% 週額度；工具／模型版本與工作負載未說明。留言也有 10% 與 40% 等不同體感，不能併為固定配額。n=1 主貼觀察、低信心。"
     }
   ],
   "plans": [
@@ -938,7 +974,9 @@
         "openai-plus-codex-community",
         "openai-plus-work-community-37pct-2026-09-27",
         "openai-codex-gpt61-community-40min-2026-10-17",
-        "openai-plus-chat-community-1-2-prompts-2026-09-18"
+        "openai-plus-chat-community-1-2-prompts-2026-09-18",
+        "openai-plus-codex-11min-community-2026-10-09",
+        "openai-plus-codex-weekly-18pct-community-2026-10-09"
       ],
       "note": "美國月繳參考價；Chat／Work／Codex 使用額度分開或依產品共用。Work 與 Codex 共用五小時及每週用量池；雲端任務可能耗用較多。舊版 Agent Mode 已停用。",
       "products": [
@@ -1348,7 +1386,9 @@
         "anthropic-pro-cowork-unknown",
         "anthropic-pro-chrome-unknown",
         "claude-pro-chat-community",
-        "claude-pro-code-community"
+        "claude-pro-code-community",
+        "claude-pro-code-20min-community-2026-10-11",
+        "claude-pro-code-weekly-23pct-community-2026-10-14"
       ],
       "note": "Claude Pro 月繳 $20；年繳一次付 $200，月均 $16.67（官方頁約顯示 $17／月）；價格未含適用稅金。Claude 對話、研究與 Claude Code 均未公布保證任務數。",
       "products": [
@@ -1424,7 +1464,9 @@
           ],
           "quota_ids": [
             "claude-pro-shared",
-            "claude-pro-code-community"
+            "claude-pro-code-community",
+            "claude-pro-code-20min-community-2026-10-11",
+            "claude-pro-code-weekly-23pct-community-2026-10-14"
           ],
           "source_ids": [
             "anthropic-code"
@@ -1756,7 +1798,8 @@
         "google-ai-pro-chrome-agent",
         "google-pro-jules-concurrency",
         "google-pro-chat-community",
-        "google-ai-pro-flash-community-4-6pct-2026-10-18"
+        "google-ai-pro-flash-community-4-6pct-2026-10-18",
+        "google-pro-antigravity-weekly-46pct-community-2026-10-05"
       ],
       "note": "美國月繳 $19.99；官方提供月繳與年繳選項。美國年繳實付金額需在 Google One 購買流程確認，公開頁未固定列價，因此保留空值。個人 Google 帳號的舊 Gemini CLI 權益已停止。",
       "products": [
@@ -1866,7 +1909,8 @@
             }
           ],
           "quota_ids": [
-            "google-pro-antigravity"
+            "google-pro-antigravity",
+            "google-pro-antigravity-weekly-46pct-community-2026-10-05"
           ],
           "source_ids": [
             "antigravity-models",
@@ -4284,7 +4328,7 @@
       "model": "Gemini Pro（版號未說明）",
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "樣本 n=1；模型版號、推理等級與工作負載未說明，2026-06 單一帳號體感，非官方限制。",
+      "note": "歷史觀察；樣本 n=1；模型版號、推理等級與工作負載未說明，2026-06 單一帳號體感，非官方限制。",
       "confidence": "low",
       "source_ids": [
         "reddit-gemini-pro-usage"
@@ -4308,7 +4352,7 @@
       "model": "Gemini Flash 3.5",
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "樣本 n=1；一個 Deep Research 回報耗用 77% 五小時額度。不可換算為標準任務數，資料較舊。",
+      "note": "歷史觀察；樣本 n=1；一個 Deep Research 回報耗用 77% 五小時額度。不可換算為標準任務數，資料較舊。",
       "confidence": "low",
       "source_ids": [
         "reddit-gemini-free-research-usage"
@@ -4360,7 +4404,7 @@
         "Codex Local",
         "Codex Cloud"
       ],
-      "note": "n=1 社群觀察：長上下文整理既有專案並輸出 Markdown；作者未提供任務時間、詞元或其他共用用量。只代表該次體感，不換算固定任務數。",
+      "note": "歷史觀察；n=1 社群觀察：長上下文整理既有專案並輸出 Markdown；作者未提供任務時間、詞元或其他共用用量。只代表該次體感，不換算固定任務數。",
       "confidence": "low",
       "source_ids": [
         "reddit-work-plus-usage"
@@ -4504,6 +4548,130 @@
         "reddit-grokbot-premium-usage-2026-10-15"
       ],
       "sampled_at": "2026-10-15",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "claude-pro-code-20min-community-2026-10-11",
+      "plan_id": "anthropic-pro",
+      "plan_name": "Claude Pro",
+      "category": "coding_agent",
+      "product": "Claude Code",
+      "metric": "五小時時段額度耗盡時間",
+      "value": 20,
+      "value_type": "exact",
+      "unit": "分鐘",
+      "window": "Claude Pro 編程觀察；一個 5 小時時段額度約 20 分鐘耗盡",
+      "model": "Claude Sonnet 5.5",
+      "reasoning_mode": "Medium",
+      "shared_with": [
+        "Claude Chat"
+      ],
+      "note": "n=1；使用者回報 Sonnet 5.5 Medium 編程約 20 分鐘耗盡一個五小時時段額度。任務與上下文未標準化；留言有人質疑代表性。Claude Chat 與 Claude Code 共用額度；不可換算固定任務數。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-claude-code-pro-20min-2026-10-11"
+      ],
+      "sampled_at": "2026-10-11",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "claude-pro-code-weekly-23pct-community-2026-10-14",
+      "plan_id": "anthropic-pro",
+      "plan_name": "Claude Pro",
+      "category": "coding_agent",
+      "product": "Claude Code",
+      "metric": "完整五小時時段耗用週額度百分比",
+      "value": 23,
+      "value_type": "exact",
+      "unit": "額度百分比",
+      "window": "一次完整五小時時段額度；每週額度",
+      "model": "Claude Opus 5.5",
+      "reasoning_mode": "Extra",
+      "shared_with": [
+        "Claude Chat"
+      ],
+      "note": "n=1；使用者回報一次完整五小時額度耗去約 23% 週額度。工作負載未提供；單一帳號體感，不代表固定週可執行次數。Claude Chat 與 Claude Code 共用額度。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-claude-code-pro-weekly-23pct-2026-10-14"
+      ],
+      "sampled_at": "2026-10-14",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "openai-plus-codex-11min-community-2026-10-09",
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus",
+      "category": "coding_agent",
+      "product": "Codex（執行環境未明）",
+      "metric": "一次多代理工作耗盡五小時額度所需時間",
+      "value": 11,
+      "value_type": "exact",
+      "unit": "分鐘",
+      "window": "GPT-6.1 Sol High＋2 個 GPT-6 Luna High 子代理；約 11 分鐘耗盡一個 5 小時額度",
+      "model": "GPT-6.1 Sol",
+      "reasoning_mode": "High",
+      "shared_with": [],
+      "note": "n=1；Windows 11 自訂 Codex 環境處理 APK 逆向工程，含兩個子代理。作者回報週額度同由 100% 降至約 82%，並懷疑外部模型整合造成異常扣額；本機／雲端模式不明，不能代表一般任務或保證配額。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-openai-codex-plus-11min-2026-10-09"
+      ],
+      "sampled_at": "2026-10-09",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "openai-plus-codex-weekly-18pct-community-2026-10-09",
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus",
+      "category": "coding_agent",
+      "product": "Codex（執行環境未明）",
+      "metric": "單次多代理工作耗用週額度百分比",
+      "value": 18,
+      "value_type": "exact",
+      "unit": "額度百分比",
+      "window": "一次約 11 分鐘 Codex 工作耗盡五小時額度；週額度由 100% 降至約 82%",
+      "model": "GPT-6.1 Sol",
+      "reasoning_mode": "High",
+      "shared_with": [],
+      "note": "n=1；與同來源的 11 分鐘 Codex 觀察為同一次事件。Windows 11 自訂多代理工作負載，作者懷疑外部模型整合造成異常扣額；本機／雲端模式不明，不可視為一般每週配額。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-openai-codex-plus-11min-2026-10-09"
+      ],
+      "sampled_at": "2026-10-09",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "google-pro-antigravity-weekly-46pct-community-2026-10-05",
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro",
+      "category": "coding_agent",
+      "product": "Antigravity Desktop",
+      "metric": "一次五小時使用耗用週額度百分比",
+      "value": 46,
+      "value_type": "exact",
+      "unit": "額度百分比",
+      "window": "一次 Antigravity 五小時使用時段；每週額度",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "n=1 主貼回報：一次五小時時段耗用約 46% 週額度；模型版本與工作負載未說明，留言觀察差異大。不是官方固定配額。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-google-antigravity-pro-46pct-2026-10-05"
+      ],
+      "sampled_at": "2026-10-05",
       "region": "未提供",
       "estimate_range": null,
       "sample_size": 1

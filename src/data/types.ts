@@ -33,6 +33,7 @@ export interface QuotaObservation {
   sampled_at: string;
   region: string;
   estimate_range?: { min: number; max: number; sample_size: number | null; workload: string } | null;
+  sample_size?: number | null;
 }
 
 export interface ProductAccess {

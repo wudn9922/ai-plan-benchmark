@@ -135,6 +135,26 @@ class SourceHealthTests(unittest.TestCase):
             source_health.content_fingerprint(changed, "text/html"),
         )
 
+    def test_key_section_hash_ignores_unrelated_dynamic_page_chrome(self) -> None:
+        first = b"<html><body><nav>Home Plans cookie-1</nav><main><p>Claude Pro costs $20 per month.</p><p>Annual billing is $200.</p></main><footer>Visitors 104</footer></body></html>"
+        changed = b"<html><body><nav>Home Plans cookie-2 offers</nav><main><p>Claude Pro costs $20 per month.</p><p>Annual billing is $200.</p></main><footer>Visitors 999</footer></body></html>"
+        self.assertEqual(
+            source_health.content_fingerprint(first, "text/html", "anthropic-pricing"),
+            source_health.content_fingerprint(changed, "text/html", "anthropic-pricing"),
+        )
+
+    def test_key_section_hash_detects_price_and_quota_changes(self) -> None:
+        first = b"<html><body><main><p>Claude Pro costs $20 per month.</p><p>Annual billing is $200.</p></main></body></html>"
+        changed = b"<html><body><main><p>Claude Pro costs $25 per month.</p><p>Annual billing is $250.</p></main></body></html>"
+        self.assertNotEqual(
+            source_health.content_fingerprint(first, "text/html", "anthropic-pricing"),
+            source_health.content_fingerprint(changed, "text/html", "anthropic-pricing"),
+        )
+
+    def test_dynamic_source_hash_uses_source_specific_version(self) -> None:
+        self.assertEqual(source_health.source_hash_version("anthropic-pricing"), source_health.KEY_SECTION_HASH_VERSION)
+        self.assertEqual(source_health.source_hash_version("openai-plus"), source_health.HASH_VERSION)
+
     def test_hash_migration_resets_old_raw_html_baseline_after_review(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

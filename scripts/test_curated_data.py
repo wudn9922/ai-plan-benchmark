@@ -151,11 +151,12 @@ class CuratedDataTests(unittest.TestCase):
         antigravity = pro["Antigravity Desktop"]
         antigravity_models = {item["model"]: item for item in antigravity["model_access"]}
 
-        # Argon access in Gemini Apps does not establish access in Antigravity IDE.
+        # Argon has separate Antigravity access and does not inherit the Gemini Apps mapping.
         self.assertEqual(app_models["Gemini 4 Argon"]["mapping"], "approximate")
         self.assertEqual(app_models["Gemini 4 Argon"]["reasoning_modes"], [])
-        self.assertNotIn("Gemini 4 Argon (High)", antigravity_models)
-        self.assertIn("不代表 Antigravity IDE 可用", antigravity["note"])
+        self.assertIn("Gemini 4 Argon (High)", antigravity_models)
+        self.assertEqual(antigravity_models["Gemini 4 Argon (High)"]["mapping"], "unmapped")
+        self.assertIn("不適用於 Antigravity IDE", antigravity_models["Gemini 4 Argon (High)"]["note"])
         self.assertEqual(antigravity_models["Gemini 3.8 Flash (Medium)"]["mapping"], "exact")
 
         english_phrases = (
@@ -169,7 +170,7 @@ class CuratedDataTests(unittest.TestCase):
                     continue
                 for model in product["model_access"]:
                     for phrase in english_phrases:
-                        self.assertNotIn(phrase, model["note"])
+                        self.assertNotIn(phrase, model.get("note") or "")
 
     def test_google_flow_sources_and_monthly_credits_are_explicit(self) -> None:
         root = Path(__file__).resolve().parents[1]
@@ -202,6 +203,45 @@ class CuratedDataTests(unittest.TestCase):
             for product in plan["products"]:
                 if product["product"] == "Jules":
                     self.assertEqual(product["model_access"][0]["reasoning_modes"], [])
+
+    def test_current_model_access_is_explicit_and_chat_agent_are_separate(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        curated = json.loads((root / "data/curated.json").read_text(encoding="utf-8"))
+        plans = {plan["id"]: plan for plan in curated["plans"]}
+        for plan in curated["plans"]:
+            serialized = json.dumps(plan, ensure_ascii=False)
+            self.assertNotIn("依帳號當前", serialized)
+            self.assertNotIn("依帳號介面", serialized)
+
+        def product(plan_id: str, name: str) -> dict:
+            return next(item for item in plans[plan_id]["products"] if item["product"] == name)
+
+        self.assertTrue(product("openai-plus", "ChatGPT Agent mode")["included"])
+        self.assertFalse(product("openai-free", "ChatGPT Agent mode")["included"])
+        self.assertEqual(product("openai-free", "ChatGPT Agent mode")["rollout"], "generally_available")
+        self.assertEqual(product("xai-premium", "Grok")["model_access"][0]["model"], "Grok 4.7")
+        self.assertEqual(product("anthropic-free", "Claude Chat")["model_access"][0]["model"], "Claude Sonnet 5.5")
+
+    def test_community_quota_samples_are_typed_separately_and_attached_to_plans(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        curated = json.loads((root / "data/curated.json").read_text(encoding="utf-8"))
+        sources = {source["id"]: source for source in curated["sources"]}
+        plans = {plan["id"]: plan for plan in curated["plans"]}
+        quotas = {quota["id"]: quota for quota in curated["quotas"]}
+        for quota_id in (
+            "claude-free-chat-community", "claude-pro-chat-community", "claude-pro-code-community",
+            "google-pro-chat-community", "google-free-research-community", "openai-plus-codex-community",
+        ):
+            quota = quotas[quota_id]
+            self.assertEqual(sources[quota["source_ids"][0]]["kind"], "community")
+            self.assertIn(quota_id, plans[quota["plan_id"]]["quota_ids"])
+            if quota["value_type"] == "range":
+                self.assertIsNotNone(quota["estimate_range"]["sample_size"])
+            else:
+                self.assertEqual(quota["sample_size"], 1)
+        self.assertEqual(quotas["openai-plus-agent-mode-40"]["value"], 40)
+        self.assertEqual(quotas["openai-plus-agent-mode-40"]["category"], "agent")
+        self.assertEqual(quotas["openai-plus-codex-community"]["category"], "coding_agent")
 
 
 if __name__ == "__main__":

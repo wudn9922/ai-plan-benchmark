@@ -126,3 +126,37 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 ## 2026-10-17 第五輪官方頁面複核
 
 再次執行的來源監測回報 Claude 價格、Cowork 公告及三個 Google Help 頁面有新內容。已重讀其方案、額度和產品推出段落：Claude Pro 仍為 $20 月繳／$200 年繳預付（頁面約顯示 $17 月均）、價格未含適用稅；Claude Code 列為 Pro 權益，與對話共用滾動五小時額度及付費方案每週上限；Cowork 併入 Claude，正先向 Pro／Max 推出。依官方明確的重設說明，Claude Free 資料也補上滾動五小時窗口。Google 的年繳頁仍要求登入後確認支付金額；Gemini 仍是 Plus 2x、Pro 4x、每五小時及每週動態上限；AI Pro 的 Antigravity、Jules、Deep Research、Tasks 與 AI credits 仍按各產品分別記錄。這些頁面可見內容雜湊在相鄰排程執行間再變動；目前核心價格、權益與額度事實經官方頁重新確認後未改變，未公布的固定額度維持缺值。
+
+## 2026-10-18 官方模型與額度重新核對
+
+以下資料已直接對照當前官方方案、使用限制及產品模型頁，並同步到 `data/curated.json`。Artificial Analysis 分數只在具體模型組態可對應時顯示；沒有對應分數仍為缺值。
+
+| 公司／範圍 | 本輪官方核對結果 |
+| --- | --- |
+| OpenAI ChatGPT | [官方 Agent Mode 限制](https://help.openai.com/en/articles/11752874-chatgpt-agent)仍列 Agent Mode：Plus 每月 40 則、Pro 每月 400 則；Free／Go 未列為可用方案。已修正舊資料誤標為「已停止」。單次啟動計一則，底層模型沒有公開。 |
+| OpenAI ChatGPT／Codex | [模型清單](https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt)指出 GPT-6 正分階段開放合資格方案；Free／Go 預設為 GPT-5.6 Luna。 [Work／Codex 用量文件](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex)列出 Plus 本機訊息的模型別五小時估計範圍，Work 與 Codex 共用額度；雲端任務可能耗用較多，週上限仍可能生效。程式代理觀察不再套用到聊天額度。 |
+| Anthropic Claude | [Claude 官方價格與功能頁](https://claude.com/pricing)列出 Free 的 Sonnet／Haiku，以及 Pro 的 Opus／Sonnet／Haiku 和符合條件時可用的 Fable；Claude Code 與 Chat 共用動態用量。Pro 月繳 $20，年繳預付 $200，另計適用稅金。 [Cowork 公告](https://claude.com/resources/articles/cowork-is-now-claude)說明功能正先向 Pro／Max 分階段推出，沒有獨立固定任務數。 |
+| Google Gemini | [Gemini 使用限制](https://support.google.com/gemini/answer/16275805?gl=US&hl=en)列出五小時刷新及每週上限；AI Plus 為標準用量 2 倍，AI Pro 為 4 倍，實際請求數依模型、提示及工具變動，官方沒有固定次數。 |
+| Google Antigravity／Jules | [Antigravity 模型表](https://antigravity.google/docs/models/)目前按方案列模型與推理模式；Free／Plus 包含 Gemini 3.8 Flash Medium／Fast、Claude 4.6 Thinking 與 GPT-OSS-120b Medium；Pro 另有 Gemini 4 Argon High 與 Claude 5.5 Thinking。Claude 4.6 預定 2026-11-02 移除；Gemini 4 Argon High 不適用於 Antigravity IDE。 [Jules 限制](https://jules.google/docs/usage-limits)列 Free／Plus 每滾動 24 小時 15 個新任務／3 個並行，Pro 100 個／15 個並行。 |
+| xAI | [Grok 文件](https://docs.x.ai/grok/overview)目前列 Grok 4.7；[訂閱用量說明](https://docs.x.ai/x-subscription/usage-limits)為按週共享池，沒有可核對的固定任務數。公開使用者回報無法可靠對應至目前 Free／Plus／Premium 計畫，故不轉成方案任務估值。 |
+
+### 社群量化觀察（非官方配額）
+
+這些只記錄單一或少數帳號的實際體感，不能視為保證上限，也不與官方配額混成同一種證據：
+
+| 類別／方案 | 公開回報與採用方式 |
+| --- | --- |
+| Claude Free Chat | [2026-09-29 至 10-07 討論](https://www.reddit.com/r/ClaudeAI/comments/1wt53gi/usage_limits_discussion_hub_updated_on_29/)兩名使用者回報 Sonnet 5.5 輕量提示或編碼情境約 1–3 則即觸及五小時限制；列為 n=2、低信心區間。 |
+| Claude Pro Chat | [2026-10-17 使用者回報](https://www.reddit.com/r/ClaudeAI/comments/1x8bmku/this_weeks_claude_reset_anyone_else_noticing/)一則 Sonnet 5.5 訊息耗用 16% 五小時額度；以 100÷16 得出約 6 則，保守顯示 5–7 則，n=1、低信心。 |
+| Claude Pro Code | [2026-10-17 使用者回報](https://www.reddit.com/r/ClaudeCode/comments/1x8jw3f/need_advicehelp/)兩個並行 Sonnet 5.5 High 對話中的續接操作立即耗用 25% 額度，約 40 分鐘後額度用盡。僅列百分比觀察，不換算成任務數。 |
+| Google AI Pro Chat | [2026-06-24 使用者回報](https://www.reddit.com/r/GeminiAI/comments/1ue3vbg/why_am_i_only_getting_5_pro_requests_every_5_hours/)單一帳號約每五小時 5 次 Pro 請求；模型版本、推理與工作負載未說明，n=1、低信心且資料較舊。 |
+| Google AI Free Deep Research | [2026-05-20 單帳號測試](https://www.reddit.com/r/GeminiAI/comments/1tiklmr/i_tested_the_new_gemini_usage_limits_on_a_free/)一個 Flash 3.5 Deep Research 耗用 77% 五小時額度；保留為單次額度百分比觀察，不推算可做幾項研究。 |
+| ChatGPT Plus Codex | [2026-09-22 使用者回報](https://www.reddit.com/r/codex/comments/1wn8ckg/i_did_it/)GPT-6 Astra Low 的單次分析於 10 分鐘內耗盡五小時額度；n=1、工作負載未標準化，只呈現為單次耗用觀察。 |
+
+社群資料均標為低信心，欄位記錄模型、方案、窗口、區域是否提供、取樣日期與樣本數。xAI 使用者回報無法對映到目前方案，因此未填入數字。社群來源不會加入方案產品權限來源，避免「納入社群」篩選誤把整個方案隱藏。
+
+### 自動核對警示
+
+2026-10-17 快照中，Claude／Google 七個來源頁曾因整頁可見文字雜湊更新而出現重複待核對。上述頁面本輪重新人工檢視後，方案、價格、模型及額度沒有推翻前述資料；監測器已改為對這七頁比對關鍵方案／額度段落，以減少導覽、頁尾或動態頁面文字造成的誤報。下次 GitHub Actions 成功讀取後會以新指紋建立核對基準。未成功抓取時仍保留最後的來源狀態與資料，不會自動清除警示。
+
+11 個 OpenAI Help／方案頁的 HTTP 403 仍代表自動擷取受阻，不代表方案失效。官方模型／用量資料已於本輪重新手動核對；Actions 保留 403 的可用性提示並繼續使用人工核實快照。任何 404 只標記來源網址未找到，不推論產品停止。

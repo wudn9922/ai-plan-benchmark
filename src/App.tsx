@@ -131,17 +131,6 @@ function sourceLabel(source: SourceRef): string { return SOURCE_LABELS[source.id
 function sourceLabelById(id: string, fallback: string): string { return SOURCE_LABELS[id] ?? translateUiText(fallback); }
 function productLabel(value: string): string { return PRODUCT_LABELS[value] ?? translateUiText(value); }
 function modelAccessLabel(value: string): string { return MODEL_ACCESS_LABELS[value] ?? translateUiText(value); }
-function compactModelLabel(value: string): string {
-  const label = modelAccessLabel(value);
-  if (/依 .*帳號當前模型選單/.test(label) || /可選模型依帳號介面/.test(label)) return '依帳號選單';
-  if (/帳號當前介面/.test(label)) {
-    if (label.startsWith('Claude Code')) return 'Claude Code（依帳號介面）';
-    if (label.startsWith('Claude')) return 'Claude（依帳號介面）';
-    if (label.startsWith('Grok')) return 'Grok（依帳號介面）';
-    return '依帳號介面';
-  }
-  return label;
-}
 function modelAccessDisplay(model: ProductAccess['model_access'][number]): string {
   const label = modelAccessLabel(model.model);
   const modes = model.reasoning_modes.filter((mode) => !label.toLowerCase().includes(mode.toLowerCase()) && !label.includes(reasoningLabel(mode)));
@@ -247,6 +236,12 @@ function quotaEntitlement(plan: SubscriptionPlan, quota: QuotaObservation): Quot
   return states.has(false) ? 'excluded' : 'included';
 }
 
+function quotaEvidenceAllowed(snapshot: Snapshot, quota: QuotaObservation, verifiedOnly: boolean, includeCommunity: boolean): boolean {
+  const kinds = quota.source_ids.map((id) => snapshot.sources.find((source) => source.id === id)?.kind).filter(Boolean);
+  if (verifiedOnly) return kinds.length > 0 && kinds.every((kind) => kind === 'official');
+  return includeCommunity || !kinds.includes('community');
+}
+
 function numericQuotaCount(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory): number {
   return snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (quota.value !== null || quota.estimate_range !== null && quota.estimate_range !== undefined)).length;
 }
@@ -310,8 +305,8 @@ function PlanQuotaCard({ plan, quota, sources }: { plan: SubscriptionPlan; quota
   </article>;
 }
 
-function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly }: { plan: SubscriptionPlan; snapshot: Snapshot; quotaFilter: QuotaCategory | 'all'; verifiedOnly: boolean }) {
-  const quotas = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && (quotaFilter === 'all' || quota.category === quotaFilter) && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
+function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly, includeCommunity }: { plan: SubscriptionPlan; snapshot: Snapshot; quotaFilter: QuotaCategory | 'all'; verifiedOnly: boolean; includeCommunity: boolean }) {
+  const quotas = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && (quotaFilter === 'all' || quota.category === quotaFilter) && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity));
   const categoryInfo: Array<{ id: QuotaCategory; name: string }> = [
     { id: 'chat', name: '對話額度' }, { id: 'agent', name: '一般代理額度' }, { id: 'coding_agent', name: '程式代理額度' },
   ];
@@ -328,7 +323,7 @@ function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly }: { plan: Subscri
       <div className="plan-summary-models"><b>可用模型</b><span>{modelNames.length ? `${modelNames.slice(0, 3).join('、')}${modelNames.length > 3 ? ` 等 ${modelNames.length} 款` : ''}` : '方案資料未明列'}</span></div>
       <div className="plan-summary-quotas" aria-label="三類額度摘要">
         {categoryInfo.map((category) => <div className={`plan-summary-quota ${quotaFilter === category.id ? 'plan-summary-quota--focused' : ''}`} key={category.id}>
-          <b>{category.name}</b><span>{compactQuotaCardSummary(snapshot, plan, category.id, verifiedOnly)}</span>
+          <b>{category.name}</b><span>{compactQuotaCardSummary(snapshot, plan, category.id, verifiedOnly, includeCommunity)}</span>
         </div>)}
       </div>
     </div>
@@ -360,77 +355,164 @@ function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly }: { plan: Subscri
   </article>;
 }
 
-function compactQuotaWindow(window: string | null): string {
+const PRIMARY_SCORE_KEYS = [
+  { key: 'intelligence', label: '智' },
+  { key: 'coding', label: '程式' },
+  { key: 'agentic', label: '代理' },
+] as const;
+
+function isCodingAgentProduct(product: ProductAccess): boolean {
+  return /codex|claude code|antigravity|jules|cursor agent|grok build|coding agent/i.test(product.product);
+}
+
+function isChatProduct(product: ProductAccess): boolean {
+  return ['ChatGPT', 'Claude Chat', 'Gemini Apps', 'Grok'].includes(product.product);
+}
+
+function isAgentProduct(product: ProductAccess): boolean {
+  return isCodingAgentProduct(product) || product.surface.includes('agent') || /deep research|tasks in gemini|chrome agent|grok bot|chatgpt work/i.test(product.product);
+}
+
+function compactWindow(window: string | null): string {
   if (!window) return '';
   const lower = window.toLowerCase();
   const fiveHour = /5\s*[- ]?hour|five.hour|5\s*小時/i.test(lower);
-  const weekly = /weekly|per week|week|週/i.test(lower);
+  const weekly = /weekly|per week|week|每週|每周/i.test(lower);
   if (/rolling\s*24|滾動\s*24/.test(lower)) return '24h';
-  if (fiveHour && weekly) return '5h·週限';
+  if (fiveHour && weekly) return '5h＋週限';
   if (fiveHour) return '5h';
   if (/3\s*[- ]?hour|three.hour|3\s*小時/i.test(lower)) return '3h';
   if (/daily|per day|day|每日|每天/i.test(lower)) return '每日';
   if (weekly) return '每週';
   if (/monthly|per month|month|每月/i.test(lower)) return '每月';
-  if (/simultaneous|concurrent|同時執行|並行/i.test(lower)) return '同時';
+  if (/simultaneous|concurrent|同時執行|並行/i.test(lower)) return '並行';
   return /尚無.*窗口|未公布.*窗口|窗口.*尚未公布|not applicable|不適用/i.test(window) ? '' : '動態';
 }
 
-function compactModelSummary(models: string[]): string {
-  if (!models.length) return MISSING;
-  if (models.length <= 2) return models.map(compactModelLabel).join('、');
-  return `${models.slice(0, 2).map(compactModelLabel).join('、')} +${models.length - 2}`;
-}
-
-function compactQuotaValue(quota: QuotaObservation, multipleModels: boolean): string {
-  if (quota.metric.includes('同時執行')) return quota.value === null ? MISSING : `${quota.value}並行`;
-  if (quota.value_type === 'variable') return '動態';
-  if (quota.value_type === 'not_published') return '未公布';
+function compactQuotaValue(quota: QuotaObservation): string {
+  if (quota.value_type === 'variable') return '動態，未公布固定數';
+  if (quota.value_type === 'not_published') return '官方未公布';
   if (quota.value_type === 'range' && quota.estimate_range) {
-    if (multipleModels) return '多組估計';
-    const unit = /本機訊息/.test(quota.unit) ? '本機訊息' : /任務/.test(quota.unit) ? '任務' : /訊息/.test(quota.unit) ? '訊息' : '';
-    return `${quota.estimate_range.min.toLocaleString('zh-Hant')}–${quota.estimate_range.max.toLocaleString('zh-Hant')}${unit}估`;
+    return `${quota.estimate_range.min.toLocaleString('zh-Hant')}–${quota.estimate_range.max.toLocaleString('zh-Hant')} ${quotaUnit(quota.unit)}`;
   }
   if (quota.value_type === 'exact' && quota.value !== null) {
     const value = quota.value.toLocaleString('zh-Hant', { maximumFractionDigits: 2 });
+    if (/額度百分比|使用量百分比/i.test(quota.unit)) return `${value}%`;
     if (/倍標準/.test(quota.unit)) return `${value}×標準`;
     if (/共享池/.test(quota.unit)) return `${value}×週池`;
-    if (/任務/.test(quota.unit)) return `${value}任務`;
-    if (/本機訊息/.test(quota.unit)) return `${value}本機訊息`;
-    if (/訊息/.test(quota.unit)) return `${value}訊息`;
-    if (/credit|點數/i.test(quota.unit)) return `${value}點`;
-    return value;
+    return `${value} ${quotaUnit(quota.unit)}`;
   }
   return MISSING;
 }
 
-function compactQuotaSummary(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean): string {
-  const rows = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
-  if (!rows.length) return MISSING;
-  const products = new Map<string, QuotaObservation[]>();
-  rows.forEach((quota) => products.set(quota.product, [...(products.get(quota.product) ?? []), quota]));
-  const summaries = [...products.entries()].slice(0, 2).map(([product, productRows]) => {
-    const included = productRows.filter((quota) => quotaEntitlement(plan, quota) !== 'excluded');
-    if (!included.length) return `${productLabel(product)} 不含`;
-    const models = new Set(included.map((quota) => quota.model).filter((model): model is string => Boolean(model)));
-    const multipleModels = models.size > 1 || included.filter((quota) => quota.metric !== '同時執行上限').length > 1;
-    const parts = included.map((quota) => {
-      const value = compactQuotaValue(quota, multipleModels);
-      const rawWindow = compactQuotaWindow(quota.window);
-      const window = value === '未公布' || value === '尚無可靠數據' || (value === '動態' && rawWindow === '動態') || quota.metric.includes('同時執行') ? '' : rawWindow;
-      const shared = quota.shared_with.length ? '共用' : '';
-      const uncertain = quotaEntitlement(plan, quota) === 'unknown' ? '未確認' : '';
-      return `${value}${window ? `/${window}` : ''}${shared ? `·${shared}` : ''}${uncertain ? `·${uncertain}` : ''}`;
-    });
-    const uniqueParts = [...new Set(parts)];
-    return `${productLabel(product)} ${uniqueParts.join('·')}`;
-  });
-  const hiddenProducts = products.size - summaries.length;
-  return `${summaries.join('；')}${hiddenProducts > 0 ? `；+${hiddenProducts}` : ''}`;
+function compactQuotaEvidence(snapshot: Snapshot, quota: QuotaObservation): string {
+  const community = quota.source_ids.some((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'community');
+  if (!community) return '官方';
+  const sampleSize = quota.estimate_range?.sample_size ?? quota.sample_size ?? 1;
+  const month = quota.sampled_at.slice(0, 7);
+  return `社群 n=${sampleSize}${month ? ` · ${month}` : ''}`;
 }
 
-function compactQuotaCardSummary(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean): string {
-  const rows = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (!verifiedOnly || (quota.source_ids.length > 0 && quota.source_ids.every((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'official'))));
+function compactQuotaRows(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean, includeCommunity: boolean): QuotaObservation[] {
+  return snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id)
+    && quota.category === category
+    && quotaEntitlement(plan, quota) !== 'excluded'
+    && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity));
+}
+
+function compactModelAccesses(plan: SubscriptionPlan, category: 'chat' | 'agent'): Array<{ product: ProductAccess; access: ProductAccess['model_access'][number] }> {
+  const matches = plan.products.filter((product) => product.included !== false && (category === 'chat' ? isChatProduct(product) : isAgentProduct(product)));
+  return matches.flatMap((product) => {
+    if (product.model_access.length) return product.model_access.map((access) => ({ product, access }));
+    const access = { model: product.included === null ? '方案權益未確認' : '底層模型未公布', reasoning_modes: [], mapping: 'unmapped' as const };
+    return [{ product, access }];
+  });
+}
+
+function modelForAccess(snapshot: Snapshot, plan: SubscriptionPlan, access: ProductAccess['model_access'][number]): ModelRecord | null {
+  if (access.mapping === 'unmapped' || /未公布|未確認/.test(access.model)) return null;
+  const target = access.model.replace(/（[^）]*）/g, '').trim().toLowerCase();
+  const providerMatches = (model: ModelRecord) => plan.provider === 'xai'
+    ? /spacexai|xai/i.test(model.provider)
+    : model.provider.toLowerCase().includes(plan.provider.toLowerCase());
+  const matches = snapshot.models.filter((model) => {
+    if (!providerMatches(model)) return false;
+    const name = model.name.trim().toLowerCase();
+    return name === target || name.startsWith(`${target} (`);
+  });
+  if (!matches.length) return null;
+  const modes = access.reasoning_modes.map((mode) => mode.toLowerCase().replace(/[^a-z]/g, '')).filter(Boolean);
+  const rank = (model: ModelRecord): number => {
+    const name = model.name.toLowerCase();
+    const effort = name.match(/\(([^)]*)\)/)?.[1]?.toLowerCase() ?? '';
+    if (modes.length === 1 && effort.includes(modes[0])) return -10;
+    if (modes.includes('medium') && effort.includes('medium')) return -8;
+    if (name.includes('default fallback')) return effort.includes('medium') ? -7 : -5;
+    if (effort.includes('medium')) return 0;
+    if (effort.includes('low')) return 1;
+    if (effort.includes('high')) return 2;
+    if (effort.includes('xhigh')) return 3;
+    return 4;
+  };
+  return [...matches].sort((left, right) => rank(left) - rank(right))[0];
+}
+
+function modelScoreSummary(snapshot: Snapshot, plan: SubscriptionPlan, access: ProductAccess['model_access'][number]): string {
+  const model = modelForAccess(snapshot, plan, access);
+  if (!model) return MISSING;
+  const scores = PRIMARY_SCORE_KEYS.flatMap(({ key, label }) => {
+    const value = model.indices[key];
+    return value === null || value === undefined ? [] : [`${label} ${value}`];
+  });
+  if (!scores.length) return MISSING;
+  const approximate = access.mapping === 'approximate' ? '≈' : '';
+  const effort = model.name.match(/\(([^)]*)\)/)?.[1]?.replace(/,?\s*Default Fallback/i, '').trim();
+  return `${approximate}${scores.join(' · ')}${effort ? ` · AA ${reasoningLabel(effort)}` : ''}`;
+}
+
+function CompactModelList({ plan, snapshot, category }: { plan: SubscriptionPlan; snapshot: Snapshot; category: 'chat' | 'agent' }) {
+  const rawEntries = compactModelAccesses(plan, category);
+  const grouped = new Map<string, { products: ProductAccess[]; access: ProductAccess['model_access'][number] }>();
+  rawEntries.forEach(({ product, access }) => {
+    const privateModel = /未公布|未確認/.test(access.model);
+    const key = `${privateModel ? product.product : ''}|${access.model}|${access.mapping}`;
+    const group = grouped.get(key) ?? { products: [], access };
+    if (!group.products.some((item) => item.product === product.product)) group.products.push(product);
+    grouped.set(key, group);
+  });
+  const entries = [...grouped.values()];
+  if (!entries.length) return <span className="compact-empty">尚無明確模型資料</span>;
+  return <div className="compact-model-list">{entries.map(({ products, access }, index) => {
+    const scoreModel = modelForAccess(snapshot, plan, access);
+    const score = modelScoreSummary(snapshot, plan, access);
+    const productNames = [...new Set(products.map((product) => productLabel(product.product)))].join('／');
+    const unknownEntitlement = products.some((product) => product.included === null);
+    return <div className="compact-model-item" key={`${productNames}-${access.model}-${index}`}>
+      <span className="compact-product-name">{productNames}{unknownEntitlement ? ' · 權益未確認' : ''}</span>
+      <b>{access.model}</b>
+      <small className={score === MISSING ? 'compact-no-score' : 'compact-score'}>模型評分：{score}{scoreModel && <> · <a href={scoreModel.public_page_source_url ?? scoreModel.source_url} target="_blank" rel="noreferrer" title={`Artificial Analysis 評測來源；資料更新 ${scoreModel.source_updated_at ?? '日期未公布'}`} aria-label="模型評分來源"><ExternalLink size={11}/></a></>}</small>
+    </div>;
+  })}</div>;
+}
+
+function CompactQuotaList({ snapshot, plan, category, verifiedOnly, includeCommunity }: { snapshot: Snapshot; plan: SubscriptionPlan; category: QuotaCategory; verifiedOnly: boolean; includeCommunity: boolean }) {
+  const rows = compactQuotaRows(snapshot, plan, category, verifiedOnly, includeCommunity);
+  if (!rows.length) return <span className="compact-empty">尚無可靠數據</span>;
+  return <div className="compact-quota-list">{rows.map((quota) => {
+    const value = compactQuotaValue(quota);
+    const window = compactWindow(quota.window);
+    const model = quota.model ? ` · ${modelAccessLabel(quota.model)}` : '';
+    const entitlement = quotaEntitlement(plan, quota) === 'unknown' ? ' · 權益未確認' : '';
+    return <div className="compact-quota-item" key={quota.id}>
+      <span>{productLabel(quota.product)}{entitlement}</span>
+      <b>{value}{window && value !== MISSING && value !== '官方未公布' ? `／${window}` : ''}</b>
+      <small>{model}{model ? ' · ' : ''}{compactQuotaEvidence(snapshot, quota)}{quota.confidence === 'low' ? ' · 低信心' : ''}</small>
+    </div>;
+  })}</div>;
+}
+
+function compactQuotaCardSummary(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean, includeCommunity: boolean): string {
+  const rows = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity));
   if (!rows.length) return '尚無資料';
   const includedRows = rows.filter((quota) => quotaEntitlement(plan, quota) === 'included');
   const excludedCount = rows.filter((quota) => quotaEntitlement(plan, quota) === 'excluded').length;
@@ -459,12 +541,24 @@ function compactQuotaCardSummary(snapshot: Snapshot, plan: SubscriptionPlan, cat
   return statusNotes.length ? `${summary} · ${statusNotes.join(' · ')}` : summary;
 }
 
-function CompactPlanTable({ plans, snapshot, verifiedOnly }: { plans: SubscriptionPlan[]; snapshot: Snapshot; verifiedOnly: boolean }) {
-  return <div className="table-scroll compact-plan-scroll"><table className="data-table compact-plan-table"><thead><tr><th>公司／方案</th><th>月繳／年繳月均</th><th>可用模型</th><th>對話額度</th><th>一般代理</th><th>程式代理</th></tr></thead>
-    <tbody>{plans.length ? plans.map((plan) => {
-      const models = [...new Set(plan.products.filter((product) => product.included !== false).flatMap((product) => product.model_access.map((access) => access.model)))];
-      return <tr key={plan.id}><td><b>{plan.provider_name}</b><small>{planLabel(plan.name)}</small></td><td>{formatPrice(plan.monthly_price, plan.currency)}<small>{plan.annual_monthly_price !== null ? `年繳月均 ${formatPrice(plan.annual_monthly_price, plan.currency)}` : plan.annual_billing_available === true ? '年繳可選；價格未公布' : plan.annual_billing_available === false ? '無年繳方案' : '年繳價格未公布'}</small></td><td className="compact-model-cell" title={models.map(modelAccessLabel).join('、')}>{compactModelSummary(models)}</td><td>{compactQuotaSummary(snapshot, plan, 'chat', verifiedOnly)}</td><td>{compactQuotaSummary(snapshot, plan, 'agent', verifiedOnly)}</td><td>{compactQuotaSummary(snapshot, plan, 'coding_agent', verifiedOnly)}</td></tr>;
-    }) : <tr><td colSpan={6}>{MISSING}</td></tr>}</tbody>
+function CompactPlanTable({ plans, snapshot, verifiedOnly, includeCommunity }: { plans: SubscriptionPlan[]; snapshot: Snapshot; verifiedOnly: boolean; includeCommunity: boolean }) {
+  return <div className="table-scroll compact-plan-scroll"><table className="data-table compact-plan-table">
+    <thead><tr><th>方案</th><th>聊天</th><th>代理</th></tr></thead>
+    <tbody>{plans.length ? plans.map((plan) => <tr key={plan.id}>
+      <td className="compact-plan-name"><b>{plan.provider_name}</b><small>{planLabel(plan.name)}</small></td>
+      <td className="compact-usage-cell">
+        <section className="compact-table-section"><b className="compact-section-title">可用模型／模型評分</b><CompactModelList plan={plan} snapshot={snapshot} category="chat"/></section>
+        <section className="compact-table-section"><b className="compact-section-title">量化額度</b><CompactQuotaList snapshot={snapshot} plan={plan} category="chat" verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/></section>
+      </td>
+      <td className="compact-usage-cell">
+        <section className="compact-table-section"><b className="compact-section-title">可用模型／模型評分</b><CompactModelList plan={plan} snapshot={snapshot} category="agent"/></section>
+        <section className="compact-table-section compact-agent-quota-groups">
+          <b className="compact-section-title">量化額度</b>
+          <div><span>一般代理</span><CompactQuotaList snapshot={snapshot} plan={plan} category="agent" verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/></div>
+          <div><span>程式代理</span><CompactQuotaList snapshot={snapshot} plan={plan} category="coding_agent" verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/></div>
+        </section>
+      </td>
+    </tr>) : <tr><td colSpan={3}>{MISSING}</td></tr>}</tbody>
   </table></div>;
 }
 
@@ -621,9 +715,9 @@ function App() {
   const [quotaFilter, setQuotaFilter] = useState<QuotaCategory | 'all'>('all');
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('price-low');
-  const [verifiedOnly, setVerifiedOnly] = useState(true);
+  const [verifiedOnly, setVerifiedOnly] = useState(false);
   const [activeIndex, setActiveIndex] = useState('intelligence');
-  const [includeCommunity, setIncludeCommunity] = useState(false);
+  const [includeCommunity, setIncludeCommunity] = useState(true);
   const [modelFilter, setModelFilter] = useState('all');
   const [reasoningFilter, setReasoningFilter] = useState('all');
   const [windowFilter, setWindowFilter] = useState('all');
@@ -763,7 +857,7 @@ function App() {
       <div className={`tab-heading ${tab === 'plans' ? 'tab-heading--plans' : ''}`}><div><h2>{selectedTab.label}</h2><p>{selectedTab.subtitle}</p></div><span className="date-chip">資料基準日 {snapshot.as_of}</span></div>
       {tab==='plans' && <div className="page-stack">
         <div className="plan-view-toolbar"><span>方案呈現方式</span><div role="group" aria-label="方案呈現方式"><button type="button" aria-pressed={planView === 'cards'} className={planView === 'cards' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('cards')}>方案卡片</button><button type="button" aria-pressed={planView === 'table'} className={planView === 'table' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('table')}>精簡表格</button></div><small>三類額度分開列示，不相加</small></div>
-        {plans.length ? planView === 'cards' ? <div className="plan-grid">{plans.map((plan)=><PlanCard key={plan.id} plan={plan} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly}/>)}</div> : <section className="section-panel compact-plan-panel"><CompactPlanTable plans={plans} snapshot={snapshot} verifiedOnly={verifiedOnly}/></section> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}
+        {plans.length ? planView === 'cards' ? <div className="plan-grid">{plans.map((plan)=><PlanCard key={plan.id} plan={plan} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/>)}</div> : <section className="section-panel compact-plan-panel"><CompactPlanTable plans={plans} snapshot={snapshot} verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/></section> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}
       </div>}
       {tab==='models' && <ModelPage snapshot={snapshot} models={models} activeIndex={activeIndex} onIndex={setActiveIndex} providerFilter={provider}/>}
       {tab==='coding' && <CodingPage snapshot={snapshot} agents={agents} verifiedOnly={verifiedOnly}/>}

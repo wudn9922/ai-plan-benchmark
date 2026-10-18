@@ -24,6 +24,29 @@ ROOT = Path(__file__).resolve().parents[1]
 MAX_BODY_BYTES = 2 * 1024 * 1024
 USER_AGENT = "AI-Plan-Benchmark-source-monitor/2.0 (public-source-change-notice)"
 HASH_VERSION = "visible-text-v1"
+KEY_SECTION_HASH_VERSION = "key-sections-v1"
+KEY_SECTION_SOURCES = {
+    "anthropic-cowork",
+    "anthropic-pricing",
+    "anthropic-pro-cost",
+    "google-gemini-limits",
+    "google-annual-plus",
+    "google-annual-pro",
+    "google-one-benefits",
+}
+KEY_SECTION_PATTERNS = {
+    "anthropic-cowork": re.compile(r"cowork|pro|max|roll.?out|available|claude", re.I),
+    "anthropic-pricing": re.compile(r"pro|free|sonnet|opus|fable|claude code|usage|five.hour|5.hour|weekly|tax|annual|yearly|\$|month", re.I),
+    "anthropic-pro-cost": re.compile(r"pro|billing|annual|yearly|\$|month|tax", re.I),
+    "google-gemini-limits": re.compile(r"limit|5.hour|five.hour|weekly|refresh|reset|plus|pro|prompt|model|usage|deep research", re.I),
+    "google-annual-plus": re.compile(r"annual|yearly|billing|purchase|plus|month|\$|subscription", re.I),
+    "google-annual-pro": re.compile(r"annual|yearly|billing|purchase|pro|month|\$|subscription", re.I),
+    "google-one-benefits": re.compile(r"antigravity|jules|ai credit|google ai pro|deep research|tasks in gemini", re.I),
+}
+
+
+def source_hash_version(source_id: str | None) -> str:
+    return KEY_SECTION_HASH_VERSION if source_id in KEY_SECTION_SOURCES else HASH_VERSION
 
 
 class _VisibleText(HTMLParser):
@@ -58,7 +81,20 @@ class _VisibleText(HTMLParser):
             self.parts.append(data)
 
 
-def content_fingerprint(body: bytes, content_type: str | None) -> str:
+def _stable_key_sections(text: str, source_id: str) -> str:
+    """Keep pricing/limits passages and discard volatile page chrome and unrelated text."""
+    lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines()]
+    lines = [line for line in lines if line]
+    pattern = KEY_SECTION_PATTERNS[source_id]
+    selected: list[str] = []
+    for index, line in enumerate(lines):
+        if pattern.search(line):
+            if line not in selected:
+                selected.append(line)
+    return " ".join(selected) if selected else " ".join(lines)
+
+
+def content_fingerprint(body: bytes, content_type: str | None, source_id: str | None = None) -> str:
     """Hash stable, reader-facing content instead of volatile HTML/CSS/JS bytes."""
     charset_match = re.search(r"charset=([^;\s]+)", content_type or "", re.IGNORECASE)
     charset = charset_match.group(1).strip("\"'") if charset_match else "utf-8"
@@ -78,9 +114,9 @@ def content_fingerprint(body: bytes, content_type: str | None) -> str:
         parser = _VisibleText()
         try:
             parser.feed(text)
-            visible = " ".join(" ".join(parser.parts).split())
+            visible = "\n".join(parser.parts)
             if visible:
-                text = visible
+                text = _stable_key_sections(visible, source_id) if source_id in KEY_SECTION_SOURCES else " ".join(visible.split())
         except Exception:
             # An unusual document should still be checked using whitespace-normalized text.
             pass
@@ -146,9 +182,10 @@ def request_source(source: dict[str, Any], prior: dict[str, Any]) -> tuple[str, 
     url = source["url"]
     headers = {"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.5"}
     # Force one full read when migrating from raw-byte hashes to visible-text hashes.
-    if prior.get("hash_version") == HASH_VERSION and prior.get("etag"):
+    fingerprint_version = source_hash_version(source.get("id"))
+    if prior.get("hash_version") == fingerprint_version and prior.get("etag"):
         headers["If-None-Match"] = prior["etag"]
-    if prior.get("hash_version") == HASH_VERSION and prior.get("last_modified"):
+    if prior.get("hash_version") == fingerprint_version and prior.get("last_modified"):
         headers["If-Modified-Since"] = prior["last_modified"]
     request = urllib.request.Request(url, headers=headers)
     try:
@@ -162,12 +199,12 @@ def request_source(source: dict[str, Any], prior: dict[str, Any]) -> tuple[str, 
                 message = "來源回應超過 2 MiB 監測上限；保留上次已核實資料。"
                 return "unavailable", message, {**prior, "availability": "unavailable", "http_status": status, "error": message}
             content_type = response.headers.get("Content-Type")
-            digest = content_fingerprint(body, content_type)
+            digest = content_fingerprint(body, content_type, source.get("id"))
             response_headers = response.headers
             state = {
                 **prior,
                 "sha256": digest,
-                "hash_version": HASH_VERSION,
+                "hash_version": fingerprint_version,
                 "content_type": content_type,
                 "etag": response_headers.get("ETag"),
                 "last_modified": response_headers.get("Last-Modified"),
@@ -265,7 +302,7 @@ def check_sources(root: Path = ROOT) -> dict[str, Any]:
             old_hash = prior.get("sha256")
             new_hash = next_state.get("sha256")
             reviewed_hash = prior.get("reviewed_sha256") or old_hash
-            hash_migrated = bool(old_hash) and prior.get("hash_version") != HASH_VERSION
+            hash_migrated = bool(old_hash) and prior.get("hash_version") != source_hash_version(source_id)
             if not old_hash or hash_migrated:
                 # First read or explicit fingerprint migration establishes a baseline.
                 # The migration is recorded so the new, text-only hash is reviewed once.

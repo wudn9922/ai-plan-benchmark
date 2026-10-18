@@ -391,7 +391,7 @@ function compactWindow(window: string | null): string {
 }
 
 function compactQuotaValue(quota: QuotaObservation): string {
-  if (quota.value_type === 'unlimited') return '不限量*';
+  if (quota.value_type === 'unlimited') return '不限量';
   if (quota.value_type === 'variable') return '動態，未公布固定數';
   if (quota.value_type === 'not_published') return '官方未公布';
   if (quota.value_type === 'range' && quota.estimate_range) {

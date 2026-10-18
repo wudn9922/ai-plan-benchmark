@@ -1,19 +1,6 @@
 {
   "last_state_change_at": "2026-10-18T15:22:43Z",
-  "pending_warnings": {
-    "change:aa-public-gemini-argon-comparison": {
-      "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（9e2e5949b1ae → c17099d39029）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "aa-public-gemini-argon-comparison",
-      "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
-    },
-    "change:aa-public-gpt-6-luna-high-comparison": {
-      "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（b065bdcf007f → cf20b66f30e6）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "aa-public-gpt-6-luna-high-comparison",
-      "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
-    }
-  },
+  "pending_warnings": {},
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -159,8 +146,8 @@
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
       "last_success_at": "2026-10-18T15:22:42Z",
-      "reviewed_at": "2026-10-17T19:28:07Z",
-      "reviewed_sha256": "9e2e5949b1ae1aad1196d554c5ba1acdf578b325f50002f0c27d20ed42b1cc74",
+      "reviewed_at": "2026-10-18T15:40:17Z",
+      "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
       "sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
       "state_changed_at": "2026-10-18T15:22:42Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
@@ -176,8 +163,8 @@
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
       "last_success_at": "2026-10-18T15:22:42Z",
-      "reviewed_at": "2026-10-17T19:28:08Z",
-      "reviewed_sha256": "b065bdcf007f477ce28443ab456f512fbc5e51a52dedbceb84d18407842efa94",
+      "reviewed_at": "2026-10-18T15:40:17Z",
+      "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
       "sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
       "state_changed_at": "2026-10-18T15:22:42Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
@@ -523,6 +510,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "ChatGPT agent mode availability and limits",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
     },
@@ -531,6 +519,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "Using Codex with a ChatGPT plan",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
     },
@@ -539,6 +528,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "Codex usage with GPT-6 Astra and GPT-6 models",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
     },
@@ -547,6 +537,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "ChatGPT current plan comparison",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://chatgpt.com/pricing/?locale=en-US"
     },
@@ -555,6 +546,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "Deep research in ChatGPT",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
     },
@@ -563,6 +555,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "Flexible usage credits for ChatGPT personal plans",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/12642688"
     },
@@ -571,6 +564,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "ChatGPT Go plan",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
     },
@@ -579,6 +573,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "Models in ChatGPT",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
     },
@@ -587,6 +582,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "ChatGPT Plus plan",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus"
     },
@@ -595,6 +591,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "ChatGPT Work and Codex",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
     },
@@ -603,6 +600,7 @@
       "error": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
       "http_status": 403,
       "label": "ChatGPT Work rollout on paid plans",
+      "manual_verified_at": "2026-10-18",
       "state_changed_at": "2026-10-17T17:36:10Z",
       "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
     },

@@ -31,11 +31,11 @@ const SOURCE_LABELS: Record<string, string> = {
   'google-plans': 'Google AI 方案', 'google-ai-plus-current': 'Google AI 方案與模型權限', 'google-annual-plus': 'Google AI Plus 年繳', 'google-annual-pro': 'Google AI Pro 年繳', 'google-student-offer': 'Google AI 學生優惠', 'google-gemini-limits': 'Gemini 使用上限', 'google-one-benefits': 'Google AI 方案福利', 'gemini-cli-deprecation': 'Gemini CLI 個人帳號服務狀態', 'gemini-cli-deprecation-individuals': '個人帳號方案說明',
   'xai-pricing': 'X 訂閱價格', 'xai-grok': 'Grok 功能介紹', 'xai-faq': 'Grok 常見問題', 'xai-build': 'Grok Build 命令列公告', 'xai-grok-bot': 'Grok Bot 方案權限', 'xai-build-all': 'Grok Build 網頁與手機版', 'google-ai-plan-benefits': 'Google AI Plus／Pro／Ultra 權益', 'google-jules': 'Jules 非同步程式代理',
   'antigravity-models': 'Antigravity 可用模型與推理模式', 'antigravity-plans': 'Antigravity 方案額度與重設窗口', 'jules-usage-limits': 'Jules 每日任務與並行上限', 'jules-changelog': 'Jules 模型更新紀錄',
-  'openai-agent-mode': 'ChatGPT 代理模式限制', 'openai-work': 'ChatGPT Work 與 Codex', 'openai-work-rollout': 'ChatGPT Work 推出資訊', 'openai-deep-research': 'ChatGPT 深度研究', 'openai-flexible-usage': 'ChatGPT 彈性用量點數', 'anthropic-research': 'Claude Research 官方說明', 'xai-pricing-web': 'X 訂閱方案價格', 'openai-current-pricing': 'ChatGPT 最新方案比較',
+  'openai-agent-mode': 'ChatGPT 舊版代理模式（已停用）', 'openai-work': 'ChatGPT Work 與 Codex', 'openai-work-rollout': 'ChatGPT Work 推出資訊', 'openai-deep-research': 'ChatGPT 深度研究', 'openai-flexible-usage': 'ChatGPT 彈性用量點數', 'anthropic-research': 'Claude Research 官方說明', 'xai-pricing-web': 'X 訂閱方案價格', 'openai-current-pricing': 'ChatGPT 最新方案比較',
   'aa-public-gemini-argon-comparison': 'Artificial Analysis Gemini 4 Argon 公開評測', 'aa-public-gpt-6-luna-high-comparison': 'Artificial Analysis GPT-6 Luna 公開評測', 'aa-coding-agent-import-v1.5-2026-10-16': '程式代理指數 v1.5 匯入資料',
 };
 const PRODUCT_LABELS: Record<string, string> = {
-  'Codex Local': 'Codex 本機版', 'Codex Cloud': 'Codex 雲端版', 'ChatGPT Agent mode': 'ChatGPT 代理模式',
+  'Codex Local': 'Codex 本機版', 'Codex Cloud': 'Codex 雲端版', 'ChatGPT Agent mode': '舊版 ChatGPT 代理模式（已停用）',
   'ChatGPT Deep Research': 'ChatGPT 深度研究', 'ChatGPT Work': 'ChatGPT 工作區', 'Claude Chat': 'Claude 對話', 'Claude Research': 'Claude 研究',
   'Gemini Apps': 'Gemini 應用程式', 'Antigravity Desktop': 'Antigravity 桌面版', 'Gemini CLI (舊個人登入產品)': 'Gemini 命令列工具（舊個人帳號版）',
   'Gemini Deep Research': 'Gemini 深度研究', 'Gemini Tasks in Gemini': 'Gemini 任務', 'Chrome agent': 'Chrome 網頁代理', 'Jules': 'Jules 程式代理', 'Google Flow': 'Google Flow 創作工作室',
@@ -158,6 +158,7 @@ function shortDate(value: string | null | undefined): string {
 }
 
 function quotaValue(quota: QuotaObservation): string {
+  if (quota.value_type === 'unlimited') return '不限量*';
   if (quota.value_type === 'range' && quota.estimate_range) return `${quota.estimate_range.min.toLocaleString('zh-Hant')}–${quota.estimate_range.max.toLocaleString('zh-Hant')} ${quotaUnit(quota.unit)}（估計）`;
   if (quota.value_type === 'exact' && quota.value !== null) return `${quota.value.toLocaleString('zh-Hant', { maximumFractionDigits: 2 })} ${quotaUnit(quota.unit)}`;
   return MISSING;
@@ -284,7 +285,7 @@ function PriceBlock({ plan }: { plan: SubscriptionPlan }) {
 }
 
 function quotaDisplayValue(quota: QuotaObservation): string {
-  return quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
+  return quota.value_type === 'unlimited' ? '不限量*' : quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
 }
 
 function quotaModelReason(quota: QuotaObservation): string {
@@ -390,6 +391,7 @@ function compactWindow(window: string | null): string {
 }
 
 function compactQuotaValue(quota: QuotaObservation): string {
+  if (quota.value_type === 'unlimited') return '不限量*';
   if (quota.value_type === 'variable') return '動態，未公布固定數';
   if (quota.value_type === 'not_published') return '官方未公布';
   if (quota.value_type === 'range' && quota.estimate_range) {
@@ -417,15 +419,18 @@ function compactQuotaRows(snapshot: Snapshot, plan: SubscriptionPlan, category: 
   return snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id)
     && quota.category === category
     && quotaEntitlement(plan, quota) !== 'excluded'
+    && (quota.value_type === 'unlimited'
+      || (quota.value_type === 'exact' && quota.value !== null)
+      || (quota.value_type === 'range' && quota.estimate_range !== null && quota.estimate_range !== undefined))
     && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity));
 }
 
 function compactModelAccesses(plan: SubscriptionPlan, category: 'chat' | 'agent'): Array<{ product: ProductAccess; access: ProductAccess['model_access'][number] }> {
   const matches = plan.products.filter((product) => product.included !== false && (category === 'chat' ? isChatProduct(product) : isAgentProduct(product)));
   return matches.flatMap((product) => {
-    if (product.model_access.length) return product.model_access.map((access) => ({ product, access }));
-    const access = { model: product.included === null ? '方案權益未確認' : '底層模型未公布', reasoning_modes: [], mapping: 'unmapped' as const };
-    return [{ product, access }];
+    return product.model_access
+      .filter((access) => !/未公布|未確認/.test(access.model))
+      .map((access) => ({ product, access }));
   });
 }
 
@@ -481,7 +486,7 @@ function CompactModelList({ plan, snapshot, category }: { plan: SubscriptionPlan
     grouped.set(key, group);
   });
   const entries = [...grouped.values()];
-  if (!entries.length) return <span className="compact-empty">尚無明確模型資料</span>;
+  if (!entries.length) return <span className="compact-empty">尚無已公開模型</span>;
   return <div className="compact-model-list">{entries.map(({ products, access }, index) => {
     const scoreModel = modelForAccess(snapshot, plan, access);
     const score = modelScoreSummary(snapshot, plan, access);
@@ -829,7 +834,7 @@ function App() {
     <main className="app-main">
       <section className="hero"><div><div className="eyebrow">來源可追溯 · 缺值不補零</div><h1>選擇 AI 方案，<br className="mobile-break"/>看清楚能力與用量。</h1><p>比較訂閱產品、實際模型權限與 Artificial Analysis 評測。每個分數與額度都保留版本、來源及限制。</p></div><details className="hero-note"><summary><span className={`api-dot api-dot--${apiStatus.status}`}/><span><b>{apiStatus.status === 'ready' ? 'Artificial Analysis API 已連接' : apiStatus.status === 'stale' ? 'API 更新失敗，保留舊資料' : apiStatus.status === 'error' ? 'API 連線錯誤' : 'Artificial Analysis API 尚未啟用'}</b><small>{apiStatus.models_count} 個模型 · 最後資料更新 {shortDate(apiStatus.data_updated_at)}</small></span></summary><div className="hero-note__detail"><small>{apiStatus.message}</small></div></details></section>
       {apiStatus.status === 'error' || apiStatus.status === 'stale' || apiStatus.methodology_warning ? <details className="alert alert--warning alert-disclosure"><summary><b>{apiStatus.methodology_warning ? '評測方法版本需要人工核對' : apiStatus.status === 'stale' ? '來源更新失敗，保留現有快照' : 'Artificial Analysis API 連線錯誤'}</b><span>{apiStatus.http_status ? `HTTP ${apiStatus.http_status} · ` : ''}最後檢查 {shortDate(apiStatus.checked_at)}</span></summary><div className="alert-disclosure__body"><p>{apiStatus.methodology_warning ?? apiStatus.message}</p>{apiStatus.last_error && <p>最新錯誤：{apiStatus.last_error}</p>}{apiStatus.stale_days !== null && <p>資料快照已 {apiStatus.stale_days} 天未更新。</p>}</div></details> : null}
-      {status.source_health && (status.source_health.warnings.length > 0 || (status.source_health.unavailable?.length ?? 0) > 0) && <details className={`alert alert-disclosure ${status.source_health.warnings.length ? 'alert--warning' : 'alert--info'}`}><summary><b>{status.source_health.warnings.length ? '官方頁面有尚待核對的內容更新' : '部分官方來源目前無法自動讀取'}</b><span>{status.source_health.warnings.length} 項內容更新 · {(status.source_health.unavailable?.length ?? 0)} 個自動讀取受限 · 狀態更新 {shortDate(status.source_health.checked_at)}</span></summary><div className="alert-disclosure__body"><p>{translateUiText(status.source_health.summary)}</p>{status.source_health.warnings.length > 0 && <><h4>待核對的內容更新</h4><ul className="source-warning-list">{status.source_health.warnings.map((item) => <li key={item.source_id}><a href={item.url} target="_blank" rel="noreferrer">{sourceLabelById(item.source_id, item.label)} <ExternalLink size={12}/></a><span>{translateUiText(item.message)}</span></li>)}</ul></>}{(status.source_health.unavailable?.length ?? 0) > 0 && <><h4>自動檢查無法讀取</h4><p>這是自動擷取的限制；HTTP 403／404 不會被當成方案停用，原有已核實資料會保留。</p><ul className="source-warning-list">{status.source_health.unavailable?.map((item) => <li key={item.source_id}><a href={item.url} target="_blank" rel="noreferrer">{sourceLabelById(item.source_id, item.label)} <ExternalLink size={12}/></a><span>{translateUiText(item.message)}</span></li>)}</ul></>}</div></details>}
+      {status.source_health && (status.source_health.warnings.length > 0 || (status.source_health.unavailable?.length ?? 0) > 0) && <details className={`alert alert-disclosure ${status.source_health.warnings.length ? 'alert--warning' : 'alert--info'}`}><summary><b>{status.source_health.warnings.length ? '官方頁面有尚待核對的內容更新' : '部分官方來源目前無法自動讀取'}</b><span>{status.source_health.warnings.length} 項內容更新 · {(status.source_health.unavailable?.length ?? 0)} 個自動讀取受限 · 狀態更新 {shortDate(status.source_health.checked_at)}</span></summary><div className="alert-disclosure__body"><p>{translateUiText(status.source_health.summary)}</p>{status.source_health.warnings.length > 0 && <><h4>待核對的內容更新</h4><ul className="source-warning-list">{status.source_health.warnings.map((item) => <li key={item.source_id}><a href={item.url} target="_blank" rel="noreferrer">{sourceLabelById(item.source_id, item.label)} <ExternalLink size={12}/></a><span>{translateUiText(item.message)}</span></li>)}</ul></>}{(status.source_health.unavailable?.length ?? 0) > 0 && <><h4>自動檢查無法讀取</h4><p>這是自動擷取的限制；HTTP 403／404 不會被當成方案停用，原有已核實資料會保留。標有日期的來源已另行核對官方頁面內容。</p><ul className="source-warning-list">{status.source_health.unavailable?.map((item) => <li key={item.source_id}><a href={item.url} target="_blank" rel="noreferrer">{sourceLabelById(item.source_id, item.label)} <ExternalLink size={12}/></a><span>{translateUiText(item.message)}{item.manual_verified_at ? ` · 人工核對 ${shortDate(item.manual_verified_at)}` : ''}</span></li>)}</ul></>}</div></details>}
       {error && <div className="alert alert--warning">{error}；目前未載入快照。</div>}
       <nav className="tab-nav" aria-label="比較分頁">{TABS.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => { setTab(id); window.scrollTo({ top: 0, behavior: 'auto' }); }} className={tab === id ? 'tab-button tab-button--active' : 'tab-button'}><Icon size={16}/><span>{label}</span></button>)}</nav>
       <section className="toolbar">

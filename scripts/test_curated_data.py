@@ -195,6 +195,23 @@ class CuratedDataTests(unittest.TestCase):
             for product in plan["products"]:
                 self.assertFalse(obsolete_ids.intersection(product.get("quota_ids", [])))
 
+    def test_google_plus_community_quota_is_quantified_and_kept_separate_from_official_limit(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        curated = json.loads((root / "data/curated.json").read_text(encoding="utf-8"))
+        sources = {source["id"]: source for source in curated["sources"]}
+        quotas = {quota["id"]: quota for quota in curated["quotas"]}
+        plan = next(plan for plan in curated["plans"] if plan["id"] == "google-ai-plus")
+        observation = quotas["google-plus-chat-community-4-prompts"]
+
+        self.assertEqual(observation["category"], "chat")
+        self.assertEqual((observation["value"], observation["unit"], observation["sample_size"]), (4, "則提示", 1))
+        self.assertEqual(observation["confidence"], "low")
+        self.assertEqual(observation["source_ids"], ["reddit-gemini-plus-4-prompts"])
+        self.assertEqual(sources[observation["source_ids"][0]]["kind"], "community")
+        self.assertIn(observation["id"], plan["quota_ids"])
+        gemini = next(product for product in plan["products"] if product["product"] == "Gemini Apps")
+        self.assertIn(observation["id"], gemini["quota_ids"])
+
 
     def test_jules_model_names_do_not_masquerade_as_reasoning_modes(self) -> None:
         root = Path(__file__).resolve().parents[1]
@@ -208,6 +225,7 @@ class CuratedDataTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         curated = json.loads((root / "data/curated.json").read_text(encoding="utf-8"))
         plans = {plan["id"]: plan for plan in curated["plans"]}
+        quotas = {quota["id"]: quota for quota in curated["quotas"]}
         for plan in curated["plans"]:
             serialized = json.dumps(plan, ensure_ascii=False)
             self.assertNotIn("依帳號當前", serialized)
@@ -216,9 +234,17 @@ class CuratedDataTests(unittest.TestCase):
         def product(plan_id: str, name: str) -> dict:
             return next(item for item in plans[plan_id]["products"] if item["product"] == name)
 
-        self.assertTrue(product("openai-plus", "ChatGPT Agent mode")["included"])
+        self.assertFalse(product("openai-plus", "ChatGPT Agent mode")["included"])
         self.assertFalse(product("openai-free", "ChatGPT Agent mode")["included"])
-        self.assertEqual(product("openai-free", "ChatGPT Agent mode")["rollout"], "generally_available")
+        self.assertEqual(product("openai-free", "ChatGPT Agent mode")["rollout"], "discontinued")
+        self.assertIn("取代", product("openai-plus", "ChatGPT Agent mode")["note"])
+        self.assertEqual(product("openai-free", "ChatGPT")["model_access"][0]["model"], "GPT-6 Luna")
+        self.assertEqual(product("openai-go", "ChatGPT")["model_access"][0]["model"], "GPT-6 Luna")
+        self.assertNotIn("GPT-6 Astra", [item["model"] for item in product("openai-plus", "ChatGPT")["model_access"]])
+        self.assertIn("GPT-6 Astra", [item["model"] for item in product("openai-plus", "ChatGPT Work")["model_access"]])
+        self.assertIn("GPT-5.6 Terra", [item["model"] for item in product("openai-free", "ChatGPT Work")["model_access"]])
+        self.assertFalse(product("openai-free", "Codex Cloud")["included"])
+        self.assertNotIn("openai-plus-agent-mode-40", quotas)
         self.assertEqual(product("xai-premium", "Grok")["model_access"][0]["model"], "Grok 4.7")
         self.assertEqual(product("anthropic-free", "Claude Chat")["model_access"][0]["model"], "Claude Sonnet 5.5")
 
@@ -230,7 +256,8 @@ class CuratedDataTests(unittest.TestCase):
         quotas = {quota["id"]: quota for quota in curated["quotas"]}
         for quota_id in (
             "claude-free-chat-community", "claude-pro-chat-community", "claude-pro-code-community",
-            "google-pro-chat-community", "google-free-research-community", "openai-plus-codex-community",
+            "google-pro-chat-community", "google-plus-chat-community-4-prompts", "google-free-research-community", "openai-plus-codex-community",
+            "openai-plus-work-community-37pct-2026-09-27", "openai-codex-gpt61-community-40min-2026-10-17",
         ):
             quota = quotas[quota_id]
             self.assertEqual(sources[quota["source_ids"][0]]["kind"], "community")
@@ -239,8 +266,12 @@ class CuratedDataTests(unittest.TestCase):
                 self.assertIsNotNone(quota["estimate_range"]["sample_size"])
             else:
                 self.assertEqual(quota["sample_size"], 1)
-        self.assertEqual(quotas["openai-plus-agent-mode-40"]["value"], 40)
-        self.assertEqual(quotas["openai-plus-agent-mode-40"]["category"], "agent")
+        self.assertEqual(quotas["openai-plus-work-community-37pct-2026-09-27"]["category"], "agent")
+        self.assertEqual(quotas["openai-plus-work-community-37pct-2026-09-27"]["value"], 37)
+        self.assertEqual(quotas["openai-plus-work-community-37pct-2026-09-27"]["sample_size"], 1)
+        self.assertEqual(quotas["openai-codex-gpt61-community-40min-2026-10-17"]["category"], "coding_agent")
+        self.assertEqual(quotas["oa-free-chat"]["value_type"], "unlimited")
+        self.assertEqual(quotas["oa-go-chat"]["value_type"], "unlimited")
         self.assertEqual(quotas["openai-plus-codex-community"]["category"], "coding_agent")
 
 

@@ -67,24 +67,27 @@
       "label": "ChatGPT Go plan",
       "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go",
       "kind": "official",
-      "checked_at": "2026-10-17",
-      "region": "US"
+      "checked_at": "2026-10-18",
+      "region": "US",
+      "notes": "2026-10-18 最新方案矩陣與發布說明確認 Free／Go 日常文字聊天不限量，模型為 GPT-6 Luna；方案 Help Center 舊文仍提 GPT-5.6 Luna，優先採日期較新的方案矩陣及發布說明。"
     },
     {
       "id": "openai-plus",
       "label": "ChatGPT Plus plan",
       "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
       "kind": "official",
-      "checked_at": "2026-10-17",
-      "region": "US"
+      "checked_at": "2026-10-18",
+      "region": "US",
+      "notes": "2026-10-18 官方說明：Plus 美國月繳 $20、無年繳；模型與工具有動態限制，不提供通用訊息數。"
     },
     {
       "id": "openai-codex",
       "label": "Using Codex with a ChatGPT plan",
       "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
       "kind": "official",
-      "checked_at": "2026-10-17",
-      "region": "US"
+      "checked_at": "2026-10-18",
+      "region": "US",
+      "notes": "2026-10-18 官方說明：Codex 本機版包含於各 ChatGPT 個人方案；Codex Cloud 適用 Plus 以上，Free／Go 不包含，仍受推出及工作區設定限制。"
     },
     {
       "id": "openai-codex-usage",
@@ -93,7 +96,7 @@
       "kind": "official",
       "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "2026-10-18 官方用量文件：Plus Work／Codex 共用額度；本機訊息每五小時官方估計範圍依模型而異，雲端工作可能耗用更多並受每週上限影響。文件列出可用模型與推理模式，但不保證任務數。"
+      "notes": "2026-10-18 重新核對官方用量說明：Plus 與 Codex／Work 共用額度；五小時範圍分模型列本機訊息估計，並可能有每週上限。這些不是保證任務數，雲端任務可能耗用更多。"
     },
     {
       "id": "openai-models",
@@ -102,7 +105,7 @@
       "kind": "official",
       "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "2026-10-18 官方頁：GPT-6 正分階段提供合資格 Plus／Pro 等方案；Free／Go 預設模型為 GPT-5.6 Luna。Plus ChatGPT 可選 GPT-6 Sol 推理等級與舊版 GPT-5.6；Work／Codex 模型權限另列。"
+      "notes": "2026-10-18 對照 Help Center 模型說明（較早更新）、最新發布說明及現行方案矩陣：GPT-6 已在 Chat 推出；Free／Go 使用 GPT-6 Luna、Plus 使用 GPT-6 Sol。較早文章內容在新模型推出前，現行映射採用較新的發布說明。"
     },
     {
       "id": "anthropic-pricing",
@@ -287,7 +290,7 @@
       "kind": "official",
       "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "2026-10-18 官方頁確認 ChatGPT Agent Mode 仍可使用：Plus 每月 40 則、Pro 每月 400 則；Free／Go 未列為可用方案。單次代理啟動會計入月額度。"
+      "notes": "2026-10-18 重新核對：頁面 Overview 已明寫舊版 ChatGPT Agent 不再提供並指向 ChatGPT Work；下方保留的 40／400 月訊息段落與 Overview 矛盾，視為過期文字，不當成現行配額。"
     },
     {
       "id": "openai-work",
@@ -295,34 +298,35 @@
       "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
       "kind": "official",
       "checked_at": "2026-10-18",
-      "region": "US"
+      "region": "US",
+      "notes": "2026-10-18 官方 Work／Codex 說明：Work 是長步驟代理產品，與 Codex 共用適用方案額度；模型與推理選擇依方案及工作區權限。Free／Go 僅限桌面版，方案矩陣列 GPT-5.6 Terra。"
     },
     {
       "id": "openai-work-rollout",
       "label": "ChatGPT Work rollout on paid plans",
       "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "Earlier rollout documentation described an initial exclusion; current ChatGPT pricing page now lists limited Free and Go Work desktop access. Use current pricing page for present plan mapping."
+      "notes": "2026-10-18 手動核對最新發布說明：GPT-6 Sol 在 Chat 的 Plus／Pro 等方案推出，GPT-6 Luna 在 Free／Go 推出；Work／Codex 模型維持分開。當前權益以發布說明及方案比較頁為準。"
     },
     {
       "id": "openai-deep-research",
       "label": "Deep research in ChatGPT",
       "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "Current ChatGPT pricing page lists limited Deep Research access on Free and Go; exact allowance varies by usage counters and may change."
+      "notes": "2026-10-18 官方深度研究說明與方案矩陣：Free／Go 有限、Plus 擴大、Pro 最高；固定月額度若適用則自首次使用起每 30 天重設。帳號內計數器顯示剩餘任務，官方未公布通用固定數。"
     },
     {
       "id": "openai-flexible-usage",
       "label": "Flexible usage credits for ChatGPT personal plans",
       "url": "https://help.openai.com/en/articles/12642688",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "Plus/Pro supported agentic products may share usage and credit pool."
+      "notes": "2026-10-18 官方點數說明：Plus／Pro 的 Work、Codex 等代理功能可共用額度；點數可用於超額追加但 Free／Go 僅部分帳戶可購買。點數與 API 額度分開。"
     },
     {
       "id": "anthropic-research",
@@ -347,27 +351,27 @@
       "label": "ChatGPT current plan comparison",
       "url": "https://chatgpt.com/pricing/?locale=en-US",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "Current US pricing table confirms Free/Go everyday text chat and limited Codex/Work access; fixed message counts vary by feature and model."
+      "notes": "2026-10-18 手動核對美國方案頁及最新發布說明：Free／Go 使用 GPT-6 Luna、日常文字聊天不限量，另有有限 Codex 與桌面 Work；Plus 使用 GPT-6 Sol，提供擴大 Work／Codex 權益。方案矩陣列 GPT-5 Thinking Mini。較早 Help Center 模型文章在 GPT-6 Chat 推出前更新，按最新發布說明處理。"
     },
     {
       "id": "aa-public-gemini-argon-comparison",
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "Global",
-      "notes": "Public page snapshot manually reviewed 2026-10-16. Not fetched through the authenticated Free API connector."
+      "notes": "2026-10-18 逐列核對 Artificial Analysis 公開比較頁：Gemini 4 Argon High 綜合指數 53、GPT-6 Astra Low 為 46；智能評測每任務成本分別為 $1.99、$0.82。公開頁列出的 AA-Briefcase v1.1、GDPval-AA v2.1、AutomationBench-AA、Terminal-Bench 4.0、SciCode、Humanity’s Last Exam、GDP.pdf、CritPt、AA-Omniscience、AA-LCR v1.1 逐項與快照相符；頁面方法版本 v4.3.2。新列出的 Terminal-Bench-Science 0.1 與 FrontierCode 1.1 不屬於該指數的十項組成測試，不混入本比較。"
     },
     {
       "id": "aa-public-gpt-6-luna-high-comparison",
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "Global",
-      "notes": "Public page snapshot manually reviewed 2026-10-16. Not fetched through the authenticated Free API connector."
+      "notes": "2026-10-18 逐列核對 Artificial Analysis 公開比較頁：Gemini 4 Argon High 綜合指數 53、GPT-6 Luna High 為 33；智能評測每任務成本分別為 $1.99、$0.03。公開頁列出的 AA-Briefcase v1.1、GDPval-AA v2.1、AutomationBench-AA、Terminal-Bench 4.0、SciCode、Humanity’s Last Exam、GDP.pdf、CritPt、AA-Omniscience、AA-LCR v1.1 逐項與快照相符；頁面方法版本 v4.3.2。新列出的 Terminal-Bench-Science 0.1 與 FrontierCode 1.1 不屬於該指數的十項組成測試，不混入本比較。"
     },
     {
       "id": "anthropic-cowork",
@@ -485,6 +489,33 @@
       "checked_at": "2026-10-18",
       "region": "未提供",
       "notes": "2026-09-22 一位 Plus 使用者回報 GPT-6 Astra Low 的一次分析工作在 10 分鐘內耗盡五小時額度。樣本 n=1、任務內容未充分量化，不轉換為保證任務數，低信心。"
+    },
+    {
+      "id": "reddit-work-plus-usage",
+      "label": "Reddit 社群實測：Plus 單次 Work 任務耗用五小時額度",
+      "url": "https://www.reddit.com/r/ChatGPT/comments/1wr5qz9/plus_usage_limit_disappearing_insanely_fast/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-09-27 一位 Plus 使用者回報：GPT-5.6 Sol High、長上下文整理既有專案並輸出 Markdown，五小時額度由 100% 降至 63%。n=1；任務長度、輸入 token 及其他共用用量未提供；不換算為固定任務數。"
+    },
+    {
+      "id": "reddit-codex-gpt61-usage",
+      "label": "Reddit 社群實測：Codex 多次簡單編輯約 40 分鐘耗盡五小時額度",
+      "url": "https://www.reddit.com/r/ChatGPT/comments/1x8aj47/extremely_high_usage_in_codex/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-10-17 一位 Plus 使用者回報：GPT-6.1 Sol、最低速度且未用 Turbo，數次簡單的 1–2 分鐘編輯後約 40 分鐘耗盡五小時額度。n=1；任務總數與本機／雲端執行方式未提供，不可轉成保證任務數。"
+    },
+    {
+      "id": "reddit-gemini-plus-4-prompts",
+      "label": "Reddit 社群體感：Google AI Plus 約 4 次 Pro 提示耗用五小時額度",
+      "url": "https://www.reddit.com/r/GeminiAI/comments/1ti0rjc/gemini_new_limit_is_a_joke/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-05-19 一位 Google AI Plus 使用者回報，4 次 Pro 模型提示（PDF、圖片生成及程式解釋）用盡五小時額度。n=1；模型版號、提示長度及地區未提供，資料距今數月，只作低信心使用體感，不能當作方案保證上限。"
     }
   ],
   "plans": [
@@ -518,7 +549,7 @@
         "openai-free-agent-unknown",
         "oa-free-work-agent-unknown"
       ],
-      "note": "免費方案；可用性與部分功能會依地區、模型及推出狀態變動。 Free／Go 的 ChatGPT 預設模型為 GPT-5.6 Luna；Codex 個人方案可用模型清單獨立列示。",
+      "note": "免費方案；最新方案矩陣及發布說明列 GPT-6 Luna、GPT-5 Thinking Mini；日常文字聊天不限量，工具另有限額。",
       "products": [
         {
           "product": "ChatGPT",
@@ -529,19 +560,28 @@
           ],
           "model_access": [
             {
-              "model": "GPT-5.6 Luna",
+              "model": "GPT-6 Luna",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "exact",
+              "note": "2026-10-18 美國方案矩陣列 Free／Go 提供；較早更新的 Help Center 仍稱 GPT-5.6 Luna，來源日期較舊。"
+            },
+            {
+              "model": "GPT-5 Thinking Mini",
+              "reasoning_modes": [],
+              "mapping": "exact",
+              "note": "官方方案矩陣列 Free 可用；Go 繼承 Free 權益。"
             }
           ],
           "quota_ids": [
             "oa-free-chat"
           ],
           "source_ids": [
-            "openai-models"
+            "openai-models",
+            "openai-current-pricing",
+            "openai-work-rollout"
           ],
           "rollout": "generally_available",
-          "note": null
+          "note": "以 2026-10-18 最新方案比較矩陣及 GPT-6 Chat 發布說明列示；較早更新的 Help Center 模型文章在 GPT-6 Chat 推出前發布。"
         },
         {
           "product": "Codex Local",
@@ -568,7 +608,7 @@
         },
         {
           "product": "Codex Cloud",
-          "included": null,
+          "included": false,
           "surface": [
             "cloud"
           ],
@@ -578,8 +618,8 @@
             "openai-codex",
             "openai-current-pricing"
           ],
-          "rollout": "unknown",
-          "note": "雲端 Codex 是否包含於此方案未有一致的官方權益確認；不列出未確認模型。"
+          "rollout": "generally_available",
+          "note": "官方明確表示 Free／Go 不包含 Codex Cloud；可使用 Codex 本機版。"
         },
         {
           "product": "ChatGPT Agent mode",
@@ -591,10 +631,11 @@
           "model_access": [],
           "quota_ids": [],
           "source_ids": [
-            "openai-agent-mode"
+            "openai-agent-mode",
+            "openai-work"
           ],
-          "rollout": "generally_available",
-          "note": "此方案未列入官方 Agent Mode 可用方案；功能本身仍在提供。"
+          "rollout": "discontinued",
+          "note": "舊版 Agent 已停止提供，官方改以 ChatGPT Work 執行長步驟任務；舊說明頁殘留的 40 則配額不適用。"
         },
         {
           "product": "ChatGPT Deep Research",
@@ -631,18 +672,20 @@
             {
               "model": "GPT-5.6 Terra",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "exact",
+              "note": "Free／Go 僅有限桌面版；目前官方方案矩陣在 Work／Codex 桌面列出 Terra。"
             }
           ],
           "quota_ids": [
             "oa-free-work-agent-unknown"
           ],
           "source_ids": [
-            "openai-work-rollout",
-            "openai-current-pricing"
+            "openai-current-pricing",
+            "openai-work",
+            "openai-codex"
           ],
           "rollout": "limited",
-          "note": "Free／Go 提供有限的 Work 桌面存取；模型列為 GPT-5.6 Sol、Terra、Luna。"
+          "note": "限桌面版有限使用；官方未公布固定任務數。"
         }
       ],
       "annual_billing_available": false
@@ -678,7 +721,7 @@
         "openai-go-agent-unknown",
         "oa-go-work-agent-unknown"
       ],
-      "note": "美國月繳參考價；地區可用性及稅金依結帳頁為準。 Free／Go 的 ChatGPT 預設模型為 GPT-5.6 Luna；Codex 個人方案可用模型清單獨立列示。",
+      "note": "美國月繳參考價；地區／稅金依結帳頁。最新方案矩陣及發布說明列 GPT-6 Luna、GPT-5 Thinking Mini；日常文字不限量，工具額度高於 Free。",
       "products": [
         {
           "product": "ChatGPT",
@@ -689,9 +732,16 @@
           ],
           "model_access": [
             {
-              "model": "GPT-5.6 Luna",
+              "model": "GPT-6 Luna",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "exact",
+              "note": "2026-10-18 美國方案矩陣列 Free／Go 提供；較早更新的 Help Center 仍稱 GPT-5.6 Luna，來源日期較舊。"
+            },
+            {
+              "model": "GPT-5 Thinking Mini",
+              "reasoning_modes": [],
+              "mapping": "exact",
+              "note": "官方方案矩陣列 Free 可用；Go 繼承 Free 權益。"
             }
           ],
           "quota_ids": [
@@ -699,10 +749,12 @@
           ],
           "source_ids": [
             "openai-go",
-            "openai-models"
+            "openai-models",
+            "openai-current-pricing",
+            "openai-work-rollout"
           ],
           "rollout": "generally_available",
-          "note": null
+          "note": "以 2026-10-18 最新方案比較矩陣及 GPT-6 Chat 發布說明列示；較早更新的 Help Center 模型文章在 GPT-6 Chat 推出前發布。"
         },
         {
           "product": "Codex Local",
@@ -729,7 +781,7 @@
         },
         {
           "product": "Codex Cloud",
-          "included": null,
+          "included": false,
           "surface": [
             "cloud"
           ],
@@ -739,8 +791,8 @@
             "openai-codex",
             "openai-current-pricing"
           ],
-          "rollout": "unknown",
-          "note": "雲端 Codex 是否包含於此方案未有一致的官方權益確認；不列出未確認模型。"
+          "rollout": "generally_available",
+          "note": "官方明確表示 Free／Go 不包含 Codex Cloud；可使用 Codex 本機版。"
         },
         {
           "product": "ChatGPT Agent mode",
@@ -752,10 +804,11 @@
           "model_access": [],
           "quota_ids": [],
           "source_ids": [
-            "openai-agent-mode"
+            "openai-agent-mode",
+            "openai-work"
           ],
-          "rollout": "generally_available",
-          "note": "此方案未列入官方 Agent Mode 可用方案；功能本身仍在提供。"
+          "rollout": "discontinued",
+          "note": "舊版 Agent 已停止提供，官方改以 ChatGPT Work 執行長步驟任務；舊說明頁殘留的 40 則配額不適用。"
         },
         {
           "product": "ChatGPT Deep Research",
@@ -792,18 +845,20 @@
             {
               "model": "GPT-5.6 Terra",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "exact",
+              "note": "Free／Go 僅有限桌面版；目前官方方案矩陣在 Work／Codex 桌面列出 Terra。"
             }
           ],
           "quota_ids": [
             "oa-go-work-agent-unknown"
           ],
           "source_ids": [
-            "openai-work-rollout",
-            "openai-current-pricing"
+            "openai-current-pricing",
+            "openai-work",
+            "openai-codex"
           ],
           "rollout": "limited",
-          "note": "Free／Go 提供有限的 Work 桌面存取；模型列為 GPT-5.6 Sol、Terra、Luna。"
+          "note": "限桌面版有限使用；官方未公布固定任務數。"
         }
       ],
       "annual_billing_available": false
@@ -844,10 +899,11 @@
         "oa-plus-codex-weekly",
         "openai-plus-agent-unknown",
         "oa-plus-agent-work",
-        "openai-plus-agent-mode-40",
-        "openai-plus-codex-community"
+        "openai-plus-codex-community",
+        "openai-plus-work-community-37pct-2026-09-27",
+        "openai-codex-gpt61-community-40min-2026-10-17"
       ],
-      "note": "美國月繳參考價；Codex 本機版與 ChatGPT Work 共用用量。雲端任務可能耗用較多額度，也可能受每週上限限制。 Plus 的 ChatGPT Agent Mode 官方上限為每月 40 則；Work 與 Codex 使用量共用，雲端任務不可套用本機訊息範圍。",
+      "note": "美國月繳參考價；Chat／Work／Codex 使用額度分開或依產品共用。Work 與 Codex 共用五小時及每週用量池；雲端任務可能耗用較多。舊版 Agent Mode 已停用。",
       "products": [
         {
           "product": "ChatGPT",
@@ -862,16 +918,22 @@
               "reasoning_modes": [
                 "Instant",
                 "Medium",
-                "High",
-                "Extra High"
+                "High"
               ],
               "mapping": "approximate",
-              "note": "GPT-6 正分階段提供；AA 分數按其實際評測推理強度分列。"
+              "note": "GPT-6 分批提供；Plus 支援 Medium／High，不含 Extra High 與 GPT-6 Pro。"
             },
             {
               "model": "GPT-5.6 Sol",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate",
+              "note": "舊版仍可明確選取；AA 測試推理強度與產品設定未逐項精確對應。"
+            },
+            {
+              "model": "GPT-5 Thinking Mini",
+              "reasoning_modes": [],
+              "mapping": "exact",
+              "note": "官方方案矩陣列 Plus 提供擴大量。"
             }
           ],
           "quota_ids": [
@@ -879,10 +941,12 @@
           ],
           "source_ids": [
             "openai-plus",
-            "openai-models"
+            "openai-models",
+            "openai-current-pricing",
+            "openai-work-rollout"
           ],
           "rollout": "generally_available",
-          "note": null
+          "note": "只列一般 Chat 可用模型；GPT-6 Sol 在 Plus 推出，GPT-5.6 Sol 仍可選。Astra／GPT-6 Pro 不在 Plus 一般 Chat，Astra 僅列 Work／Codex。"
         },
         {
           "product": "Codex Local",
@@ -894,41 +958,40 @@
           "model_access": [
             {
               "model": "GPT-6 Astra",
-              "reasoning_modes": [
-                "xHigh"
-              ],
-              "mapping": "approximate"
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "Plus 僅含有限 Astra 使用；未公布推理強度對應。"
             },
             {
               "model": "GPT-6.1 Sol",
               "reasoning_modes": [],
-              "mapping": "exact",
-              "note": "逐步推出；部分帳戶尚未取得。"
+              "mapping": "approximate",
+              "note": "官方逐步推出；推理強度依所選設定。"
             },
             {
               "model": "GPT-6 Sol",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-6 Luna",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-5.6 Sol",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-5.6 Terra",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-5.6 Luna",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             }
           ],
           "quota_ids": [
@@ -937,15 +1000,17 @@
             "oa-plus-codex-sol",
             "oa-plus-codex-luna",
             "oa-plus-codex-weekly",
-            "openai-plus-codex-community"
+            "openai-plus-codex-community",
+            "openai-codex-gpt61-community-40min-2026-10-17"
           ],
           "source_ids": [
             "openai-codex",
             "openai-codex-usage",
-            "openai-current-pricing"
+            "openai-current-pricing",
+            "openai-work"
           ],
           "rollout": "generally_available",
-          "note": "官方列出模型及本機訊息估計；產品模型標籤與 Artificial Analysis 精確評測版本尚未對應。"
+          "note": "官方模型與本機訊息估計；雲端與本機共用方案額度，但雲端任務可能耗用較多；不把訊息估計換算成任務數。"
         },
         {
           "product": "Codex Cloud",
@@ -956,41 +1021,40 @@
           "model_access": [
             {
               "model": "GPT-6 Astra",
-              "reasoning_modes": [
-                "xHigh"
-              ],
-              "mapping": "approximate"
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "Plus 僅含有限 Astra 使用；未公布推理強度對應。"
             },
             {
               "model": "GPT-6.1 Sol",
               "reasoning_modes": [],
-              "mapping": "exact",
-              "note": "逐步推出；部分帳戶尚未取得。"
+              "mapping": "approximate",
+              "note": "官方逐步推出；推理強度依所選設定。"
             },
             {
               "model": "GPT-6 Sol",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-6 Luna",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-5.6 Sol",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-5.6 Terra",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-5.6 Luna",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             }
           ],
           "quota_ids": [
@@ -998,33 +1062,28 @@
           ],
           "source_ids": [
             "openai-codex",
-            "openai-codex-usage"
+            "openai-codex-usage",
+            "openai-work",
+            "openai-current-pricing"
           ],
           "rollout": "generally_available",
-          "note": "雲端模型可選清單依官方 Codex 方案文件；官方沒有按模型公布固定雲端任務數。"
+          "note": "官方模型與本機訊息估計；雲端與本機共用方案額度，但雲端任務可能耗用較多；不把訊息估計換算成任務數。"
         },
         {
           "product": "ChatGPT Agent mode",
-          "included": true,
+          "included": false,
           "surface": [
             "web",
             "mobile"
           ],
-          "model_access": [
-            {
-              "model": "底層模型未公布",
-              "reasoning_modes": [],
-              "mapping": "unmapped"
-            }
-          ],
-          "quota_ids": [
-            "openai-plus-agent-mode-40"
-          ],
+          "model_access": [],
+          "quota_ids": [],
           "source_ids": [
-            "openai-agent-mode"
+            "openai-agent-mode",
+            "openai-work"
           ],
-          "rollout": "generally_available",
-          "note": "Plus 每月 40 則代理訊息；底層模型未公開。"
+          "rollout": "discontinued",
+          "note": "舊版 Agent 已停止提供並由 ChatGPT Work 取代；舊頁面殘留的 40 則/月不列為現行額度。"
         },
         {
           "product": "ChatGPT Deep Research",
@@ -1060,31 +1119,55 @@
           ],
           "model_access": [
             {
+              "model": "GPT-6 Astra",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "Plus 僅含有限 Astra 使用；未公布推理強度對應。"
+            },
+            {
+              "model": "GPT-6.1 Sol",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "官方逐步推出；推理強度依所選設定。"
+            },
+            {
+              "model": "GPT-6 Sol",
+              "reasoning_modes": [],
+              "mapping": "approximate"
+            },
+            {
+              "model": "GPT-6 Luna",
+              "reasoning_modes": [],
+              "mapping": "approximate"
+            },
+            {
               "model": "GPT-5.6 Sol",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-5.6 Terra",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             },
             {
               "model": "GPT-5.6 Luna",
               "reasoning_modes": [],
-              "mapping": "exact"
+              "mapping": "approximate"
             }
           ],
           "quota_ids": [
-            "oa-plus-agent-work"
+            "oa-plus-agent-work",
+            "openai-plus-work-community-37pct-2026-09-27"
           ],
           "source_ids": [
             "openai-work",
-            "openai-work-rollout",
-            "openai-flexible-usage"
+            "openai-codex-usage",
+            "openai-current-pricing",
+            "reddit-work-plus-usage"
           ],
-          "rollout": "limited",
-          "note": "付費方案功能；Plus 的推出狀態與工作區設定可能影響可用性，並與 Codex 共用代理額度。"
+          "rollout": "generally_available",
+          "note": "與 Codex 共用額度；Astra 使用有限額度，其他模型依方案及推理設定耗用。社群單次用量僅供體感參考。"
         }
       ],
       "annual_billing_available": false
@@ -1419,7 +1502,8 @@
         "google-plus-antigravity",
         "google-plus-jules",
         "google-ai-plus-agent-research",
-        "google-plus-jules-concurrency"
+        "google-plus-jules-concurrency",
+        "google-plus-chat-community-4-prompts"
       ],
       "note": "美國月繳 $4.99；官方提供月繳與年繳選項。美國年繳實付金額需在 Google One 購買流程確認，公開頁未固定列價，因此保留空值。",
       "products": [
@@ -1438,7 +1522,8 @@
             }
           ],
           "quota_ids": [
-            "google-plus-chat"
+            "google-plus-chat",
+            "google-plus-chat-community-4-prompts"
           ],
           "source_ids": [
             "google-gemini-limits",
@@ -2514,18 +2599,20 @@
       "product": "ChatGPT",
       "metric": "日常文字訊息",
       "value": null,
-      "value_type": "variable",
-      "unit": "訊息",
-      "window": "每日；依模型/工具而異",
+      "value_type": "unlimited",
+      "unit": "日常文字聊天",
+      "window": "官方列為不限量；防濫用限制適用，其他工具另有限額",
       "model": "一般文字聊天",
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "官方稱日常文字聊天可持續使用，但有防濫用例外；推理模型、影像、檔案、搜尋等各自有不同上限，未提供固定數字。",
+      "note": "官方方案頁明列日常文字聊天不限量（受防濫用措施約束）；上傳、影像、語音、資料分析、推理等工具各自另有限制。方案頁 GPT-6 Luna 與舊 Help Center GPT-5.6 Luna 名稱有日期差異，模型採較新的方案矩陣。",
       "confidence": "high",
       "source_ids": [
-        "openai-models"
+        "openai-current-pricing",
+        "openai-models",
+        "openai-go"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null,
       "plan_id": "openai-free",
@@ -2539,19 +2626,19 @@
       "value": null,
       "value_type": "not_published",
       "unit": "本機訊息",
-      "window": "每 5 小時；可能另有週上限",
+      "window": "用量依方案、模型及任務改變；目前官方未公布固定本機訊息數",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [
         "ChatGPT Work"
       ],
-      "note": "官方只確認免費方案包含有限 Codex 使用，沒有公布固定本機訊息數；不得套用 Plus 的使用量估計。雲端權益與本機 Codex 分開確認。",
+      "note": "官方確認 Free／Go 有限包含 Codex 本機版，未公布固定訊息數；Codex Cloud 不包含於這兩個方案。",
       "confidence": "unknown",
       "source_ids": [
         "openai-codex",
         "openai-current-pricing"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null,
       "plan_id": "openai-free",
@@ -2563,19 +2650,20 @@
       "product": "ChatGPT",
       "metric": "模型及工具使用上限",
       "value": null,
-      "value_type": "variable",
-      "unit": "訊息/工具呼叫",
-      "window": "依模型/工具而異",
+      "value_type": "unlimited",
+      "unit": "日常文字聊天",
+      "window": "官方列為不限量；防濫用限制適用，其他工具另有限額",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "Go 有更高使用量，但官方固定數值會依模型、推理模式與工具而變；此處不將其折算為固定訊息數。",
+      "note": "官方方案頁明列日常文字聊天不限量（受防濫用措施約束）；上傳、影像、語音、資料分析、推理等工具各自另有限制。方案頁 GPT-6 Luna 與舊 Help Center GPT-5.6 Luna 名稱有日期差異，模型採較新的方案矩陣。",
       "confidence": "high",
       "source_ids": [
-        "openai-go",
-        "openai-models"
+        "openai-current-pricing",
+        "openai-models",
+        "openai-go"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null,
       "plan_id": "openai-go",
@@ -2589,19 +2677,19 @@
       "value": null,
       "value_type": "not_published",
       "unit": "本機訊息",
-      "window": "每 5 小時；可能另有週上限",
+      "window": "用量依方案、模型及任務改變；目前官方未公布固定本機訊息數",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [
         "ChatGPT Work"
       ],
-      "note": "官方只確認 Go 方案包含有限 Codex 使用，沒有公布固定本機訊息數；不得套用 Plus 的使用量估計。雲端權益與本機 Codex 分開確認。",
+      "note": "官方確認 Free／Go 有限包含 Codex 本機版，未公布固定訊息數；Codex Cloud 不包含於這兩個方案。",
       "confidence": "unknown",
       "source_ids": [
         "openai-codex",
         "openai-current-pricing"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null,
       "plan_id": "openai-go",
@@ -2615,17 +2703,17 @@
       "value": null,
       "value_type": "variable",
       "unit": "訊息/工具呼叫",
-      "window": "依模型/工具而異",
+      "window": "模型及工具各有適用限制；重設時間於使用者介面提供時顯示",
       "model": null,
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "依模型、推理強度和工具而變；沒有官方公布的通用固定聊天訊息數。",
+      "note": "官方方案頁將一般日常文字聊天列為不限量；推理模型與工具的限制依模型、系統負載及方案而異，官方沒有通用固定訊息數。未找到可複核的社群固定數據，不以流傳留言填值。",
       "confidence": "high",
       "source_ids": [
         "openai-plus",
         "openai-models"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null,
       "plan_id": "openai-plus",
@@ -2651,7 +2739,7 @@
       "source_ids": [
         "openai-codex-usage"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": {
         "min": 5,
@@ -2682,7 +2770,7 @@
       "source_ids": [
         "openai-codex-usage"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": {
         "min": 15,
@@ -2713,7 +2801,7 @@
       "source_ids": [
         "openai-codex-usage"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": {
         "min": 15,
@@ -2744,7 +2832,7 @@
       "source_ids": [
         "openai-codex-usage"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": {
         "min": 350,
@@ -2771,13 +2859,13 @@
         "Codex Cloud",
         "ChatGPT Work"
       ],
-      "note": "官方指出可能另有每週上限，沒有公布一致的固定數值。雲端執行可能耗用較多額度。",
+      "note": "Plus 的 Work 與 Codex 共用五小時及每週用量池；官方指出雲端任務可能比本機訊息耗用更多，未公布固定雲端任務數。",
       "confidence": "high",
       "source_ids": [
         "openai-codex-usage",
         "openai-codex"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null,
       "plan_id": "openai-plus",
@@ -3211,7 +3299,7 @@
       "source_ids": [
         "openai-deep-research"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null
     },
@@ -3234,7 +3322,7 @@
       "source_ids": [
         "openai-deep-research"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null
     },
@@ -3403,13 +3491,13 @@
         "Codex Cloud",
         "ChatGPT Excel"
       ],
-      "note": "適用方案中的 ChatGPT Work 與 Codex 共用代理額度；實際耗用依任務而變，官方未公布固定任務數。API 任務成本另計。",
+      "note": "Plus 的 Work 與 Codex 共用五小時／每週額度；官方只提供本機訊息估計，不提供 Work 固定任務數。社群單次工作耗用資料另列，不與 Codex 訊息估計相加。",
       "confidence": "high",
       "source_ids": [
         "openai-work",
         "openai-flexible-usage"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null
     },
@@ -3630,7 +3718,7 @@
         "openai-current-pricing",
         "openai-work"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null,
       "plan_id": "openai-free",
@@ -3654,7 +3742,7 @@
         "openai-current-pricing",
         "openai-work"
       ],
-      "sampled_at": "2026-10-17",
+      "sampled_at": "2026-10-18",
       "region": "US",
       "estimate_range": null,
       "plan_id": "openai-go",
@@ -3791,29 +3879,6 @@
       "source_ids": [
         "jules-usage-limits"
       ]
-    },
-    {
-      "id": "openai-plus-agent-mode-40",
-      "plan_id": "openai-plus",
-      "plan_name": "ChatGPT Plus",
-      "category": "agent",
-      "product": "ChatGPT Agent mode",
-      "metric": "每月代理訊息上限",
-      "value": 40,
-      "value_type": "exact",
-      "unit": "則訊息",
-      "window": "每月；單次代理啟動計 1 則",
-      "model": null,
-      "reasoning_mode": null,
-      "shared_with": [],
-      "note": "官方明列 Plus 每月 40 則；任務複雜度不把訊息轉成固定任務數。",
-      "confidence": "high",
-      "source_ids": [
-        "openai-agent-mode"
-      ],
-      "sampled_at": "2026-10-18",
-      "region": "US",
-      "estimate_range": null
     },
     {
       "id": "claude-free-chat-community",
@@ -3962,7 +4027,87 @@
       "source_ids": [
         "reddit-codex-plus-usage"
       ],
-      "sampled_at": "2026-09-22",
+      "sampled_at": "2026-10-18",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "openai-plus-work-community-37pct-2026-09-27",
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus",
+      "category": "agent",
+      "product": "ChatGPT Work",
+      "metric": "單次長上下文工作任務占用五小時額度",
+      "value": 37,
+      "value_type": "exact",
+      "unit": "額度百分比",
+      "window": "單次任務；原五小時額度 100% 降至 63%",
+      "model": "GPT-5.6 Sol",
+      "reasoning_mode": "High",
+      "shared_with": [
+        "ChatGPT Work",
+        "Codex Local",
+        "Codex Cloud"
+      ],
+      "note": "n=1 社群觀察：長上下文整理既有專案並輸出 Markdown；作者未提供任務時間、詞元或其他共用用量。只代表該次體感，不換算固定任務數。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-work-plus-usage"
+      ],
+      "sampled_at": "2026-09-27",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "openai-codex-gpt61-community-40min-2026-10-17",
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus",
+      "category": "coding_agent",
+      "product": "Codex（執行環境未說明）",
+      "metric": "工作至五小時額度耗盡所需時間",
+      "value": 40,
+      "value_type": "exact",
+      "unit": "分鐘",
+      "window": "單一社群觀察；五小時用量窗口",
+      "model": "GPT-6.1 Sol",
+      "reasoning_mode": "Low",
+      "shared_with": [
+        "Codex Local",
+        "Codex Cloud",
+        "ChatGPT Work"
+      ],
+      "note": "n=1 社群觀察：作者稱以最低速度且未用 Turbo 執行數次簡單 1–2 分鐘編輯，約 40 分鐘耗盡五小時額度；任務數與本機／雲端執行方式未提供。不能視為保證。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-codex-gpt61-usage"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "google-plus-chat-community-4-prompts",
+      "plan_id": "google-ai-plus",
+      "plan_name": "Google AI Plus",
+      "category": "chat",
+      "product": "Gemini Apps",
+      "metric": "社群回報五小時額度耗盡前提示數",
+      "value": 4,
+      "value_type": "exact",
+      "unit": "則提示",
+      "window": "五小時額度；PDF、圖片生成與程式解釋，均回報使用 Pro 模型",
+      "model": "Gemini Pro（版號未提供）",
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "n=1 社群體感；一位 AI Plus 使用者稱 4 次提示耗盡五小時額度。提示混合檔案、圖片與程式解釋，長度與工具用量不同；2026-05-19 觀察，不視為官方固定限制。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-gemini-plus-4-prompts"
+      ],
+      "sampled_at": "2026-05-19",
       "region": "未提供",
       "estimate_range": null,
       "sample_size": 1
@@ -21981,11 +22126,135 @@
         "output_tokens_per_second": 57.6,
         "time_to_first_token_ms": null
       },
-      "benchmarks": [],
+      "benchmarks": [
+        {
+          "benchmark_id": "aa_briefcase",
+          "score": 1257,
+          "unit": "Elo",
+          "higher_is_better": true,
+          "version": "v1.1",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": true,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "gdpval_aa",
+          "score": 1389,
+          "unit": "Elo",
+          "higher_is_better": true,
+          "version": "v2.1",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": true,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "automationbench_aa",
+          "score": 59,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": null,
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "terminal_bench",
+          "score": 42,
+          "unit": "% pass@1",
+          "higher_is_better": true,
+          "version": "4.0",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": true,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "scicode",
+          "score": 54,
+          "unit": "% pass@1",
+          "higher_is_better": true,
+          "version": null,
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "humanity_last_exam",
+          "score": 49,
+          "unit": "% pass@1",
+          "higher_is_better": true,
+          "version": null,
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "gdp_pdf",
+          "score": 30,
+          "unit": "%; official page score",
+          "higher_is_better": true,
+          "version": null,
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "critpt",
+          "score": 26,
+          "unit": "% pass@1",
+          "higher_is_better": true,
+          "version": null,
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "aa_omniscience",
+          "score": 41,
+          "unit": "official page score; unit not labeled",
+          "higher_is_better": true,
+          "version": null,
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": false,
+          "source_kind": "official"
+        },
+        {
+          "benchmark_id": "aa_lcr",
+          "score": 80,
+          "unit": "%",
+          "higher_is_better": true,
+          "version": "v1.1",
+          "updated_at": null,
+          "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
+          "included_in_index": true,
+          "cross_model_comparable": true,
+          "source_kind": "official"
+        }
+      ],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
       "source_updated_at": "2026-10-18T15:22:33Z",
       "source_kind": "official",
-      "data_origin": "aa_free_api"
+      "data_origin": "aa_free_api+aa_public_page",
+      "public_page_source_url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low",
+      "public_page_checked_at": "2026-10-18",
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "a5092ece-d5a7-461f-b036-3faef262423f",
@@ -31582,11 +31851,11 @@
       ],
       "source_url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low",
       "source_updated_at": null,
-      "source_checked_at": "2026-10-16",
+      "source_checked_at": "2026-10-18",
       "source_kind": "official",
       "data_origin": "aa_public_page",
       "public_page_source_url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low",
-      "public_page_checked_at": "2026-10-16"
+      "public_page_checked_at": "2026-10-18"
     },
     {
       "id": "gpt-6-luna-high",
@@ -31745,11 +32014,11 @@
       ],
       "source_url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high",
       "source_updated_at": null,
-      "source_checked_at": "2026-10-16",
+      "source_checked_at": "2026-10-18",
       "source_kind": "official",
       "data_origin": "aa_public_page",
       "public_page_source_url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high",
-      "public_page_checked_at": "2026-10-16"
+      "public_page_checked_at": "2026-10-18"
     }
   ],
   "coding_agents": [
@@ -33462,7 +33731,7 @@
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
       "cross_model_comparable": true,
       "comparability_note": "僅比較同一測試版本與官方相同評分方式；Elo 不可與 pass@1 或指數分數直接比較。",
-      "source_checked_at": "2026-10-17"
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "gdpval_aa",
@@ -33481,7 +33750,7 @@
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
       "cross_model_comparable": true,
       "comparability_note": "僅比較同一版本/任務集；Elo 不是正確率百分比。",
-      "source_checked_at": "2026-10-17"
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "automationbench_aa",
@@ -33500,7 +33769,7 @@
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
       "cross_model_comparable": true,
       "comparability_note": "僅比較同一版本與工具/環境設定；completion rate 不可與 Elo 混排。",
-      "source_checked_at": "2026-10-17"
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "terminal_bench",
@@ -33519,7 +33788,7 @@
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
       "cross_model_comparable": true,
       "comparability_note": "不同 Harness/執行環境不可當成純模型差異；pass@1 不可與 Elo 直接比較。",
-      "source_checked_at": "2026-10-17"
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "scicode",
@@ -33536,9 +33805,9 @@
       "actual_score": null,
       "updated_at": null,
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
-      "cross_model_comparable": true,
-      "comparability_note": "僅比較相同子問題集合和執行設定；pass@1 不可與其他單位混排。",
-      "source_checked_at": "2026-10-17"
+      "cross_model_comparable": false,
+      "comparability_note": "Artificial Analysis 當前公開頁將此評測標為 Under review；暫不視為已確認可直接跨模型比較的正式分數。",
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "aa_omniscience",
@@ -33557,7 +33826,7 @@
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
       "cross_model_comparable": true,
       "comparability_note": "官方指數使用兩個子指標；單一 Accuracy 數值不能代表完整 15% 權重。",
-      "source_checked_at": "2026-10-17"
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "gdp_pdf",
@@ -33576,7 +33845,7 @@
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
       "cross_model_comparable": true,
       "comparability_note": "官方使用 all-pass 與 task-macro mean pass 兩種結果；必須同時確認方法版本。",
-      "source_checked_at": "2026-10-17"
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "aa_lcr",
@@ -33595,7 +33864,7 @@
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
       "cross_model_comparable": true,
       "comparability_note": "只在相同 v1.1 條件及官方分數口徑下跨模型比較。",
-      "source_checked_at": "2026-10-17"
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "humanity_last_exam",
@@ -33614,7 +33883,7 @@
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
       "cross_model_comparable": true,
       "comparability_note": "需使用同一題集及相同工具/推理設定；pass@1 不可與 Elo 混排。",
-      "source_checked_at": "2026-10-17"
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "critpt",
@@ -33631,9 +33900,9 @@
       "actual_score": null,
       "updated_at": null,
       "method_url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
-      "cross_model_comparable": true,
-      "comparability_note": "需同版本與相同評分設定；pass@1 不可與 Elo 混排。",
-      "source_checked_at": "2026-10-17"
+      "cross_model_comparable": false,
+      "comparability_note": "Artificial Analysis 當前公開頁將此評測標為 Under review；暫不視為已確認可直接跨模型比較的正式分數。",
+      "source_checked_at": "2026-10-18"
     },
     {
       "id": "deepswe",

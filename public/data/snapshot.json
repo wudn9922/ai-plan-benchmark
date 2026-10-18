@@ -114,7 +114,7 @@
       "kind": "official",
       "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "2026-10-18 重新核對官方 Individual pricing 頁：Pro 月繳 $20，年繳預付 $200（頁面月均顯示 $17，資料以 $200÷12=$16.67 保存），價格另計適用稅金。Free／Pro 的 Sonnet、Haiku、Opus 與 Fable 權限未變；Fable 的 Pro 使用量透過 credits。新頁面列出 Pro 可交辦／排程任務、Claude Code、Claude Science；Cowork 正併入 Claude，先向 Pro／Max 分階段推出。本次內容更新沒有改變方案價格、模型權限或已核實的共享動態額度。"
+      "notes": "2026-10-18 重新核對官方 Individual pricing 頁：Pro 月繳 $20、年繳預付 $200（頁面顯示月均 $17；資料以 $200÷12=$16.67 保存），另計適用稅金。Free 可用 Sonnet／Haiku；Pro 可用 Opus／Sonnet／Haiku，Fable 以額外使用點數提供。Pro 頁列出排程任務、Claude Code、Claude Science、Projects 及 Chrome；Cowork 正併入 Claude 並分階段推出。方案沒有保證固定 Chat 或 Coding Agent 任務數。"
     },
     {
       "id": "anthropic-pro-cost",
@@ -139,9 +139,9 @@
       "label": "Google AI plans",
       "url": "https://one.google.com/about/google-ai-plans/",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "Current US plan matrix lists AI Plus $4.99/mo, AI Pro $19.99/mo, relative 2x/4x usage, model access and separate Antigravity/Jules/Chrome limits."
+      "notes": "2026-10-18 對照 Google One AI 方案矩陣與 FAQ：AI Plus $4.99／月、2 倍 Gemini 用量並列 Gemini 3.6 Flash；AI Pro $19.99／月、4 倍用量並列 Gemini 4 Argon、Gemini 3.1 Pro 與更多 Flash 權益。Antigravity、Jules、Deep Research、Tasks in Gemini、Chrome auto browse 各自有分開的方案權益；固定任務數未公布。"
     },
     {
       "id": "google-ai-plus-current",
@@ -150,7 +150,7 @@
       "kind": "official",
       "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "Current US plan page lists Gemini 3.6 Flash for AI Plus and Gemini 4 Argon plus the Pro model for AI Pro; Gemini 4 Argon is restricted to Pro/Ultra. The separate Gemini Omni Flash model belongs to Google Flow, not Gemini Apps. Usage is model and feature dependent; annual billed amounts require checkout."
+      "notes": "2026-10-18 核對目前美國 Gemini 訂閱頁：Free 可用 Flash-Lite；AI Plus 月費 $4.99、Gemini app 使用量為 Free 的 2 倍；AI Pro 月費 $19.99、4 倍並列 Gemini 4 Argon、Pro、Flash。訂閱頁以泛稱 Flash 表示模型；另交叉核對官方 Google One AI 方案矩陣與 FAQ，明列 Plus 的 Gemini 3.6 Flash、Pro 的 Gemini 3.1 Pro，故 Plus 保留精確映射。Antigravity、Jules、Chrome auto browse 及研究權限依方案頁分開核對；固定任務數未公開。美國年繳實付金額仍須在結帳頁確認。"
     },
     {
       "id": "google-annual-plus",
@@ -219,9 +219,9 @@
       "label": "xAI X Subscription pricing",
       "url": "https://docs.x.ai/x-subscription/pricing",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "Current self-serve plan matrix: Plus $8/mo or $80/year, Premium $30/mo or $300/year; usage pool refreshes weekly and covers Grok models across Grok and Cursor. Third-party Cursor models are excluded; tax is added where required."
+      "notes": "2026-10-18 核對官方定價文件：新自助客戶加入 The X Subscription；既有 SuperGrok 與 X Premium 用戶可保留舊方案。Plus 月繳 $8／年繳 $80，Premium 月繳 $30／年繳 $300；Premium 為 Plus 的 4 倍用量。含稅金另計；Grok、Cursor Grok 模型與 Grok Bot 共用每週池，第三方 Cursor 模型不含於訂閱額度，使用需另購點數。"
     },
     {
       "id": "xai-grok",
@@ -342,9 +342,9 @@
       "label": "xAI X Subscription plans and pricing",
       "url": "https://x.ai/pricing",
       "kind": "official",
-      "checked_at": "2026-10-17",
+      "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "Current official marketing/pricing page for the new self-serve X Subscription plans; existing legacy X and SuperGrok subscriptions continue separately."
+      "notes": "2026-10-18 核對 xAI 目前方案頁：Free、Plus $8／月、Premium $30／月；Premium 為 Plus 的 4 倍 AI 用量，並包含 Grok Bot、Cursor、Cloud agents 與 automations。Grok 與 Cursor Grok 模型共享每週用量池，依產品耗用量而異；固定任務數未公布，第三方 Cursor 模型另計，稅金另加。年繳價格另以官方定價文件核對。"
     },
     {
       "id": "openai-current-pricing",
@@ -516,6 +516,33 @@
       "checked_at": "2026-10-18",
       "region": "未提供",
       "notes": "2026-05-19 一位 Google AI Plus 使用者回報，4 次 Pro 模型提示（PDF、圖片生成及程式解釋）用盡五小時額度。n=1；模型版號、提示長度及地區未提供，資料距今數月，只作低信心使用體感，不能當作方案保證上限。"
+    },
+    {
+      "id": "reddit-openai-plus-chat-1-2",
+      "label": "ChatGPT Plus 對話五小時額度社群觀察",
+      "url": "https://www.reddit.com/r/ChatGPT/comments/1wjqvt0/usage_limits_are_insanely_low_now/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-09-18 一位 Plus 使用者回報 GPT-5.6 Sol Medium 約 1–2 則提示耗盡五小時額度。n=1；提示長度、上下文及工作內容未提供，僅為單一帳號體感，低信心。"
+    },
+    {
+      "id": "reddit-gemini-pro-flash-usage-2026-10",
+      "label": "Google AI Pro Flash 對話耗用社群觀察",
+      "url": "https://www.reddit.com/r/GeminiAI/comments/1wzsdd5/did_gemini_pro_usage_limits_suddenly_got_much/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-10-18 公開討論中，一位 AI Pro 使用者回報 Gemini 3.8 Flash 的單則複雜提示約消耗 4–6% 五小時額度；包含影像與多次重試的複雜工作負載。n=1，模型推理強度、上下文長度及地區未提供，低信心，非固定配額。"
+    },
+    {
+      "id": "reddit-grokbot-premium-usage-2026-10-15",
+      "label": "X Subscription Premium Grok Bot 週額度社群觀察",
+      "url": "https://www.reddit.com/r/GrokBot/comments/1x6a8ed/new-sub-to-30mo-premium-10-mins-active-4-setup-qs/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "2026-10-15 一位新訂閱 $30／月 Premium 的使用者稱，在約 10 分鐘內完成 4 個設定問答並送出 2 個提示後，Grok Bot 週額度即耗盡；尚未執行實際代理任務。n=1，底層模型與背景代理詞元未提供，屬低信心體感，不代表固定任務數。"
     }
   ],
   "plans": [
@@ -901,7 +928,8 @@
         "oa-plus-agent-work",
         "openai-plus-codex-community",
         "openai-plus-work-community-37pct-2026-09-27",
-        "openai-codex-gpt61-community-40min-2026-10-17"
+        "openai-codex-gpt61-community-40min-2026-10-17",
+        "openai-plus-chat-community-1-2-prompts-2026-09-18"
       ],
       "note": "美國月繳參考價；Chat／Work／Codex 使用額度分開或依產品共用。Work 與 Codex 共用五小時及每週用量池；雲端任務可能耗用較多。舊版 Agent Mode 已停用。",
       "products": [
@@ -937,7 +965,8 @@
             }
           ],
           "quota_ids": [
-            "oa-plus-chat"
+            "oa-plus-chat",
+            "openai-plus-chat-community-1-2-prompts-2026-09-18"
           ],
           "source_ids": [
             "openai-plus",
@@ -1717,7 +1746,8 @@
         "google-pro-gemini-tasks",
         "google-ai-pro-chrome-agent",
         "google-pro-jules-concurrency",
-        "google-pro-chat-community"
+        "google-pro-chat-community",
+        "google-ai-pro-flash-community-4-6pct-2026-10-18"
       ],
       "note": "美國月繳 $19.99；官方提供月繳與年繳選項。美國年繳實付金額需在 Google One 購買流程確認，公開頁未固定列價，因此保留空值。個人 Google 帳號的舊 Gemini CLI 權益已停止。",
       "products": [
@@ -1747,7 +1777,8 @@
           ],
           "quota_ids": [
             "google-pro-chat",
-            "google-pro-chat-community"
+            "google-pro-chat-community",
+            "google-ai-pro-flash-community-4-6pct-2026-10-18"
           ],
           "source_ids": [
             "google-gemini-limits",
@@ -2260,7 +2291,8 @@
         "xai-premium-coding",
         "xai-premium-build-cli-uncertain",
         "xai-premium-agent-unknown",
-        "xai-premium-agent-bot"
+        "xai-premium-agent-bot",
+        "xai-premium-agent-community-100pct-2026-10-15"
       ],
       "note": "月繳 $30；年繳 $300（月均 $25）。稅金另計。官方表示 Grok/Cursor 共享池為 Plus 的 4 倍，並包含 Grok Bot、Cursor 與雲端代理。Grok Build CLI 對新方案的資格仍未確認。",
       "products": [
@@ -2372,7 +2404,8 @@
             }
           ],
           "quota_ids": [
-            "xai-premium-agent-bot"
+            "xai-premium-agent-bot",
+            "xai-premium-agent-community-100pct-2026-10-15"
           ],
           "source_ids": [
             "xai-grok-bot",
@@ -4102,12 +4135,98 @@
       "model": "Gemini Pro（版號未提供）",
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "n=1 社群體感；一位 AI Plus 使用者稱 4 次提示耗盡五小時額度。提示混合檔案、圖片與程式解釋，長度與工具用量不同；2026-05-19 觀察，不視為官方固定限制。",
+      "note": "歷史觀察；該使用者稱當時使用 Gemini Pro（版號未提供），但現行 AI Plus 方案未列此模型，故不納入現行簡易表。n=1、混合檔案／圖片／程式提示，2026-05-19 體感，不代表現行方案或官方固定限制。",
       "confidence": "low",
       "source_ids": [
         "reddit-gemini-plus-4-prompts"
       ],
       "sampled_at": "2026-05-19",
+      "region": "未提供",
+      "estimate_range": null,
+      "sample_size": 1
+    },
+    {
+      "id": "openai-plus-chat-community-1-2-prompts-2026-09-18",
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus",
+      "category": "chat",
+      "product": "ChatGPT",
+      "metric": "單一使用者五小時額度耗盡前提示數",
+      "value": null,
+      "value_type": "range",
+      "unit": "則提示",
+      "window": "每 5 小時；單一帳號體感",
+      "model": "GPT-5.6 Sol",
+      "reasoning_mode": "Medium",
+      "shared_with": [],
+      "note": "n=1 社群觀察：使用者稱 1–2 則 Medium 提示耗盡五小時額度；提示長度與工作內容未說明。不能視為固定上限。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-openai-plus-chat-1-2"
+      ],
+      "sampled_at": "2026-09-18",
+      "region": "未提供",
+      "estimate_range": {
+        "min": 1,
+        "max": 2,
+        "sample_size": 1,
+        "workload": "GPT-5.6 Sol Medium；提示長度、上下文與任務內容未說明。"
+      },
+      "sample_size": 1
+    },
+    {
+      "id": "google-ai-pro-flash-community-4-6pct-2026-10-18",
+      "plan_id": "google-ai-pro",
+      "plan_name": "Google AI Pro",
+      "category": "chat",
+      "product": "Gemini Apps",
+      "metric": "每則複雜提示耗用五小時額度百分比",
+      "value": null,
+      "value_type": "range",
+      "unit": "額度百分比",
+      "window": "每則複雜提示；五小時額度",
+      "model": "Gemini 3.8 Flash",
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "n=1 社群觀察：使用者稱單則複雜 Flash 提示約消耗五小時額度 4–6%；提及影像生成與多次重試，並非標準化測試。不是保證配額。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-gemini-pro-flash-usage-2026-10"
+      ],
+      "sampled_at": "2026-10-18",
+      "region": "未提供",
+      "estimate_range": {
+        "min": 4,
+        "max": 6,
+        "sample_size": 1,
+        "workload": "Gemini 3.8 Flash；單則複雜提示，包含影像生成與多次重試；推理等級未提供。"
+      },
+      "sample_size": 1
+    },
+    {
+      "id": "xai-premium-agent-community-100pct-2026-10-15",
+      "plan_id": "xai-premium",
+      "plan_name": "The X Subscription Premium",
+      "category": "agent",
+      "product": "Grok Bot / 雲端電腦",
+      "metric": "單次設定對話耗盡每週代理額度百分比",
+      "value": 100,
+      "value_type": "exact",
+      "unit": "額度百分比",
+      "window": "每週額度；約 10 分鐘內 4 個設定問答＋2 個提示後耗盡",
+      "model": "Grok Bot（底層模型未公布）",
+      "reasoning_mode": null,
+      "shared_with": [
+        "Grok",
+        "Cursor",
+        "Grok Bot"
+      ],
+      "note": "n=1 社群觀察：新訂閱者稱 Grok Bot 約 10 分鐘的設定過程（4 個問答、2 個提示）即用盡週額度，尚未執行實際代理任務。用量可能含背景子代理工作；不能換算固定可完成任務數。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-grokbot-premium-usage-2026-10-15"
+      ],
+      "sampled_at": "2026-10-15",
       "region": "未提供",
       "estimate_range": null,
       "sample_size": 1

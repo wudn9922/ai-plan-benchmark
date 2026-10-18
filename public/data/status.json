@@ -1,19 +1,19 @@
 {
   "aa": {
-    "checked_at": "2026-10-18T16:45:48Z",
+    "checked_at": "2026-10-18T16:48:05Z",
     "configured": true,
     "data_updated_at": "2026-10-18T15:22:33Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-18T16:45:48Z",
+    "last_successful_snapshot_at": "2026-10-18T16:48:05Z",
     "message": "每日 API 檢查成功；資料內容與快照相同。",
     "models_count": 706,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-18T16:45:55Z",
+    "checked_at": "2026-10-18T16:48:32Z",
     "status": "warning",
     "summary": "有 2 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
@@ -109,13 +109,13 @@
     "warnings": [
       {
         "label": "Claude Cowork transition and rollout",
-        "message": "官方頁面內容已變更（81d99d90b6a9 → 9ea72ba2ab48）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（9ea72ba2ab48 → 81d99d90b6a9）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-cowork",
         "url": "https://claude.com/blog/cowork-is-now-claude"
       },
       {
         "label": "Claude pricing",
-        "message": "官方頁面內容已變更（5153caa99280 → 45986d337f76）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（45986d337f76 → 5153caa99280）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-pricing",
         "url": "https://claude.com/pricing"
       }

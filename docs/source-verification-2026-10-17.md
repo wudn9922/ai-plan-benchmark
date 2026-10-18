@@ -196,3 +196,7 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 - [ChatGPT Plus 五小時額度討論](https://www.reddit.com/r/ChatGPT/comments/1x4qjmg/did_openai_reduce_the_5_hour_quota/)中，作者稱 GPT-6.1 Sol 一個五小時時段約消耗每週額度 10%，一位留言者回報約 6%。合計 n=2；提示／任務內容、推理等級與使用介面未充分說明。資料已登錄，但不猜測為 Chat、Work 或 Codex 額度，也不推算訊息數。OpenAI 現行 Chat 使用量因此維持「尚無可靠數據」。
 - ChatGPT Plus 的 2026-09-18 社群觀察使用 GPT-5.6 Sol，已標成歷史模型並從現行精簡表排除。
 - [xAI Grok Bot 週額度回報](https://www.reddit.com/r/GrokBot/comments/1x6a8ed/new-sub-to-30mo-premium-10-mins-active-4-setup-qs/)可對應 Premium 內含的 Grok Bot：一位 $30 方案使用者稱 4 個設定問答加 2 個提示、約 10 分鐘便耗盡週池，尚未完成實際任務。保留 n=1 低信心觀察，不稱為可完成任務數。其他 Imagine 圖片／影片生成回報不映射至 Grok Chat 或代理額度。
+
+### Anthropic 官方來源指紋覆核
+
+2026-10-18 重查時，Claude 定價頁與 Cowork 公告在兩個已見過的官方可見文字指紋間輪替。兩種呈現均已對照現行官方頁；Pro 價格仍為月繳 $20／年繳預付 $200（頁面約顯示 $17 月均），Cowork 仍先向 Pro／Max 推出並整合至 Claude。來源快取保留這些已核實指紋，避免相同內容反覆產生待核對警示；任何未核實的新指紋仍會保留警示。HTTP 403／404 的來源處理不變。

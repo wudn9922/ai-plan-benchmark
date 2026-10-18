@@ -165,6 +165,30 @@ class SourceHealthTests(unittest.TestCase):
             source_health.content_fingerprint(changed, "text/html", "anthropic-pricing"),
         )
 
+    def test_previously_reviewed_page_variants_do_not_reopen_a_warning(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.create_root(root)
+            prior = {
+                "sha256": "variant-a",
+                "reviewed_sha256": "variant-b",
+                "reviewed_sha256s": ["variant-a", "variant-b"],
+                "hash_version": source_health.HASH_VERSION,
+                "http_status": 200,
+                "availability": "available",
+                "error": None,
+                "label": "Official source",
+                "url": "https://artificialanalysis.ai/method",
+            }
+            cache_path = root / "public/data/source-health-cache.json"
+            cache_path.write_text(json.dumps({"sources": {"sample": prior}, "pending_warnings": {}}), encoding="utf-8")
+            with patch.object(source_health, "request_source", return_value=("ok", None, {**prior, "sha256": "variant-b"})):
+                result = source_health.check_sources(root)
+            self.assertEqual(result["pending_warnings"], 0)
+            persisted = json.loads(cache_path.read_text(encoding="utf-8"))["sources"]["sample"]
+            self.assertEqual(persisted["sha256"], "variant-b")
+            self.assertEqual(set(persisted["reviewed_sha256s"]), {"variant-a", "variant-b"})
+
     def test_google_plan_fingerprint_ignores_banner_but_tracks_price_and_model(self) -> None:
         first = b"<html><body><p>Rotating banner A</p><main><h1>Get more out of Gemini</h1><h2>Google AI Plus</h2><p>$4.99/ month</p><p>Access to our Flash model</p><p>Get 2x higher usage limits than Free</p><h2>Google AI Pro</h2><p>$19.99/ month</p><p>Access to Gemini 4 Argon</p><p>Google Antigravity</p><p>Entry rate limits to agent model</p><h2>Create</h2></main></body></html>"
         chrome_changed = b"<html><body><p>Rotating banner B</p><main><h1>Get more out of Gemini</h1><h2>Google AI Plus</h2><p>$4.99/ month</p><p>Access to our Flash model</p><p>Get 2x higher usage limits than Free</p><h2>Google AI Pro</h2><p>$19.99/ month</p><p>Access to Gemini 4 Argon</p><p>Google Antigravity</p><p>Entry rate limits to agent model</p><h2>Create</h2><p>Unrelated promotional copy</p></main></body></html>"

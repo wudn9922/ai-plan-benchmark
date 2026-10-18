@@ -324,6 +324,12 @@ def check_sources(root: Path = ROOT) -> dict[str, Any]:
             old_hash = prior.get("sha256")
             new_hash = next_state.get("sha256")
             reviewed_hash = prior.get("reviewed_sha256") or old_hash
+            accepted_hashes = prior.get("reviewed_sha256s", [])
+            if not isinstance(accepted_hashes, list):
+                accepted_hashes = []
+            accepted_hashes = {value for value in accepted_hashes if isinstance(value, str)}
+            if reviewed_hash:
+                accepted_hashes.add(reviewed_hash)
             hash_migrated = bool(old_hash) and prior.get("hash_version") != source_hash_version(source_id)
             if not old_hash or hash_migrated:
                 # First read or explicit fingerprint migration establishes a baseline.
@@ -333,7 +339,8 @@ def check_sources(root: Path = ROOT) -> dict[str, Any]:
                 if hash_migrated:
                     next_state["reviewed_at"] = now_iso()
                 pending.pop(f"change:{source_id}", None)
-            elif new_hash and new_hash != reviewed_hash:
+                accepted_hashes = {new_hash} if new_hash else set()
+            elif new_hash and new_hash not in accepted_hashes:
                 pending[f"change:{source_id}"] = {
                     "source_id": source_id,
                     "label": source.get("label", source_id),
@@ -343,6 +350,11 @@ def check_sources(root: Path = ROOT) -> dict[str, Any]:
             else:
                 pending.pop(f"change:{source_id}", None)
             next_state["reviewed_sha256"] = reviewed_hash
+            # Some official pages rotate between already reviewed visible-text
+            # variants. Keep the accepted fingerprints so those variants do not
+            # repeatedly reopen the same content warning. Unknown hashes still warn.
+            if len(accepted_hashes) > 1 or "reviewed_sha256s" in prior:
+                next_state["reviewed_sha256s"] = sorted(accepted_hashes)
             next_state["last_success_at"] = now_iso() if new_hash != old_hash or prior.get("availability") != "available" else prior.get("last_success_at")
             next_state["state_changed_at"] = now_iso() if next_state != prior else prior.get("state_changed_at")
         elif result == "unchanged":
@@ -399,6 +411,14 @@ def acknowledge_source(root: Path, source_id: str) -> int:
     pending = cache.get("pending_warnings", {}) if isinstance(cache, dict) else {}
     state = states.get(source_id, {}) if isinstance(states, dict) else {}
     if isinstance(state, dict) and state.get("sha256"):
+        accepted_hashes = state.get("reviewed_sha256s", [])
+        if not isinstance(accepted_hashes, list):
+            accepted_hashes = []
+        accepted_hashes = [value for value in accepted_hashes if isinstance(value, str)]
+        for value in (state.get("reviewed_sha256"), state["sha256"]):
+            if isinstance(value, str) and value not in accepted_hashes:
+                accepted_hashes.append(value)
+        state["reviewed_sha256s"] = sorted(accepted_hashes)
         state["reviewed_sha256"] = state["sha256"]
         state["reviewed_at"] = now_iso()
     removed = [key for key, warning in pending.items() if warning.get("source_id") == source_id]

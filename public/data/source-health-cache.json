@@ -1,19 +1,6 @@
 {
-  "last_state_change_at": "2026-10-18T16:48:32Z",
-  "pending_warnings": {
-    "change:anthropic-cowork": {
-      "label": "Claude Cowork transition and rollout",
-      "message": "官方頁面內容已變更（9ea72ba2ab48 → 81d99d90b6a9）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "anthropic-cowork",
-      "url": "https://claude.com/blog/cowork-is-now-claude"
-    },
-    "change:anthropic-pricing": {
-      "label": "Claude pricing",
-      "message": "官方頁面內容已變更（45986d337f76 → 5153caa99280）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "anthropic-pricing",
-      "url": "https://claude.com/pricing"
-    }
-  },
+  "last_state_change_at": "2026-10-18T16:51:06Z",
+  "pending_warnings": {},
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -210,11 +197,15 @@
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
       "last_success_at": "2026-10-18T16:48:31Z",
-      "reviewed_at": "2026-10-18T16:47:14Z",
-      "reviewed_sha256": "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc",
+      "reviewed_at": "2026-10-18T16:51:06Z",
+      "reviewed_sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
       "sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
       "state_changed_at": "2026-10-18T16:48:31Z",
-      "url": "https://claude.com/blog/cowork-is-now-claude"
+      "url": "https://claude.com/blog/cowork-is-now-claude",
+      "reviewed_sha256s": [
+        "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
+        "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc"
+      ]
     },
     "anthropic-pricing": {
       "availability": "available",
@@ -227,11 +218,15 @@
       "label": "Claude pricing",
       "last_modified": "Sun, 18 Oct 2026 16:45:40 GMT",
       "last_success_at": "2026-10-18T16:48:15Z",
-      "reviewed_at": "2026-10-18T16:47:14Z",
-      "reviewed_sha256": "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
+      "reviewed_at": "2026-10-18T16:51:06Z",
+      "reviewed_sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
       "sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
       "state_changed_at": "2026-10-18T16:48:15Z",
-      "url": "https://claude.com/pricing"
+      "url": "https://claude.com/pricing",
+      "reviewed_sha256s": [
+        "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
+        "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4"
+      ]
     },
     "anthropic-pro-cost": {
       "availability": "available",

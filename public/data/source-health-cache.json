@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-10-18T17:03:59Z",
+  "last_state_change_at": "2026-10-18T17:30:47Z",
   "pending_warnings": {},
   "sources": {
     "aa-api-reference": {
@@ -216,16 +216,16 @@
       "hash_version": "pricing-region-v2",
       "http_status": 200,
       "label": "Claude pricing",
-      "last_modified": "Sun, 18 Oct 2026 16:45:40 GMT",
-      "last_success_at": "2026-10-18T16:48:15Z",
+      "last_modified": "Sun, 18 Oct 2026 17:20:39 GMT",
+      "last_success_at": "2026-10-18T17:30:37Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
       "reviewed_sha256s": [
         "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
         "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4"
       ],
-      "sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
-      "state_changed_at": "2026-10-18T16:48:15Z",
+      "sha256": "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
+      "state_changed_at": "2026-10-18T17:30:37Z",
       "url": "https://claude.com/pricing"
     },
     "anthropic-pro-cost": {

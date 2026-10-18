@@ -447,12 +447,12 @@
     },
     {
       "id": "reddit-claude-pro-usage",
-      "label": "Claude Pro 對話用量社群觀察",
+      "label": "Claude Pro／Claude Code 社群用量觀察",
       "url": "https://www.reddit.com/r/ClaudeAI/comments/1x8bmku/this_weeks_claude_reset_anyone_else_noticing/",
       "kind": "community",
       "checked_at": "2026-10-18",
       "region": "未提供",
-      "notes": "2026-10-17 一位 Pro 使用者回報 Sonnet 5.5 單則訊息耗用五小時額度 16%；按 100÷16 推算約 6 則，表列 5–7 則／5 小時。樣本 n=1，單一訊息工作負載，誤差很大，低信心。"
+      "notes": "2026-10-17 的 Reddit 討論：一位 Claude Pro 使用者稱兩個 Claude Code 工作階段耗用約 30% 週額度，附圖顯示 28%；同一作者在留言回報一則 Sonnet 訊息耗用五小時額度 16%，並確認在 Claude Desktop 使用 Claude Code。模型版號、任務及上下文未提供；留言顯示使用體感和工作負載有差異。兩筆讀值來自同一帳號與討論，不可相加。n=1、低信心。"
     },
     {
       "id": "reddit-claude-code-usage",
@@ -588,6 +588,15 @@
       "checked_at": "2026-10-18",
       "region": "未提供",
       "notes": "2026-10-05 一位 Google AI Pro 使用者在 Antigravity 社群回報一次 Gemini 五小時使用時段約耗用 46% 週額度；工具／模型版本與工作負載未說明。留言也有 10% 與 40% 等不同體感，不能併為固定配額。n=1 主貼觀察、低信心。"
+    },
+    {
+      "id": "reddit-subscription-quota-fixed-task-test-2026-09-30",
+      "label": "ChatGPT Plus／Claude Pro 同組任務額度實測（Hermes Agent）",
+      "url": "https://www.reddit.com/r/ChatGPT/comments/1wub096/gpt_61_sol_vs_gpt_6_sol_vs_opus_55_testing_quota/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "作者於 2026-09-30 公開固定任務測試方法：4 種任務各執行 4 次，每組 16 次、使用相同提示並各開新 session；以 Codex 與 Claude 五小時計量器前後讀值計算。ChatGPT Plus 的 GPT-6.1 Sol XHigh 為 11 個額度百分點／16 次，另在新窗口重跑結果相同；Claude Pro Opus 5.5 Medium 為 8 個 Claude 窗口百分點／16 次。作者估計每組計量誤差約 ±0.5 點，但跨產品百分點不可直接相比。單一帳號、外部 Hermes Agent 自訂 Harness，僅代表此組任務與帳號；不可視為官方固定配額。"
     }
   ],
   "plans": [
@@ -976,7 +985,8 @@
         "openai-codex-gpt61-community-40min-2026-10-17",
         "openai-plus-chat-community-1-2-prompts-2026-09-18",
         "openai-plus-codex-11min-community-2026-10-09",
-        "openai-plus-codex-weekly-18pct-community-2026-10-09"
+        "openai-plus-codex-weekly-18pct-community-2026-10-09",
+        "chatgpt-plus-codex-hermes-16tasks-11pp-community-2026-09-30"
       ],
       "note": "美國月繳參考價；Chat／Work／Codex 使用額度分開或依產品共用。Work 與 Codex 共用五小時及每週用量池；雲端任務可能耗用較多。舊版 Agent Mode 已停用。",
       "products": [
@@ -1384,10 +1394,12 @@
         "anthropic-pro-agent-unknown",
         "anthropic-pro-cowork-unknown",
         "anthropic-pro-chrome-unknown",
-        "claude-pro-chat-community",
+        "claude-pro-code-message-16pct-community-2026-10-17",
         "claude-pro-code-community",
         "claude-pro-code-20min-community-2026-10-11",
-        "claude-pro-code-weekly-23pct-community-2026-10-14"
+        "claude-pro-code-weekly-23pct-community-2026-10-14",
+        "claude-pro-code-two-sessions-weekly-28-30pct-community-2026-10-17",
+        "claude-pro-code-hermes-16tasks-8pp-community-2026-09-30"
       ],
       "note": "Claude Pro 月繳 $20；年繳一次付 $200，月均 $16.67（官方頁約顯示 $17／月）；價格未含適用稅金。Claude 對話、研究與 Claude Code 均未公布保證任務數。",
       "products": [
@@ -1422,8 +1434,7 @@
             }
           ],
           "quota_ids": [
-            "claude-pro-shared",
-            "claude-pro-chat-community"
+            "claude-pro-shared"
           ],
           "source_ids": [
             "anthropic-pricing",
@@ -1465,7 +1476,9 @@
             "claude-pro-shared",
             "claude-pro-code-community",
             "claude-pro-code-20min-community-2026-10-11",
-            "claude-pro-code-weekly-23pct-community-2026-10-14"
+            "claude-pro-code-weekly-23pct-community-2026-10-14",
+            "claude-pro-code-two-sessions-weekly-28-30pct-community-2026-10-17",
+            "claude-pro-code-message-16pct-community-2026-10-17"
           ],
           "source_ids": [
             "anthropic-code"
@@ -4262,32 +4275,28 @@
       }
     },
     {
-      "id": "claude-pro-chat-community",
+      "id": "claude-pro-code-message-16pct-community-2026-10-17",
       "plan_id": "anthropic-pro",
       "plan_name": "Claude Pro",
-      "category": "chat",
-      "product": "Claude Chat",
-      "metric": "社群推算每五小時訊息數",
-      "value": null,
-      "value_type": "range",
-      "unit": "則訊息",
-      "window": "滾動 5 小時",
-      "model": "Claude Sonnet 5.5",
+      "category": "coding_agent",
+      "product": "Claude Code",
+      "metric": "單則 Sonnet 訊息耗用五小時額度百分比",
+      "value": 16,
+      "value_type": "exact",
+      "unit": "額度百分比",
+      "window": "一次 Sonnet 訊息；五小時時段",
+      "model": "Sonnet（版號未提供）",
       "reasoning_mode": null,
       "shared_with": [],
-      "note": "一位使用者回報單則訊息耗用 16% 額度，據此推算 5–7 則；樣本單一、訊息內容未標準化。",
+      "note": "n=1；同一 Reddit 帳號在 Claude Code 使用情境下回報一則 Sonnet 訊息耗用約 16% 五小時額度。工作負載、上下文及模型版號未提供。與同一作者的兩個工作階段週池觀察來自同一討論與帳號，可能重疊，不能相加或當成獨立樣本。",
       "confidence": "low",
       "source_ids": [
         "reddit-claude-pro-usage"
       ],
       "sampled_at": "2026-10-17",
       "region": "未提供",
-      "estimate_range": {
-        "min": 5,
-        "max": 7,
-        "sample_size": 1,
-        "workload": "以一則 Sonnet 訊息耗用 16% 額度反推；約 6.25 則。"
-      }
+      "estimate_range": null,
+      "sample_size": 1
     },
     {
       "id": "claude-pro-code-community",
@@ -4678,6 +4687,95 @@
       "region": "未提供",
       "estimate_range": null,
       "sample_size": 1
+    },
+    {
+      "id": "claude-pro-code-two-sessions-weekly-28-30pct-community-2026-10-17",
+      "plan_id": "anthropic-pro",
+      "plan_name": "Claude Pro",
+      "category": "coding_agent",
+      "product": "Claude Code",
+      "metric": "兩次工作階段耗用週額度百分比",
+      "value": null,
+      "value_type": "range",
+      "unit": "週額度百分比",
+      "window": "兩個 Claude Code 工作階段；每週額度",
+      "model": null,
+      "reasoning_mode": null,
+      "shared_with": [],
+      "note": "n=1；作者稱兩個 Claude Code 工作階段使用週池約 30%，附圖顯示 28%，故列 28–30% 範圍。作者確認 Claude Pro 年繳，使用 Claude Desktop 內的 Claude Code；模型、任務數、上下文與推理等級未提供。這與同一作者在同一討論中回報的一則訊息耗用 16% 五小時池可能重疊，不能相加或視為獨立樣本。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-claude-pro-usage"
+      ],
+      "sampled_at": "2026-10-17",
+      "region": "未提供",
+      "estimate_range": {
+        "min": 28,
+        "max": 30,
+        "sample_size": 1,
+        "workload": "兩個 Claude Code 工作階段；圖中 28%，正文約稱 30%；任務內容未提供。"
+      },
+      "sample_size": 1
+    },
+    {
+      "id": "chatgpt-plus-codex-hermes-16tasks-11pp-community-2026-09-30",
+      "plan_id": "openai-plus",
+      "plan_name": "ChatGPT Plus",
+      "category": "coding_agent",
+      "product": "Codex 用量池（Hermes Agent 自訂 Harness）",
+      "metric": "16 項固定任務耗用五小時池額度百分點",
+      "value": null,
+      "value_type": "range",
+      "unit": "用量百分點／16 項測試",
+      "window": "全新 Codex 五小時額度窗口",
+      "model": "GPT-6.1 Sol",
+      "reasoning_mode": "XHigh",
+      "shared_with": [],
+      "note": "單一帳號的社群實測，4 種任務各執行 4 次；每次使用相同提示並開新 session。用量計量器讀值為 11 點，作者估計誤差約 ±0.5 點，且在另一個新窗口重現 11 點。由外部 Hermes Agent 自訂 Harness 執行，不等同 Codex 原生任務額度；模型、推理設定與工作負載只代表此測試，不是官方配額。 Codex 與 Claude 計量器的百分點屬不同服務，不能直接比較。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-subscription-quota-fixed-task-test-2026-09-30"
+      ],
+      "sampled_at": "2026-09-30",
+      "region": "未提供",
+      "estimate_range": {
+        "min": 10.5,
+        "max": 11.5,
+        "sample_size": 1,
+        "workload": "4 種固定任務各 4 次；GPT-6.1 Sol XHigh；外部 Hermes Agent Harness。"
+      },
+      "sample_size": 1,
+      "task_run_count": 16
+    },
+    {
+      "id": "claude-pro-code-hermes-16tasks-8pp-community-2026-09-30",
+      "plan_id": "anthropic-pro",
+      "plan_name": "Claude Pro",
+      "category": "coding_agent",
+      "product": "Claude 五小時計量池（Hermes Agent 自訂 Harness）",
+      "metric": "16 項固定任務耗用五小時池額度百分點",
+      "value": null,
+      "value_type": "range",
+      "unit": "用量百分點／16 項測試",
+      "window": "全新 Claude 五小時額度窗口",
+      "model": "Claude Opus 5.5",
+      "reasoning_mode": "Medium",
+      "shared_with": [],
+      "note": "單一帳號的社群實測，4 種任務各執行 4 次；每次使用相同提示並開新 session。Claude 五小時計量器讀值為 8 點，作者估計誤差約 ±0.5 點。由外部 Hermes Agent 自訂 Harness 執行，不等同 Claude Code 原生任務額度；此 Claude 計量器百分點不可直接與 Codex 百分點相比；不是官方配額。 Codex 與 Claude 計量器的百分點屬不同服務，不能直接比較。",
+      "confidence": "low",
+      "source_ids": [
+        "reddit-subscription-quota-fixed-task-test-2026-09-30"
+      ],
+      "sampled_at": "2026-09-30",
+      "region": "未提供",
+      "estimate_range": {
+        "min": 7.5,
+        "max": 8.5,
+        "sample_size": 1,
+        "workload": "4 種固定任務各 4 次；Claude Opus 5.5 Medium；外部 Hermes Agent Harness。"
+      },
+      "sample_size": 1,
+      "task_run_count": 16
     }
   ],
   "models": [

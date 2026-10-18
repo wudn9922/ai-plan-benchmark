@@ -1,21 +1,21 @@
 {
   "aa": {
-    "checked_at": "2026-10-17T20:11:38Z",
+    "checked_at": "2026-10-18T08:51:47Z",
     "configured": true,
-    "data_updated_at": "2026-10-17T19:06:10Z",
+    "data_updated_at": "2026-10-18T08:51:47Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-17T20:11:38Z",
-    "message": "每日 API 檢查成功；資料內容與快照相同。",
+    "last_successful_snapshot_at": "2026-10-18T08:51:47Z",
+    "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "models_count": 706,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-17T20:11:47Z",
+    "checked_at": "2026-10-18T08:52:01Z",
     "status": "warning",
-    "summary": "有 7 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "summary": "有 6 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -103,12 +103,6 @@
         "url": "https://claude.com/blog/cowork-is-now-claude"
       },
       {
-        "label": "Claude Pro billing",
-        "message": "官方頁面內容已變更（6dd79f15ce97 → e733e39e6890）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "anthropic-pro-cost",
-        "url": "https://claude.com/pricing"
-      },
-      {
         "label": "Claude pricing",
         "message": "官方頁面內容已變更（6dd79f15ce97 → e733e39e6890）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-pricing",
@@ -116,25 +110,25 @@
       },
       {
         "label": "Gemini Apps usage limits",
-        "message": "官方頁面內容已變更（263932e2c80a → 04980f9d4aba）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（263932e2c80a → 901191f52a3c）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-gemini-limits",
         "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
       },
       {
         "label": "Google AI Plus annual billing availability",
-        "message": "官方頁面內容已變更（f24a12e7fc24 → 4f853758c176）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（f24a12e7fc24 → 28f2009e3494）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-annual-plus",
         "url": "https://support.google.com/googleone/answer/16548195?hl=en-uk"
       },
       {
         "label": "Google AI Pro annual billing availability",
-        "message": "官方頁面內容已變更（4b6d2412f433 → 9009cacde31e）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（4b6d2412f433 → ddcd49a2e500）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-annual-pro",
         "url": "https://support.google.com/googleone/answer/16476811?hl=en"
       },
       {
         "label": "Google AI plan benefits",
-        "message": "官方頁面內容已變更（4b54ee540842 → 36ee5f06a1ae）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（4b54ee540842 → dbbb4422b5ff）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-one-benefits",
         "url": "https://support.google.com/googleone/answer/14534406?hl=en"
       }

@@ -1,21 +1,21 @@
 {
   "aa": {
-    "checked_at": "2026-10-18T15:22:33Z",
+    "checked_at": "2026-10-18T15:46:14Z",
     "configured": true,
     "data_updated_at": "2026-10-18T15:22:33Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-18T15:22:33Z",
-    "message": "Artificial Analysis 免費 API 資料已成功更新。",
+    "last_successful_snapshot_at": "2026-10-18T15:46:14Z",
+    "message": "每日 API 檢查成功；資料內容與快照相同。",
     "models_count": 706,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-18T15:40:17Z",
-    "status": "ok",
-    "summary": "內容變更警告為 0；11 個來源自動讀取受限，仍保留最後核實版本。",
+    "checked_at": "2026-10-18T15:46:25Z",
+    "status": "warning",
+    "summary": "有 1 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -106,6 +106,13 @@
         "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
       }
     ],
-    "warnings": []
+    "warnings": [
+      {
+        "label": "Claude pricing",
+        "message": "官方頁面內容已變更（b725eb1169f6 → bda1fec4a679）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "anthropic-pricing",
+        "url": "https://claude.com/pricing"
+      }
+    ]
   }
 }

@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-10-18T16:51:06Z",
+  "last_state_change_at": "2026-10-18T16:52:27Z",
   "pending_warnings": {},
   "sources": {
     "aa-api-reference": {
@@ -196,16 +196,16 @@
       "http_status": 200,
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
-      "last_success_at": "2026-10-18T16:48:31Z",
+      "last_success_at": "2026-10-18T16:52:25Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
-      "sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
-      "state_changed_at": "2026-10-18T16:48:31Z",
-      "url": "https://claude.com/blog/cowork-is-now-claude",
       "reviewed_sha256s": [
         "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
         "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc"
-      ]
+      ],
+      "sha256": "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc",
+      "state_changed_at": "2026-10-18T16:52:25Z",
+      "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "anthropic-pricing": {
       "availability": "available",
@@ -220,13 +220,13 @@
       "last_success_at": "2026-10-18T16:48:15Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
-      "sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
-      "state_changed_at": "2026-10-18T16:48:15Z",
-      "url": "https://claude.com/pricing",
       "reviewed_sha256s": [
         "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
         "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4"
-      ]
+      ],
+      "sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
+      "state_changed_at": "2026-10-18T16:48:15Z",
+      "url": "https://claude.com/pricing"
     },
     "anthropic-pro-cost": {
       "availability": "available",

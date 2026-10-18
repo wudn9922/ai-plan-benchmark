@@ -32,20 +32,34 @@ KEY_SECTION_SOURCES = {
     "google-gemini-limits",
     "google-annual-plus",
     "google-annual-pro",
+    "google-ai-plus-current",
     "google-one-benefits",
+}
+KEY_SECTION_HASH_VERSIONS = {
+    # Pricing pages have a short, stable pricing region; ignore rotating site-wide banners.
+    "anthropic-pricing": "pricing-region-v2",
+}
+KEY_SECTION_WINDOWS = {
+    # Limit these two sources to the consumer pricing content. The Anthropic page
+    # appends team/API marketing and the Google page has rotating global banners.
+    "anthropic-pricing": (re.compile(r"^Pricing$", re.I), re.compile(r"^Team$", re.I)),
+    "google-ai-plus-current": (re.compile(r"^Get more out of Gemini$", re.I), re.compile(r"^Create$", re.I)),
 }
 KEY_SECTION_PATTERNS = {
     "anthropic-cowork": re.compile(r"cowork|pro|max|roll.?out|available|claude", re.I),
-    "anthropic-pricing": re.compile(r"pro|free|sonnet|opus|fable|claude code|usage|five.hour|5.hour|weekly|tax|annual|yearly|\$|month", re.I),
+    "anthropic-pricing": re.compile(r"^(?:pricing|free|pro|max(?: 5x| 20x)?|\$\d+(?:\.\d{2})?|per month.*|everything in free.*|more usage.*|hand off and schedule tasks|claude (?:dashboards|code|science|in chrome).*|projects|more claude models|fable.*|opus.*|sonnet.*|haiku.*|context window.*|usage credits.*|usage limits apply.*|prices shown.*|.*\|\s*(?:no|yes)\s*\|.*)$", re.I),
     "anthropic-pro-cost": re.compile(r"pro|billing|annual|yearly|\$|month|tax", re.I),
     "google-gemini-limits": re.compile(r"limit|5.hour|five.hour|weekly|refresh|reset|plus|pro|prompt|model|usage|deep research", re.I),
     "google-annual-plus": re.compile(r"annual|yearly|billing|purchase|plus|month|\$|subscription", re.I),
     "google-annual-pro": re.compile(r"annual|yearly|billing|purchase|pro|month|\$|subscription", re.I),
+    "google-ai-plus-current": re.compile(r"^(?:get more out of gemini|google ai (?:free|plus|pro|ultra).*|free|\$\d+(?:\.\d{2})?\s*/?\s*month|get \d+x higher usage.*|access to (?:gemini 4 argon|our (?:flash|pro) model).*|gemini app|get \d[\d,]* google flow credits.*|google flow|jules|higher limits to our asynchronous coding agent.*|google antigravity|entry rate limits to agent model.*|google ai (?:plus|pro) is available in .*|.*\|\s*(?:limited|expanded|higher|highest)\s*\|.*)$", re.I),
     "google-one-benefits": re.compile(r"antigravity|jules|ai credit|google ai pro|deep research|tasks in gemini", re.I),
 }
 
 
 def source_hash_version(source_id: str | None) -> str:
+    if source_id in KEY_SECTION_HASH_VERSIONS:
+        return KEY_SECTION_HASH_VERSIONS[source_id]
     return KEY_SECTION_HASH_VERSION if source_id in KEY_SECTION_SOURCES else HASH_VERSION
 
 
@@ -85,6 +99,13 @@ def _stable_key_sections(text: str, source_id: str) -> str:
     """Keep pricing/limits passages and discard volatile page chrome and unrelated text."""
     lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines()]
     lines = [line for line in lines if line]
+    window = KEY_SECTION_WINDOWS.get(source_id)
+    if window:
+        start_pattern, stop_pattern = window
+        start_index = next((index for index, line in enumerate(lines) if start_pattern.search(line)), None)
+        if start_index is not None:
+            stop_index = next((index for index in range(start_index + 1, len(lines)) if stop_pattern.search(lines[index])), None)
+            lines = lines[start_index:stop_index if stop_index is not None else len(lines)]
     pattern = KEY_SECTION_PATTERNS[source_id]
     selected: list[str] = []
     for index, line in enumerate(lines):

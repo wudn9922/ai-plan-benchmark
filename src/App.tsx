@@ -377,8 +377,13 @@ function isAgentProduct(product: ProductAccess): boolean {
 function compactWindow(window: string | null): string {
   if (!window) return '';
   const lower = window.toLowerCase();
+  if (/10\s*分鐘.*4.*(?:設定問答|問答).*2.*提示/.test(lower)) return '10 分／4 問答＋2 提示';
+  if (/33\s*則.*訊息|33\s*messages/i.test(lower)) return '33 則／週池';
+  if (/每則|單則|per prompt/i.test(lower) && /5\s*[- ]?hour|five.hour|5\s*小時/i.test(lower)) return '每提示／5h';
+  if (/一次續接對話|續接對話/i.test(lower)) return /40\s*分鐘/.test(lower) ? '續接對話／約 40 分' : '單次續接';
+  if (/少於\s*10\s*分鐘/.test(lower)) return '單次工作／<10 分';
   const fiveHour = /5\s*[- ]?hour|five.hour|5\s*小時/i.test(lower);
-  const weekly = /weekly|per week|week|每週|每周/i.test(lower);
+  const weekly = /weekly|per week|week|每週|每周|週額度|週池/i.test(lower);
   if (/rolling\s*24|滾動\s*24/.test(lower)) return '24h';
   if (fiveHour && weekly) return '5h＋週限';
   if (fiveHour) return '5h';
@@ -395,7 +400,9 @@ function compactQuotaValue(quota: QuotaObservation): string {
   if (quota.value_type === 'variable') return '動態，未公布固定數';
   if (quota.value_type === 'not_published') return '官方未公布';
   if (quota.value_type === 'range' && quota.estimate_range) {
-    return `${quota.estimate_range.min.toLocaleString('zh-Hant')}–${quota.estimate_range.max.toLocaleString('zh-Hant')} ${quotaUnit(quota.unit)}`;
+    const range = `${quota.estimate_range.min.toLocaleString('zh-Hant')}–${quota.estimate_range.max.toLocaleString('zh-Hant')}`;
+    if (/額度百分比|使用量百分比/i.test(quota.unit)) return `${range}%`;
+    return `${range} ${quotaUnit(quota.unit)}`;
   }
   if (quota.value_type === 'exact' && quota.value !== null) {
     const value = quota.value.toLocaleString('zh-Hant', { maximumFractionDigits: 2 });
@@ -407,18 +414,22 @@ function compactQuotaValue(quota: QuotaObservation): string {
   return MISSING;
 }
 
-function compactQuotaEvidence(snapshot: Snapshot, quota: QuotaObservation): string {
-  const community = quota.source_ids.some((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'community');
-  if (!community) return '官方';
+function compactQuotaEvidence(snapshot: Snapshot, quota: QuotaObservation): { label: string; source: SourceRef | null } {
+  const sources = quota.source_ids.map((id) => snapshot.sources.find((item) => item.id === id)).filter((item): item is SourceRef => item !== undefined);
+  const communitySource = sources.find((source) => source.kind === 'community');
+  if (!communitySource) {
+    const source = sources[0] ?? null;
+    return { label: `官方${source ? ` · ${source.checked_at}` : ''}`, source };
+  }
   const sampleSize = quota.estimate_range?.sample_size ?? quota.sample_size ?? 1;
-  const month = quota.sampled_at.slice(0, 7);
-  return `社群 n=${sampleSize}${month ? ` · ${month}` : ''}`;
+  const historical = /舊方案|歷史觀察/.test(quota.note) ? '舊方案 · ' : '';
+  return { label: `${historical}社群 n=${sampleSize} · ${quota.sampled_at}${quota.confidence === 'low' ? ' · 低信心' : ''}`, source: communitySource };
 }
 
 function compactQuotaRows(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean, includeCommunity: boolean): QuotaObservation[] {
   return snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id)
     && quota.category === category
-    && quotaEntitlement(plan, quota) !== 'excluded'
+    && quotaEntitlement(plan, quota) === 'included'
     && (quota.value_type === 'unlimited'
       || (quota.value_type === 'exact' && quota.value !== null)
       || (quota.value_type === 'range' && quota.estimate_range !== null && quota.estimate_range !== undefined))
@@ -426,7 +437,10 @@ function compactQuotaRows(snapshot: Snapshot, plan: SubscriptionPlan, category: 
 }
 
 function compactModelAccesses(plan: SubscriptionPlan, category: 'chat' | 'agent'): Array<{ product: ProductAccess; access: ProductAccess['model_access'][number] }> {
-  const matches = plan.products.filter((product) => product.included !== false && (category === 'chat' ? isChatProduct(product) : isAgentProduct(product)));
+  const matches = plan.products.filter((product) => product.included === true
+    && product.rollout !== 'discontinued'
+    && product.rollout !== 'unknown'
+    && (category === 'chat' ? isChatProduct(product) : isAgentProduct(product)));
   return matches.flatMap((product) => {
     return product.model_access
       .filter((access) => !/未公布|未確認/.test(access.model))
@@ -475,6 +489,11 @@ function modelScoreSummary(snapshot: Snapshot, plan: SubscriptionPlan, access: P
   return `${approximate}${scores.join(' · ')}${effort ? ` · AA ${reasoningLabel(effort)}` : ''}`;
 }
 
+function compactProductLabel(product: ProductAccess): string {
+  const status = product.rollout === 'limited' ? '推出中' : product.rollout === 'beta' ? '測試版' : '';
+  return `${productLabel(product.product)}${status ? ` · ${status}` : ''}`;
+}
+
 function CompactModelList({ plan, snapshot, category }: { plan: SubscriptionPlan; snapshot: Snapshot; category: 'chat' | 'agent' }) {
   const rawEntries = compactModelAccesses(plan, category);
   const grouped = new Map<string, { products: ProductAccess[]; access: ProductAccess['model_access'][number] }>();
@@ -490,12 +509,11 @@ function CompactModelList({ plan, snapshot, category }: { plan: SubscriptionPlan
   return <div className="compact-model-list">{entries.map(({ products, access }, index) => {
     const scoreModel = modelForAccess(snapshot, plan, access);
     const score = modelScoreSummary(snapshot, plan, access);
-    const productNames = [...new Set(products.map((product) => productLabel(product.product)))].join('／');
-    const unknownEntitlement = products.some((product) => product.included === null);
+    const productNames = [...new Set(products.map(compactProductLabel))].join('／');
     return <div className="compact-model-item" key={`${productNames}-${access.model}-${index}`}>
-      <span className="compact-product-name">{productNames}{unknownEntitlement ? ' · 權益未確認' : ''}</span>
+      <span className="compact-product-name">{productNames}</span>
       <b>{access.model}</b>
-      <small className={score === MISSING ? 'compact-no-score' : 'compact-score'}>模型評分：{score}{scoreModel && <> · <a href={scoreModel.public_page_source_url ?? scoreModel.source_url} target="_blank" rel="noreferrer" title={`Artificial Analysis 評測來源；資料更新 ${scoreModel.source_updated_at ?? '日期未公布'}`} aria-label="模型評分來源"><ExternalLink size={11}/></a></>}</small>
+      <small className={score === MISSING ? 'compact-no-score' : 'compact-score'}>{score}{scoreModel && <> · <a href={scoreModel.public_page_source_url ?? scoreModel.source_url} target="_blank" rel="noreferrer" title={`Artificial Analysis 評測來源；資料更新 ${scoreModel.source_updated_at ?? '日期未公布'}`} aria-label="模型評分來源"><ExternalLink size={11}/></a></>}</small>
     </div>;
   })}</div>;
 }
@@ -506,12 +524,12 @@ function CompactQuotaList({ snapshot, plan, category, verifiedOnly, includeCommu
   return <div className="compact-quota-list">{rows.map((quota) => {
     const value = compactQuotaValue(quota);
     const window = compactWindow(quota.window);
-    const model = quota.model ? ` · ${modelAccessLabel(quota.model)}` : '';
-    const entitlement = quotaEntitlement(plan, quota) === 'unknown' ? ' · 權益未確認' : '';
+    const model = quota.model && !/未公布|未確認/.test(quota.model) ? ` · ${modelAccessLabel(quota.model)}` : '';
+    const evidence = compactQuotaEvidence(snapshot, quota);
     return <div className="compact-quota-item" key={quota.id}>
-      <span>{productLabel(quota.product)}{entitlement}</span>
+      <span>{productLabel(quota.product)}</span>
       <b>{value}{window && value !== MISSING && value !== '官方未公布' ? `／${window}` : ''}</b>
-      <small>{model}{model ? ' · ' : ''}{compactQuotaEvidence(snapshot, quota)}{quota.confidence === 'low' ? ' · 低信心' : ''}</small>
+      <small>{model}{model ? ' · ' : ''}{evidence.label}{evidence.source && <> · <a href={evidence.source.url} target="_blank" rel="noreferrer" title={`${sourceLabel(evidence.source)}：${evidence.source.notes ?? ''}`} aria-label="額度資料來源"><ExternalLink size={11}/></a></>}</small>
     </div>;
   })}</div>;
 }
@@ -548,7 +566,7 @@ function compactQuotaCardSummary(snapshot: Snapshot, plan: SubscriptionPlan, cat
 
 function CompactPlanTable({ plans, snapshot, verifiedOnly, includeCommunity }: { plans: SubscriptionPlan[]; snapshot: Snapshot; verifiedOnly: boolean; includeCommunity: boolean }) {
   return <div className="table-scroll compact-plan-scroll"><table className="data-table compact-plan-table">
-    <thead><tr><th>方案</th><th>聊天</th><th>代理</th></tr></thead>
+    <thead><tr><th>方案</th><th>Chat</th><th>Agent</th></tr></thead>
     <tbody>{plans.length ? plans.map((plan) => <tr key={plan.id}>
       <td className="compact-plan-name"><b>{plan.provider_name}</b><small>{planLabel(plan.name)}</small></td>
       <td className="compact-usage-cell">
@@ -861,7 +879,7 @@ function App() {
       </section>
       <div className={`tab-heading ${tab === 'plans' ? 'tab-heading--plans' : ''}`}><div><h2>{selectedTab.label}</h2><p>{selectedTab.subtitle}</p></div><span className="date-chip">資料基準日 {snapshot.as_of}</span></div>
       {tab==='plans' && <div className="page-stack">
-        <div className="plan-view-toolbar"><span>方案呈現方式</span><div role="group" aria-label="方案呈現方式"><button type="button" aria-pressed={planView === 'cards'} className={planView === 'cards' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('cards')}>方案卡片</button><button type="button" aria-pressed={planView === 'table'} className={planView === 'table' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('table')}>精簡表格</button></div><small>三類額度分開列示，不相加</small></div>
+        <div className="plan-view-toolbar"><span>方案呈現方式</span><div role="group" aria-label="方案呈現方式"><button type="button" aria-pressed={planView === 'cards'} className={planView === 'cards' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('cards')}>方案卡片</button><button type="button" aria-pressed={planView === 'table'} className={planView === 'table' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('table')}>精簡表格</button></div></div>
         {plans.length ? planView === 'cards' ? <div className="plan-grid">{plans.map((plan)=><PlanCard key={plan.id} plan={plan} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/>)}</div> : <section className="section-panel compact-plan-panel"><CompactPlanTable plans={plans} snapshot={snapshot} verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/></section> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}
       </div>}
       {tab==='models' && <ModelPage snapshot={snapshot} models={models} activeIndex={activeIndex} onIndex={setActiveIndex} providerFilter={provider}/>}

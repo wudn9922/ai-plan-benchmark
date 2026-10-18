@@ -274,6 +274,33 @@ class CuratedDataTests(unittest.TestCase):
         self.assertEqual(quotas["oa-go-chat"]["value_type"], "unlimited")
         self.assertEqual(quotas["openai-plus-codex-community"]["category"], "coding_agent")
 
+    def test_new_community_quota_observations_match_current_plan_and_product(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        curated = json.loads((root / "data/curated.json").read_text(encoding="utf-8"))
+        sources = {source["id"]: source for source in curated["sources"]}
+        plans = {plan["id"]: plan for plan in curated["plans"]}
+        quotas = {quota["id"]: quota for quota in curated["quotas"]}
+
+        expected = {
+            "openai-plus-chat-community-1-2-prompts-2026-09-18": ("openai-plus", "chat", "ChatGPT", "range"),
+            "google-ai-pro-flash-community-4-6pct-2026-10-18": ("google-ai-pro", "chat", "Gemini Apps", "range"),
+            "xai-premium-agent-community-100pct-2026-10-15": ("xai-premium", "agent", "Grok Bot / 雲端電腦", "exact"),
+        }
+        for quota_id, (plan_id, category, product_name, value_type) in expected.items():
+            quota = quotas[quota_id]
+            self.assertEqual((quota["plan_id"], quota["category"], quota["product"], quota["value_type"]), (plan_id, category, product_name, value_type))
+            self.assertEqual(quota["confidence"], "low")
+            self.assertEqual(quota["sample_size"], 1)
+            self.assertEqual(len(quota["source_ids"]), 1)
+            self.assertEqual(sources[quota["source_ids"][0]]["kind"], "community")
+            self.assertIn(quota_id, plans[plan_id]["quota_ids"])
+            linked_product = next(item for item in plans[plan_id]["products"] if item["product"] == product_name)
+            self.assertTrue(linked_product["included"])
+            self.assertIn(quota_id, linked_product["quota_ids"])
+
+        self.assertEqual(quotas["xai-premium-agent-community-100pct-2026-10-15"]["value"], 100)
+        self.assertNotIn("xai-premium-chat-community-33-messages-17pct-2026-07-04", quotas)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

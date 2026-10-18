@@ -149,23 +149,34 @@ class SourceHealthTests(unittest.TestCase):
         )
 
     def test_key_section_hash_ignores_unrelated_dynamic_page_chrome(self) -> None:
-        first = b"<html><body><nav>Home Plans cookie-1</nav><main><p>Claude Pro costs $20 per month.</p><p>Annual billing is $200.</p></main><footer>Visitors 104</footer></body></html>"
-        changed = b"<html><body><nav>Home Plans cookie-2 offers</nav><main><p>Claude Pro costs $20 per month.</p><p>Annual billing is $200.</p></main><footer>Visitors 999</footer></body></html>"
+        first = b"<html><body><nav>Latest news cookie-1</nav><main><h1>Pricing</h1><h2>Pro</h2><p>$20</p><p>Per month when billed monthly; $200 annual.</p><h3>Claude Code</h3><p>No | Yes | Yes</p><h2>Team</h2><p>Team starts here.</p></main><footer>Visitors 104</footer></body></html>"
+        changed = b"<html><body><nav>New banner cookie-2 offers</nav><main><h1>Pricing</h1><h2>Pro</h2><p>$20</p><p>Per month when billed monthly; $200 annual.</p><h3>Claude Code</h3><p>No | Yes | Yes</p><h2>Team</h2><p>Different team content.</p></main><footer>Visitors 999</footer></body></html>"
         self.assertEqual(
             source_health.content_fingerprint(first, "text/html", "anthropic-pricing"),
             source_health.content_fingerprint(changed, "text/html", "anthropic-pricing"),
         )
 
     def test_key_section_hash_detects_price_and_quota_changes(self) -> None:
-        first = b"<html><body><main><p>Claude Pro costs $20 per month.</p><p>Annual billing is $200.</p></main></body></html>"
-        changed = b"<html><body><main><p>Claude Pro costs $25 per month.</p><p>Annual billing is $250.</p></main></body></html>"
+        first = b"<html><body><main><h1>Pricing</h1><h2>Pro</h2><p>$20</p><p>Per month when billed monthly; $200 annual.</p><h3>Claude Code</h3><p>No | Yes | Yes</p><h2>Team</h2></main></body></html>"
+        changed = b"<html><body><main><h1>Pricing</h1><h2>Pro</h2><p>$25</p><p>Per month when billed monthly; $250 annual.</p><h3>Claude Code</h3><p>No | Yes | Yes</p><h2>Team</h2></main></body></html>"
         self.assertNotEqual(
             source_health.content_fingerprint(first, "text/html", "anthropic-pricing"),
             source_health.content_fingerprint(changed, "text/html", "anthropic-pricing"),
         )
 
+    def test_google_plan_fingerprint_ignores_banner_but_tracks_price_and_model(self) -> None:
+        first = b"<html><body><p>Rotating banner A</p><main><h1>Get more out of Gemini</h1><h2>Google AI Plus</h2><p>$4.99/ month</p><p>Access to our Flash model</p><p>Get 2x higher usage limits than Free</p><h2>Google AI Pro</h2><p>$19.99/ month</p><p>Access to Gemini 4 Argon</p><p>Google Antigravity</p><p>Entry rate limits to agent model</p><h2>Create</h2></main></body></html>"
+        chrome_changed = b"<html><body><p>Rotating banner B</p><main><h1>Get more out of Gemini</h1><h2>Google AI Plus</h2><p>$4.99/ month</p><p>Access to our Flash model</p><p>Get 2x higher usage limits than Free</p><h2>Google AI Pro</h2><p>$19.99/ month</p><p>Access to Gemini 4 Argon</p><p>Google Antigravity</p><p>Entry rate limits to agent model</p><h2>Create</h2><p>Unrelated promotional copy</p></main></body></html>"
+        price_changed = first.replace(b"$4.99", b"$5.99")
+        model_changed = first.replace(b"Access to our Flash model", b"Access to our Pro model")
+        baseline = source_health.content_fingerprint(first, "text/html", "google-ai-plus-current")
+        self.assertEqual(baseline, source_health.content_fingerprint(chrome_changed, "text/html", "google-ai-plus-current"))
+        self.assertNotEqual(baseline, source_health.content_fingerprint(price_changed, "text/html", "google-ai-plus-current"))
+        self.assertNotEqual(baseline, source_health.content_fingerprint(model_changed, "text/html", "google-ai-plus-current"))
+
     def test_dynamic_source_hash_uses_source_specific_version(self) -> None:
-        self.assertEqual(source_health.source_hash_version("anthropic-pricing"), source_health.KEY_SECTION_HASH_VERSION)
+        self.assertEqual(source_health.source_hash_version("anthropic-pricing"), "pricing-region-v2")
+        self.assertEqual(source_health.source_hash_version("google-ai-plus-current"), source_health.KEY_SECTION_HASH_VERSION)
         self.assertEqual(source_health.source_hash_version("openai-plus"), source_health.HASH_VERSION)
 
     def test_hash_migration_resets_old_raw_html_baseline_after_review(self) -> None:

@@ -1,6 +1,19 @@
 {
-  "last_state_change_at": "2026-10-18T15:46:25Z",
-  "pending_warnings": {},
+  "last_state_change_at": "2026-10-18T15:52:05Z",
+  "pending_warnings": {
+    "change:anthropic-pricing": {
+      "label": "Claude pricing",
+      "message": "官方頁面內容已變更（bda1fec4a679 → b725eb1169f6）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "anthropic-pricing",
+      "url": "https://claude.com/pricing"
+    },
+    "change:google-ai-plus-current": {
+      "label": "Google AI subscriptions (current US pricing and model access)",
+      "message": "官方頁面內容已變更（ad4689ba878a → d08618442b33）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-ai-plus-current",
+      "url": "https://gemini.google/subscriptions/?currencyCode=USD"
+    }
+  },
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -212,12 +225,12 @@
       "hash_version": "key-sections-v1",
       "http_status": 200,
       "label": "Claude pricing",
-      "last_modified": "Sun, 18 Oct 2026 15:45:48 GMT",
-      "last_success_at": "2026-10-18T15:46:16Z",
+      "last_modified": "Sun, 18 Oct 2026 15:49:32 GMT",
+      "last_success_at": "2026-10-18T15:51:55Z",
       "reviewed_at": "2026-10-18T15:47:54Z",
       "reviewed_sha256": "bda1fec4a67955e26bf9cbfc69c22b602dc13b488dbbc9a4ba1fbd226ae63ab3",
-      "sha256": "bda1fec4a67955e26bf9cbfc69c22b602dc13b488dbbc9a4ba1fbd226ae63ab3",
-      "state_changed_at": "2026-10-18T15:46:16Z",
+      "sha256": "b725eb1169f60c935348d350aba71fe847683916d5d44038a0304c43ef7fa948",
+      "state_changed_at": "2026-10-18T15:51:55Z",
       "url": "https://claude.com/pricing"
     },
     "anthropic-pro-cost": {
@@ -347,11 +360,11 @@
       "http_status": 200,
       "label": "Google AI subscriptions (current US pricing and model access)",
       "last_modified": null,
-      "last_success_at": "2026-10-17T20:03:31Z",
+      "last_success_at": "2026-10-18T15:51:56Z",
       "reviewed_at": "2026-10-17T20:04:00Z",
       "reviewed_sha256": "ad4689ba878a07979ba8ba59d7d35e4713d6e1f9aa0176ddb5d7ce9d23ad3452",
-      "sha256": "ad4689ba878a07979ba8ba59d7d35e4713d6e1f9aa0176ddb5d7ce9d23ad3452",
-      "state_changed_at": "2026-10-17T20:03:31Z",
+      "sha256": "d08618442b331df629cdd34c2add71d69b0ad8da1725e117f21b43a0a6379a7e",
+      "state_changed_at": "2026-10-18T15:51:56Z",
       "url": "https://gemini.google/subscriptions/?currencyCode=USD"
     },
     "google-annual-plus": {

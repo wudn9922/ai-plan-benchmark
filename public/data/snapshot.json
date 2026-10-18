@@ -569,7 +569,7 @@
       "kind": "community",
       "checked_at": "2026-10-18",
       "region": "未提供",
-      "notes": "2026-10-14 一位 Claude Pro 使用者回報使用 Opus 5.5 Extra 的一個完整五小時時段耗用約 23% 週額度；未說明任務工作量。n=1、低信心，且其他方案／模型體感差異大。"
+      "notes": "2026-10-14 一位 Claude Pro 使用者以 Opus 5.5 Extra 回報一個完整五小時時段耗用約 23% 週額度；標題與正文前後不一致：標題寫 23%，正文又說通常約 15%。差異未解釋且未提供任務工作量。n=1、低信心，僅作單次觀察。"
     },
     {
       "id": "reddit-openai-codex-plus-11min-2026-10-09",
@@ -578,7 +578,7 @@
       "kind": "community",
       "checked_at": "2026-10-18",
       "region": "未提供",
-      "notes": "2026-10-09 一位使用者回報 Windows 11 自訂 Codex 環境以 GPT-6.1 Sol High 及兩個 GPT-6 Luna High 子代理處理 APK 逆向工程，約 11 分鐘耗盡五小時額度，週額度由 100% 降至約 82%。作者亦懷疑自訂外部模型整合造成額度異常；本機／雲端執行環境不明。n=1、低信心、特殊多代理工作負載。"
+      "notes": "2026-10-09 貼文回述 2026-10-08 的 Windows 11 自訂 Codex 工作：GPT-6.1 Sol High 加兩個 GPT-6 Luna High 子代理處理 APK 逆向工程，約 11 分鐘耗盡五小時額度，週額度由 100% 降至約 82%。作者懷疑自訂外部模型整合造成額度異常；本機／雲端與官方產品歸屬不明。n=1、低信心、特殊多代理工作負載。"
     },
     {
       "id": "reddit-google-antigravity-pro-46pct-2026-10-05",
@@ -1076,7 +1076,6 @@
             "oa-plus-codex-sol",
             "oa-plus-codex-luna",
             "oa-plus-codex-weekly",
-            "openai-plus-codex-community",
             "openai-codex-gpt61-community-40min-2026-10-17"
           ],
           "source_ids": [
@@ -4367,21 +4366,21 @@
       "plan_id": "openai-plus",
       "plan_name": "ChatGPT Plus",
       "category": "coding_agent",
-      "product": "Codex Local",
+      "product": "Codex（執行環境未明）",
       "metric": "單次工作耗用五小時額度",
       "value": 100,
       "value_type": "exact",
       "unit": "額度百分比",
-      "window": "一次工作階段，少於 10 分鐘",
+      "window": "一次 GPT-6 Astra Low 分析工作，少於 10 分鐘耗盡五小時額度",
       "model": "GPT-6 Astra",
       "reasoning_mode": "Low",
       "shared_with": [],
-      "note": "樣本 n=1；使用者回報一次分析工作於 10 分鐘內耗盡額度。任務未標準化，不代表固定任務數。",
+      "note": "樣本 n=1；2026-09-22 使用者回報 GPT-6 Astra Low 單次分析工作於 10 分鐘內耗盡五小時額度。任務未標準化，且來源未說明本機或雲端執行環境；不能視為 Codex Local 專屬配額或固定任務數。",
       "confidence": "low",
       "source_ids": [
         "reddit-codex-plus-usage"
       ],
-      "sampled_at": "2026-10-18",
+      "sampled_at": "2026-09-22",
       "region": "未提供",
       "estimate_range": null,
       "sample_size": 1
@@ -4587,14 +4586,14 @@
       "metric": "完整五小時時段耗用週額度百分比",
       "value": 23,
       "value_type": "exact",
-      "unit": "額度百分比",
+      "unit": "週額度百分比",
       "window": "一次完整五小時時段額度；每週額度",
       "model": "Claude Opus 5.5",
       "reasoning_mode": "Extra",
       "shared_with": [
         "Claude Chat"
       ],
-      "note": "n=1；使用者回報一次完整五小時額度耗去約 23% 週額度。工作負載未提供；單一帳號體感，不代表固定週可執行次數。Claude Chat 與 Claude Code 共用額度。",
+      "note": "n=1；標題與正文前後不一致：標題回報一次完整五小時額度耗去約 23% 週額度，正文說通常約 15%；差異未解釋，工作負載未提供。僅作單次觀察，不代表固定週可執行次數。Claude Chat 與 Claude Code 共用額度。",
       "confidence": "low",
       "source_ids": [
         "reddit-claude-code-pro-weekly-23pct-2026-10-14"
@@ -4617,13 +4616,15 @@
       "window": "GPT-6.1 Sol High＋2 個 GPT-6 Luna High 子代理；約 11 分鐘耗盡一個 5 小時額度",
       "model": "GPT-6.1 Sol",
       "reasoning_mode": "High",
-      "shared_with": [],
-      "note": "n=1；Windows 11 自訂 Codex 環境處理 APK 逆向工程，含兩個子代理。作者回報週額度同由 100% 降至約 82%，並懷疑外部模型整合造成異常扣額；本機／雲端模式不明，不能代表一般任務或保證配額。",
+      "shared_with": [
+        "ChatGPT Work"
+      ],
+      "note": "n=1；2026-10-08 Windows 11 自訂 Codex 環境處理 APK 逆向工程，含兩個子代理。作者回報週額度同由 100% 降至約 82%，並懷疑外部模型整合造成異常扣額；本機／雲端模式不明，不能代表一般任務或保證配額。此方案官方說明 Codex 與 ChatGPT Work 共用五小時及每週額度池，但不能確認該自訂環境的扣額全來自官方 Codex。",
       "confidence": "low",
       "source_ids": [
         "reddit-openai-codex-plus-11min-2026-10-09"
       ],
-      "sampled_at": "2026-10-09",
+      "sampled_at": "2026-10-08",
       "region": "未提供",
       "estimate_range": null,
       "sample_size": 1
@@ -4637,17 +4638,19 @@
       "metric": "單次多代理工作耗用週額度百分比",
       "value": 18,
       "value_type": "exact",
-      "unit": "額度百分比",
-      "window": "一次約 11 分鐘 Codex 工作耗盡五小時額度；週額度由 100% 降至約 82%",
+      "unit": "週額度百分比",
+      "window": "一次約 11 分鐘多代理工作耗盡五小時額度；週池下降約 18%",
       "model": "GPT-6.1 Sol",
       "reasoning_mode": "High",
-      "shared_with": [],
-      "note": "n=1；與同來源的 11 分鐘 Codex 觀察為同一次事件。Windows 11 自訂多代理工作負載，作者懷疑外部模型整合造成異常扣額；本機／雲端模式不明，不可視為一般每週配額。",
+      "shared_with": [
+        "ChatGPT Work"
+      ],
+      "note": "n=1；2026-10-08 同一 Codex 事件的週池降幅觀察，與 11 分鐘記錄不可分開加總。Windows 11 自訂多代理工作負載，作者懷疑外部模型整合造成異常扣額；本機／雲端模式不明，不可視為一般每週配額。此方案官方說明 Codex 與 ChatGPT Work 共用五小時及每週額度池，但不能確認該自訂環境的扣額全來自官方 Codex。",
       "confidence": "low",
       "source_ids": [
         "reddit-openai-codex-plus-11min-2026-10-09"
       ],
-      "sampled_at": "2026-10-09",
+      "sampled_at": "2026-10-08",
       "region": "未提供",
       "estimate_range": null,
       "sample_size": 1
@@ -4661,7 +4664,7 @@
       "metric": "一次五小時使用耗用週額度百分比",
       "value": 46,
       "value_type": "exact",
-      "unit": "額度百分比",
+      "unit": "週額度百分比",
       "window": "一次 Antigravity 五小時使用時段；每週額度",
       "model": null,
       "reasoning_mode": null,

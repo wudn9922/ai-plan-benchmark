@@ -1,16 +1,16 @@
 {
   "aa": {
-    "checked_at": "2026-10-18T17:03:51Z",
     "configured": true,
+    "status": "ready",
+    "message": "每日 API 檢查成功；資料內容與快照相同。",
+    "checked_at": "2026-10-18T17:15:40Z",
     "data_updated_at": "2026-10-18T15:22:33Z",
-    "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
+    "last_successful_snapshot_at": "2026-10-18T17:15:40Z",
+    "stale_days": 0,
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-18T17:03:51Z",
-    "message": "每日 API 檢查成功；資料內容與快照相同。",
     "models_count": 706,
-    "stale_days": 0,
-    "status": "ready"
+    "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free"
   },
   "source_health": {
     "checked_at": "2026-10-18T17:03:59Z",

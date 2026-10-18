@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { MISSING, comparableCodingAgents, comparableCostPoints, compactQuotaWindow, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, formatQuota, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, priceWithinCap, reasoningEffortIsMapped, shouldShowCompactQuota } from './metrics';
+import { MISSING, comparableCodingAgents, comparableCostPoints, compactQuotaEntitlementAllowed, compactQuotaWindow, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, formatQuota, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, priceWithinCap, reasoningEffortIsMapped, shouldShowCompactQuota } from './metrics';
 import type { CodingAgentRecord, ModelRecord, QuotaObservation, SubscriptionPlan } from './types';
 
 function model(id: string, score: number | null, cost: number | null, version: string | null): ModelRecord {
@@ -59,6 +59,19 @@ describe('missing-data-safe metrics', () => {
     };
     expect(shouldShowCompactQuota(historical)).toBe(false);
     expect(shouldShowCompactQuota({ ...historical, note: '目前模型額度觀察' })).toBe(true);
+  });
+
+  it('shows plan-linked community quota observations with unknown product mapping only when community evidence is enabled', () => {
+    const observation: QuotaObservation = {
+      id: 'unmapped-community', plan_id: 'test-plan', plan_name: 'Test Plan', category: 'coding_agent', product: 'Codex（執行環境未明）', metric: 'community report',
+      value: 11, value_type: 'exact', unit: '分鐘', window: 'one five-hour window', model: 'GPT-6.1 Sol', reasoning_mode: 'High',
+      shared_with: [], note: '單一社群觀察；產品執行環境未確認。', confidence: 'low', source_ids: ['community'], sampled_at: '2026-10-09', region: '未提供', estimate_range: null,
+    };
+    expect(compactQuotaEntitlementAllowed(observation, 'unknown', true, false, true)).toBe(true);
+    expect(compactQuotaEntitlementAllowed(observation, 'unknown', true, true, true)).toBe(false);
+    expect(compactQuotaEntitlementAllowed(observation, 'unknown', true, false, false)).toBe(false);
+    expect(compactQuotaEntitlementAllowed(observation, 'unknown', false, false, true)).toBe(false);
+    expect(compactQuotaEntitlementAllowed(observation, 'excluded', true, false, true)).toBe(false);
   });
 
   it('marks reasoning benchmark variants approximate when the subscription mode is not mapped', () => {

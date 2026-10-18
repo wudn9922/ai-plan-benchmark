@@ -4,7 +4,7 @@ import {
   CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip as ChartTooltip, XAxis, YAxis,
 } from 'recharts';
 import { BENCHMARK_INFO, INDEX_KEYS, INDEX_LABELS, type CodingAgentRecord, type ModelRecord, type ProductAccess, type QuotaCategory, type QuotaObservation, type Snapshot, type SourceRef, type SubscriptionPlan, type UpdateStatus } from './data/types';
-import { comparableCodingAgents, comparableCostPoints, compactQuotaWindow, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, preferredVersion, priceWithinCap, reasoningEffortIsMapped, shouldShowCompactQuota } from './data/metrics';
+import { comparableCodingAgents, comparableCostPoints, compactQuotaEntitlementAllowed, compactQuotaWindow, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, preferredVersion, priceWithinCap, reasoningEffortIsMapped, shouldShowCompactQuota } from './data/metrics';
 
 type Tab = 'plans' | 'models' | 'coding' | 'value';
 const PROVIDERS = [
@@ -411,14 +411,16 @@ function compactQuotaEvidence(snapshot: Snapshot, quota: QuotaObservation): { la
 }
 
 function compactQuotaRows(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean, includeCommunity: boolean): QuotaObservation[] {
-  return snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id)
-    && quota.category === category
-    && shouldShowCompactQuota(quota)
-    && quotaEntitlement(plan, quota) === 'included'
-    && (quota.value_type === 'unlimited'
-      || (quota.value_type === 'exact' && quota.value !== null)
-      || (quota.value_type === 'range' && quota.estimate_range !== null && quota.estimate_range !== undefined))
-    && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity));
+  return snapshot.quotas.filter((quota) => {
+    const hasCommunitySource = quota.source_ids.some((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'community');
+    return plan.quota_ids.includes(quota.id)
+      && quota.category === category
+      && compactQuotaEntitlementAllowed(quota, quotaEntitlement(plan, quota), hasCommunitySource, verifiedOnly, includeCommunity)
+      && (quota.value_type === 'unlimited'
+        || (quota.value_type === 'exact' && quota.value !== null)
+        || (quota.value_type === 'range' && quota.estimate_range !== null && quota.estimate_range !== undefined))
+      && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity);
+  });
 }
 
 function compactModelAccesses(plan: SubscriptionPlan, category: 'chat' | 'agent'): Array<{ product: ProductAccess; access: ProductAccess['model_access'][number] }> {
@@ -512,11 +514,13 @@ function CompactQuotaList({ snapshot, plan, category, verifiedOnly, includeCommu
     const value = compactQuotaValue(quota);
     const window = compactQuotaWindow(quota.window);
     const model = quota.model && !/未公布|未確認/.test(quota.model) ? ` · ${modelAccessLabel(quota.model)}` : '';
+    const shared = quota.shared_with.length ? ` · 共用：${quota.shared_with.map(productLabel).join('、')}` : '';
+    const entitlement = quotaEntitlement(plan, quota) === 'unknown' ? ' · 產品／權益未確認' : '';
     const evidence = compactQuotaEvidence(snapshot, quota);
     return <div className="compact-quota-item" key={quota.id}>
       <span>{productLabel(quota.product)}</span>
       <b>{value}{window && value !== MISSING && value !== '官方未公布' ? `／${window}` : ''}</b>
-      <small>{model}{model ? ' · ' : ''}{evidence.label}{evidence.source && <> · <a href={evidence.source.url} target="_blank" rel="noreferrer" title={`${sourceLabel(evidence.source)}：${evidence.source.notes ?? ''}`} aria-label="額度資料來源"><ExternalLink size={11}/></a></>}</small>
+      <small>{model}{shared}{entitlement}{model || shared || entitlement ? ' · ' : ''}{evidence.label}{evidence.source && <> · <a href={evidence.source.url} target="_blank" rel="noreferrer" title={`${sourceLabel(evidence.source)}：${evidence.source.notes ?? ''}`} aria-label="額度資料來源"><ExternalLink size={11}/></a></>}</small>
     </div>;
   })}</div>;
 }

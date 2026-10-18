@@ -29,6 +29,19 @@ export function shouldShowCompactQuota(quota: QuotaObservation): boolean {
   return !/舊方案|舊模型|歷史觀察/.test(quota.note);
 }
 
+/** Include plan-linked community measurements with unknown product mapping only when community evidence is enabled. */
+export function compactQuotaEntitlementAllowed(
+  quota: QuotaObservation,
+  entitlement: 'included' | 'excluded' | 'unknown',
+  hasCommunitySource: boolean,
+  verifiedOnly: boolean,
+  includeCommunity: boolean,
+): boolean {
+  if (!shouldShowCompactQuota(quota)) return false;
+  if (entitlement === 'included') return true;
+  return entitlement === 'unknown' && hasCommunitySource && !verifiedOnly && includeCommunity;
+}
+
 /** A benchmark reasoning variant is not an exact plan match when the plan exposes no matching mode. */
 export function reasoningEffortIsMapped(reasoningModes: string[], effort: string | null): boolean {
   if (!effort) return true;

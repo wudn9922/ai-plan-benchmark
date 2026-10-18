@@ -275,7 +275,7 @@ def build_report(pending: dict[str, Any], source_states: dict[str, Any], checked
     else:
         summary = "官方來源檢查完成，沒有待核對的內容變更。"
     return {
-        "status": "warning" if warnings else "ok",
+        "status": "warning" if warnings or unavailable else "ok",
         "checked_at": checked_at,
         "summary": summary,
         "warnings": warnings,

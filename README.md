@@ -5,10 +5,10 @@
 ## 目前資料狀態
 
 - 方案參考地區為 US，幣別為 USD；每筆方案和額度都保留來源、核對日、窗口、地區及限制。
-- 最近一次成功的 Artificial Analysis API 檢查（2026-10-17 19:31 UTC）取得 706 個模型；快照保留九項指數空值，不會把缺少分數補成 0。workflow 的後續即時狀態見 `public/data/status.json`。
+- 最近一次成功的 Artificial Analysis API 檢查（2026-10-18 16:20 UTC）取得 706 個模型；快照保留九項指數空值，不會把缺少分數補成 0。workflow 的後續即時狀態見 `public/data/status.json`。
 - 最近一次已發布快照中，696 個模型有綜合智能指數，198 個有官方智能評測每任務 API 成本；API 免費端點不含完整底層 benchmark 結果或所有加權分項。
 - 程式代理資料使用版本化 JSON 匯入流程；目前 28 組官方組態有指數、每任務成本、總詞元和執行時間。官方未公開輸入／快取／輸出詞元分拆的組態維持空值。
-- 方案資料涵蓋 OpenAI、Anthropic、Google、xAI 四家公司，共 11 個方案與 51 筆分開分類的 Chat／Agent／Coding Agent 額度觀察。
+- 方案資料涵蓋 OpenAI、Anthropic、Google、xAI 四家公司，共 13 個方案與 63 筆分開分類的 Chat／Agent／Coding Agent 額度觀察；xAI Super、Ultra 標為超過 $30 的參考方案。
 - 官方方案頁內容變更只會產生人工核對警告；監測器不會根據網頁文字自動改寫價格、權限或額度。
 
 ## 本機執行

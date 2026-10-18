@@ -67,7 +67,7 @@ class SourceHealthTests(unittest.TestCase):
             self.assertEqual(persisted["reviewed_sha256"], "last-good")
             self.assertEqual(persisted["availability"], "blocked")
             status = json.loads((root / "public/data/status.json").read_text(encoding="utf-8"))
-            self.assertEqual(status["source_health"]["status"], "ok")
+            self.assertEqual(status["source_health"]["status"], "warning")
             self.assertEqual(status["source_health"]["unavailable"][0]["category"], "blocked")
 
     def test_manual_review_date_is_shown_without_claiming_automated_access(self) -> None:
@@ -100,6 +100,7 @@ class SourceHealthTests(unittest.TestCase):
             report = json.loads((root / "public/data/status.json").read_text(encoding="utf-8"))["source_health"]
             self.assertIn("不能單憑 404 判定方案已停止", source_health._http_failure(404, old)[1])
             self.assertEqual(report["unavailable"][0]["category"], "not_found")
+            self.assertEqual(report["status"], "warning")
 
     def test_acknowledgement_moves_review_baseline_forward(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

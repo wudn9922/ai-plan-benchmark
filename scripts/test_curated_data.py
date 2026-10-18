@@ -214,6 +214,18 @@ class CuratedDataTests(unittest.TestCase):
         gemini = next(product for product in plan["products"] if product["product"] == "Gemini Apps")
         self.assertIn(observation["id"], gemini["quota_ids"])
 
+    def test_xai_super_and_ultra_are_reference_plans_above_the_primary_price_cap(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        curated = json.loads((root / "data/curated.json").read_text(encoding="utf-8"))
+        plans = {plan["id"]: plan for plan in curated["plans"]}
+        for plan_id, price in (("xai-super", 100), ("xai-ultra", 200)):
+            plan = plans[plan_id]
+            self.assertEqual(plan["tier"], "reference")
+            self.assertEqual(plan["monthly_price"], price)
+            self.assertIsNone(plan["annual_billed_total"])
+            self.assertEqual(plan["quota_ids"], [])
+            self.assertIn("xai-pricing-web", plan["source_ids"])
+
 
     def test_jules_model_names_do_not_masquerade_as_reasoning_modes(self) -> None:
         root = Path(__file__).resolve().parents[1]
@@ -302,6 +314,21 @@ class CuratedDataTests(unittest.TestCase):
 
         self.assertEqual(quotas["xai-premium-agent-community-100pct-2026-10-15"]["value"], 100)
         self.assertNotIn("xai-premium-chat-community-33-messages-17pct-2026-07-04", quotas)
+
+    def test_ambiguous_chatgpt_community_report_is_not_misclassified_as_chat_or_agent_quota(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        curated = json.loads((root / "data/curated.json").read_text(encoding="utf-8"))
+        sources = {source["id"]: source for source in curated["sources"]}
+        quotas = curated["quotas"]
+        source_id = "reddit-openai-plus-5h-weekly-usage-2026-10-13"
+
+        self.assertEqual(sources[source_id]["kind"], "community")
+        self.assertIn("n=2", sources[source_id]["notes"])
+        self.assertIn("無法判定為 Chat、Work 或 Codex", sources[source_id]["notes"])
+        self.assertFalse(any(source_id in quota["source_ids"] for quota in quotas))
+        historical = next(q for q in quotas if q["id"] == "openai-plus-chat-community-1-2-prompts-2026-09-18")
+        self.assertIn("歷史觀察", historical["note"])
+        self.assertIn("不列入現行精簡表", historical["note"])
 
 
 if __name__ == "__main__":

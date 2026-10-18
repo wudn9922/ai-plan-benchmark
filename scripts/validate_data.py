@@ -137,7 +137,7 @@ def validate(snapshot: dict[str, Any]) -> list[str]:
                 fail(errors, f"{label} has invalid estimate bounds")
             elif not bounds.get("workload"):
                 fail(errors, f"{label} estimate must describe its workload")
-        elif value_type not in {"exact", "variable", "not_published"}:
+        elif value_type not in {"exact", "variable", "not_published", "unlimited"}:
             fail(errors, f"{label} has invalid value_type")
         for source_id in quota.get("source_ids", []):
             if source_id not in source_ids:

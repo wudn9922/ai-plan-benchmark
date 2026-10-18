@@ -21,7 +21,7 @@ export interface QuotaObservation {
   product: string;
   metric: string;
   value: number | null;
-  value_type: 'exact' | 'range' | 'variable' | 'not_published';
+  value_type: 'exact' | 'range' | 'variable' | 'not_published' | 'unlimited';
   unit: string;
   window: string | null;
   model: string | null;
@@ -207,7 +207,7 @@ export interface UpdateStatus {
     checked_at: string;
     summary: string;
     warnings: Array<{ source_id: string; label: string; url: string; message: string }>;
-    unavailable?: Array<{ source_id: string; label: string; url: string; category: 'blocked' | 'not_found' | 'rate_limited' | 'unavailable'; message: string }>;
+    unavailable?: Array<{ source_id: string; label: string; url: string; category: 'blocked' | 'not_found' | 'rate_limited' | 'unavailable'; message: string; manual_verified_at?: string }>;
   };
 }
 

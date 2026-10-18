@@ -70,6 +70,19 @@ class SourceHealthTests(unittest.TestCase):
             self.assertEqual(status["source_health"]["status"], "ok")
             self.assertEqual(status["source_health"]["unavailable"][0]["category"], "blocked")
 
+    def test_manual_review_date_is_shown_without_claiming_automated_access(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.create_root(root)
+            old = {"sha256": "last-good", "hash_version": source_health.HASH_VERSION, "reviewed_sha256": "last-good", "http_status": 403, "availability": "blocked", "error": "HTTP 403: forbidden", "label": "Official source", "url": "https://artificialanalysis.ai/method", "manual_verified_at": "2026-10-18"}
+            (root / "public/data/source-health-cache.json").write_text(json.dumps({"sources": {"sample": old}, "pending_warnings": {}}), encoding="utf-8")
+            result_state = {**old, "availability": "blocked", "http_status": 403, "error": "HTTP 403: forbidden"}
+            with patch.object(source_health, "request_source", return_value=("blocked", "HTTP 403: forbidden", result_state)):
+                result = source_health.check_sources(root)
+            self.assertEqual(result["pending_warnings"], 0)
+            self.assertEqual(result["unavailable_sources"], 1)
+            self.assertEqual(result["unavailable"][0]["manual_verified_at"], "2026-10-18")
+
     def test_404_is_not_interpreted_as_a_retired_product_or_overwrite(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

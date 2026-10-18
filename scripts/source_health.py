@@ -242,6 +242,7 @@ def build_report(pending: dict[str, Any], source_states: dict[str, Any], checked
             "url": state.get("url", ""),
             "category": state.get("availability", "unavailable"),
             "message": state.get("error") or labels.get(state.get("availability"), labels["unavailable"]),
+            **({"manual_verified_at": state["manual_verified_at"]} if state.get("manual_verified_at") else {}),
         })
     unavailable.sort(key=lambda item: (item.get("label", ""), item.get("source_id", "")))
     if warnings and unavailable:

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { MISSING, comparableCodingAgents, comparableCostPoints, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, formatQuota, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, priceWithinCap } from './metrics';
+import { MISSING, comparableCodingAgents, comparableCostPoints, compactQuotaWindow, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, formatQuota, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, priceWithinCap, reasoningEffortIsMapped, shouldShowCompactQuota } from './metrics';
 import type { CodingAgentRecord, ModelRecord, QuotaObservation, SubscriptionPlan } from './types';
 
 function model(id: string, score: number | null, cost: number | null, version: string | null): ModelRecord {
@@ -43,6 +43,29 @@ describe('missing-data-safe metrics', () => {
       estimate_range: { min: 350, max: 3000, sample_size: null, workload: 'official estimate' },
     };
     expect(formatQuota(row)).toBe('350–3,000 Local messages（估計）');
+  });
+
+  it('keeps Chinese five-hour and weekly pool windows visible in the compact quota table', () => {
+    expect(compactQuotaWindow('五小時額度；PDF、圖片生成與程式解釋')).toBe('5h');
+    expect(compactQuotaWindow('每則複雜提示；五小時額度')).toBe('每提示／5h');
+    expect(compactQuotaWindow('每週額度；約 10 分鐘內回答 4 個設定問答、送出 2 個提示')).toBe('10 分／4 問答＋2 提示／週池');
+  });
+
+  it('keeps historical model quota observations out of the current compact comparison', () => {
+    const historical: QuotaObservation = {
+      id: 'historical', plan_id: 'google-ai-plus', plan_name: 'Google AI Plus', category: 'chat', product: 'Gemini Apps', metric: 'community report',
+      value: 4, value_type: 'exact', unit: 'prompts', window: 'five hours', model: 'Gemini Pro (version not specified)', reasoning_mode: null,
+      shared_with: [], note: '歷史觀察；該帳號回報使用舊模型，不代表現行方案權限。', confidence: 'low', source_ids: ['reddit'], sampled_at: '2026-05-19', region: 'US', estimate_range: null,
+    };
+    expect(shouldShowCompactQuota(historical)).toBe(false);
+    expect(shouldShowCompactQuota({ ...historical, note: '目前模型額度觀察' })).toBe(true);
+  });
+
+  it('marks reasoning benchmark variants approximate when the subscription mode is not mapped', () => {
+    expect(reasoningEffortIsMapped([], 'High')).toBe(false);
+    expect(reasoningEffortIsMapped(['High'], 'High')).toBe(true);
+    expect(reasoningEffortIsMapped(['Medium'], 'High')).toBe(false);
+    expect(reasoningEffortIsMapped([], null)).toBe(true);
   });
 
   it('does not treat an unknown plan price as within a price cap', () => {

@@ -4,7 +4,7 @@ import {
   CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip as ChartTooltip, XAxis, YAxis,
 } from 'recharts';
 import { BENCHMARK_INFO, INDEX_KEYS, INDEX_LABELS, type CodingAgentRecord, type ModelRecord, type ProductAccess, type QuotaCategory, type QuotaObservation, type Snapshot, type SourceRef, type SubscriptionPlan, type UpdateStatus } from './data/types';
-import { comparableCodingAgents, comparableCostPoints, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, preferredVersion, priceWithinCap } from './data/metrics';
+import { comparableCodingAgents, comparableCostPoints, compactQuotaWindow, defaultSortForTab, filterCodingAgentsByProvider, formatPrice, hasOfficialCodingAgentCostEvidence, hasOfficialCodingAgentScoreEvidence, intelligenceEfficiency, paretoFrontier, preferredVersion, priceWithinCap, reasoningEffortIsMapped, shouldShowCompactQuota } from './data/metrics';
 
 type Tab = 'plans' | 'models' | 'coding' | 'value';
 const PROVIDERS = [
@@ -374,27 +374,6 @@ function isAgentProduct(product: ProductAccess): boolean {
   return isCodingAgentProduct(product) || product.surface.includes('agent') || /deep research|tasks in gemini|chrome agent|grok bot|chatgpt work/i.test(product.product);
 }
 
-function compactWindow(window: string | null): string {
-  if (!window) return '';
-  const lower = window.toLowerCase();
-  if (/10\s*分鐘.*4.*(?:設定問答|問答).*2.*提示/.test(lower)) return '10 分／4 問答＋2 提示';
-  if (/33\s*則.*訊息|33\s*messages/i.test(lower)) return '33 則／週池';
-  if (/每則|單則|per prompt/i.test(lower) && /5\s*[- ]?hour|five.hour|5\s*小時/i.test(lower)) return '每提示／5h';
-  if (/一次續接對話|續接對話/i.test(lower)) return /40\s*分鐘/.test(lower) ? '續接對話／約 40 分' : '單次續接';
-  if (/少於\s*10\s*分鐘/.test(lower)) return '單次工作／<10 分';
-  const fiveHour = /5\s*[- ]?hour|five.hour|5\s*小時/i.test(lower);
-  const weekly = /weekly|per week|week|每週|每周|週額度|週池/i.test(lower);
-  if (/rolling\s*24|滾動\s*24/.test(lower)) return '24h';
-  if (fiveHour && weekly) return '5h＋週限';
-  if (fiveHour) return '5h';
-  if (/3\s*[- ]?hour|three.hour|3\s*小時/i.test(lower)) return '3h';
-  if (/daily|per day|day|每日|每天/i.test(lower)) return '每日';
-  if (weekly) return '每週';
-  if (/monthly|per month|month|每月/i.test(lower)) return '每月';
-  if (/simultaneous|concurrent|同時執行|並行/i.test(lower)) return '並行';
-  return /尚無.*窗口|未公布.*窗口|窗口.*尚未公布|not applicable|不適用/i.test(window) ? '' : '動態';
-}
-
 function compactQuotaValue(quota: QuotaObservation): string {
   if (quota.value_type === 'unlimited') return '不限量';
   if (quota.value_type === 'variable') return '動態，未公布固定數';
@@ -429,6 +408,7 @@ function compactQuotaEvidence(snapshot: Snapshot, quota: QuotaObservation): { la
 function compactQuotaRows(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean, includeCommunity: boolean): QuotaObservation[] {
   return snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id)
     && quota.category === category
+    && shouldShowCompactQuota(quota)
     && quotaEntitlement(plan, quota) === 'included'
     && (quota.value_type === 'unlimited'
       || (quota.value_type === 'exact' && quota.value !== null)
@@ -484,9 +464,11 @@ function modelScoreSummary(snapshot: Snapshot, plan: SubscriptionPlan, access: P
     return value === null || value === undefined ? [] : [`${label} ${value}`];
   });
   if (!scores.length) return MISSING;
-  const approximate = access.mapping === 'approximate' ? '≈' : '';
   const effort = model.name.match(/\(([^)]*)\)/)?.[1]?.replace(/,?\s*Default Fallback/i, '').trim();
-  return `${approximate}${scores.join(' · ')}${effort ? ` · AA ${reasoningLabel(effort)}` : ''}`;
+  const effortMapped = reasoningEffortIsMapped(access.reasoning_modes, effort ?? null);
+  const approximate = access.mapping === 'approximate' || !effortMapped ? '≈' : '';
+  const effortLabel = effort ? ` · AA ${reasoningLabel(effort)}${effortMapped ? '' : '（方案推理等級未對應）'}` : '';
+  return `${approximate}${scores.join(' · ')}${effortLabel}`;
 }
 
 function compactProductLabel(product: ProductAccess): string {
@@ -523,7 +505,7 @@ function CompactQuotaList({ snapshot, plan, category, verifiedOnly, includeCommu
   if (!rows.length) return <span className="compact-empty">尚無可靠數據</span>;
   return <div className="compact-quota-list">{rows.map((quota) => {
     const value = compactQuotaValue(quota);
-    const window = compactWindow(quota.window);
+    const window = compactQuotaWindow(quota.window);
     const model = quota.model && !/未公布|未確認/.test(quota.model) ? ` · ${modelAccessLabel(quota.model)}` : '';
     const evidence = compactQuotaEvidence(snapshot, quota);
     return <div className="compact-quota-item" key={quota.id}>
@@ -535,7 +517,7 @@ function CompactQuotaList({ snapshot, plan, category, verifiedOnly, includeCommu
 }
 
 function compactQuotaCardSummary(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean, includeCommunity: boolean): string {
-  const rows = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity));
+  const rows = snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && shouldShowCompactQuota(quota) && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity));
   if (!rows.length) return '尚無資料';
   const includedRows = rows.filter((quota) => quotaEntitlement(plan, quota) === 'included');
   const excludedCount = rows.filter((quota) => quotaEntitlement(plan, quota) === 'excluded').length;

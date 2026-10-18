@@ -2,6 +2,44 @@ import type { CodingAgentRecord, ModelRecord, QuotaObservation, Snapshot, Subscr
 
 export const MISSING = '尚無可靠數據';
 
+/** Keep measured weekly-pool evidence distinct from the time spent and prompts that consumed it. */
+export function compactQuotaWindow(window: string | null): string {
+  if (!window) return '';
+  const lower = window.toLowerCase();
+  const fiveHour = /5\s*[- ]?hour|five.hour|5\s*小時|五小時/i.test(lower);
+  const weekly = /weekly|per week|week|每週|每周|週額度|週池/i.test(lower);
+  if (/10\s*分鐘.*4.*(?:設定問答|問答).*2.*提示/.test(lower)) return `10 分／4 問答＋2 提示${weekly ? '／週池' : ''}`;
+  if (/33\s*則.*訊息|33\s*messages/i.test(lower)) return '33 則／週池';
+  if (/每則|單則|per prompt/i.test(lower) && fiveHour) return '每提示／5h';
+  if (/一次續接對話|續接對話/i.test(lower)) return /40\s*分鐘/.test(lower) ? '續接對話／約 40 分' : '單次續接';
+  if (/少於\s*10\s*分鐘/.test(lower)) return '單次工作／<10 分';
+  if (/rolling\s*24|滾動\s*24/.test(lower)) return '24h';
+  if (fiveHour && weekly) return '5h＋週限';
+  if (fiveHour) return '5h';
+  if (/3\s*[- ]?hour|three.hour|3\s*小時|三小時/i.test(lower)) return '3h';
+  if (/daily|per day|day|每日|每天/i.test(lower)) return '每日';
+  if (weekly) return '每週';
+  if (/monthly|per month|month|每月/i.test(lower)) return '每月';
+  if (/simultaneous|concurrent|同時執行|並行/i.test(lower)) return '並行';
+  return /尚無.*窗口|未公布.*窗口|窗口.*尚未公布|not applicable|不適用/i.test(window) ? '' : '動態';
+}
+
+/** Historical quota observations stay in the detailed record but cannot imply current plan access. */
+export function shouldShowCompactQuota(quota: QuotaObservation): boolean {
+  return !/舊方案|舊模型|歷史觀察/.test(quota.note);
+}
+
+/** A benchmark reasoning variant is not an exact plan match when the plan exposes no matching mode. */
+export function reasoningEffortIsMapped(reasoningModes: string[], effort: string | null): boolean {
+  if (!effort) return true;
+  const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const target = normalize(effort);
+  return reasoningModes.some((mode) => {
+    const candidate = normalize(mode);
+    return candidate === target || candidate.startsWith(target) || target.startsWith(candidate);
+  });
+}
+
 export function formatPrice(value: number | null, currency = 'USD'): string {
   if (value === null || !Number.isFinite(value)) return MISSING;
   if (value === 0) return '免費';

@@ -151,8 +151,11 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 | Claude Free Chat | [2026-09-29 至 10-07 討論](https://www.reddit.com/r/ClaudeAI/comments/1wt53gi/usage_limits_discussion_hub_updated_on_29/)兩名使用者回報 Sonnet 5.5 輕量提示或編碼情境約 1–3 則即觸及五小時限制；列為 n=2、低信心區間。 |
 | Claude Pro Chat | [2026-10-17 使用者回報](https://www.reddit.com/r/ClaudeAI/comments/1x8bmku/this_weeks_claude_reset_anyone_else_noticing/)一則 Sonnet 5.5 訊息耗用 16% 五小時額度；以 100÷16 得出約 6 則，保守顯示 5–7 則，n=1、低信心。 |
 | Claude Pro Code | [2026-10-17 使用者回報](https://www.reddit.com/r/ClaudeCode/comments/1x8jw3f/need_advicehelp/)兩個並行 Sonnet 5.5 High 對話中的續接操作立即耗用 25% 額度，約 40 分鐘後額度用盡。僅列百分比觀察，不換算成任務數。 |
+| ChatGPT Plus Codex | [2026-09-22 使用者回報](https://www.reddit.com/r/codex/comments/1wn8ckg/i_did_it/)GPT-6 Astra Low 的單次分析於 10 分鐘內耗盡五小時額度；n=1、工作負載未標準化，只呈現為單次耗用觀察。 |
+| ChatGPT Plus Work | [2026-09-27 使用者回報](https://www.reddit.com/r/ChatGPT/comments/1wr5qz9/plus_usage_limit_disappearing_insanely_fast/)GPT-5.6 Sol High 長上下文整理專案並輸出 Markdown，單次任務後五小時額度由 100% 降至 63%；n=1，不轉換為任務數。 |
+| ChatGPT Plus Codex | [2026-10-17 使用者回報](https://www.reddit.com/r/ChatGPT/comments/1x8aj47/extremely_high_usage_in_codex/)GPT-6.1 Sol 低速度、未用 Turbo，數次簡短編輯後約 40 分鐘耗盡五小時額度；本機／雲端與任務總數未說明，n=1。 |
 | Google AI Pro Chat | [2026-06-24 使用者回報](https://www.reddit.com/r/GeminiAI/comments/1ue3vbg/why_am_i_only_getting_5_pro_requests_every_5_hours/)單一帳號約每五小時 5 次 Pro 請求；模型版本、推理與工作負載未說明，n=1、低信心且資料較舊。 |
-| Google AI Plus Chat | [2026-05-19 使用者回報](https://www.reddit.com/r/GeminiAI/comments/1ti0rjc/gemini_new_limit_is_a_joke/)4 次 Pro 模型提示（PDF、圖片生成及程式解釋）耗盡五小時額度；n=1、模型版號與地區未提供，列為舊版低信心體感，不代表固定配額。 |
+| Google AI Plus Chat（歷史模型） | [2026-05-19 使用者回報](https://www.reddit.com/r/GeminiAI/comments/1ti0rjc/gemini_new_limit_is_a_joke/)4 次提示耗盡五小時額度，但回報使用 Pro 模型，與現行 Plus 權限清單不符；保留作歷史體感，不納入現行簡易比較。n=1，低信心。 |
 | Google AI Free Deep Research | [2026-05-20 單帳號測試](https://www.reddit.com/r/GeminiAI/comments/1tiklmr/i_tested_the_new_gemini_usage_limits_on_a_free/)一個 Flash 3.5 Deep Research 耗用 77% 五小時額度；保留為單次額度百分比觀察，不推算可做幾項研究。 |
 
 ## 2026-10-18 追加核對與社群額度樣本
@@ -166,10 +169,7 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 | xAI 訂閱與年繳 | [The X Subscription 官方定價文件](https://docs.x.ai/x-subscription/pricing)確認新自助方案為 Plus 月繳 $8／年繳 $80、Premium 月繳 $30／年繳 $300；Premium 為 Plus 的 4 倍用量。官方表示既有 SuperGrok 與 X Premium 訂戶仍可保留舊方案，因此舊 SuperGrok 的社群用量不映射到新 Premium。稅金另計；Grok、Cursor 的 Grok 模型與 Grok Bot 共用每週池，第三方 Cursor 模型另購用量點數。 |
 | xAI Premium Grok Bot 社群額度 | [2026-10-15 Reddit 新訂戶回報](https://www.reddit.com/r/GrokBot/comments/1x6a8ed/new-sub-to-30mo-premium-10-mins-active-4-setup-qs/)稱 $30 Premium 訂閱者在約 10 分鐘內回答 4 個設定問答、送出 2 個提示後，尚未執行實際代理任務就用盡 Grok Bot 週額度。n=1、底層模型與背景代理詞元未公布，僅列低信心體感，不換算固定任務數。 |
 
-以上社群資料只供比較使用體感；單一帳號與非標準工作負載不能代表保證額度。精簡表只呈現量化值、窗口、來源類型、日期與連結；方案未提供可靠量化數據時保留缺值。
-| ChatGPT Plus Codex | [2026-09-22 使用者回報](https://www.reddit.com/r/codex/comments/1wn8ckg/i_did_it/)GPT-6 Astra Low 的單次分析於 10 分鐘內耗盡五小時額度；n=1、工作負載未標準化，只呈現為單次耗用觀察。 |
-| ChatGPT Plus Work | [2026-09-27 使用者回報](https://www.reddit.com/r/ChatGPT/comments/1wr5qz9/plus_usage_limit_disappearing_insanely_fast/)GPT-5.6 Sol High 長上下文整理專案並輸出 Markdown，單次任務後五小時額度由 100% 降至 63%；n=1，不轉換為任務數。 |
-| ChatGPT Plus Codex | [2026-10-17 使用者回報](https://www.reddit.com/r/ChatGPT/comments/1x8aj47/extremely_high_usage_in_codex/)GPT-6.1 Sol 低速度、未用 Turbo，數次簡短編輯後約 40 分鐘耗盡五小時額度；本機／雲端與任務總數未說明，n=1。 |
+以上社群資料只供比較使用體感；單一帳號與非標準工作負載不能代表保證額度。2026-05-19 的 Gemini AI Plus 回報所述 Pro 模型未列於現行 Plus 權限，因此保留在完整來源紀錄、標記歷史觀察，並從現行簡易表排除。精簡表只呈現量化值、窗口、來源類型、日期與連結；方案未提供可靠量化數據時保留缺值。
 
 社群資料均標為低信心，欄位記錄模型、方案、窗口、地區是否提供、取樣日期與樣本數。xAI 有量化的 Imagine 影片／圖片體感，但未找到能穩定對映目前 Chat／Agent 產品權限的任務數，因此精簡表保留缺值。社群來源不會加入方案產品權限來源，避免「納入社群」篩選誤把整個方案隱藏。
 

@@ -207,6 +207,8 @@ class CuratedDataTests(unittest.TestCase):
         self.assertEqual((observation["value"], observation["unit"], observation["sample_size"]), (4, "則提示", 1))
         self.assertEqual(observation["confidence"], "low")
         self.assertEqual(observation["source_ids"], ["reddit-gemini-plus-4-prompts"])
+        self.assertIn("歷史觀察", observation["note"])
+        self.assertIn("現行 AI Plus 方案未列此模型", observation["note"])
         self.assertEqual(sources[observation["source_ids"][0]]["kind"], "community")
         self.assertIn(observation["id"], plan["quota_ids"])
         gemini = next(product for product in plan["products"] if product["product"] == "Gemini Apps")

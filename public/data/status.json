@@ -13,9 +13,9 @@
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-18T15:46:25Z",
-    "status": "warning",
-    "summary": "有 1 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "checked_at": "2026-10-18T15:47:54Z",
+    "status": "ok",
+    "summary": "內容變更警告為 0；11 個來源自動讀取受限，仍保留最後核實版本。",
     "unavailable": [
       {
         "category": "blocked",
@@ -106,13 +106,6 @@
         "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
       }
     ],
-    "warnings": [
-      {
-        "label": "Claude pricing",
-        "message": "官方頁面內容已變更（b725eb1169f6 → bda1fec4a679）；方案資料未自動覆寫，待來源核對。",
-        "source_id": "anthropic-pricing",
-        "url": "https://claude.com/pricing"
-      }
-    ]
+    "warnings": []
   }
 }

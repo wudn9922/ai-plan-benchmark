@@ -1,13 +1,6 @@
 {
   "last_state_change_at": "2026-10-18T15:46:25Z",
-  "pending_warnings": {
-    "change:anthropic-pricing": {
-      "label": "Claude pricing",
-      "message": "官方頁面內容已變更（b725eb1169f6 → bda1fec4a679）；方案資料未自動覆寫，待來源核對。",
-      "source_id": "anthropic-pricing",
-      "url": "https://claude.com/pricing"
-    }
-  },
+  "pending_warnings": {},
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -221,8 +214,8 @@
       "label": "Claude pricing",
       "last_modified": "Sun, 18 Oct 2026 15:45:48 GMT",
       "last_success_at": "2026-10-18T15:46:16Z",
-      "reviewed_at": "2026-10-18T15:22:34Z",
-      "reviewed_sha256": "b725eb1169f60c935348d350aba71fe847683916d5d44038a0304c43ef7fa948",
+      "reviewed_at": "2026-10-18T15:47:54Z",
+      "reviewed_sha256": "bda1fec4a67955e26bf9cbfc69c22b602dc13b488dbbc9a4ba1fbd226ae63ab3",
       "sha256": "bda1fec4a67955e26bf9cbfc69c22b602dc13b488dbbc9a4ba1fbd226ae63ab3",
       "state_changed_at": "2026-10-18T15:46:16Z",
       "url": "https://claude.com/pricing"

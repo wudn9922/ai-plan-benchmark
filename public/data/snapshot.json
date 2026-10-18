@@ -114,7 +114,7 @@
       "kind": "official",
       "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "2026-10-18 官方價格／權限頁：Free 可用 Sonnet、Haiku；Pro 增加 Opus、Fable（適用資格與加購用量點數條件），Claude Code 與 Chat 共用動態額度。Pro $20 月繳或年繳預付 $200，另計適用稅金。"
+      "notes": "2026-10-18 重新核對官方 Individual pricing 頁：Pro 月繳 $20，年繳預付 $200（頁面月均顯示 $17，資料以 $200÷12=$16.67 保存），價格另計適用稅金。Free／Pro 的 Sonnet、Haiku、Opus 與 Fable 權限未變；Fable 的 Pro 使用量透過 credits。新頁面列出 Pro 可交辦／排程任務、Claude Code、Claude Science；Cowork 正併入 Claude，先向 Pro／Max 分階段推出。本次內容更新沒有改變方案價格、模型權限或已核實的共享動態額度。"
     },
     {
       "id": "anthropic-pro-cost",
@@ -380,7 +380,7 @@
       "kind": "official",
       "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "2026-10-18 官方公告：Cowork 正併入 Claude，先向 Pro／Max 分階段推出，再擴大至其他方案；官方沒有公布專屬模型或固定任務數。"
+      "notes": "2026-10-18 官方公告與價格矩陣顯示 Cowork 正整合為 Claude 內的交辦／排程任務，先向 Pro／Max 分階段推出，再擴大到其他方案。官方沒有公布專屬底層模型或固定任務數；沿用 Claude 共享動態額度記錄。"
     },
     {
       "id": "aa-coding-agent-import-v1.5-2026-10-17",
@@ -1444,7 +1444,7 @@
             "anthropic-pricing"
           ],
           "rollout": "limited",
-          "note": "自 2026-09-16 起先向 Pro／Max 分階段推出；官方未公布固定任務額度。"
+          "note": "官方頁將 Cowork 整合為 Claude 內的交辦／排程任務，先向 Pro／Max 分階段推出；沿用 Claude 共享動態額度，沒有獨立固定任務數。"
         },
         {
           "product": "Claude in Chrome／瀏覽器代理",

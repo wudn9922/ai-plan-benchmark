@@ -149,12 +149,12 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 | 類別／方案 | 公開回報與採用方式 |
 | --- | --- |
 | Claude Free Chat | [2026-09-29 至 10-07 討論](https://www.reddit.com/r/ClaudeAI/comments/1wt53gi/usage_limits_discussion_hub_updated_on_29/)兩名使用者回報 Sonnet 5.5 輕量提示或編碼情境約 1–3 則即觸及五小時限制；列為 n=2、低信心區間。 |
-| Claude Pro Chat | [2026-10-17 使用者回報](https://www.reddit.com/r/ClaudeAI/comments/1x8bmku/this_weeks_claude_reset_anyone_else_noticing/)一則 Sonnet 5.5 訊息耗用 16% 五小時額度；以 100÷16 得出約 6 則，保守顯示 5–7 則，n=1、低信心。 |
-| Claude Pro Code | [2026-10-17 使用者回報](https://www.reddit.com/r/ClaudeCode/comments/1x8jw3f/need_advicehelp/)兩個並行 Sonnet 5.5 High 對話中的續接操作立即耗用 25% 額度，約 40 分鐘後額度用盡。僅列百分比觀察，不換算成任務數。 |
+| Claude Pro Chat | 目前沒有可確認屬於 Claude Chat 的現行量化社群樣本；原以「一則訊息」反推訊息數的 16% 回報，作者後來確認是在 Claude Desktop 使用 Claude Code，因此已移至 Coding Agent。 |
+| Claude Pro Code | [Claude Code／Claude Desktop 使用者回報](https://www.reddit.com/r/ClaudeAI/comments/1x8bmku/this_weeks_claude_reset_anyone_else_noticing/)同一位 Pro 使用者稱一則 Sonnet 訊息耗用五小時池 16%，另稱兩個 session 共用週池 28–30%；n=1，模型版號與任務不明，兩項可能重疊，不相加。另有[兩個並行 Sonnet 5.5 High 對話觀察](https://www.reddit.com/r/ClaudeCode/comments/1x8jw3f/need_advicehelp/)，續接操作耗用 25% 五小時額度，約 40 分鐘後用盡。兩個來源均為低信心體感。 |
 | ChatGPT Plus Codex | [2026-09-22 使用者回報](https://www.reddit.com/r/codex/comments/1wn8ckg/i_did_it/)GPT-6 Astra Low 的單次分析於 10 分鐘內耗盡五小時額度；n=1、工作負載未標準化。來源沒有說明本機或雲端執行環境，因此只連到方案層並標示產品權益未確認，不歸入 Codex Local。 |
 | ChatGPT Plus Work | [2026-09-27 使用者回報](https://www.reddit.com/r/ChatGPT/comments/1wr5qz9/plus_usage_limit_disappearing_insanely_fast/)GPT-5.6 Sol High 長上下文整理專案並輸出 Markdown，單次任務後五小時額度由 100% 降至 63%；n=1，不轉換為任務數。 |
 | ChatGPT Plus Codex | [2026-10-17 使用者回報](https://www.reddit.com/r/ChatGPT/comments/1x8aj47/extremely_high_usage_in_codex/)GPT-6.1 Sol 低速度、未用 Turbo，數次簡短編輯後約 40 分鐘耗盡五小時額度；本機／雲端與任務總數未說明，n=1。 |
-| Google AI Pro Chat | [2026-06-24 使用者回報](https://www.reddit.com/r/GeminiAI/comments/1ue3vbg/why_am_i_only_getting_5_pro_requests_every_5_hours/)單一帳號約每五小時 5 次 Pro 請求；模型版本、推理與工作負載未說明，n=1、低信心且資料較舊。 |
+| Google AI Pro Chat | [2026-10-07 使用者回報](https://www.reddit.com/r/GeminiAI/comments/1wzsdd5/did_gemini_pro_usage_limits_suddenly_got_much/)一則複雜 Flash 提示約耗用五小時額度 4–6%，包含影像生成與重試；n=1、低信心。另有[2026-06-24 每五小時約 5 次 Pro 請求](https://www.reddit.com/r/GeminiAI/comments/1ue3vbg/why_am_i_only_getting_5_pro_requests_every_5_hours/)，因模型版號和工作負載未提供，標記為歷史觀察。 |
 | Google AI Plus Chat（歷史模型） | [2026-05-19 使用者回報](https://www.reddit.com/r/GeminiAI/comments/1ti0rjc/gemini_new_limit_is_a_joke/)4 次提示耗盡五小時額度，但回報使用 Pro 模型，與現行 Plus 權限清單不符；保留作歷史體感，不納入現行簡易比較。n=1，低信心。 |
 | Google AI Free Deep Research | [2026-05-20 單帳號測試](https://www.reddit.com/r/GeminiAI/comments/1tiklmr/i_tested_the_new_gemini_usage_limits_on_a_free/)一個 Flash 3.5 Deep Research 耗用 77% 五小時額度；保留為單次額度百分比觀察，不推算可做幾項研究。 |
 
@@ -200,3 +200,9 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 ### Anthropic 官方來源指紋覆核
 
 2026-10-18 重查時，Claude 定價頁與 Cowork 公告在兩個已見過的官方可見文字指紋間輪替。兩種呈現均已對照現行官方頁；Pro 價格仍為月繳 $20／年繳預付 $200（頁面約顯示 $17 月均），Cowork 仍先向 Pro／Max 推出並整合至 Claude。來源快取保留這些已核實指紋，避免相同內容反覆產生待核對警示；任何未核實的新指紋仍會保留警示。HTTP 403／404 的來源處理不變。
+
+### 2026-10-18 新增社群額度實測與來源狀態
+
+- [Claude Pro／Claude Code 同一討論](https://www.reddit.com/r/ClaudeAI/comments/1x8bmku/this_weeks_claude_reset_anyone_else_noticing/)：作者確認 Claude Pro 年繳，並在 Claude Desktop 使用 Claude Code；兩個工作階段的週池讀值為 28–30%，同一作者另稱一則 Sonnet 訊息耗用一個五小時時段 16%。兩項屬同一帳號、同一討論且可能重疊；Sonnet 訊息已歸 Coding Agent，不算 Chat。模型版號、任務與上下文不明，皆以 n=1、低信心記錄。
+- [ChatGPT Plus／Claude Pro 固定任務比較](https://www.reddit.com/r/ChatGPT/comments/1wub096/gpt_61_sol_vs_gpt_6_sol_vs_opus_55_testing_quota/)：作者在 Hermes Agent 自訂 Harness 中以四種固定任務各跑四次，每模型共 16 次，讀取新的五小時計量器前後差。GPT-6.1 Sol XHigh 測得 Codex 池 11 點，Claude Opus 5.5 Medium 測得 Claude 池 8 點；作者估計讀值誤差約 ±0.5 點。樣本是單一帳號、每組 16 次任務；精簡表分開標為「n=1 個帳號／16 次任務」。兩家百分點不能直接互比，也不能作為原生 Coding Agent 配額保證。
+- GitHub Actions 於 2026-10-18 17:03 UTC 檢查 11 個官方來源收到 HTTP 403，內容變更警告為 0；11 個受限來源均在 2026-10-18 手動核對。介面將已核對來源清單折疊，摘要分開顯示尚待核對項目和已核對的自動讀取限制。

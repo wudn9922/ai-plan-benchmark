@@ -417,6 +417,11 @@ html, body, #root { width: 100%; max-width: 100%; }
 .source-warning-list li { display: grid; gap: 4px; }
 .source-warning-list li a { display: inline-flex; align-items: center; gap: 4px; min-height: 40px; color: var(--green-dark); font-weight: 650; overflow-wrap: anywhere; }
 .source-warning-list li span { color: #704515; font-size: 14px; }
+.source-reviewed-disclosure { margin-top: 10px; padding-top: 8px; border-top: 1px solid rgb(0 0 0 / 10%); }
+.source-reviewed-disclosure > summary { display: flex; align-items: center; gap: 8px; min-height: 40px; color: var(--green-dark); font-weight: 650; cursor: pointer; list-style: none; }
+.source-reviewed-disclosure > summary::-webkit-details-marker { display: none; }
+.source-reviewed-disclosure > summary::after { content: '+'; margin-left: auto; font-size: 18px; font-weight: 400; }
+.source-reviewed-disclosure[open] > summary::after { content: '−'; }
 .toolbar { display: grid; grid-template-columns: 1fr; align-items: stretch; }
 .toolbar__primary { display: grid; grid-template-columns: minmax(220px, 2fr) repeat(2, minmax(155px, 1fr)); align-items: end; gap: 10px; min-width: 0; }
 .toolbar > .toolbar__primary > label, .advanced-filters__grid > label { display: grid; gap: 6px; min-width: 0; color: #53616a; font-size: 14px; font-weight: 600; }

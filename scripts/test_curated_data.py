@@ -269,7 +269,7 @@ class CuratedDataTests(unittest.TestCase):
         plans = {plan["id"]: plan for plan in curated["plans"]}
         quotas = {quota["id"]: quota for quota in curated["quotas"]}
         for quota_id in (
-            "claude-free-chat-community", "claude-pro-chat-community", "claude-pro-code-community",
+            "claude-free-chat-community", "claude-pro-code-message-16pct-community-2026-10-17", "claude-pro-code-community",
             "google-pro-chat-community", "google-plus-chat-community-4-prompts", "google-free-research-community", "openai-plus-codex-community",
             "openai-plus-work-community-37pct-2026-09-27", "openai-codex-gpt61-community-40min-2026-10-17",
         ):
@@ -284,6 +284,20 @@ class CuratedDataTests(unittest.TestCase):
         self.assertEqual(quotas["openai-plus-work-community-37pct-2026-09-27"]["value"], 37)
         self.assertEqual(quotas["openai-plus-work-community-37pct-2026-09-27"]["sample_size"], 1)
         self.assertEqual(quotas["openai-codex-gpt61-community-40min-2026-10-17"]["category"], "coding_agent")
+        self.assertEqual(quotas["claude-pro-code-message-16pct-community-2026-10-17"]["category"], "coding_agent")
+        self.assertEqual(quotas["claude-pro-code-message-16pct-community-2026-10-17"]["product"], "Claude Code")
+        self.assertEqual(quotas["claude-pro-code-message-16pct-community-2026-10-17"]["value"], 16)
+        self.assertIn("可能重疊，不能相加", quotas["claude-pro-code-message-16pct-community-2026-10-17"]["note"])
+        hermes_codex = quotas["chatgpt-plus-codex-hermes-16tasks-11pp-community-2026-09-30"]
+        hermes_claude = quotas["claude-pro-code-hermes-16tasks-8pp-community-2026-09-30"]
+        for quota in (hermes_codex, hermes_claude):
+            self.assertEqual(quota["sample_size"], 1)
+            self.assertEqual(quota["estimate_range"]["sample_size"], 1)
+            self.assertEqual(quota["task_run_count"], 16)
+            self.assertIn("不同服務", quota["note"])
+            self.assertIn("不能直接比較", quota["note"])
+        claude_code = next(item for item in plans["anthropic-pro"]["products"] if item["product"] == "Claude Code")
+        self.assertIn("claude-pro-code-message-16pct-community-2026-10-17", claude_code["quota_ids"])
         self.assertEqual(quotas["oa-free-chat"]["value_type"], "unlimited")
         self.assertEqual(quotas["oa-go-chat"]["value_type"], "unlimited")
         self.assertEqual(quotas["openai-plus-codex-community"]["category"], "coding_agent")

@@ -196,6 +196,35 @@ function useSnapshot() {
   return { snapshot, status, error, refreshing, reload: load };
 }
 
+function SourceHealthNotice({ health }: { health: NonNullable<UpdateStatus['source_health']> }) {
+  const unavailable = health.unavailable ?? [];
+  const pending = unavailable.filter((item) => !item.manual_verified_at);
+  const reviewed = unavailable.filter((item) => Boolean(item.manual_verified_at));
+  if (!health.warnings.length && !unavailable.length) return null;
+
+  const heading = health.warnings.length
+    ? '官方頁面有尚待核對的內容更新'
+    : pending.length
+      ? '部分受限來源尚未人工核對'
+      : '自動讀取受限來源已人工核對';
+  const counts = health.warnings.length || pending.length
+    ? `${health.warnings.length} 項內容更新待核對 · ${pending.length} 個受限來源尚未人工核對 · ${reviewed.length} 個受限來源已人工核對`
+    : `0 項內容更新待核對 · ${reviewed.length} 個受限來源已人工核對`;
+  const sourceList = (items: Array<{ source_id: string; label: string; url: string; message: string; manual_verified_at?: string }>) => <ul className="source-warning-list">{items.map((item) => <li key={item.source_id}>
+    <a href={item.url} target="_blank" rel="noreferrer">{sourceLabelById(item.source_id, item.label)} <ExternalLink size={12}/></a>
+    <span>{translateUiText(item.message)}{item.manual_verified_at ? ` · 人工核對 ${shortDate(item.manual_verified_at)}` : ''}</span>
+  </li>)}</ul>;
+
+  return <details className={`alert alert-disclosure ${health.warnings.length || pending.length ? 'alert--warning' : 'alert--info'}`}>
+    <summary><b>{heading}</b><span>{counts} · 狀態更新 {shortDate(health.checked_at)}</span></summary>
+    <div className="alert-disclosure__body">
+      {health.warnings.length > 0 && <><p>{translateUiText(health.summary)}</p><h4>待核對的內容更新</h4>{sourceList(health.warnings)}</>}
+      {pending.length > 0 && <><h4>自動讀取受限且尚未人工核對</h4><p>HTTP 403／404 或暫時性錯誤不會被當成方案停用；未核實的新內容不會覆蓋最後一次已核實資料。</p>{sourceList(pending)}</>}
+      {reviewed.length > 0 && <details className="source-reviewed-disclosure"><summary>查看 {reviewed.length} 個已人工核對、但限制自動讀取的來源</summary><p>這些來源沒有新增內容變更警告；下列日期記錄人工核對時間。</p>{sourceList(reviewed)}</details>}
+    </div>
+  </details>;
+}
+
 function Info({ children, title = '指標說明' }: { children: React.ReactNode; title?: string }) {
   return <details className="info-pop"><summary aria-label={title}><CircleHelp size={15} /></summary><div className="info-pop__panel"><strong>{title}</strong><p>{children}</p></div></details>;
 }
@@ -415,9 +444,12 @@ function compactQuotaEvidence(snapshot: Snapshot, quota: QuotaObservation): { la
     const source = sources[0] ?? null;
     return { label: `官方${source ? ` · ${source.checked_at}` : ''}`, source };
   }
-  const sampleSize = quota.estimate_range?.sample_size ?? quota.sample_size ?? 1;
+  const sampleSize = quota.sample_size ?? quota.estimate_range?.sample_size ?? 1;
   const historical = /舊方案|歷史觀察/.test(quota.note) ? '舊方案 · ' : '';
-  return { label: `${historical}社群 n=${sampleSize} · ${quota.sampled_at}${quota.confidence === 'low' ? ' · 低信心' : ''}`, source: communitySource };
+  const sample = quota.task_run_count
+    ? `社群 n=${sampleSize} 個帳號 · ${quota.task_run_count} 次任務`
+    : `社群 n=${sampleSize}`;
+  return { label: `${historical}${sample} · ${quota.sampled_at}${quota.confidence === 'low' ? ' · 低信心' : ''}`, source: communitySource };
 }
 
 function compactQuotaRows(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean, includeCommunity: boolean): QuotaObservation[] {
@@ -526,9 +558,14 @@ function CompactQuotaList({ snapshot, plan, category, verifiedOnly, includeCommu
     const model = quota.model && !/未公布|未確認/.test(quota.model) ? ` · ${modelAccessLabel(quota.model)}` : '';
     const shared = quota.shared_with.length ? ` · 共用：${quota.shared_with.map(productLabel).join('、')}` : '';
     const entitlement = quotaEntitlement(plan, quota) === 'unknown' ? ' · 產品／權益未確認' : '';
-    const caveat = /標題.*(?:正文|內文)|前後不一致|說法不一致/.test(quota.note)
-      ? ' · 單次回報前後不一致'
-      : /多代理|外部模型整合|疑似異常|非一般任務/i.test(quota.note) ? ' · 特殊多代理／異常案例' : '';
+    const caveats = [
+      /標題.*(?:正文|內文)|前後不一致|說法不一致/.test(quota.note) ? '單次回報前後不一致' : '',
+      /不能相加|不可相加/.test(quota.note) ? '同一帳號的同源讀值不可相加' : '',
+      /不同服務.*(?:不可|不能)直接比較|百分點不可直接與.*相比/.test(quota.note) ? '不同服務計量點不可直接比較' : '',
+      /外部 Hermes Agent 自訂 Harness/.test(quota.note) ? '自訂執行框架測試，非原生額度' : '',
+      /多代理|疑似異常|非一般任務/i.test(quota.note) ? '特殊多代理／異常案例' : '',
+    ].filter(Boolean);
+    const caveat = caveats.length ? ` · ${caveats.join(' · ')}` : '';
     const evidence = compactQuotaEvidence(snapshot, quota);
     return <div className="compact-quota-item" key={quota.id}>
       <span>{productLabel(quota.product)}</span>
@@ -856,7 +893,7 @@ function App() {
     <main className="app-main">
       <section className="hero"><div><div className="eyebrow">來源可追溯 · 缺值不補零</div><h1>選擇 AI 方案，<br className="mobile-break"/>看清楚能力與用量。</h1><p>比較訂閱產品、實際模型權限與 Artificial Analysis 評測。每個分數與額度都保留版本、來源及限制。</p></div><details className="hero-note"><summary><span className={`api-dot api-dot--${apiStatus.status}`}/><span><b>{apiStatus.status === 'ready' ? 'Artificial Analysis API 已連接' : apiStatus.status === 'stale' ? 'API 更新失敗，保留舊資料' : apiStatus.status === 'error' ? 'API 連線錯誤' : 'Artificial Analysis API 尚未啟用'}</b><small>{apiStatus.models_count} 個模型 · 最後資料更新 {shortDate(apiStatus.data_updated_at)}</small></span></summary><div className="hero-note__detail"><small>{apiStatus.message}</small></div></details></section>
       {apiStatus.status === 'error' || apiStatus.status === 'stale' || apiStatus.methodology_warning ? <details className="alert alert--warning alert-disclosure"><summary><b>{apiStatus.methodology_warning ? '評測方法版本需要人工核對' : apiStatus.status === 'stale' ? '來源更新失敗，保留現有快照' : 'Artificial Analysis API 連線錯誤'}</b><span>{apiStatus.http_status ? `HTTP ${apiStatus.http_status} · ` : ''}最後檢查 {shortDate(apiStatus.checked_at)}</span></summary><div className="alert-disclosure__body"><p>{apiStatus.methodology_warning ?? apiStatus.message}</p>{apiStatus.last_error && <p>最新錯誤：{apiStatus.last_error}</p>}{apiStatus.stale_days !== null && <p>資料快照已 {apiStatus.stale_days} 天未更新。</p>}</div></details> : null}
-      {status.source_health && (status.source_health.warnings.length > 0 || (status.source_health.unavailable?.length ?? 0) > 0) && <details className={`alert alert-disclosure ${status.source_health.warnings.length ? 'alert--warning' : 'alert--info'}`}><summary><b>{status.source_health.warnings.length ? '官方頁面有尚待核對的內容更新' : '部分官方來源目前無法自動讀取'}</b><span>{status.source_health.warnings.length} 項內容更新 · {(status.source_health.unavailable?.length ?? 0)} 個自動讀取受限 · 狀態更新 {shortDate(status.source_health.checked_at)}</span></summary><div className="alert-disclosure__body"><p>{translateUiText(status.source_health.summary)}</p>{status.source_health.warnings.length > 0 && <><h4>待核對的內容更新</h4><ul className="source-warning-list">{status.source_health.warnings.map((item) => <li key={item.source_id}><a href={item.url} target="_blank" rel="noreferrer">{sourceLabelById(item.source_id, item.label)} <ExternalLink size={12}/></a><span>{translateUiText(item.message)}</span></li>)}</ul></>}{(status.source_health.unavailable?.length ?? 0) > 0 && <><h4>自動檢查無法讀取</h4><p>這是自動擷取的限制；HTTP 403／404 不會被當成方案停用，原有已核實資料會保留。標有日期的來源已另行核對官方頁面內容。</p><ul className="source-warning-list">{status.source_health.unavailable?.map((item) => <li key={item.source_id}><a href={item.url} target="_blank" rel="noreferrer">{sourceLabelById(item.source_id, item.label)} <ExternalLink size={12}/></a><span>{translateUiText(item.message)}{item.manual_verified_at ? ` · 人工核對 ${shortDate(item.manual_verified_at)}` : ''}</span></li>)}</ul></>}</div></details>}
+      {status.source_health && <SourceHealthNotice health={status.source_health}/>}
       {error && <div className="alert alert--warning">{error}；目前未載入快照。</div>}
       <nav className="tab-nav" aria-label="比較分頁">{TABS.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => { setTab(id); window.scrollTo({ top: 0, behavior: 'auto' }); }} className={tab === id ? 'tab-button tab-button--active' : 'tab-button'}><Icon size={16}/><span>{label}</span></button>)}</nav>
       <section className="toolbar">

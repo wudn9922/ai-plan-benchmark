@@ -49,6 +49,11 @@ describe('missing-data-safe metrics', () => {
     expect(compactQuotaWindow('五小時額度；PDF、圖片生成與程式解釋')).toBe('5h');
     expect(compactQuotaWindow('每則複雜提示；五小時額度')).toBe('每提示／5h');
     expect(compactQuotaWindow('每週額度；約 10 分鐘內回答 4 個設定問答、送出 2 個提示')).toBe('10 分／4 問答＋2 提示／週池');
+    expect(compactQuotaWindow('一次完整五小時時段額度；每週額度', '週額度百分比')).toBe('樣本：5h 使用／週池');
+    const codexEvent = 'GPT-6.1 Sol High＋2 個 GPT-6 Luna High 子代理；約 11 分鐘耗盡一個 5 小時額度；週池下降約 18%';
+    expect(compactQuotaWindow(codexEvent, '週額度百分比')).toBe('案例：11m 耗盡 5h／週池');
+    expect(compactQuotaWindow(codexEvent, '分鐘')).toBe('5h 額度耗盡');
+    expect(compactQuotaWindow('一次分析工作，少於 10 分鐘耗盡五小時額度')).toBe('單次 <10m 耗盡 5h');
   });
 
   it('keeps historical model quota observations out of the current compact comparison', () => {

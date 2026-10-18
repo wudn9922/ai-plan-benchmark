@@ -287,6 +287,11 @@ class CuratedDataTests(unittest.TestCase):
         self.assertEqual(quotas["oa-free-chat"]["value_type"], "unlimited")
         self.assertEqual(quotas["oa-go-chat"]["value_type"], "unlimited")
         self.assertEqual(quotas["openai-plus-codex-community"]["category"], "coding_agent")
+        self.assertEqual(quotas["openai-plus-codex-community"]["sampled_at"], "2026-09-22")
+        self.assertEqual(quotas["openai-plus-codex-community"]["product"], "Codex（執行環境未明）")
+        plus_codex_local = next(item for item in plans["openai-plus"]["products"] if item["product"] == "Codex Local")
+        self.assertNotIn("openai-plus-codex-community", plus_codex_local["quota_ids"])
+        self.assertNotIn("歷史觀察", quotas["openai-plus-codex-community"]["note"])
 
     def test_new_community_quota_observations_match_current_plan_and_product(self) -> None:
         root = Path(__file__).resolve().parents[1]
@@ -299,6 +304,9 @@ class CuratedDataTests(unittest.TestCase):
             "openai-plus-chat-community-1-2-prompts-2026-09-18": ("openai-plus", "chat", "ChatGPT", "range"),
             "google-ai-pro-flash-community-4-6pct-2026-10-18": ("google-ai-pro", "chat", "Gemini Apps", "range"),
             "xai-premium-agent-community-100pct-2026-10-15": ("xai-premium", "agent", "Grok Bot / 雲端電腦", "exact"),
+            "claude-pro-code-20min-community-2026-10-11": ("anthropic-pro", "coding_agent", "Claude Code", "exact"),
+            "claude-pro-code-weekly-23pct-community-2026-10-14": ("anthropic-pro", "coding_agent", "Claude Code", "exact"),
+            "google-pro-antigravity-weekly-46pct-community-2026-10-05": ("google-ai-pro", "coding_agent", "Antigravity Desktop", "exact"),
         }
         for quota_id, (plan_id, category, product_name, value_type) in expected.items():
             quota = quotas[quota_id]
@@ -314,6 +322,19 @@ class CuratedDataTests(unittest.TestCase):
 
         self.assertEqual(quotas["xai-premium-agent-community-100pct-2026-10-15"]["value"], 100)
         self.assertNotIn("xai-premium-chat-community-33-messages-17pct-2026-07-04", quotas)
+        self.assertIn("前後不一致", quotas["claude-pro-code-weekly-23pct-community-2026-10-14"]["note"])
+
+        for quota_id in (
+            "openai-plus-codex-11min-community-2026-10-09",
+            "openai-plus-codex-weekly-18pct-community-2026-10-09",
+        ):
+            quota = quotas[quota_id]
+            self.assertEqual((quota["plan_id"], quota["category"], quota["product"], quota["confidence"]), ("openai-plus", "coding_agent", "Codex（執行環境未明）", "low"))
+            self.assertEqual(quota["sample_size"], 1)
+            self.assertIn(quota_id, plans["openai-plus"]["quota_ids"])
+            self.assertFalse(any(quota_id in item["quota_ids"] for item in plans["openai-plus"]["products"]))
+            self.assertEqual(sources[quota["source_ids"][0]]["kind"], "community")
+            self.assertEqual(quota["sampled_at"], "2026-10-08")
 
     def test_ambiguous_chatgpt_community_report_is_not_misclassified_as_chat_or_agent_quota(self) -> None:
         root = Path(__file__).resolve().parents[1]

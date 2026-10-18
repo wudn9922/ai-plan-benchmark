@@ -243,8 +243,18 @@ function quotaEvidenceAllowed(snapshot: Snapshot, quota: QuotaObservation, verif
   return includeCommunity || !kinds.includes('community');
 }
 
-function numericQuotaCount(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory): number {
-  return snapshot.quotas.filter((quota) => plan.quota_ids.includes(quota.id) && quota.category === category && (quota.value !== null || quota.estimate_range !== null && quota.estimate_range !== undefined)).length;
+function numericQuotaCount(snapshot: Snapshot, plan: SubscriptionPlan, category: QuotaCategory, verifiedOnly: boolean, includeCommunity: boolean): number {
+  return snapshot.quotas.filter((quota) => {
+    const hasCommunitySource = quota.source_ids.some((id) => snapshot.sources.find((source) => source.id === id)?.kind === 'community');
+    const quantified = quota.value_type === 'unlimited'
+      || (quota.value_type === 'exact' && quota.value !== null)
+      || (quota.value_type === 'range' && quota.estimate_range !== null && quota.estimate_range !== undefined);
+    return plan.quota_ids.includes(quota.id)
+      && quota.category === category
+      && quantified
+      && compactQuotaEntitlementAllowed(quota, quotaEntitlement(plan, quota), hasCommunitySource, verifiedOnly, includeCommunity)
+      && quotaEvidenceAllowed(snapshot, quota, verifiedOnly, includeCommunity);
+  }).length;
 }
 
 function mappedModels(snapshot: Snapshot, plan: SubscriptionPlan): ModelRecord[] {
@@ -512,15 +522,18 @@ function CompactQuotaList({ snapshot, plan, category, verifiedOnly, includeCommu
   if (!rows.length) return <span className="compact-empty">尚無可靠數據</span>;
   return <div className="compact-quota-list">{rows.map((quota) => {
     const value = compactQuotaValue(quota);
-    const window = compactQuotaWindow(quota.window);
+    const window = compactQuotaWindow(quota.window, quota.unit);
     const model = quota.model && !/未公布|未確認/.test(quota.model) ? ` · ${modelAccessLabel(quota.model)}` : '';
     const shared = quota.shared_with.length ? ` · 共用：${quota.shared_with.map(productLabel).join('、')}` : '';
     const entitlement = quotaEntitlement(plan, quota) === 'unknown' ? ' · 產品／權益未確認' : '';
+    const caveat = /標題.*(?:正文|內文)|前後不一致|說法不一致/.test(quota.note)
+      ? ' · 單次回報前後不一致'
+      : /多代理|外部模型整合|疑似異常|非一般任務/i.test(quota.note) ? ' · 特殊多代理／異常案例' : '';
     const evidence = compactQuotaEvidence(snapshot, quota);
     return <div className="compact-quota-item" key={quota.id}>
       <span>{productLabel(quota.product)}</span>
       <b>{value}{window && value !== MISSING && value !== '官方未公布' ? `／${window}` : ''}</b>
-      <small>{model}{shared}{entitlement}{model || shared || entitlement ? ' · ' : ''}{evidence.label}{evidence.source && <> · <a href={evidence.source.url} target="_blank" rel="noreferrer" title={`${sourceLabel(evidence.source)}：${evidence.source.notes ?? ''}`} aria-label="額度資料來源"><ExternalLink size={11}/></a></>}</small>
+      <small>{model}{shared}{entitlement}{caveat}{model || shared || entitlement || caveat ? ' · ' : ''}{evidence.label}{evidence.source && <> · <a href={evidence.source.url} target="_blank" rel="noreferrer" title={`${sourceLabel(evidence.source)}：${evidence.source.notes ?? ''}`} aria-label="額度資料來源"><ExternalLink size={11}/></a></>}</small>
     </div>;
   })}</div>;
 }
@@ -532,7 +545,7 @@ function compactQuotaCardSummary(snapshot: Snapshot, plan: SubscriptionPlan, cat
   const excludedCount = rows.filter((quota) => quotaEntitlement(plan, quota) === 'excluded').length;
   const unknownRows = rows.filter((quota) => quotaEntitlement(plan, quota) === 'unknown');
   const unknownSummary = unknownRows.map((quota) => {
-    const value = quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : quotaValue(quota);
+    const value = quota.value_type === 'variable' ? '動態額度' : quota.value_type === 'not_published' ? '未公布' : compactQuotaValue(quota);
     const modelReason = quotaModelReason(quota);
     return `${value}${modelReason ? `（${modelReason}）` : ''}`;
   });
@@ -557,7 +570,7 @@ function compactQuotaCardSummary(snapshot: Snapshot, plan: SubscriptionPlan, cat
 
 function CompactPlanTable({ plans, snapshot, verifiedOnly, includeCommunity }: { plans: SubscriptionPlan[]; snapshot: Snapshot; verifiedOnly: boolean; includeCommunity: boolean }) {
   return <div className="table-scroll compact-plan-scroll"><table className="data-table compact-plan-table">
-    <thead><tr><th>方案</th><th>Chat</th><th>Agent</th></tr></thead>
+    <thead><tr><th>方案</th><th>聊天</th><th>代理</th></tr></thead>
     <tbody>{plans.length ? plans.map((plan) => <tr key={plan.id}>
       <td className="compact-plan-name"><b>{plan.provider_name}</b><small>{planLabel(plan.name)}{plan.tier === 'reference' ? ' · 參考方案（>$30）' : ''}</small></td>
       <td className="compact-usage-cell">
@@ -776,8 +789,8 @@ function App() {
     if (!includeCommunity) rows = rows.filter((plan) => sourceIds(plan).every((id) => snapshot.sources.find((source) => source.id === id)?.kind !== 'community'));
     if (sort === 'price-low') rows = [...rows].sort((a,b) => (a.monthly_price ?? Infinity) - (b.monthly_price ?? Infinity));
     if (sort === 'price-high') rows = [...rows].sort((a,b) => (b.monthly_price ?? -Infinity) - (a.monthly_price ?? -Infinity));
-    if (sort === 'quota-chat') rows = [...rows].sort((a,b) => numericQuotaCount(snapshot,b,'chat') - numericQuotaCount(snapshot,a,'chat'));
-    if (sort === 'quota-coding') rows = [...rows].sort((a,b) => numericQuotaCount(snapshot,b,'coding_agent') - numericQuotaCount(snapshot,a,'coding_agent'));
+    if (sort === 'quota-chat') rows = [...rows].sort((a,b) => numericQuotaCount(snapshot,b,'chat',verifiedOnly,includeCommunity) - numericQuotaCount(snapshot,a,'chat',verifiedOnly,includeCommunity));
+    if (sort === 'quota-coding') rows = [...rows].sort((a,b) => numericQuotaCount(snapshot,b,'coding_agent',verifiedOnly,includeCommunity) - numericQuotaCount(snapshot,a,'coding_agent',verifiedOnly,includeCommunity));
     if (sort === 'cost-low') rows = [...rows].sort((a,b) => (linkedPlanMetric(snapshot,a,'cost') ?? Infinity) - (linkedPlanMetric(snapshot,b,'cost') ?? Infinity));
     if (sort === 'speed-high') rows = [...rows].sort((a,b) => (linkedPlanMetric(snapshot,b,'speed') ?? -Infinity) - (linkedPlanMetric(snapshot,a,'speed') ?? -Infinity));
     return rows;

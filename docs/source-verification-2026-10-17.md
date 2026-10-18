@@ -151,7 +151,7 @@ Artificial Analysis 的模型指數與成本由每日 API 工作流程更新；�
 | Claude Free Chat | [2026-09-29 至 10-07 討論](https://www.reddit.com/r/ClaudeAI/comments/1wt53gi/usage_limits_discussion_hub_updated_on_29/)兩名使用者回報 Sonnet 5.5 輕量提示或編碼情境約 1–3 則即觸及五小時限制；列為 n=2、低信心區間。 |
 | Claude Pro Chat | [2026-10-17 使用者回報](https://www.reddit.com/r/ClaudeAI/comments/1x8bmku/this_weeks_claude_reset_anyone_else_noticing/)一則 Sonnet 5.5 訊息耗用 16% 五小時額度；以 100÷16 得出約 6 則，保守顯示 5–7 則，n=1、低信心。 |
 | Claude Pro Code | [2026-10-17 使用者回報](https://www.reddit.com/r/ClaudeCode/comments/1x8jw3f/need_advicehelp/)兩個並行 Sonnet 5.5 High 對話中的續接操作立即耗用 25% 額度，約 40 分鐘後額度用盡。僅列百分比觀察，不換算成任務數。 |
-| ChatGPT Plus Codex | [2026-09-22 使用者回報](https://www.reddit.com/r/codex/comments/1wn8ckg/i_did_it/)GPT-6 Astra Low 的單次分析於 10 分鐘內耗盡五小時額度；n=1、工作負載未標準化，只呈現為單次耗用觀察。 |
+| ChatGPT Plus Codex | [2026-09-22 使用者回報](https://www.reddit.com/r/codex/comments/1wn8ckg/i_did_it/)GPT-6 Astra Low 的單次分析於 10 分鐘內耗盡五小時額度；n=1、工作負載未標準化。來源沒有說明本機或雲端執行環境，因此只連到方案層並標示產品權益未確認，不歸入 Codex Local。 |
 | ChatGPT Plus Work | [2026-09-27 使用者回報](https://www.reddit.com/r/ChatGPT/comments/1wr5qz9/plus_usage_limit_disappearing_insanely_fast/)GPT-5.6 Sol High 長上下文整理專案並輸出 Markdown，單次任務後五小時額度由 100% 降至 63%；n=1，不轉換為任務數。 |
 | ChatGPT Plus Codex | [2026-10-17 使用者回報](https://www.reddit.com/r/ChatGPT/comments/1x8aj47/extremely_high_usage_in_codex/)GPT-6.1 Sol 低速度、未用 Turbo，數次簡短編輯後約 40 分鐘耗盡五小時額度；本機／雲端與任務總數未說明，n=1。 |
 | Google AI Pro Chat | [2026-06-24 使用者回報](https://www.reddit.com/r/GeminiAI/comments/1ue3vbg/why_am_i_only_getting_5_pro_requests_every_5_hours/)單一帳號約每五小時 5 次 Pro 請求；模型版本、推理與工作負載未說明，n=1、低信心且資料較舊。 |

@@ -3,17 +3,26 @@ import type { CodingAgentRecord, ModelRecord, QuotaObservation, Snapshot, Subscr
 export const MISSING = '尚無可靠數據';
 
 /** Keep measured weekly-pool evidence distinct from the time spent and prompts that consumed it. */
-export function compactQuotaWindow(window: string | null): string {
+export function compactQuotaWindow(window: string | null, unit = ''): string {
   if (!window) return '';
   const lower = window.toLowerCase();
   const fiveHour = /5\s*[- ]?hour|five.hour|5\s*小時|五小時/i.test(lower);
   const weekly = /weekly|per week|week|每週|每周|週額度|週池/i.test(lower);
+  const weeklyPoolShare = /週額度百分比|每週額度百分比|weekly\s+(?:pool|quota)\s+(?:share|percent)/i.test(unit);
+  if (/11\s*分鐘|11\s*minutes/i.test(lower) && /耗盡|用盡|exhaust/i.test(lower) && /多代理|子代理|multi.?agent/i.test(lower)) {
+    if (weeklyPoolShare) return '案例：11m 耗盡 5h／週池';
+    if (/分鐘|minutes/i.test(unit)) return '5h 額度耗盡';
+    return '案例：11m 耗盡 5h';
+  }
   if (/10\s*分鐘.*4.*(?:設定問答|問答).*2.*提示/.test(lower)) return `10 分／4 問答＋2 提示${weekly ? '／週池' : ''}`;
   if (/33\s*則.*訊息|33\s*messages/i.test(lower)) return '33 則／週池';
   if (/每則|單則|per prompt/i.test(lower) && fiveHour) return '每提示／5h';
   if (/一次續接對話|續接對話/i.test(lower)) return /40\s*分鐘/.test(lower) ? '續接對話／約 40 分' : '單次續接';
+  if (/少於\s*10\s*分鐘/.test(lower) && fiveHour && /耗盡|用盡|exhaust/i.test(lower)) return '單次 <10m 耗盡 5h';
   if (/少於\s*10\s*分鐘/.test(lower)) return '單次工作／<10 分';
   if (/rolling\s*24|滾動\s*24/.test(lower)) return '24h';
+  if (fiveHour && weekly && weeklyPoolShare) return '樣本：5h 使用／週池';
+  if (weekly && weeklyPoolShare) return '週池占比';
   if (fiveHour && weekly) return '5h＋週限';
   if (fiveHour) return '5h';
   if (/3\s*[- ]?hour|three.hour|3\s*小時|三小時/i.test(lower)) return '3h';

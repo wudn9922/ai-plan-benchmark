@@ -344,7 +344,7 @@
       "kind": "official",
       "checked_at": "2026-10-18",
       "region": "US",
-      "notes": "2026-10-18 核對 xAI 目前方案頁：Free、Plus $8／月、Premium $30／月；Premium 為 Plus 的 4 倍 AI 用量，並包含 Grok Bot、Cursor、Cloud agents 與 automations。Grok 與 Cursor Grok 模型共享每週用量池，依產品耗用量而異；固定任務數未公布，第三方 Cursor 模型另計，稅金另加。年繳價格另以官方定價文件核對。"
+      "notes": "2026-10-18 核對 xAI 官方方案頁：Free $0、Plus $8/月、Premium $30/月，另列 Super $100/月與 Ultra $200/月作 >$30 參考方案。Premium 為 Plus 的 4 倍用量，Super 15 倍、Ultra 50 倍；所有層級共享每週 AI 使用池，Grok 內含 Chat／Imagine／Voice／Bot 權益依方案而異。產品耗用不同、沒有固定每類任務數；Cursor 第三方模型需另付費，稅金另計。此頁只列月費，Super／Ultra 年繳價格未公布。"
     },
     {
       "id": "openai-current-pricing",
@@ -543,6 +543,15 @@
       "checked_at": "2026-10-18",
       "region": "未提供",
       "notes": "2026-10-15 一位新訂閱 $30／月 Premium 的使用者稱，在約 10 分鐘內完成 4 個設定問答並送出 2 個提示後，Grok Bot 週額度即耗盡；尚未執行實際代理任務。n=1，底層模型與背景代理詞元未提供，屬低信心體感，不代表固定任務數。"
+    },
+    {
+      "id": "reddit-openai-plus-5h-weekly-usage-2026-10-13",
+      "label": "ChatGPT Plus GPT-6.1 Sol 5 小時週額度討論（介面未明）",
+      "url": "https://www.reddit.com/r/ChatGPT/comments/1x4qjmg/did_openai_reduce_the_5_hour_quota/",
+      "kind": "community",
+      "checked_at": "2026-10-18",
+      "region": "未提供",
+      "notes": "n=2：貼文作者稱 GPT-6.1 Sol 每個五小時時段約用去每週額度 10%；一位留言者回報約 6%。提示／任務內容、推理等級和使用介面未充分說明，無法判定為 Chat、Work 或 Codex 專屬額度，因此只保留研究紀錄、不拆分或列入現行精簡額度表。"
     }
   ],
   "plans": [
@@ -2623,6 +2632,274 @@
         }
       ],
       "annual_billing_available": false
+    },
+    {
+      "id": "xai-super",
+      "provider": "xai",
+      "provider_name": "xAI / X",
+      "name": "The X Subscription Super",
+      "tier": "reference",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 100,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "extra",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "xai-pricing-web",
+        "xai-grok",
+        "xai-grok-bot"
+      ],
+      "checked_at": "2026-10-18",
+      "quota_ids": [],
+      "note": "參考方案（超過 $30/月，不納入主要價格上限排名）。官方方案頁列每週共享 AI 使用池為 Plus 的 15 倍，所有使用層級依產品與任務耗用不同；沒有可換算為固定 Chat／Agent／Coding Agent 次數的官方數字。頁面只列月費，年繳價格未公布；稅金另計。",
+      "products": [
+        {
+          "product": "Grok",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 4.7",
+              "reasoning_modes": [],
+              "mapping": "exact"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web",
+            "xai-grok"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Grok Build Web",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 4.7",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "官方沒有為 Build 公布獨立固定模型版本。"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web",
+            "xai-build-all"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Cursor Agent",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 4.7（X 訂閱共享池）",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "其他 Cursor 模型的 API 使用量不包含於 X 訂閱。"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web"
+          ],
+          "rollout": "generally_available",
+          "note": "Cursor 中的 Grok 模型使用 X 訂閱共用每週額度；第三方模型不含在訂閱用量內，首次使用起需另購用量。"
+        },
+        {
+          "product": "Grok Build CLI",
+          "included": null,
+          "surface": [
+            "cli"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web",
+            "xai-build"
+          ],
+          "rollout": "unknown",
+          "note": "新 X 訂閱方案是否包含 CLI 尚未由官方資料確認；不列出為已取得權益。"
+        },
+        {
+          "product": "Grok Bot / 雲端電腦",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "底層模型未公布",
+              "reasoning_modes": [],
+              "mapping": "unmapped"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web",
+            "xai-grok-bot"
+          ],
+          "rollout": "generally_available",
+          "note": "Grok Bot 提供附瀏覽器、檔案系統與終端機的持續運作雲端電腦；Premium 以上方案包含。用量與 Grok、Cursor 共用每週額度。"
+        }
+      ],
+      "annual_billing_available": null
+    },
+    {
+      "id": "xai-ultra",
+      "provider": "xai",
+      "provider_name": "xAI / X",
+      "name": "The X Subscription Ultra",
+      "tier": "reference",
+      "region": "US",
+      "currency": "USD",
+      "monthly_price": 200,
+      "annual_monthly_price": null,
+      "annual_billed_total": null,
+      "tax": "extra",
+      "promo": null,
+      "trial": null,
+      "purchasable": "yes",
+      "source_ids": [
+        "xai-pricing-web",
+        "xai-grok",
+        "xai-grok-bot"
+      ],
+      "checked_at": "2026-10-18",
+      "quota_ids": [],
+      "note": "參考方案（超過 $30/月，不納入主要價格上限排名）。官方方案頁列每週共享 AI 使用池為 Plus 的 50 倍，所有使用層級依產品與任務耗用不同；沒有可換算為固定 Chat／Agent／Coding Agent 次數的官方數字。頁面只列月費，年繳價格未公布；稅金另計。",
+      "products": [
+        {
+          "product": "Grok",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 4.7",
+              "reasoning_modes": [],
+              "mapping": "exact"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web",
+            "xai-grok"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Grok Build Web",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 4.7",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "官方沒有為 Build 公布獨立固定模型版本。"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web",
+            "xai-build-all"
+          ],
+          "rollout": "generally_available",
+          "note": null
+        },
+        {
+          "product": "Cursor Agent",
+          "included": true,
+          "surface": [
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "Grok 4.7（X 訂閱共享池）",
+              "reasoning_modes": [],
+              "mapping": "approximate",
+              "note": "其他 Cursor 模型的 API 使用量不包含於 X 訂閱。"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web"
+          ],
+          "rollout": "generally_available",
+          "note": "Cursor 中的 Grok 模型使用 X 訂閱共用每週額度；第三方模型不含在訂閱用量內，首次使用起需另購用量。"
+        },
+        {
+          "product": "Grok Build CLI",
+          "included": null,
+          "surface": [
+            "cli"
+          ],
+          "model_access": [],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web",
+            "xai-build"
+          ],
+          "rollout": "unknown",
+          "note": "新 X 訂閱方案是否包含 CLI 尚未由官方資料確認；不列出為已取得權益。"
+        },
+        {
+          "product": "Grok Bot / 雲端電腦",
+          "included": true,
+          "surface": [
+            "web",
+            "mobile",
+            "desktop",
+            "agent"
+          ],
+          "model_access": [
+            {
+              "model": "底層模型未公布",
+              "reasoning_modes": [],
+              "mapping": "unmapped"
+            }
+          ],
+          "quota_ids": [],
+          "source_ids": [
+            "xai-pricing-web",
+            "xai-grok-bot"
+          ],
+          "rollout": "generally_available",
+          "note": "Grok Bot 提供附瀏覽器、檔案系統與終端機的持續運作雲端電腦；Premium 以上方案包含。用量與 Grok、Cursor 共用每週額度。"
+        }
+      ],
+      "annual_billing_available": null
     }
   ],
   "quotas": [
@@ -4159,7 +4436,7 @@
       "model": "GPT-5.6 Sol",
       "reasoning_mode": "Medium",
       "shared_with": [],
-      "note": "n=1 社群觀察：使用者稱 1–2 則 Medium 提示耗盡五小時額度；提示長度與工作內容未說明。不能視為固定上限。",
+      "note": "歷史觀察；n=1 使用者於 2026-09-18 回報舊模型 GPT-5.6 Sol Medium 約 1–2 則提示耗盡五小時額度。提示長度與工作內容未說明；現行 Plus 聊天模型已更新，故不列入現行精簡表。",
       "confidence": "low",
       "source_ids": [
         "reddit-openai-plus-chat-1-2"

@@ -1,6 +1,19 @@
 {
-  "last_state_change_at": "2026-10-18T17:30:47Z",
-  "pending_warnings": {},
+  "last_state_change_at": "2026-10-19T09:55:12Z",
+  "pending_warnings": {
+    "change:aa-public-gemini-argon-comparison": {
+      "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
+      "message": "官方頁面內容已變更（c17099d39029 → 2cfc9cd75e7c）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "aa-public-gemini-argon-comparison",
+      "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
+    },
+    "change:aa-public-gpt-6-luna-high-comparison": {
+      "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → f3bb3ef32277）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "aa-public-gpt-6-luna-high-comparison",
+      "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
+    }
+  },
   "sources": {
     "aa-api-reference": {
       "availability": "available",
@@ -140,16 +153,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"39i1f6hiheukby\"",
+      "etag": "\"13t9is0chx4ukjd\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-18T15:22:42Z",
+      "last_success_at": "2026-10-19T09:55:11Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "state_changed_at": "2026-10-18T15:22:42Z",
+      "sha256": "2cfc9cd75e7c11480ee458b839a6f094f360414522565c02a9a232bc6e25e1ad",
+      "state_changed_at": "2026-10-19T09:55:11Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -157,16 +170,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"qj9a8bvf7wujt2\"",
+      "etag": "\"142xjfiadecuk0e\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-18T15:22:42Z",
+      "last_success_at": "2026-10-19T09:55:11Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "state_changed_at": "2026-10-18T15:22:42Z",
+      "sha256": "f3bb3ef322772eaa3411f399bd2f24fb5d6aaa1a1eb6a8cae44fb102a059e217",
+      "state_changed_at": "2026-10-19T09:55:11Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {

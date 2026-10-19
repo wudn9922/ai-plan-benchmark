@@ -1,21 +1,21 @@
 {
   "aa": {
-    "checked_at": "2026-10-18T17:30:36Z",
+    "checked_at": "2026-10-19T09:55:03Z",
     "configured": true,
-    "data_updated_at": "2026-10-18T15:22:33Z",
+    "data_updated_at": "2026-10-19T09:55:03Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-18T17:30:36Z",
-    "message": "每日 API 檢查成功；資料內容與快照相同。",
-    "models_count": 706,
+    "last_successful_snapshot_at": "2026-10-19T09:55:03Z",
+    "message": "Artificial Analysis 免費 API 資料已成功更新。",
+    "models_count": 707,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-18T17:30:47Z",
+    "checked_at": "2026-10-19T09:55:12Z",
     "status": "warning",
-    "summary": "內容變更警告為 0；11 個來源自動讀取受限，仍保留最後核實版本。",
+    "summary": "有 2 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -106,6 +106,19 @@
         "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
       }
     ],
-    "warnings": []
+    "warnings": [
+      {
+        "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → f3bb3ef32277）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "aa-public-gpt-6-luna-high-comparison",
+        "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
+      },
+      {
+        "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
+        "message": "官方頁面內容已變更（c17099d39029 → 2cfc9cd75e7c）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "aa-public-gemini-argon-comparison",
+        "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
+      }
+    ]
   }
 }

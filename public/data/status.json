@@ -1,21 +1,21 @@
 {
   "aa": {
-    "checked_at": "2026-10-20T09:26:16Z",
+    "checked_at": "2026-10-21T09:22:36Z",
     "configured": true,
-    "data_updated_at": "2026-10-20T09:26:16Z",
+    "data_updated_at": "2026-10-21T09:22:36Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-20T09:26:16Z",
+    "last_successful_snapshot_at": "2026-10-21T09:22:36Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "models_count": 708,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-20T09:26:29Z",
+    "checked_at": "2026-10-21T09:22:49Z",
     "status": "warning",
-    "summary": "有 10 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "summary": "有 14 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -108,6 +108,18 @@
     ],
     "warnings": [
       {
+        "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
+        "message": "官方頁面內容已變更（57c2b6e08805 → e2867f254304）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "aa-coding-agent-opencode-import-v1.5-2026-10-17",
+        "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
+      },
+      {
+        "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
+        "message": "官方頁面內容已變更（b653fdca74bd → ee714b829ea2）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "aa-coding-agent-import-v1.5-2026-10-17",
+        "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
+      },
+      {
         "label": "Artificial Analysis Coding Agents",
         "message": "官方頁面內容已變更（fe9cacd138a3 → a4229a903fc5）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agents",
@@ -115,25 +127,25 @@
       },
       {
         "label": "Artificial Analysis Intelligence Benchmark Methodology",
-        "message": "官方頁面內容已變更（de26004b835a → b497e62bd3d8）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（de26004b835a → e44f007f4112）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-method",
         "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → 663a1aa92f17）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → dc98c9079616）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
       {
         "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-        "message": "官方頁面內容已變更（c17099d39029 → c1ff429dfe3c）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c17099d39029 → e44747433d26）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
       },
       {
         "label": "Claude Cowork transition and rollout",
-        "message": "官方頁面內容已變更（81d99d90b6a9 → 6b1755f876b0）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（81d99d90b6a9 → 50fbc0ababf8）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-cowork",
         "url": "https://claude.com/blog/cowork-is-now-claude"
       },
@@ -144,8 +156,14 @@
         "url": "https://support.google.com/googleone/answer/14534406?hl=en"
       },
       {
+        "label": "Google AI student offer",
+        "message": "官方頁面內容已變更（8e2faa33ac5a → 6a5fd83558f2）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "google-student-offer",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
+      },
+      {
         "label": "Google Antigravity model access",
-        "message": "官方頁面內容已變更（cb648665b7cd → 2e86fe1fdd61）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cb648665b7cd → c5e1cb068d90）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-models",
         "url": "https://antigravity.google/docs/models/"
       },
@@ -160,6 +178,12 @@
         "message": "官方頁面內容已變更（c4f3e76bb9b1 → d2a9588a8372）；方案資料未自動覆寫，待來源核對。",
         "source_id": "xai-build-all",
         "url": "https://x.ai/news/grok-build-for-everyone"
+      },
+      {
+        "label": "Jules asynchronous coding agent",
+        "message": "官方頁面內容已變更（4d59f143a991 → c873c5799a67）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "google-jules",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
       },
       {
         "label": "xAI X Subscription plans and pricing",

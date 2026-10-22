@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-10-22T01:42:27Z",
+  "last_state_change_at": "2026-10-22T09:25:38Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -27,19 +27,19 @@
     },
     "change:aa-method": {
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
-      "message": "官方頁面內容已變更（de26004b835a → 5c759f3453b1）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（de26004b835a → 34ac8e44e41e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-method",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → d4f8559e9fa1）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → f64264807209）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → fc9baddd8f29）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → 4a4a55597a40）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
@@ -238,16 +238,16 @@
       "baseline_at": "2026-10-17T19:28:01Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"08fd29a3352dccbd0b2833f3e91904c3\"",
+      "etag": "\"18d6e133eb700092a25738ec40f952f0\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
       "last_modified": null,
-      "last_success_at": "2026-10-22T01:42:14Z",
+      "last_success_at": "2026-10-22T09:25:26Z",
       "reviewed_at": "2026-10-17T19:28:01Z",
       "reviewed_sha256": "de26004b835abf0d8a6ab524cbe0c43a189ebe3ab58c413a0d219f17de26e758",
-      "sha256": "5c759f3453b1879b75cd7b6b2345e2f65a6112119a1e3a2fa75c05b657fe88c9",
-      "state_changed_at": "2026-10-22T01:42:14Z",
+      "sha256": "34ac8e44e41e9de4d8623471780753e5733138cb7d243b751f6249477ed008e0",
+      "state_changed_at": "2026-10-22T09:25:26Z",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "aa-public-gemini-argon-comparison": {
@@ -255,16 +255,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"119f256h6j9wvsf\"",
+      "etag": "\"vied318og5wygw\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-22T01:42:24Z",
+      "last_success_at": "2026-10-22T09:25:34Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "d4f8559e9fa1fd79e80c628e90b9a64fdac11248a18d808ee42b50e6bc29e65f",
-      "state_changed_at": "2026-10-22T01:42:24Z",
+      "sha256": "f64264807209b3a67b4cfa9c023866fe46039e264dd43fdbfe8579d391f19692",
+      "state_changed_at": "2026-10-22T09:25:34Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -272,16 +272,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"5irvty6cspwv9x\"",
+      "etag": "\"11m451i5p96wxya\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-22T01:42:25Z",
+      "last_success_at": "2026-10-22T09:25:35Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "fc9baddd8f2993b6a3670df3afea975d1fb7ffd71fa1eb629810483f24a9f706",
-      "state_changed_at": "2026-10-22T01:42:25Z",
+      "sha256": "4a4a55597a405aa6f51b541ba40d0a19acb2d4bdd74c40a1abefe0a376bb639f",
+      "state_changed_at": "2026-10-22T09:25:35Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -331,16 +331,16 @@
       "hash_version": "pricing-region-v2",
       "http_status": 200,
       "label": "Claude pricing",
-      "last_modified": "Thu, 22 Oct 2026 01:38:44 GMT",
-      "last_success_at": "2026-10-22T01:42:16Z",
+      "last_modified": "Thu, 22 Oct 2026 09:15:39 GMT",
+      "last_success_at": "2026-10-22T09:25:27Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
       "reviewed_sha256s": [
         "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
         "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4"
       ],
-      "sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
-      "state_changed_at": "2026-10-22T01:42:16Z",
+      "sha256": "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
+      "state_changed_at": "2026-10-22T09:25:27Z",
       "url": "https://claude.com/pricing"
     },
     "anthropic-pro-cost": {
@@ -450,7 +450,7 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI Plus / Pro / Ultra benefits",
       "last_modified": "Wed, 21 Oct 2026 23:38:00 GMT",
       "last_success_at": "2026-10-22T01:42:21Z",
@@ -569,7 +569,7 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI plans",
       "last_modified": "Wed, 21 Oct 2026 23:38:00 GMT",
       "last_success_at": "2026-10-22T01:42:17Z",

@@ -1,19 +1,19 @@
 {
   "aa": {
-    "checked_at": "2026-10-22T01:42:12Z",
+    "checked_at": "2026-10-22T09:25:24Z",
     "configured": true,
-    "data_updated_at": "2026-10-22T01:42:12Z",
+    "data_updated_at": "2026-10-22T09:25:24Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-22T01:42:12Z",
+    "last_successful_snapshot_at": "2026-10-22T09:25:24Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "models_count": 708,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-22T01:42:27Z",
+    "checked_at": "2026-10-22T09:25:38Z",
     "status": "warning",
     "summary": "有 19 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
@@ -133,19 +133,19 @@
       },
       {
         "label": "Artificial Analysis Intelligence Benchmark Methodology",
-        "message": "官方頁面內容已變更（de26004b835a → 5c759f3453b1）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（de26004b835a → 34ac8e44e41e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-method",
         "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → fc9baddd8f29）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 4a4a55597a40）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
       {
         "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-        "message": "官方頁面內容已變更（c17099d39029 → d4f8559e9fa1）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c17099d39029 → f64264807209）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
       },

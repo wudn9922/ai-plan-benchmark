@@ -837,3 +837,26 @@ button:focus-visible, select:focus-visible, .model-comparison-card__head a:focus
   .metric-triplet__item > span { font-size: 11px; }
   .metric-triplet__item small { font-size: 10px; }
 }
+
+
+/* Narrow screens: stack Chat and Agent comparisons instead of forcing two unreadable columns. */
+@media (max-width: 680px) {
+  .compact-plan-table thead { display: none; }
+  .compact-plan-table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .compact-plan-table tbody td { width: 100%; min-width: 0; grid-column: 1 / -1; }
+  .compact-plan-table tbody td:nth-child(2) { border-right: 0; border-bottom: 1px solid #e4e9e9; }
+  .compact-plan-table tbody td:nth-child(2)::before,
+  .compact-plan-table tbody td:nth-child(3)::before {
+    display: block;
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e5edeb;
+    color: #2d6759;
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .compact-plan-table tbody td:nth-child(2)::before { content: '聊天 Chat'; }
+  .compact-plan-table tbody td:nth-child(3)::before { content: '代理 Agent'; }
+  .compact-plan-table .compact-section-title { font-size: 15px; }
+  .compact-plan-table .compact-model-item, .compact-plan-table .compact-quota-item { gap: 4px; padding: 8px; border-radius: 7px; background: #f7faf9; }
+}

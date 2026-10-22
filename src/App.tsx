@@ -16,7 +16,7 @@ const PROVIDERS = [
 ];
 const TABS: Array<{ id: Tab; label: string; icon: typeof Layers3; subtitle: string }> = [
   { id: 'plans', label: '訂閱方案', icon: Layers3, subtitle: '比月費、產品權限與三種分開計量的額度。' },
-  { id: 'models', label: '模型能力', icon: Sparkles, subtitle: '檢視 Artificial Analysis 指數、API 成本與基準測試版本。' },
+  { id: 'models', label: '模型能力', icon: Sparkles, subtitle: '同時比較 Artificial Analysis 評分、每秒輸出速度與 API 價格。' },
   { id: 'coding', label: '程式代理', icon: Code2, subtitle: '比較代理、模型與執行框架組態，不把代理結果當成純模型分數。' },
   { id: 'value', label: '每美元價值', icon: BadgeDollarSign, subtitle: '分開比較訂閱月費、智能評測成本與程式代理成本。' },
 ];
@@ -291,6 +291,28 @@ function mappedModels(snapshot: Snapshot, plan: SubscriptionPlan): ModelRecord[]
   return snapshot.models.filter((model) => names.includes(model.name.trim().toLowerCase()) || names.includes(model.id.trim().toLowerCase()));
 }
 
+
+/** AA speed is API streaming output throughput, not the speed of an app subscription. */
+function readableSpeed(value: number | null): string {
+  return value !== null && Number.isFinite(value) && value > 0
+    ? value.toLocaleString('zh-Hant', { maximumFractionDigits: 1 })
+    : '—';
+}
+
+function readableApiPrice(value: number | null): string {
+  if (value === null || !Number.isFinite(value) || value < 0) return '—';
+  return '$' + value.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: value < 0.1 ? 5 : value < 1 ? 4 : 2 });
+}
+
+function ModelMetricTriplet({ model, activeIndex = 'intelligence' }: { model: ModelRecord; activeIndex?: string }) {
+  const score = model.indices[activeIndex];
+  return <div className="metric-triplet" role="group" aria-label={`${model.name} 的能力評分、輸出速度和 API 輸出價格`}>
+    <div className="metric-triplet__item metric-triplet__item--score"><span>{INDEX_LABELS[activeIndex]?.label ?? '能力評分'}</span><strong>{score === null || score === undefined ? '—' : score}</strong><small>AA 指數</small></div>
+    <div className="metric-triplet__item metric-triplet__item--speed"><span>輸出速度</span><strong>{readableSpeed(model.performance.output_tokens_per_second)}</strong><small>tokens／秒</small></div>
+    <div className="metric-triplet__item metric-triplet__item--price"><span>API 輸出價</span><strong>{readableApiPrice(model.api_pricing.output_per_million_usd)}</strong><small>USD／百萬 tokens</small></div>
+  </div>;
+}
+
 function linkedPlanMetric(snapshot: Snapshot, plan: SubscriptionPlan, metric: 'cost' | 'speed'): number | null {
   const models = mappedModels(snapshot, plan);
   if (metric === 'cost') {
@@ -355,12 +377,18 @@ function PlanCard({ plan, snapshot, quotaFilter, verifiedOnly, includeCommunity 
   const chatModelNames = [...new Set(compactModelAccesses(plan, 'chat').map(({ access }) => modelAccessLabel(access.model)))];
   const agentModelNames = [...new Set(compactModelAccesses(plan, 'agent').map(({ access }) => modelAccessLabel(access.model)))];
   const modelSummary = (names: string[]) => names.length ? `${names.slice(0, 3).join('、')}${names.length > 3 ? ` 等 ${names.length} 款` : ''}` : '尚無已公開模型';
+  const quickLookModels = compactModelAccesses(plan, 'chat')
+    .map(({ access }) => ({ model: modelForAccess(snapshot, plan, access), mapping: access.mapping }))
+    .filter((item): item is { model: ModelRecord; mapping: ProductAccess['model_access'][number]['mapping'] } => item.model !== null)
+    .filter((item, index, items) => items.findIndex((candidate) => candidate.model.id === item.model.id) === index)
+    .slice(0, 2);
   return <article className="plan-card">
     <div className="plan-card__heading">
       <div><span className={`provider-dot provider-dot--${plan.provider}`} /><span className="provider-name">{plan.provider_name}</span><span className="plan-tier">{plan.tier === 'free' ? '免費方案' : plan.tier === 'reference' ? '參考方案（>$30）' : '個人方案'}</span></div>
       <h3>{planLabel(plan.name)}</h3>
     </div>
     <PriceBlock plan={plan} />
+    {quickLookModels.length > 0 && <div className="plan-model-quicklook"><h4>可用聊天模型 · 能力／速度／API 價格</h4>{quickLookModels.map(({ model, mapping }) => <div className="plan-model-quicklook__row" key={model.id}><div className="plan-model-quicklook__name"><b>{model.name}</b>{mapping !== 'exact' && <small>近似對應，非同一組態保證</small>}</div><ModelMetricTriplet model={model} /></div>)}<p>速度及單價為模型 API 評測資料，不是此方案的使用速度或額外訂閱費。</p></div>}
     <div className="plan-card__summary">
       <div className="plan-summary-models">
         <div><b>聊天可用模型</b><span>{modelSummary(chatModelNames)}</span></div>
@@ -545,6 +573,7 @@ function CompactModelList({ plan, snapshot, category }: { plan: SubscriptionPlan
       <span className="compact-product-name">{productNames}</span>
       <b>{access.model}</b>
       <small className={score === MISSING ? 'compact-no-score' : 'compact-score'}>{score}{scoreModel && <> · <a href={scoreModel.public_page_source_url ?? scoreModel.source_url} target="_blank" rel="noreferrer" title={`Artificial Analysis 評測來源；資料更新 ${scoreModel.source_updated_at ?? '日期未公布'}`} aria-label="模型評分來源"><ExternalLink size={11}/></a></>}</small>
+      {scoreModel && <div className="compact-model-stats"><span>速度 <b>{access.mapping === 'exact' ? '' : '≈'}{readableSpeed(scoreModel.performance.output_tokens_per_second)}</b> tokens/s</span><span>API 輸出 <b>{access.mapping === 'exact' ? '' : '≈'}{readableApiPrice(scoreModel.api_pricing.output_per_million_usd)}</b>／百萬</span></div>}
     </div>;
   })}</div>;
 }
@@ -627,8 +656,8 @@ function CompactPlanTable({ plans, snapshot, verifiedOnly, includeCommunity }: {
 }
 
 function IndexTable({ models, activeIndex }: { models: ModelRecord[]; activeIndex: string }) {
-  return <div className="table-scroll"><table className="data-table index-table"><thead><tr><th>公司與模型</th>{INDEX_KEYS.map((key) => <th key={key}><span className="th-info">{INDEX_LABELS[key].label}<Info title={INDEX_LABELS[key].label}>{INDEX_LABELS[key].description}</Info></span></th>)}<th><span className="th-info">智能評測每任務 API 成本（美元）<Info title="智能評測每任務 API 成本（美元）">依 Artificial Analysis 綜合智能指數基準工作負載中的詞元（Token）用量及 API 定價計算；不是訂閱月費或訂閱任務保證。免費 API 不提供逐項基準測試的原始結果。</Info></span></th></tr></thead>
-    <tbody>{models.length ? models.map((model) => <tr key={model.id}><td><b>{model.name}</b><small>{model.provider} · {model.version ?? '模型版本未另行公布'}{model.retired ? ' · 已淘汰' : ''}<br/>模型代碼：{model.id}</small>{model.benchmarks.length > 0 && <details className="model-benchmark-disclosure"><summary>查看底層基準測試（{model.benchmarks.length}）</summary><div className="model-benchmark-list">{model.benchmarks.map((score) => <div className="model-benchmark-item" key={`${score.benchmark_id}-${score.version ?? 'unknown'}`}><b>{benchmarkLabel(score.benchmark_id)}</b><span>{score.score === null ? MISSING : `${score.score}${score.unit === '%' || score.unit.startsWith('%') ? '' : ` ${translateUiText(score.unit)}`}`}</span><small>版本 {score.version ?? '未另行公布'} · {score.higher_is_better === true ? '越高越佳' : score.higher_is_better === false ? '越低越佳' : '依官方方法'}</small><small>資料更新日 {score.updated_at ?? '未公布'} · 核對日 {model.source_checked_at ?? '見來源核對紀錄'}</small><a href={score.method_url} target="_blank" rel="noreferrer">官方方法 <ExternalLink size={10}/></a></div>)}</div><a className="model-benchmark-source" href={model.public_page_source_url ?? model.source_url} target="_blank" rel="noreferrer">分數來源頁 <ExternalLink size={10}/></a></details>}</td>{INDEX_KEYS.map((key) => <td className={activeIndex === key ? 'selected-score' : ''} key={key}>{model.indices[key] === null || model.indices[key] === undefined ? <span className="muted">{MISSING}</span> : <b>{model.indices[key]}</b>}</td>)}<td>{model.intelligence_cost_per_task_usd === null ? <span className="muted">{MISSING}</span> : <>{formatPrice(model.intelligence_cost_per_task_usd)}<small>{model.intelligence_cost_model_name} · 代碼 {model.intelligence_cost_model_id} · 推理強度 {reasoningLabel(model.intelligence_cost_reasoning)} · 評測版本 {model.intelligence_cost_benchmark_version ?? '版本未知'}</small></>}<small>{model.data_origin === 'aa_free_api' ? '官方免費 API' : model.data_origin === 'aa_free_api+aa_public_page' ? '免費 API＋公開頁面快照' : '官方公開頁面快照'} · API 資料更新 {model.source_updated_at ?? '未公布'} · 頁面核對 {model.public_page_checked_at ?? model.source_checked_at ?? '見來源核對紀錄'} · <a href={model.source_url} target="_blank" rel="noreferrer">資料來源 <ExternalLink size={10}/></a>{model.public_page_source_url && <> · <a href={model.public_page_source_url} target="_blank" rel="noreferrer">公開頁面 <ExternalLink size={10}/></a></>}</small></td></tr>) : <tr><td colSpan={11}><EmptyState title="尚無已取得的 Artificial Analysis 分數" description="正式 API 需要 AA_API_KEY。免費 API 包含 9 項能力指數與智能評測每任務成本；目前未載入已授權 API 資料，因此分數維持缺值。" /></td></tr>}</tbody>
+  return <div className="table-scroll"><table className="data-table index-table"><thead><tr><th>公司與模型</th><th>輸出速度（tokens/s）</th><th>API 輸出價（USD／百萬 tokens）</th>{INDEX_KEYS.map((key) => <th key={key}><span className="th-info">{INDEX_LABELS[key].label}<Info title={INDEX_LABELS[key].label}>{INDEX_LABELS[key].description}</Info></span></th>)}<th><span className="th-info">智能評測每任務 API 成本（美元）<Info title="智能評測每任務 API 成本（美元）">依 Artificial Analysis 綜合智能指數基準工作負載中的詞元（Token）用量及 API 定價計算；不是訂閱月費或訂閱任務保證。免費 API 不提供逐項基準測試的原始結果。</Info></span></th></tr></thead>
+    <tbody>{models.length ? models.map((model) => <tr key={model.id}><td><b>{model.name}</b><small>{model.provider} · {model.version ?? '模型版本未另行公布'}{model.retired ? ' · 已淘汰' : ''}<br/>模型代碼：{model.id}</small>{model.benchmarks.length > 0 && <details className="model-benchmark-disclosure"><summary>查看底層基準測試（{model.benchmarks.length}）</summary><div className="model-benchmark-list">{model.benchmarks.map((score) => <div className="model-benchmark-item" key={`${score.benchmark_id}-${score.version ?? 'unknown'}`}><b>{benchmarkLabel(score.benchmark_id)}</b><span>{score.score === null ? MISSING : `${score.score}${score.unit === '%' || score.unit.startsWith('%') ? '' : ` ${translateUiText(score.unit)}`}`}</span><small>版本 {score.version ?? '未另行公布'} · {score.higher_is_better === true ? '越高越佳' : score.higher_is_better === false ? '越低越佳' : '依官方方法'}</small><small>資料更新日 {score.updated_at ?? '未公布'} · 核對日 {model.source_checked_at ?? '見來源核對紀錄'}</small><a href={score.method_url} target="_blank" rel="noreferrer">官方方法 <ExternalLink size={10}/></a></div>)}</div><a className="model-benchmark-source" href={model.public_page_source_url ?? model.source_url} target="_blank" rel="noreferrer">分數來源頁 <ExternalLink size={10}/></a></details>}</td><td><b>{readableSpeed(model.performance.output_tokens_per_second)}</b></td><td><b>{readableApiPrice(model.api_pricing.output_per_million_usd)}</b></td>{INDEX_KEYS.map((key) => <td className={activeIndex === key ? 'selected-score' : ''} key={key}>{model.indices[key] === null || model.indices[key] === undefined ? <span className="muted">{MISSING}</span> : <b>{model.indices[key]}</b>}</td>)}<td>{model.intelligence_cost_per_task_usd === null ? <span className="muted">{MISSING}</span> : <>{formatPrice(model.intelligence_cost_per_task_usd)}<small>{model.intelligence_cost_model_name} · 代碼 {model.intelligence_cost_model_id} · 推理強度 {reasoningLabel(model.intelligence_cost_reasoning)} · 評測版本 {model.intelligence_cost_benchmark_version ?? '版本未知'}</small></>}<small>{model.data_origin === 'aa_free_api' ? '官方免費 API' : model.data_origin === 'aa_free_api+aa_public_page' ? '免費 API＋公開頁面快照' : '官方公開頁面快照'} · API 資料更新 {model.source_updated_at ?? '未公布'} · 頁面核對 {model.public_page_checked_at ?? model.source_checked_at ?? '見來源核對紀錄'} · <a href={model.source_url} target="_blank" rel="noreferrer">資料來源 <ExternalLink size={10}/></a>{model.public_page_source_url && <> · <a href={model.public_page_source_url} target="_blank" rel="noreferrer">公開頁面 <ExternalLink size={10}/></a></>}</small></td></tr>) : <tr><td colSpan={13}><EmptyState title="尚無已取得的 Artificial Analysis 分數" description="正式 API 需要 AA_API_KEY。免費 API 包含 9 項能力指數與智能評測每任務成本；目前未載入已授權 API 資料，因此分數維持缺值。" /></td></tr>}</tbody>
     </table></div>;
 }
 
@@ -659,7 +688,10 @@ function BenchmarkCatalog({ snapshot, indexId }: { snapshot: Snapshot; indexId: 
 
 function ModelPage({ snapshot, models, activeIndex, onIndex, providerFilter }: { snapshot: Snapshot; models: ModelRecord[]; activeIndex: string; onIndex: (id: string) => void; providerFilter: string }) {
   const filtered = providerFilter === 'all' ? models : models.filter((model) => `${model.provider} ${model.id}`.toLowerCase().includes(providerFilter));
-  const summaryModels = filtered.slice(0, 6);
+  const [shownModelCount, setShownModelCount] = useState(24);
+  useEffect(() => { setShownModelCount(24); }, [models, activeIndex, providerFilter]);
+  const visibleModels = filtered.slice(0, shownModelCount);
+  const speedCount = filtered.filter((model) => model.performance.output_tokens_per_second !== null && model.performance.output_tokens_per_second > 0).length;
   const chartData = comparableCostPoints(filtered).map((item) => ({ name: item.name, provider: item.id, x: item.cost, y: item.score }));
   const apiConnected = models.some((model) => model.data_origin === 'aa_free_api' || model.data_origin === 'aa_free_api+aa_public_page');
   const publicSnapshots = models.filter((model) => model.data_origin === 'aa_public_page' || model.data_origin === 'aa_free_api+aa_public_page').length;
@@ -667,14 +699,16 @@ function ModelPage({ snapshot, models, activeIndex, onIndex, providerFilter }: {
     <section className="section-panel">
       <div className="snapshot-note"><b>{apiConnected ? 'Artificial Analysis 免費 API＋官方公開頁面快照' : '官方公開頁面快照'}</b><span>{apiConnected ? `目前有免費 API 模型資料；另保留 ${publicSnapshots} 筆公開頁面基準測試快照。` : `以下 ${publicSnapshots} 筆模型組態及底層測試分數於 2026-10-16 從公開官方比較頁人工核對；免費 API 尚未連接（需要 API 金鑰），不代表即時 API 擷取。`}</span></div>
       <div className="section-title"><div><h2>Artificial Analysis 能力指數</h2><p>目前指數方法版 {snapshot.index_versions.intelligence_methodology ?? '尚未核實'}；API 回傳版 {snapshot.index_versions.intelligence_api ?? '未連接'}。</p></div><label className="select-label">查看欄位<select value={activeIndex} onChange={(e) => onIndex(e.target.value)}>{INDEX_KEYS.map((key) => <option value={key} key={key}>{INDEX_LABELS[key].label}</option>)}</select></label></div>
-      <div className="model-summary-block">
-        <div className="summary-block-heading"><h3>{INDEX_LABELS[activeIndex]?.label ?? '能力指數'}摘要</h3><span>{filtered.length > summaryModels.length ? `顯示前 ${summaryModels.length} 個` : `顯示全部 ${summaryModels.length} 個`}／共 {filtered.length} 個模型 · 依目前排序</span></div>
-        {summaryModels.length ? <div className="model-summary-grid">{summaryModels.map((model) => <article className="summary-card" key={model.id}>
-          <span className="summary-card__eyebrow">{translateUiText(model.provider)}</span><h4>{model.name}</h4>
-          <div className="summary-card__metric"><b>{model.indices[activeIndex] ?? MISSING}</b><span>{INDEX_LABELS[activeIndex]?.label}</span></div>
-          <p>智能評測每任務成本：{model.intelligence_cost_per_task_usd === null ? MISSING : formatPrice(model.intelligence_cost_per_task_usd)}</p>
-          <small>模型版本 {model.version ?? '未公布'} · {evidenceLabel(model.source_kind)}</small>
+      <div className="model-summary-block comparison-board">
+        <div className="summary-block-heading"><h3>模型評分 × 速度 × 價格</h3><span>顯示 {visibleModels.length}／{filtered.length} 個 · {speedCount} 個有速度資料</span></div>
+        <p className="comparison-board__note">三項核心指標直接並排。速度為 Artificial Analysis 模型 API 的生成輸出速度（tokens/s）；價格是 API 輸出每百萬 tokens 的美元單價，均不代表聊天訂閱版的表現或月費。「—」表示未取得可靠資料。</p>
+        {visibleModels.length ? <div className="model-comparison-list">{visibleModels.map((model) => <article className="model-comparison-card" key={model.id}>
+          <div className="model-comparison-card__head"><div><span className="model-comparison-card__provider">{translateUiText(model.provider)}</span><h4>{model.name}</h4></div><a href={model.public_page_source_url ?? model.source_url} target="_blank" rel="noreferrer" aria-label={`查看 ${model.name} 的 Artificial Analysis 來源`}>來源 <ExternalLink size={13}/></a></div>
+          <ModelMetricTriplet model={model} activeIndex={activeIndex} />
+          <div className="model-comparison-card__detail"><span>API 輸入 <b>{readableApiPrice(model.api_pricing.input_per_million_usd)}</b>／百萬</span><span>智能評測每任務 <b>{readableApiPrice(model.intelligence_cost_per_task_usd)}</b></span></div>
+          {model.intelligence_cost_reasoning && model.intelligence_cost_reasoning !== 'unknown' && <small className="model-comparison-card__meta">推理強度 {reasoningLabel(model.intelligence_cost_reasoning)} · {model.intelligence_cost_benchmark_version ?? '版本未公布'}</small>}
         </article>)}</div> : <EmptyState title="目前篩選條件沒有模型" description="調整公司、模型或來源條件。"/>}
+        {shownModelCount < filtered.length && <button className="model-load-more" type="button" onClick={() => setShownModelCount((count) => count + 24)}>再顯示 24 個模型（尚有 {filtered.length - shownModelCount} 個）</button>}
       </div>
       <details className="data-disclosure"><summary>查看九項能力的資料覆蓋</summary><div className="index-cards">{INDEX_KEYS.map((key) => <button className={`index-chip ${activeIndex === key ? 'index-chip--active' : ''}`} onClick={() => onIndex(key)} key={key}><span>{INDEX_LABELS[key].label}<Info title={INDEX_LABELS[key].label}>{INDEX_LABELS[key].description}</Info></span><b>{models.length ? models.filter((model) => model.indices[key] !== null).length : '—'}</b><small>有分數模型</small></button>)}</div></details>
       <details className="data-disclosure"><summary>完整模型指數、底層測試與資料來源（{filtered.length} 個模型）</summary><IndexTable models={filtered} activeIndex={activeIndex} /></details>
@@ -851,6 +885,14 @@ function App() {
     if (verifiedOnly) rows = rows.filter((model) => model.source_kind === 'official');
     if (sort === 'score-high') rows = [...rows].sort((a,b) => (b.indices[activeIndex] ?? -Infinity) - (a.indices[activeIndex] ?? -Infinity));
     if (sort === 'cost-low') rows = [...rows].sort((a,b) => (a.intelligence_cost_per_task_usd ?? Infinity) - (b.intelligence_cost_per_task_usd ?? Infinity));
+    if (sort === 'speed-high') rows = [...rows].sort((a,b) => (b.performance.output_tokens_per_second ?? -Infinity) - (a.performance.output_tokens_per_second ?? -Infinity));
+    if (sort === 'price-output-low') rows = [...rows].sort((a,b) => (a.api_pricing.output_per_million_usd ?? Infinity) - (b.api_pricing.output_per_million_usd ?? Infinity));
+    if (sort === 'complete-first') {
+      const completeness = (model: ModelRecord) => Number(model.indices[activeIndex] !== null && model.indices[activeIndex] !== undefined)
+        + Number(model.performance.output_tokens_per_second !== null)
+        + Number(model.api_pricing.output_per_million_usd !== null);
+      rows = [...rows].sort((a,b) => completeness(b) - completeness(a) || (b.indices[activeIndex] ?? -Infinity) - (a.indices[activeIndex] ?? -Infinity));
+    }
     if (sort === 'value-high') {
       const version = preferredVersion(rows.map((model) => model.intelligence_cost_benchmark_version));
       rows = [...rows].sort((a,b) => (intelligenceEfficiency(b,version) ?? -Infinity) - (intelligenceEfficiency(a,version) ?? -Infinity));
@@ -911,7 +953,7 @@ function App() {
             {tab === 'plans' && windowOptions.length > 0 && <label><span>額度窗口</span><select value={windowFilter} onChange={(e)=>setWindowFilter(e.target.value)}><option value="all">全部窗口</option>{windowOptions.map((window)=><option key={window} value={window}>{quotaWindow(window)}</option>)}</select></label>}
             {tab === 'models' && <label><span>能力指標篩選</span><select value={capabilityFilter} onChange={(e)=>setCapabilityFilter(e.target.value)}><option value="all">不依分數篩選</option>{INDEX_KEYS.map((key)=><option key={key} value={key}>{INDEX_LABELS[key].label}</option>)}</select></label>}
             {tab === 'plans' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="price-low">月費最低</option><option value="price-high">月費最高</option><option value="quota-chat">對話額度可量化資料最多</option><option value="quota-coding">程式代理額度可量化資料最多</option><option value="cost-low" disabled={!hasPlanCostSort}>可用模型評測成本最低</option><option value="speed-high" disabled={!hasPlanSpeedSort}>可用模型輸出最快</option></select>{!hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本或速度資料；暫停這兩種排序。</small>}{!hasPlanCostSort && hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的評測成本資料；成本排序暫停。</small>}{hasPlanCostSort && !hasPlanSpeedSort && <small className="sort-note">目前沒有與訂閱可用模型精確對應的速度資料；速度排序暫停。</small>}</label>}
-            {tab === 'models' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">能力最高</option><option value="cost-low">每任務成本最低</option><option value="value-high">每美元效率最高</option></select></label>}
+            {tab === 'models' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">能力最高</option><option value="cost-low">每任務成本最低</option><option value="value-high">每美元效率最高</option><option value="speed-high">每秒輸出速度最快</option><option value="price-output-low">API 輸出單價最低</option><option value="complete-first">三指標完整優先</option></select></label>}
             {tab === 'coding' && <label><span>排序</span><select value={sort} onChange={(e)=>setSort(e.target.value)}><option value="score-high">程式代理指數最高</option><option value="cost-low">每任務成本最低</option></select></label>}
             <label className="check-filter"><input type="checkbox" checked={verifiedOnly} onChange={(e)=>setVerifiedOnly(e.target.checked)}/><span>只看官方驗證</span></label>
             <label className="check-filter"><input type="checkbox" checked={includeCommunity} onChange={(e)=>setIncludeCommunity(e.target.checked)}/><span>納入社群實測</span></label>
@@ -923,6 +965,7 @@ function App() {
         <div className="plan-view-toolbar"><span>方案呈現方式</span><div role="group" aria-label="方案呈現方式"><button type="button" aria-pressed={planView === 'cards'} className={planView === 'cards' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('cards')}>方案卡片</button><button type="button" aria-pressed={planView === 'table'} className={planView === 'table' ? 'plan-view-button plan-view-button--active' : 'plan-view-button'} onClick={() => setPlanView('table')}>精簡表格</button></div></div>
         {plans.length ? planView === 'cards' ? <div className="plan-grid">{plans.map((plan)=><PlanCard key={plan.id} plan={plan} snapshot={snapshot} quotaFilter={quotaFilter} verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/>)}</div> : <section className="section-panel compact-plan-panel"><CompactPlanTable plans={plans} snapshot={snapshot} verifiedOnly={verifiedOnly} includeCommunity={includeCommunity}/></section> : <EmptyState title="沒有符合篩選的方案" description="調整公司、月費上限、來源或搜尋條件。未知價格不會被當作零元納入上限。"/>}
       </div>}
+      {tab === 'models' && <div className="model-quick-sort"><label htmlFor="model-quick-sort-select">模型排序</label><select id="model-quick-sort-select" value={sort} onChange={(e) => setSort(e.target.value)}><option value="score-high">評分高至低</option><option value="speed-high">輸出速度最快</option><option value="price-output-low">API 輸出價格最低</option><option value="cost-low">每任務 API 成本最低</option><option value="value-high">每美元效率最高</option><option value="complete-first">評分、速度、價格完整優先</option></select><span>模型 API 指標，並非訂閱 App 的實測數據</span></div>}
       {tab==='models' && <ModelPage snapshot={snapshot} models={models} activeIndex={activeIndex} onIndex={setActiveIndex} providerFilter={provider}/>}
       {tab==='coding' && <CodingPage snapshot={snapshot} agents={agents} verifiedOnly={verifiedOnly}/>}
       {tab==='value' && <ValuePage snapshot={snapshot} plans={plans} models={models} agents={agents} verifiedOnly={verifiedOnly}/>}

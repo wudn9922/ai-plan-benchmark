@@ -707,3 +707,156 @@ html, body, #root { width: 100%; max-width: 100%; }
   .compact-model-item > b, .compact-quota-item > b { font-size: 14px; }
   .compact-model-item > small, .compact-quota-item > small { font-size: 14px; }
 }
+
+
+/* Model leaderboard: score, API throughput, and API output pricing share one viewport. */
+.model-quick-sort {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px 12px;
+  margin-bottom: 12px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.model-quick-sort label { color: #344f4c; font-size: 14px; font-weight: 750; }
+.model-quick-sort select {
+  min-height: 44px;
+  min-width: min(285px, 100%);
+  padding: 0 36px 0 12px;
+  border: 1px solid #cbdad5;
+  border-radius: 9px;
+  background: #f8fbfa;
+  color: var(--ink);
+  font-size: 15px;
+}
+.model-quick-sort span { color: var(--muted); font-size: 13px; line-height: 1.45; }
+.comparison-board__note { margin: 0 0 13px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.model-comparison-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.model-comparison-card {
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #dce6e4;
+  border-radius: 13px;
+  background: linear-gradient(155deg, #fff, #fbfdfc);
+  box-shadow: 0 3px 13px rgba(27, 54, 52, .045);
+}
+.model-comparison-card__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+.model-comparison-card__head > div { min-width: 0; }
+.model-comparison-card__provider { display: block; color: #4f796f; font-size: 12px; font-weight: 700; }
+.model-comparison-card__head h4 { margin: 4px 0 0; color: var(--ink); font-size: 17px; line-height: 1.38; overflow-wrap: anywhere; letter-spacing: -.02em; }
+.model-comparison-card__head > a { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 4px; min-height: 36px; color: var(--green-dark); font-size: 13px; text-decoration: none; }
+.metric-triplet { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; min-width: 0; }
+.metric-triplet__item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 11px 9px 10px;
+  border: 1px solid #e2eae8;
+  border-radius: 10px;
+  background: #f7faf9;
+}
+.metric-triplet__item--score { background: #eef6f3; border-color: #d4e7de; }
+.metric-triplet__item > span { min-height: 34px; color: #4f6664; font-size: 12px; line-height: 1.4; font-weight: 650; overflow-wrap: anywhere; }
+.metric-triplet__item strong { color: #193e37; font-size: clamp(16px, 1.6vw, 24px); font-variant-numeric: tabular-nums; line-height: 1.2; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.metric-triplet__item--speed strong { color: #225f75; }
+.metric-triplet__item--price strong { color: #624b35; }
+.metric-triplet__item small { color: #6f7d7c; font-size: 11px; line-height: 1.4; overflow-wrap: anywhere; }
+.model-comparison-card__detail { display: flex; flex-wrap: wrap; gap: 6px 15px; padding-top: 11px; color: #576d69; font-size: 12px; line-height: 1.5; }
+.model-comparison-card__detail b { color: #243e38; font-weight: 700; font-variant-numeric: tabular-nums; }
+.model-comparison-card__meta { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.model-load-more {
+  display: block;
+  width: 100%;
+  min-height: 47px;
+  margin-top: 13px;
+  padding: 8px 14px;
+  color: var(--green-dark);
+  border: 1px solid #c7ded6;
+  border-radius: 10px;
+  background: #f0f8f5;
+  font-size: 14px;
+  font-weight: 750;
+}
+.model-load-more:hover { background: #e7f3ee; }
+.plan-model-quicklook { display: grid; gap: 9px; padding: 0 16px 14px; }
+.plan-model-quicklook > h4 { margin: 0; color: #48655c; font-size: 13px; }
+.plan-model-quicklook__row { min-width: 0; display: grid; gap: 7px; padding: 9px; border: 1px solid #e4ebe8; border-radius: 10px; background: #fbfdfc; }
+.plan-model-quicklook__name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 9px; min-width: 0; }
+.plan-model-quicklook__name b { font-size: 13px; overflow-wrap: anywhere; }
+.plan-model-quicklook__name small { color: #855f34; font-size: 12px; }
+.plan-model-quicklook .metric-triplet__item { padding: 8px 7px; }
+.plan-model-quicklook .metric-triplet__item > span { min-height: 0; font-size: 11px; }
+.plan-model-quicklook .metric-triplet__item strong { font-size: 17px; }
+.plan-model-quicklook .metric-triplet__item small { font-size: 10px; }
+.plan-model-quicklook > p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.compact-model-stats { display: flex; flex-wrap: wrap; gap: 3px 9px; color: #536f6b; font-size: 12px; line-height: 1.45; }
+.compact-model-stats b { color: #254e46; font-size: inherit; font-variant-numeric: tabular-nums; }
+.index-table { min-width: 1370px; }
+.index-table th:nth-child(2), .index-table th:nth-child(3) { background: #edf5f2; }
+button:focus-visible, select:focus-visible, .model-comparison-card__head a:focus-visible { outline: 3px solid #70aa99; outline-offset: 2px; }
+
+@media (max-width: 950px) {
+  .model-comparison-list { grid-template-columns: minmax(0, 1fr); }
+  .model-comparison-card .metric-triplet__item strong { font-size: 22px; }
+}
+@media (max-width: 680px) {
+  .model-quick-sort { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; margin-bottom: 9px; padding: 11px; }
+  .model-quick-sort label { font-size: 14px; }
+  .model-quick-sort select { width: 100%; min-width: 0; min-height: 48px; font-size: 16px; }
+  .model-quick-sort span, .comparison-board__note { font-size: 13px; }
+  .comparison-board .summary-block-heading { gap: 4px; }
+  .model-comparison-list { gap: 10px; }
+  .model-comparison-card { padding: 12px; border-radius: 12px; }
+  .model-comparison-card__head h4 { font-size: 17px; }
+  .model-comparison-card__head > a { min-height: 44px; font-size: 14px; }
+  .model-comparison-card__provider { font-size: 13px; }
+  .metric-triplet { gap: 5px; }
+  .metric-triplet__item { padding: 10px 6px; border-radius: 8px; }
+  .metric-triplet__item > span { min-height: 39px; font-size: 12px; }
+  .model-comparison-card .metric-triplet__item strong { font-size: clamp(16px, 5vw, 21px); }
+  .metric-triplet__item small { font-size: 11px; }
+  .model-comparison-card__detail, .model-comparison-card__meta { font-size: 13px; }
+  .plan-model-quicklook { padding: 0 13px 12px; }
+  .plan-model-quicklook > h4 { font-size: 14px; }
+  .plan-model-quicklook__name b { font-size: 14px; }
+  .plan-model-quicklook__name small { font-size: 12px; }
+  .plan-model-quicklook .metric-triplet__item strong { font-size: 17px; }
+  .plan-model-quicklook .metric-triplet__item small, .plan-model-quicklook .metric-triplet__item > span { font-size: 11px; }
+  .plan-model-quicklook > p { font-size: 12px; }
+  .compact-model-stats { font-size: 12px; }
+}
+@media (max-width: 360px) {
+  .model-comparison-card { padding: 10px; }
+  .metric-triplet__item { padding: 9px 4px; }
+  .model-comparison-card .metric-triplet__item strong { font-size: 15px; }
+  .metric-triplet__item > span { font-size: 11px; }
+  .metric-triplet__item small { font-size: 10px; }
+}
+
+
+/* Narrow screens: stack Chat and Agent comparisons instead of forcing two unreadable columns. */
+@media (max-width: 680px) {
+  .compact-plan-table thead { display: none; }
+  .compact-plan-table tbody tr { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .compact-plan-table tbody td { width: 100%; min-width: 0; grid-column: 1 / -1; }
+  .compact-plan-table tbody td:nth-child(2) { border-right: 0; border-bottom: 1px solid #e4e9e9; }
+  .compact-plan-table tbody td:nth-child(2)::before,
+  .compact-plan-table tbody td:nth-child(3)::before {
+    display: block;
+    margin: 0 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e5edeb;
+    color: #2d6759;
+    font-size: 15px;
+    font-weight: 800;
+  }
+  .compact-plan-table tbody td:nth-child(2)::before { content: '聊天 Chat'; }
+  .compact-plan-table tbody td:nth-child(3)::before { content: '代理 Agent'; }
+  .compact-plan-table .compact-section-title { font-size: 15px; }
+  .compact-plan-table .compact-model-item, .compact-plan-table .compact-quota-item { gap: 4px; padding: 8px; border-radius: 7px; background: #f7faf9; }
+}

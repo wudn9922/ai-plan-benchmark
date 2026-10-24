@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-10-23T09:22:05Z",
+  "last_state_change_at": "2026-10-24T08:53:27Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -21,7 +21,7 @@
     },
     "change:aa-coding-agents": {
       "label": "Artificial Analysis Coding Agents",
-      "message": "官方頁面內容已變更（fe9cacd138a3 → ae2e016c4217）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（fe9cacd138a3 → 2f211dfa63e1）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agents",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
@@ -45,31 +45,31 @@
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → 37eeae6be7b8）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → 49c163317b3f）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → a8fda18c554a）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → 14e3288f30e1）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → 937b22bb1a9b）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → 6c14b3aae6fb）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "change:anthropic-cowork": {
       "label": "Claude Cowork transition and rollout",
-      "message": "官方頁面內容已變更（81d99d90b6a9 → 8bf078433d8c）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（81d99d90b6a9 → 7ff72febc3aa）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-cowork",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "change:anthropic-research": {
       "label": "Use Research on Claude",
-      "message": "官方頁面內容已變更（baf36722033d → 8b6b24de0553）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（baf36722033d → 1d2685d287ab）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-research",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
@@ -81,7 +81,7 @@
     },
     "change:antigravity-plans": {
       "label": "Google Antigravity plans and limits",
-      "message": "官方頁面內容已變更（3f5422535180 → 1997bc09a08e）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（3f5422535180 → 83ad232409ce）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-plans",
       "url": "https://antigravity.google/docs/plans"
     },
@@ -111,7 +111,7 @@
     },
     "change:google-student-offer": {
       "label": "Google AI student offer",
-      "message": "官方頁面內容已變更（8e2faa33ac5a → 6a5fd83558f2）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8e2faa33ac5a → 4e0ce92b9911）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-student-offer",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
@@ -205,16 +205,16 @@
       "baseline_at": "2026-10-17T19:28:01Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"oovmgc7tqmibcv\"",
+      "etag": "\"a2ed7c83827d78d2fb419595e2a6df7b\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agents",
       "last_modified": null,
-      "last_success_at": "2026-10-23T09:21:53Z",
+      "last_success_at": "2026-10-24T08:53:19Z",
       "reviewed_at": "2026-10-17T19:28:01Z",
       "reviewed_sha256": "fe9cacd138a3b305161a2aa2e60a863a345fdc5cd2b211077bf54c496f88ffa6",
-      "sha256": "ae2e016c4217e119b9abb7280af43c71bf26980e13eb372bd3a0643bd5c3ce00",
-      "state_changed_at": "2026-10-23T09:21:53Z",
+      "sha256": "2f211dfa63e1f9557ace470327df2a272f015fb2741f5613ef84ee38682a179f",
+      "state_changed_at": "2026-10-24T08:53:19Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
     "aa-coding-method": {
@@ -273,16 +273,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"wxt13dkcmmwzt0\"",
+      "etag": "\"182334jwt3fx6j6\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-23T09:22:02Z",
+      "last_success_at": "2026-10-24T08:53:24Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "37eeae6be7b8f9f85384904434dc05f07c8bab8a8d0276a483ca537d4810af31",
-      "state_changed_at": "2026-10-23T09:22:02Z",
+      "sha256": "49c163317b3f4115842537f1c817a56b92cfe1f7772d211b99030dd0cfc96532",
+      "state_changed_at": "2026-10-24T08:53:24Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -290,16 +290,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"ww12wwvwitwz9a\"",
+      "etag": "\"yepjk6ss60x5zy\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-23T09:22:03Z",
+      "last_success_at": "2026-10-24T08:53:25Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "a8fda18c554a666db53881e086756fb6ad48f092478003da1d344534aed6f87f",
-      "state_changed_at": "2026-10-23T09:22:03Z",
+      "sha256": "14e3288f30e1a2b1f92b0e1f445f6858ce7596e102ee19b4bbeb9d4b5dba8914",
+      "state_changed_at": "2026-10-24T08:53:25Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -312,11 +312,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-10-22T01:42:16Z",
+      "last_success_at": "2026-10-24T08:53:20Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "937b22bb1a9badca1cca73f36e2f591b40967e5e66fdfb1f0e43ea1c38b63384",
-      "state_changed_at": "2026-10-22T01:42:16Z",
+      "sha256": "6c14b3aae6fb8ffdb74f3c95d8eda82ce3d63fe122932655196f5b111f8c5fb3",
+      "state_changed_at": "2026-10-24T08:53:20Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -329,15 +329,15 @@
       "http_status": 200,
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
-      "last_success_at": "2026-10-23T09:22:04Z",
+      "last_success_at": "2026-10-24T08:53:26Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
       "reviewed_sha256s": [
         "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
         "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc"
       ],
-      "sha256": "8bf078433d8cc6d520758de471130ab623d6176e58182cf4cd678079caac386e",
-      "state_changed_at": "2026-10-23T09:22:04Z",
+      "sha256": "7ff72febc3aab2d6d2b243229e8dcb087a631e20198475ead8645fd675e06497",
+      "state_changed_at": "2026-10-24T08:53:26Z",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "anthropic-pricing": {
@@ -388,11 +388,11 @@
       "http_status": 200,
       "label": "Use Research on Claude",
       "last_modified": null,
-      "last_success_at": "2026-10-22T01:42:22Z",
+      "last_success_at": "2026-10-24T08:53:24Z",
       "reviewed_at": "2026-10-17T19:28:07Z",
       "reviewed_sha256": "baf36722033dc90eb1b27c2545640e55d8b04e8eb2546f004b5bafb983408705",
-      "sha256": "8b6b24de05530ae2b17c904619dc13a9ce2aea19b38a66dddfb65ba0b50c3b1a",
-      "state_changed_at": "2026-10-22T01:42:22Z",
+      "sha256": "1d2685d287abdf7de78593e3ff8135f8bbc17d59b3f44726b6933016bf479445",
+      "state_changed_at": "2026-10-24T08:53:24Z",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "antigravity-models": {
@@ -416,15 +416,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"c02G3w\"",
+      "etag": "\"srvFag\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity plans and limits",
       "last_modified": null,
-      "last_success_at": "2026-10-23T09:22:05Z",
+      "last_success_at": "2026-10-24T08:53:27Z",
       "reviewed_sha256": "3f5422535180b6e6c02c6843c022c10e22214362628914bcf0e08815b8d58d7d",
-      "sha256": "1997bc09a08e7a0f3c7eefe20c7718f7027bfa1caeb3298f81add2f69f687ce8",
-      "state_changed_at": "2026-10-23T09:22:05Z",
+      "sha256": "83ad232409ceee3a4b5e9c599656a9984ce0a97eeb0008aa0bfc3e811985f749",
+      "state_changed_at": "2026-10-24T08:53:27Z",
       "url": "https://antigravity.google/docs/plans"
     },
     "gemini-cli-deprecation": {
@@ -607,11 +607,11 @@
       "http_status": 200,
       "label": "Google AI student offer",
       "last_modified": null,
-      "last_success_at": "2026-10-21T09:22:40Z",
+      "last_success_at": "2026-10-24T08:53:21Z",
       "reviewed_at": "2026-10-17T19:28:04Z",
       "reviewed_sha256": "8e2faa33ac5a33ec2d9d278c231bb2f4388729757a4a9f1bccf6bf0e147f01f9",
-      "sha256": "6a5fd83558f223e78bb77afbf1550c6025fcb14ec6787fd3027caded51505e1d",
-      "state_changed_at": "2026-10-21T09:22:40Z",
+      "sha256": "4e0ce92b99114f04a627d621d136aaef9a914b266f5854a072e7831ae0d90e56",
+      "state_changed_at": "2026-10-24T08:53:21Z",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
     "jules-changelog": {

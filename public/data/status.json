@@ -1,21 +1,21 @@
 {
   "aa": {
-    "checked_at": "2026-10-26T10:08:18Z",
+    "checked_at": "2026-10-27T09:49:36Z",
     "configured": true,
-    "data_updated_at": "2026-10-26T10:08:18Z",
+    "data_updated_at": "2026-10-27T09:49:36Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-26T10:08:18Z",
+    "last_successful_snapshot_at": "2026-10-27T09:49:36Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
-    "models_count": 711,
+    "models_count": 717,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-26T10:08:31Z",
+    "checked_at": "2026-10-27T09:49:49Z",
     "status": "warning",
-    "summary": "有 22 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "summary": "有 23 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -127,55 +127,55 @@
       },
       {
         "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
-        "message": "官方頁面內容已變更（b653fdca74bd → f23aa62966f7）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（b653fdca74bd → be6d09bc5de9）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agent-import-v1.5-2026-10-17",
         "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
       },
       {
         "label": "Artificial Analysis Coding Agents",
-        "message": "官方頁面內容已變更（fe9cacd138a3 → 2f211dfa63e1）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（fe9cacd138a3 → dd0ae7f829aa）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agents",
         "url": "https://artificialanalysis.ai/agents/coding-agents"
       },
       {
         "label": "Artificial Analysis Free Language Models API",
-        "message": "官方頁面內容已變更（a3df4c57b397 → bf9af99a7b5f）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（a3df4c57b397 → 0bb41f1cef6d）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-free-api",
         "url": "https://artificialanalysis.ai/data-api/docs"
       },
       {
         "label": "Artificial Analysis Intelligence Benchmark Methodology",
-        "message": "官方頁面內容已變更（de26004b835a → 34ac8e44e41e）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（de26004b835a → cabe3c50f06f）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-method",
         "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → d9508b20ab59）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 04b9ba7778fd）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
       {
         "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-        "message": "官方頁面內容已變更（c17099d39029 → 9474120d26fe）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c17099d39029 → 354b5171a400）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
       },
       {
         "label": "Claude Code with a Claude plan",
-        "message": "官方頁面內容已變更（8c7c8ac987a2 → a08429bc2dae）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8c7c8ac987a2 → 3206efaa7325）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-code",
         "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
       },
       {
         "label": "Claude Cowork transition and rollout",
-        "message": "官方頁面內容已變更（81d99d90b6a9 → 8faf7e115379）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（81d99d90b6a9 → c4cde1b2dc7f）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-cowork",
         "url": "https://claude.com/blog/cowork-is-now-claude"
       },
       {
         "label": "Google AI Plus / Pro / Ultra benefits",
-        "message": "官方頁面內容已變更（15607bbc9297 → 0de803ad25d1）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（15607bbc9297 → 2ff9f84125e8）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-ai-plan-benefits",
         "url": "https://one.google.com/about/google-ai-plans/"
       },
@@ -187,25 +187,25 @@
       },
       {
         "label": "Google AI plans",
-        "message": "官方頁面內容已變更（15607bbc9297 → 0de803ad25d1）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（15607bbc9297 → 2ff9f84125e8）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-plans",
         "url": "https://one.google.com/about/google-ai-plans/"
       },
       {
         "label": "Google AI student offer",
-        "message": "官方頁面內容已變更（8e2faa33ac5a → 4e0ce92b9911）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8e2faa33ac5a → 771c3a457a81）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-student-offer",
         "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
       },
       {
         "label": "Google Antigravity model access",
-        "message": "官方頁面內容已變更（cb648665b7cd → 3e42b30e97a7）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cb648665b7cd → a904694f937f）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-models",
         "url": "https://antigravity.google/docs/models/"
       },
       {
         "label": "Google Antigravity plans and limits",
-        "message": "官方頁面內容已變更（3f5422535180 → 83ad232409ce）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（3f5422535180 → 1997bc09a08e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-plans",
         "url": "https://antigravity.google/docs/plans"
       },
@@ -220,6 +220,12 @@
         "message": "官方頁面內容已變更（c4f3e76bb9b1 → 9ab3ad42fb40）；方案資料未自動覆寫，待來源核對。",
         "source_id": "xai-build-all",
         "url": "https://x.ai/news/grok-build-for-everyone"
+      },
+      {
+        "label": "Grok FAQ",
+        "message": "官方頁面內容已變更（2ad3e1dca4c5 → c43b7c3a768a）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "xai-faq",
+        "url": "https://docs.x.ai/grok/faq"
       },
       {
         "label": "Jules asynchronous coding agent",

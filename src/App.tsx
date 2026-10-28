@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Activity, BadgeDollarSign, Bot, CircleHelp, Code2, ExternalLink, Layers3, RefreshCw, Search, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { IndexGuide } from './IndexGuide';
 import {
   CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip as ChartTooltip, XAxis, YAxis,
 } from 'recharts';
@@ -696,6 +697,7 @@ function ModelPage({ snapshot, models, activeIndex, onIndex, providerFilter }: {
   const apiConnected = models.some((model) => model.data_origin === 'aa_free_api' || model.data_origin === 'aa_free_api+aa_public_page');
   const publicSnapshots = models.filter((model) => model.data_origin === 'aa_public_page' || model.data_origin === 'aa_free_api+aa_public_page').length;
   return <div className="page-stack">
+    <IndexGuide models={filtered} snapshot={snapshot}/>
     <section className="section-panel">
       <div className="snapshot-note"><b>{apiConnected ? 'Artificial Analysis 免費 API＋官方公開頁面快照' : '官方公開頁面快照'}</b><span>{apiConnected ? `目前有免費 API 模型資料；另保留 ${publicSnapshots} 筆公開頁面基準測試快照。` : `以下 ${publicSnapshots} 筆模型組態及底層測試分數於 2026-10-16 從公開官方比較頁人工核對；免費 API 尚未連接（需要 API 金鑰），不代表即時 API 擷取。`}</span></div>
       <div className="section-title"><div><h2>Artificial Analysis 能力指數</h2><p>目前指數方法版 {snapshot.index_versions.intelligence_methodology ?? '尚未核實'}；API 回傳版 {snapshot.index_versions.intelligence_api ?? '未連接'}。</p></div><label className="select-label">查看欄位<select value={activeIndex} onChange={(e) => onIndex(e.target.value)}>{INDEX_KEYS.map((key) => <option value={key} key={key}>{INDEX_LABELS[key].label}</option>)}</select></label></div>

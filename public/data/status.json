@@ -1,12 +1,12 @@
 {
   "aa": {
-    "checked_at": "2026-10-28T10:35:27Z",
+    "checked_at": "2026-10-28T13:36:16Z",
     "configured": true,
-    "data_updated_at": "2026-10-28T10:35:27Z",
+    "data_updated_at": "2026-10-28T13:36:16Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-28T10:35:27Z",
+    "last_successful_snapshot_at": "2026-10-28T13:36:16Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
     "models_count": 717,
@@ -14,7 +14,7 @@
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-28T10:35:35Z",
+    "checked_at": "2026-10-28T13:36:28Z",
     "status": "warning",
     "summary": "有 25 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [

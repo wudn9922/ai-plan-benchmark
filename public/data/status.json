@@ -1,21 +1,22 @@
 {
   "aa": {
-    "checked_at": "2026-10-27T09:49:36Z",
+    "checked_at": "2026-10-28T10:35:27Z",
     "configured": true,
-    "data_updated_at": "2026-10-27T09:49:36Z",
+    "data_updated_at": "2026-10-28T10:35:27Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-27T09:49:36Z",
+    "last_successful_snapshot_at": "2026-10-28T10:35:27Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
+    "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
     "models_count": 717,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-27T09:49:49Z",
+    "checked_at": "2026-10-28T10:35:35Z",
     "status": "warning",
-    "summary": "有 23 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "summary": "有 25 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -121,13 +122,13 @@
       },
       {
         "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
-        "message": "官方頁面內容已變更（57c2b6e08805 → 2b12a1323076）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（57c2b6e08805 → 4f7833078456）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agent-opencode-import-v1.5-2026-10-17",
         "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
       },
       {
         "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
-        "message": "官方頁面內容已變更（b653fdca74bd → be6d09bc5de9）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（b653fdca74bd → 980c949caf5e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agent-import-v1.5-2026-10-17",
         "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
       },
@@ -139,43 +140,43 @@
       },
       {
         "label": "Artificial Analysis Free Language Models API",
-        "message": "官方頁面內容已變更（a3df4c57b397 → 0bb41f1cef6d）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（a3df4c57b397 → 2b6f9e4c2e09）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-free-api",
         "url": "https://artificialanalysis.ai/data-api/docs"
       },
       {
         "label": "Artificial Analysis Intelligence Benchmark Methodology",
-        "message": "官方頁面內容已變更（de26004b835a → cabe3c50f06f）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（de26004b835a → cbc1d8e59bef）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-method",
         "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → 04b9ba7778fd）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 7aabc517625d）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
       {
         "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-        "message": "官方頁面內容已變更（c17099d39029 → 354b5171a400）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c17099d39029 → 97e4520954cd）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
       },
       {
         "label": "Claude Code with a Claude plan",
-        "message": "官方頁面內容已變更（8c7c8ac987a2 → 3206efaa7325）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8c7c8ac987a2 → f566f95eab00）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-code",
         "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
       },
       {
         "label": "Claude Cowork transition and rollout",
-        "message": "官方頁面內容已變更（81d99d90b6a9 → c4cde1b2dc7f）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（81d99d90b6a9 → 25542e39869a）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-cowork",
         "url": "https://claude.com/blog/cowork-is-now-claude"
       },
       {
         "label": "Google AI Plus / Pro / Ultra benefits",
-        "message": "官方頁面內容已變更（15607bbc9297 → 2ff9f84125e8）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（15607bbc9297 → 7f217fa68290）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-ai-plan-benefits",
         "url": "https://one.google.com/about/google-ai-plans/"
       },
@@ -187,7 +188,7 @@
       },
       {
         "label": "Google AI plans",
-        "message": "官方頁面內容已變更（15607bbc9297 → 2ff9f84125e8）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（15607bbc9297 → 7f217fa68290）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-plans",
         "url": "https://one.google.com/about/google-ai-plans/"
       },
@@ -199,25 +200,31 @@
       },
       {
         "label": "Google Antigravity model access",
-        "message": "官方頁面內容已變更（cb648665b7cd → a904694f937f）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cb648665b7cd → 25ba98e9e05c）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-models",
         "url": "https://antigravity.google/docs/models/"
       },
       {
         "label": "Google Antigravity plans and limits",
-        "message": "官方頁面內容已變更（3f5422535180 → 1997bc09a08e）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（3f5422535180 → 2893ff99b25b）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-plans",
         "url": "https://antigravity.google/docs/plans"
       },
       {
+        "label": "Grok Bot plan availability",
+        "message": "官方頁面內容已變更（857ee879abd2 → 0bbe0a71b6df）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "xai-grok-bot",
+        "url": "https://docs.x.ai/x-subscription/grok-bot"
+      },
+      {
         "label": "Grok Build CLI announcement",
-        "message": "官方頁面內容已變更（53e5487afab6 → 891a40912c89）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（53e5487afab6 → 3661898fdd77）；方案資料未自動覆寫，待來源核對。",
         "source_id": "xai-build",
         "url": "https://x.ai/news/grok-build-cli"
       },
       {
         "label": "Grok Build web and mobile availability",
-        "message": "官方頁面內容已變更（c4f3e76bb9b1 → 9ab3ad42fb40）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c4f3e76bb9b1 → a88f964271bf）；方案資料未自動覆寫，待來源核對。",
         "source_id": "xai-build-all",
         "url": "https://x.ai/news/grok-build-for-everyone"
       },
@@ -235,15 +242,21 @@
       },
       {
         "label": "Use Research on Claude",
-        "message": "官方頁面內容已變更（baf36722033d → 1d2685d287ab）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（baf36722033d → 116abef54261）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-research",
         "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
       },
       {
         "label": "xAI X Subscription plans and pricing",
-        "message": "官方頁面內容已變更（4aa2c146ca62 → eaf3d4423e74）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（4aa2c146ca62 → 57d8c462aeeb）；方案資料未自動覆寫，待來源核對。",
         "source_id": "xai-pricing-web",
         "url": "https://x.ai/pricing"
+      },
+      {
+        "label": "xAI X Subscription pricing",
+        "message": "官方頁面內容已變更（1111ee736ac1 → f866ed64816b）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "xai-pricing",
+        "url": "https://docs.x.ai/x-subscription/pricing"
       }
     ]
   }

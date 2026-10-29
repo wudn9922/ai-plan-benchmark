@@ -1,22 +1,22 @@
 {
   "aa": {
-    "checked_at": "2026-10-28T13:36:16Z",
+    "checked_at": "2026-10-29T10:54:10Z",
     "configured": true,
-    "data_updated_at": "2026-10-28T13:36:16Z",
+    "data_updated_at": "2026-10-29T10:54:10Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-28T13:36:16Z",
+    "last_successful_snapshot_at": "2026-10-29T10:54:10Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
-    "models_count": 717,
+    "models_count": 718,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-28T13:36:28Z",
+    "checked_at": "2026-10-29T10:54:23Z",
     "status": "warning",
-    "summary": "有 25 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "summary": "有 26 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -110,7 +110,7 @@
     "warnings": [
       {
         "label": "Artificial Analysis API Reference",
-        "message": "官方頁面內容已變更（fc2dd1ea4573 → eda1e445a841）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（fc2dd1ea4573 → 589cf0d4430c）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-api-reference",
         "url": "https://artificialanalysis.ai/data-api/docs/reference"
       },
@@ -134,49 +134,55 @@
       },
       {
         "label": "Artificial Analysis Coding Agents",
-        "message": "官方頁面內容已變更（fe9cacd138a3 → dd0ae7f829aa）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（fe9cacd138a3 → 620c9fa16dff）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agents",
         "url": "https://artificialanalysis.ai/agents/coding-agents"
       },
       {
         "label": "Artificial Analysis Free Language Models API",
-        "message": "官方頁面內容已變更（a3df4c57b397 → 2b6f9e4c2e09）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（a3df4c57b397 → c593c9415bce）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-free-api",
         "url": "https://artificialanalysis.ai/data-api/docs"
       },
       {
         "label": "Artificial Analysis Intelligence Benchmark Methodology",
-        "message": "官方頁面內容已變更（de26004b835a → cbc1d8e59bef）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（de26004b835a → 82e360e1bfd8）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-method",
         "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → 7aabc517625d）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 7806ff7b4d37）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
       {
         "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-        "message": "官方頁面內容已變更（c17099d39029 → 97e4520954cd）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c17099d39029 → 7b16a456450e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
       },
       {
         "label": "Claude Code with a Claude plan",
-        "message": "官方頁面內容已變更（8c7c8ac987a2 → f566f95eab00）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8c7c8ac987a2 → 3e40feca515a）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-code",
         "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
       },
       {
         "label": "Claude Cowork transition and rollout",
-        "message": "官方頁面內容已變更（81d99d90b6a9 → 25542e39869a）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（81d99d90b6a9 → 056b64869df6）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-cowork",
         "url": "https://claude.com/blog/cowork-is-now-claude"
       },
       {
+        "label": "Gemini Apps usage limits",
+        "message": "官方頁面內容已變更（6be202f5e59b → cb918ba63d1f）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "google-gemini-limits",
+        "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
+      },
+      {
         "label": "Google AI Plus / Pro / Ultra benefits",
-        "message": "官方頁面內容已變更（15607bbc9297 → 7f217fa68290）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（15607bbc9297 → 887ce85c956e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-ai-plan-benefits",
         "url": "https://one.google.com/about/google-ai-plans/"
       },
@@ -188,25 +194,25 @@
       },
       {
         "label": "Google AI plans",
-        "message": "官方頁面內容已變更（15607bbc9297 → 7f217fa68290）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（15607bbc9297 → 887ce85c956e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-plans",
         "url": "https://one.google.com/about/google-ai-plans/"
       },
       {
         "label": "Google AI student offer",
-        "message": "官方頁面內容已變更（8e2faa33ac5a → 771c3a457a81）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8e2faa33ac5a → fcfeee58bfb4）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-student-offer",
         "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
       },
       {
         "label": "Google Antigravity model access",
-        "message": "官方頁面內容已變更（cb648665b7cd → 25ba98e9e05c）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cb648665b7cd → b757ca9db60d）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-models",
         "url": "https://antigravity.google/docs/models/"
       },
       {
         "label": "Google Antigravity plans and limits",
-        "message": "官方頁面內容已變更（3f5422535180 → 2893ff99b25b）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（3f5422535180 → fdc00888b180）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-plans",
         "url": "https://antigravity.google/docs/plans"
       },
@@ -236,7 +242,7 @@
       },
       {
         "label": "Jules asynchronous coding agent",
-        "message": "官方頁面內容已變更（4d59f143a991 → c873c5799a67）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（4d59f143a991 → a12a95e5f121）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-jules",
         "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
       },

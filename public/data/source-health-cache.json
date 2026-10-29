@@ -1,9 +1,9 @@
 {
-  "last_state_change_at": "2026-10-28T13:36:28Z",
+  "last_state_change_at": "2026-10-29T10:54:23Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
-      "message": "官方頁面內容已變更（fc2dd1ea4573 → eda1e445a841）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（fc2dd1ea4573 → 589cf0d4430c）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-api-reference",
       "url": "https://artificialanalysis.ai/data-api/docs/reference"
     },
@@ -21,7 +21,7 @@
     },
     "change:aa-coding-agents": {
       "label": "Artificial Analysis Coding Agents",
-      "message": "官方頁面內容已變更（fe9cacd138a3 → dd0ae7f829aa）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（fe9cacd138a3 → 620c9fa16dff）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agents",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
@@ -33,37 +33,37 @@
     },
     "change:aa-free-api": {
       "label": "Artificial Analysis Free Language Models API",
-      "message": "官方頁面內容已變更（a3df4c57b397 → 2b6f9e4c2e09）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（a3df4c57b397 → c593c9415bce）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-free-api",
       "url": "https://artificialanalysis.ai/data-api/docs"
     },
     "change:aa-method": {
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
-      "message": "官方頁面內容已變更（de26004b835a → cbc1d8e59bef）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（de26004b835a → 82e360e1bfd8）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-method",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → 97e4520954cd）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → 7b16a456450e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → 7aabc517625d）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → 7806ff7b4d37）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → f566f95eab00）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → 3e40feca515a）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "change:anthropic-cowork": {
       "label": "Claude Cowork transition and rollout",
-      "message": "官方頁面內容已變更（81d99d90b6a9 → 25542e39869a）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（81d99d90b6a9 → 056b64869df6）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-cowork",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
@@ -75,25 +75,31 @@
     },
     "change:antigravity-models": {
       "label": "Google Antigravity model access",
-      "message": "官方頁面內容已變更（cb648665b7cd → 25ba98e9e05c）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cb648665b7cd → b757ca9db60d）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-models",
       "url": "https://antigravity.google/docs/models/"
     },
     "change:antigravity-plans": {
       "label": "Google Antigravity plans and limits",
-      "message": "官方頁面內容已變更（3f5422535180 → 2893ff99b25b）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（3f5422535180 → fdc00888b180）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-plans",
       "url": "https://antigravity.google/docs/plans"
     },
     "change:google-ai-plan-benefits": {
       "label": "Google AI Plus / Pro / Ultra benefits",
-      "message": "官方頁面內容已變更（15607bbc9297 → 7f217fa68290）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（15607bbc9297 → 887ce85c956e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-ai-plan-benefits",
       "url": "https://one.google.com/about/google-ai-plans/"
     },
+    "change:google-gemini-limits": {
+      "label": "Gemini Apps usage limits",
+      "message": "官方頁面內容已變更（6be202f5e59b → cb918ba63d1f）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "google-gemini-limits",
+      "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
+    },
     "change:google-jules": {
       "label": "Jules asynchronous coding agent",
-      "message": "官方頁面內容已變更（4d59f143a991 → c873c5799a67）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（4d59f143a991 → a12a95e5f121）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-jules",
       "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
     },
@@ -105,13 +111,13 @@
     },
     "change:google-plans": {
       "label": "Google AI plans",
-      "message": "官方頁面內容已變更（15607bbc9297 → 7f217fa68290）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（15607bbc9297 → 887ce85c956e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-plans",
       "url": "https://one.google.com/about/google-ai-plans/"
     },
     "change:google-student-offer": {
       "label": "Google AI student offer",
-      "message": "官方頁面內容已變更（8e2faa33ac5a → 771c3a457a81）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8e2faa33ac5a → fcfeee58bfb4）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-student-offer",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
@@ -158,16 +164,16 @@
       "baseline_at": "2026-10-17T19:28:00Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"d0a5b49091df0dc64641032efbce8da6\"",
+      "etag": "\"25ca7e53764c2a3de310ea60b867052f\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis API Reference",
       "last_modified": null,
-      "last_success_at": "2026-10-22T01:42:14Z",
+      "last_success_at": "2026-10-29T10:54:10Z",
       "reviewed_at": "2026-10-17T19:28:00Z",
       "reviewed_sha256": "fc2dd1ea45732761a0ac052754959203da154e70c70e37ed86cc5c76f1455b70",
-      "sha256": "eda1e445a84182ba89767c80d9d7b9eff87ae8bd92a336d02790711b22a00765",
-      "state_changed_at": "2026-10-22T01:42:14Z",
+      "sha256": "589cf0d4430c8d4d925433487672d4562fed50ca7e1b06808f80e3548c072bfd",
+      "state_changed_at": "2026-10-29T10:54:10Z",
       "url": "https://artificialanalysis.ai/data-api/docs/reference"
     },
     "aa-coding-agent-import-v1.5-2026-10-16": {
@@ -223,16 +229,16 @@
       "baseline_at": "2026-10-17T19:28:01Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"7cbd49c702123c914e45fca53f237143\"",
+      "etag": "\"xb708uh3a7jaqe\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agents",
       "last_modified": null,
-      "last_success_at": "2026-10-27T09:49:37Z",
+      "last_success_at": "2026-10-29T10:54:11Z",
       "reviewed_at": "2026-10-17T19:28:01Z",
       "reviewed_sha256": "fe9cacd138a3b305161a2aa2e60a863a345fdc5cd2b211077bf54c496f88ffa6",
-      "sha256": "dd0ae7f829aa885fcae81e6b9989bea8086346300bf04313d150632778cf977a",
-      "state_changed_at": "2026-10-27T09:49:37Z",
+      "sha256": "620c9fa16dff92d1ce79cbe749de924da54a69ffde2e03480eeefb147719e781",
+      "state_changed_at": "2026-10-29T10:54:11Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
     "aa-coding-method": {
@@ -257,16 +263,16 @@
       "baseline_at": "2026-10-17T19:28:00Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"40007864d1da8df9619c965dde8a2f50\"",
+      "etag": "\"73876a2eaedd87f8198e810795fb9332\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Artificial Analysis Free Language Models API",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:27Z",
+      "last_success_at": "2026-10-29T10:54:10Z",
       "reviewed_at": "2026-10-17T19:28:00Z",
       "reviewed_sha256": "a3df4c57b3975e61f0cd973a3e385d1d7d84f0c76b30d7f079d20924ee0e8100",
-      "sha256": "2b6f9e4c2e09e35a3c0ef4213052ac8bd8872fbd1f08225328f96852a2399ecf",
-      "state_changed_at": "2026-10-28T10:35:27Z",
+      "sha256": "c593c9415bce7bfb11369a3a24ba6204ebdddb68f3fa956d595fe9f5c8d87900",
+      "state_changed_at": "2026-10-29T10:54:10Z",
       "url": "https://artificialanalysis.ai/data-api/docs"
     },
     "aa-method": {
@@ -274,16 +280,16 @@
       "baseline_at": "2026-10-17T19:28:01Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"8v6pubtc3nmblo\"",
+      "etag": "\"ffjcu9767bmbmc\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:28Z",
+      "last_success_at": "2026-10-29T10:54:11Z",
       "reviewed_at": "2026-10-17T19:28:01Z",
       "reviewed_sha256": "de26004b835abf0d8a6ab524cbe0c43a189ebe3ab58c413a0d219f17de26e758",
-      "sha256": "cbc1d8e59bef5ea3ba43a1e6aa7877159e4eba0ce14d656301be65fa78d74e39",
-      "state_changed_at": "2026-10-28T10:35:28Z",
+      "sha256": "82e360e1bfd80b3f3ba8551d943504131d56fbe14bd434f1ab2b6c1afc9127aa",
+      "state_changed_at": "2026-10-29T10:54:11Z",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "aa-public-gemini-argon-comparison": {
@@ -291,16 +297,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"7e31e5jlyixcmp\"",
+      "etag": "\"ceturux3crxafg\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:33Z",
+      "last_success_at": "2026-10-29T10:54:20Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "97e4520954cd58bb0cf171985822aac3203babf45b91ed38e15d0cf933e829e7",
-      "state_changed_at": "2026-10-28T10:35:33Z",
+      "sha256": "7b16a456450e1fd4d40b1cbb55b29ff92da5ec74b1149c50a7a673e204e017df",
+      "state_changed_at": "2026-10-29T10:54:20Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -308,16 +314,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"15ajvu5c0exxbzs\"",
+      "etag": "\"wrdzkvte7x9xk\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:34Z",
+      "last_success_at": "2026-10-29T10:54:21Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "7aabc517625d6683b14cd7b8d6e68c749dd955b193e95e636b5a885a18e3ff6a",
-      "state_changed_at": "2026-10-28T10:35:34Z",
+      "sha256": "7806ff7b4d3732b51bc7d5a8a5a9338c4e4f96cf22f3c94db07e54f9c2e92b33",
+      "state_changed_at": "2026-10-29T10:54:21Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -330,11 +336,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:29Z",
+      "last_success_at": "2026-10-29T10:54:12Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "f566f95eab00b9ce4d6f55a32aa7771c423838bc6c9b086f0004ed8516077507",
-      "state_changed_at": "2026-10-28T10:35:29Z",
+      "sha256": "3e40feca515a154d0a950ac9fe36b7b3289090e9dc973add88901c1a65dbd53d",
+      "state_changed_at": "2026-10-29T10:54:12Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -347,15 +353,15 @@
       "http_status": 200,
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:34Z",
+      "last_success_at": "2026-10-29T10:54:22Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
       "reviewed_sha256s": [
         "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
         "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc"
       ],
-      "sha256": "25542e39869af1a34e3c06db5fcd18e7d15d02351df2a20926dbb2779da31ad6",
-      "state_changed_at": "2026-10-28T10:35:34Z",
+      "sha256": "056b64869df62f464218bbb48db845fd94188fcc6c1a36afc697bbbfb8838612",
+      "state_changed_at": "2026-10-29T10:54:22Z",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "anthropic-pricing": {
@@ -418,15 +424,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6ae17695-2242a\"",
+      "etag": "\"6ae2f8b6-22524\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Google Antigravity model access",
-      "last_modified": "Wed, 28 Oct 2026 04:14:13 GMT",
-      "last_success_at": "2026-10-28T10:35:35Z",
+      "last_modified": "Thu, 29 Oct 2026 07:41:42 GMT",
+      "last_success_at": "2026-10-29T10:54:23Z",
       "reviewed_sha256": "cb648665b7cdefc6476248424a2513384d4952623102f7d074fe9694545a6cf9",
-      "sha256": "25ba98e9e05c7325691be073c36c95668af62ea89a76cf33b0ba000af713fbeb",
-      "state_changed_at": "2026-10-28T10:35:35Z",
+      "sha256": "b757ca9db60d7634eef5de6fbcd2ab830b8251954d9eb806e10155a717471bfc",
+      "state_changed_at": "2026-10-29T10:54:23Z",
       "url": "https://antigravity.google/docs/models/"
     },
     "antigravity-plans": {
@@ -434,15 +440,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6ae17695-1b290\"",
+      "etag": "\"6ae2f8b6-1b38a\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Google Antigravity plans and limits",
-      "last_modified": "Wed, 28 Oct 2026 04:14:13 GMT",
-      "last_success_at": "2026-10-28T10:35:35Z",
+      "last_modified": "Thu, 29 Oct 2026 07:41:42 GMT",
+      "last_success_at": "2026-10-29T10:54:23Z",
       "reviewed_sha256": "3f5422535180b6e6c02c6843c022c10e22214362628914bcf0e08815b8d58d7d",
-      "sha256": "2893ff99b25b489639da8dad6382df414b53176ca26e14daec8a792ab859c3a0",
-      "state_changed_at": "2026-10-28T10:35:35Z",
+      "sha256": "fdc00888b1801acc56f21ba6cfb7001e433585f9db0312e355f6168e6bf2d8fb",
+      "state_changed_at": "2026-10-29T10:54:23Z",
       "url": "https://antigravity.google/docs/plans"
     },
     "gemini-cli-deprecation": {
@@ -486,14 +492,14 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Google AI Plus / Pro / Ultra benefits",
-      "last_modified": "Tue, 27 Oct 2026 22:58:00 GMT",
-      "last_success_at": "2026-10-28T10:35:32Z",
+      "last_modified": "Thu, 29 Oct 2026 01:08:00 GMT",
+      "last_success_at": "2026-10-29T10:54:19Z",
       "reviewed_at": "2026-10-17T19:28:06Z",
       "reviewed_sha256": "15607bbc9297d0784a6dd50f1abc1dbd7c0ebd2956382fcd05cffc1cdd32edd9",
-      "sha256": "7f217fa68290c3f667bf9e6a78da6ed61648f9b6ed68a817b71c7229db9bc8c8",
-      "state_changed_at": "2026-10-28T10:35:32Z",
+      "sha256": "887ce85c956e688f6b01e93d271c4a67bdf608d1ae92dcc9de78aebb21d5673f",
+      "state_changed_at": "2026-10-29T10:54:19Z",
       "url": "https://one.google.com/about/google-ai-plans/"
     },
     "google-ai-plus-current": {
@@ -557,11 +563,11 @@
       "http_status": 200,
       "label": "Gemini Apps usage limits",
       "last_modified": null,
-      "last_success_at": "2026-10-18T15:22:38Z",
+      "last_success_at": "2026-10-29T10:54:14Z",
       "reviewed_at": "2026-10-18T15:22:38Z",
       "reviewed_sha256": "6be202f5e59b3d96921b9f58bc509f3f955931e8fd62f155602dc3f070fcd9b6",
-      "sha256": "6be202f5e59b3d96921b9f58bc509f3f955931e8fd62f155602dc3f070fcd9b6",
-      "state_changed_at": "2026-10-18T15:22:38Z",
+      "sha256": "cb918ba63d1f0f93fc589a9daefce8e00ecd5668e6bca74308c2b43cd16d8937",
+      "state_changed_at": "2026-10-29T10:54:14Z",
       "url": "https://support.google.com/gemini/answer/16275805?gl=US&hl=en"
     },
     "google-jules": {
@@ -574,11 +580,11 @@
       "http_status": 200,
       "label": "Jules asynchronous coding agent",
       "last_modified": null,
-      "last_success_at": "2026-10-21T09:22:44Z",
+      "last_success_at": "2026-10-29T10:54:19Z",
       "reviewed_at": "2026-10-17T19:28:06Z",
       "reviewed_sha256": "4d59f143a991edee537df987cd656ff2ad25a5c68c69016e4485b48d3e8f902e",
-      "sha256": "c873c5799a67f4394937bbdb83d5f8ba5a5321c30fc666ac5249fc6ac3bbe090",
-      "state_changed_at": "2026-10-21T09:22:44Z",
+      "sha256": "a12a95e5f121c8ab5313be412553ce8d459d676f2d95a9bcc74d1c3f2b4de127",
+      "state_changed_at": "2026-10-29T10:54:19Z",
       "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
     },
     "google-one-benefits": {
@@ -605,14 +611,14 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Google AI plans",
-      "last_modified": "Tue, 27 Oct 2026 22:58:00 GMT",
-      "last_success_at": "2026-10-28T10:35:29Z",
+      "last_modified": "Thu, 29 Oct 2026 01:08:00 GMT",
+      "last_success_at": "2026-10-29T10:54:13Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "15607bbc9297d0784a6dd50f1abc1dbd7c0ebd2956382fcd05cffc1cdd32edd9",
-      "sha256": "7f217fa68290c3f667bf9e6a78da6ed61648f9b6ed68a817b71c7229db9bc8c8",
-      "state_changed_at": "2026-10-28T10:35:29Z",
+      "sha256": "887ce85c956e688f6b01e93d271c4a67bdf608d1ae92dcc9de78aebb21d5673f",
+      "state_changed_at": "2026-10-29T10:54:13Z",
       "url": "https://one.google.com/about/google-ai-plans/"
     },
     "google-student-offer": {
@@ -625,11 +631,11 @@
       "http_status": 200,
       "label": "Google AI student offer",
       "last_modified": null,
-      "last_success_at": "2026-10-27T09:49:41Z",
+      "last_success_at": "2026-10-29T10:54:14Z",
       "reviewed_at": "2026-10-17T19:28:04Z",
       "reviewed_sha256": "8e2faa33ac5a33ec2d9d278c231bb2f4388729757a4a9f1bccf6bf0e147f01f9",
-      "sha256": "771c3a457a81c5a2255209d92a927d7257bf6ecbf57adbd7ebf160c3c02b1b79",
-      "state_changed_at": "2026-10-27T09:49:41Z",
+      "sha256": "fcfeee58bfb4ee3993a9d7403c60ef6201cc9749ea68b53995c489784903c568",
+      "state_changed_at": "2026-10-29T10:54:14Z",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
     "jules-changelog": {

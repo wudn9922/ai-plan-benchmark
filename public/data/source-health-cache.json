@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-10-30T10:52:40Z",
+  "last_state_change_at": "2026-10-31T10:24:01Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -39,49 +39,61 @@
     },
     "change:aa-method": {
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
-      "message": "官方頁面內容已變更（de26004b835a → 82e360e1bfd8）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（de26004b835a → ab8e3147f1a0）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-method",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → 2ed86700ae57）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → eb8dc404b80f）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → 4b88a9d3e592）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → 3e099e2756b3）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → 3e40feca515a）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → 47069a32d934）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "change:anthropic-cowork": {
       "label": "Claude Cowork transition and rollout",
-      "message": "官方頁面內容已變更（81d99d90b6a9 → a1af65b9a963）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（81d99d90b6a9 → 8d6cda54a59f）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-cowork",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
+    "change:anthropic-pricing": {
+      "label": "Claude pricing",
+      "message": "官方頁面內容已變更（5153caa99280 → 71e4f180f1b9）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "anthropic-pricing",
+      "url": "https://claude.com/pricing"
+    },
+    "change:anthropic-pro-cost": {
+      "label": "Claude Pro billing",
+      "message": "官方頁面內容已變更（eaa9179b8a32 → 08aff29557c3）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "anthropic-pro-cost",
+      "url": "https://claude.com/pricing"
+    },
     "change:anthropic-research": {
       "label": "Use Research on Claude",
-      "message": "官方頁面內容已變更（baf36722033d → 116abef54261）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（baf36722033d → ae114f7d6d77）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-research",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "change:antigravity-models": {
       "label": "Google Antigravity model access",
-      "message": "官方頁面內容已變更（cb648665b7cd → 35392b7e4903）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cb648665b7cd → 2fba5e1b74da）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-models",
       "url": "https://antigravity.google/docs/models/"
     },
     "change:antigravity-plans": {
       "label": "Google Antigravity plans and limits",
-      "message": "官方頁面內容已變更（3f5422535180 → d669e6de4de7）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（3f5422535180 → bed92a67d408）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-plans",
       "url": "https://antigravity.google/docs/plans"
     },
@@ -298,16 +310,16 @@
       "baseline_at": "2026-10-17T19:28:01Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"ffjcu9767bmbmc\"",
+      "etag": "\"8iu4ua7rabmc6p\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
       "last_modified": null,
-      "last_success_at": "2026-10-29T10:54:11Z",
+      "last_success_at": "2026-10-31T10:23:52Z",
       "reviewed_at": "2026-10-17T19:28:01Z",
       "reviewed_sha256": "de26004b835abf0d8a6ab524cbe0c43a189ebe3ab58c413a0d219f17de26e758",
-      "sha256": "82e360e1bfd80b3f3ba8551d943504131d56fbe14bd434f1ab2b6c1afc9127aa",
-      "state_changed_at": "2026-10-29T10:54:11Z",
+      "sha256": "ab8e3147f1a09a4d78eddece17448f0307b0189eeade78c259dbb6d81cd78d65",
+      "state_changed_at": "2026-10-31T10:23:52Z",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "aa-public-gemini-argon-comparison": {
@@ -315,16 +327,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"18bnhj2itmdxb13\"",
+      "etag": "\"j52talj1gkxawr\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-30T10:52:38Z",
+      "last_success_at": "2026-10-31T10:23:58Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "2ed86700ae57dfb6e64d122c7110d3f4e0901314b4282045e60e17fdf65391c2",
-      "state_changed_at": "2026-10-30T10:52:38Z",
+      "sha256": "eb8dc404b80f986c303ea62bd30464d61cc2ffa60fa31b01c7191fec22fcadd1",
+      "state_changed_at": "2026-10-31T10:23:58Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -332,16 +344,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"17zt84hax1jxai0\"",
+      "etag": "\"92gbd074eqxae5\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-30T10:52:39Z",
+      "last_success_at": "2026-10-31T10:23:59Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "4b88a9d3e592bb109f56a42b6d9731815cf52bfa9e93f3cb3f8a68df3828d817",
-      "state_changed_at": "2026-10-30T10:52:39Z",
+      "sha256": "3e099e2756b3aa671bd89b8fbf483db2552eea5afa256ba1e910c26aa5cb68da",
+      "state_changed_at": "2026-10-31T10:23:59Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -354,11 +366,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-10-29T10:54:12Z",
+      "last_success_at": "2026-10-31T10:23:54Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "3e40feca515a154d0a950ac9fe36b7b3289090e9dc973add88901c1a65dbd53d",
-      "state_changed_at": "2026-10-29T10:54:12Z",
+      "sha256": "47069a32d93437416b7433e586e1f4ad3732776e3c6bbee5f6353d4572781c93",
+      "state_changed_at": "2026-10-31T10:23:54Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -371,15 +383,15 @@
       "http_status": 200,
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
-      "last_success_at": "2026-10-30T10:52:39Z",
+      "last_success_at": "2026-10-31T10:24:00Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
       "reviewed_sha256s": [
         "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
         "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc"
       ],
-      "sha256": "a1af65b9a96368f85d6186ea9dbf81af56d4f5a8de10fcd516f9d2b5c564ddf3",
-      "state_changed_at": "2026-10-30T10:52:39Z",
+      "sha256": "8d6cda54a59ff4c1ff33cd8f3bd7b7d1411c1be823b4446d69691a272e6944d5",
+      "state_changed_at": "2026-10-31T10:24:00Z",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "anthropic-pricing": {
@@ -391,16 +403,16 @@
       "hash_version": "pricing-region-v2",
       "http_status": 200,
       "label": "Claude pricing",
-      "last_modified": "Wed, 28 Oct 2026 13:35:20 GMT",
-      "last_success_at": "2026-10-28T13:36:18Z",
+      "last_modified": "Sat, 31 Oct 2026 10:22:27 GMT",
+      "last_success_at": "2026-10-31T10:23:53Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
       "reviewed_sha256s": [
         "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
         "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4"
       ],
-      "sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
-      "state_changed_at": "2026-10-28T13:36:18Z",
+      "sha256": "71e4f180f1b9a172c009037c0806175af8556ee51c7f38a02eb771cd1607832e",
+      "state_changed_at": "2026-10-31T10:23:53Z",
       "url": "https://claude.com/pricing"
     },
     "anthropic-pro-cost": {
@@ -412,12 +424,12 @@
       "hash_version": "key-sections-v1",
       "http_status": 200,
       "label": "Claude Pro billing",
-      "last_modified": "Sun, 18 Oct 2026 15:20:23 GMT",
-      "last_success_at": "2026-10-18T15:22:34Z",
+      "last_modified": "Sat, 31 Oct 2026 10:23:13 GMT",
+      "last_success_at": "2026-10-31T10:23:53Z",
       "reviewed_at": "2026-10-18T15:22:34Z",
       "reviewed_sha256": "eaa9179b8a32a2b4b09f02c2484fa43e302f1dc53f0d522247cd58edc5da495f",
-      "sha256": "eaa9179b8a32a2b4b09f02c2484fa43e302f1dc53f0d522247cd58edc5da495f",
-      "state_changed_at": "2026-10-18T15:22:34Z",
+      "sha256": "08aff29557c3d6491eead41ce7af94fb31659dae01da47e550994f024fd1c676",
+      "state_changed_at": "2026-10-31T10:23:53Z",
       "url": "https://claude.com/pricing"
     },
     "anthropic-research": {
@@ -430,11 +442,11 @@
       "http_status": 200,
       "label": "Use Research on Claude",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:33Z",
+      "last_success_at": "2026-10-31T10:23:57Z",
       "reviewed_at": "2026-10-17T19:28:07Z",
       "reviewed_sha256": "baf36722033dc90eb1b27c2545640e55d8b04e8eb2546f004b5bafb983408705",
-      "sha256": "116abef54261d7e6906fbae0631647745cdf902bc57be3a81be13bc8e78180ac",
-      "state_changed_at": "2026-10-28T10:35:33Z",
+      "sha256": "ae114f7d6d7767d4129f955c1f72ddce4ed498baab42f634e13a6e1be66a45f1",
+      "state_changed_at": "2026-10-31T10:23:57Z",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "antigravity-models": {
@@ -442,15 +454,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6ae43b9e-22578\"",
+      "etag": "\"6ae595a0-22617\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity model access",
-      "last_modified": "Fri, 30 Oct 2026 06:39:26 GMT",
-      "last_success_at": "2026-10-30T10:52:40Z",
+      "last_modified": "Sat, 31 Oct 2026 07:15:44 GMT",
+      "last_success_at": "2026-10-31T10:24:01Z",
       "reviewed_sha256": "cb648665b7cdefc6476248424a2513384d4952623102f7d074fe9694545a6cf9",
-      "sha256": "35392b7e4903698d92e21db56008758c72c5f652c03302fffa589542571ac47b",
-      "state_changed_at": "2026-10-30T10:52:40Z",
+      "sha256": "2fba5e1b74dad7e0f1f346c9b2f2b9183ee81e9e6c21c7b354b5898c46b133bf",
+      "state_changed_at": "2026-10-31T10:24:01Z",
       "url": "https://antigravity.google/docs/models/"
     },
     "antigravity-plans": {
@@ -458,15 +470,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6ae43b9e-1b3de\"",
+      "etag": "\"6ae595a0-1b47e\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity plans and limits",
-      "last_modified": "Fri, 30 Oct 2026 06:39:26 GMT",
-      "last_success_at": "2026-10-30T10:52:40Z",
+      "last_modified": "Sat, 31 Oct 2026 07:15:44 GMT",
+      "last_success_at": "2026-10-31T10:24:01Z",
       "reviewed_sha256": "3f5422535180b6e6c02c6843c022c10e22214362628914bcf0e08815b8d58d7d",
-      "sha256": "d669e6de4de73a898ddf6dd2d7d70d79919609e356d88787b4c1cc146c339747",
-      "state_changed_at": "2026-10-30T10:52:40Z",
+      "sha256": "bed92a67d4089d6c198564b3c47498006f5014b8df030ef2c6190d91699b58da",
+      "state_changed_at": "2026-10-31T10:24:01Z",
       "url": "https://antigravity.google/docs/plans"
     },
     "gemini-cli-deprecation": {
@@ -510,7 +522,7 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI Plus / Pro / Ultra benefits",
       "last_modified": "Thu, 29 Oct 2026 19:38:00 GMT",
       "last_success_at": "2026-10-30T10:52:37Z",
@@ -629,7 +641,7 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI plans",
       "last_modified": "Thu, 29 Oct 2026 19:38:00 GMT",
       "last_success_at": "2026-10-30T10:52:34Z",
@@ -663,7 +675,7 @@
       "error": null,
       "etag": "\"4kerhw\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Jules model changelog",
       "last_modified": null,
       "last_success_at": "2026-10-30T10:52:40Z",
@@ -679,7 +691,7 @@
       "error": null,
       "etag": "\"4kerhw\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Jules plan limits",
       "last_modified": null,
       "last_success_at": "2026-10-30T10:52:40Z",

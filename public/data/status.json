@@ -1,22 +1,22 @@
 {
   "aa": {
-    "checked_at": "2026-10-30T10:52:31Z",
+    "checked_at": "2026-10-31T10:23:52Z",
     "configured": true,
-    "data_updated_at": "2026-10-30T10:52:31Z",
+    "data_updated_at": "2026-10-31T10:23:52Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-30T10:52:31Z",
+    "last_successful_snapshot_at": "2026-10-31T10:23:52Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
-    "models_count": 720,
+    "models_count": 721,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-30T10:52:40Z",
+    "checked_at": "2026-10-31T10:24:01Z",
     "status": "warning",
-    "summary": "有 29 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "summary": "有 31 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -146,33 +146,45 @@
       },
       {
         "label": "Artificial Analysis Intelligence Benchmark Methodology",
-        "message": "官方頁面內容已變更（de26004b835a → 82e360e1bfd8）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（de26004b835a → ab8e3147f1a0）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-method",
         "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → 4b88a9d3e592）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 3e099e2756b3）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
       {
         "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-        "message": "官方頁面內容已變更（c17099d39029 → 2ed86700ae57）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c17099d39029 → eb8dc404b80f）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
       },
       {
         "label": "Claude Code with a Claude plan",
-        "message": "官方頁面內容已變更（8c7c8ac987a2 → 3e40feca515a）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8c7c8ac987a2 → 47069a32d934）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-code",
         "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
       },
       {
         "label": "Claude Cowork transition and rollout",
-        "message": "官方頁面內容已變更（81d99d90b6a9 → a1af65b9a963）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（81d99d90b6a9 → 8d6cda54a59f）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-cowork",
         "url": "https://claude.com/blog/cowork-is-now-claude"
+      },
+      {
+        "label": "Claude Pro billing",
+        "message": "官方頁面內容已變更（eaa9179b8a32 → 08aff29557c3）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "anthropic-pro-cost",
+        "url": "https://claude.com/pricing"
+      },
+      {
+        "label": "Claude pricing",
+        "message": "官方頁面內容已變更（5153caa99280 → 71e4f180f1b9）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "anthropic-pricing",
+        "url": "https://claude.com/pricing"
       },
       {
         "label": "Gemini Apps usage limits",
@@ -212,13 +224,13 @@
       },
       {
         "label": "Google Antigravity model access",
-        "message": "官方頁面內容已變更（cb648665b7cd → 35392b7e4903）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cb648665b7cd → 2fba5e1b74da）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-models",
         "url": "https://antigravity.google/docs/models/"
       },
       {
         "label": "Google Antigravity plans and limits",
-        "message": "官方頁面內容已變更（3f5422535180 → d669e6de4de7）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（3f5422535180 → bed92a67d408）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-plans",
         "url": "https://antigravity.google/docs/plans"
       },
@@ -266,7 +278,7 @@
       },
       {
         "label": "Use Research on Claude",
-        "message": "官方頁面內容已變更（baf36722033d → 116abef54261）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（baf36722033d → ae114f7d6d77）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-research",
         "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
       },

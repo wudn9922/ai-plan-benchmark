@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-10-31T10:24:01Z",
+  "last_state_change_at": "2026-11-01T11:16:51Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -57,7 +57,7 @@
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → 47069a32d934）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → 9ac016c594e8）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
@@ -81,7 +81,7 @@
     },
     "change:anthropic-research": {
       "label": "Use Research on Claude",
-      "message": "官方頁面內容已變更（baf36722033d → ae114f7d6d77）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（baf36722033d → ea78372fb51e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-research",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
@@ -183,7 +183,7 @@
     },
     "change:xai-pricing-web": {
       "label": "xAI X Subscription plans and pricing",
-      "message": "官方頁面內容已變更（4aa2c146ca62 → 57d8c462aeeb）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（4aa2c146ca62 → 6954f4967602）；方案資料未自動覆寫，待來源核對。",
       "source_id": "xai-pricing-web",
       "url": "https://x.ai/pricing"
     }
@@ -312,7 +312,7 @@
       "error": null,
       "etag": "\"8iu4ua7rabmc6p\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
       "last_modified": null,
       "last_success_at": "2026-10-31T10:23:52Z",
@@ -329,7 +329,7 @@
       "error": null,
       "etag": "\"j52talj1gkxawr\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
       "last_success_at": "2026-10-31T10:23:58Z",
@@ -346,7 +346,7 @@
       "error": null,
       "etag": "\"92gbd074eqxae5\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
       "last_success_at": "2026-10-31T10:23:59Z",
@@ -366,11 +366,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-10-31T10:23:54Z",
+      "last_success_at": "2026-11-01T11:16:44Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "47069a32d93437416b7433e586e1f4ad3732776e3c6bbee5f6353d4572781c93",
-      "state_changed_at": "2026-10-31T10:23:54Z",
+      "sha256": "9ac016c594e8cd5ba4ef5e785b3a439e5e4cb4a0341a46ee797d976484cb092a",
+      "state_changed_at": "2026-11-01T11:16:44Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -442,11 +442,11 @@
       "http_status": 200,
       "label": "Use Research on Claude",
       "last_modified": null,
-      "last_success_at": "2026-10-31T10:23:57Z",
+      "last_success_at": "2026-11-01T11:16:47Z",
       "reviewed_at": "2026-10-17T19:28:07Z",
       "reviewed_sha256": "baf36722033dc90eb1b27c2545640e55d8b04e8eb2546f004b5bafb983408705",
-      "sha256": "ae114f7d6d7767d4129f955c1f72ddce4ed498baab42f634e13a6e1be66a45f1",
-      "state_changed_at": "2026-10-31T10:23:57Z",
+      "sha256": "ea78372fb51e09a7448b34dc656044b4a92dc40b23fa4d429d0ccf5f4707a1b8",
+      "state_changed_at": "2026-11-01T11:16:47Z",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "antigravity-models": {
@@ -999,11 +999,11 @@
       "http_status": 200,
       "label": "xAI X Subscription plans and pricing",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:33Z",
+      "last_success_at": "2026-11-01T11:16:47Z",
       "reviewed_at": "2026-10-18T16:43:56Z",
       "reviewed_sha256": "4aa2c146ca620e3b6ba232875e62cf5ca57da029a20b31a2785f1a1f7b714c6b",
-      "sha256": "57d8c462aeeb0e6b894503ac25184afe7050e082d66ab369c82f23f00d83de92",
-      "state_changed_at": "2026-10-28T10:35:33Z",
+      "sha256": "6954f49676025ca35442fe589ac78b355d6442616bc358192cafcdad783f04b7",
+      "state_changed_at": "2026-11-01T11:16:47Z",
       "url": "https://x.ai/pricing"
     }
   }

@@ -1,12 +1,12 @@
 {
   "aa": {
-    "checked_at": "2026-10-31T10:23:52Z",
+    "checked_at": "2026-11-01T11:16:41Z",
     "configured": true,
-    "data_updated_at": "2026-10-31T10:23:52Z",
+    "data_updated_at": "2026-11-01T11:16:41Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-10-31T10:23:52Z",
+    "last_successful_snapshot_at": "2026-11-01T11:16:41Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
     "models_count": 721,
@@ -14,7 +14,7 @@
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-10-31T10:24:01Z",
+    "checked_at": "2026-11-01T11:16:51Z",
     "status": "warning",
     "summary": "有 31 個內容更新待核對；11 個來源目前無法自動讀取。",
     "unavailable": [
@@ -164,7 +164,7 @@
       },
       {
         "label": "Claude Code with a Claude plan",
-        "message": "官方頁面內容已變更（8c7c8ac987a2 → 47069a32d934）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8c7c8ac987a2 → 9ac016c594e8）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-code",
         "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
       },
@@ -278,13 +278,13 @@
       },
       {
         "label": "Use Research on Claude",
-        "message": "官方頁面內容已變更（baf36722033d → ae114f7d6d77）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（baf36722033d → ea78372fb51e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-research",
         "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
       },
       {
         "label": "xAI X Subscription plans and pricing",
-        "message": "官方頁面內容已變更（4aa2c146ca62 → 57d8c462aeeb）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（4aa2c146ca62 → 6954f4967602）；方案資料未自動覆寫，待來源核對。",
         "source_id": "xai-pricing-web",
         "url": "https://x.ai/pricing"
       },

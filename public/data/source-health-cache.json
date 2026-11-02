@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-11-01T11:16:51Z",
+  "last_state_change_at": "2026-11-02T12:25:55Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -45,19 +45,19 @@
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → eb8dc404b80f）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → de358f78e915）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → 3e099e2756b3）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → f658fb9848bd）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → 9ac016c594e8）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → 918d7e2b26c7）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
@@ -81,7 +81,7 @@
     },
     "change:anthropic-research": {
       "label": "Use Research on Claude",
-      "message": "官方頁面內容已變更（baf36722033d → ea78372fb51e）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（baf36722033d → ab9dc15aa796）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-research",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
@@ -327,16 +327,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"j52talj1gkxawr\"",
+      "etag": "\"71xlxj96n3xafi\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-31T10:23:58Z",
+      "last_success_at": "2026-11-02T12:25:53Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "eb8dc404b80f986c303ea62bd30464d61cc2ffa60fa31b01c7191fec22fcadd1",
-      "state_changed_at": "2026-10-31T10:23:58Z",
+      "sha256": "de358f78e9152ca8a41f25918086b42646695f1d6b00c578deeb4c82ed01e9a9",
+      "state_changed_at": "2026-11-02T12:25:53Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -344,16 +344,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"92gbd074eqxae5\"",
+      "etag": "\"7qzb5bhw00x9wk\"",
       "hash_version": "visible-text-v1",
-      "http_status": 304,
+      "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-10-31T10:23:59Z",
+      "last_success_at": "2026-11-02T12:25:54Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "3e099e2756b3aa671bd89b8fbf483db2552eea5afa256ba1e910c26aa5cb68da",
-      "state_changed_at": "2026-10-31T10:23:59Z",
+      "sha256": "f658fb9848bd0e2a445ec86739726c94a70ee8779ec080304814829510ad8494",
+      "state_changed_at": "2026-11-02T12:25:54Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -366,11 +366,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-11-01T11:16:44Z",
+      "last_success_at": "2026-11-02T12:25:49Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "9ac016c594e8cd5ba4ef5e785b3a439e5e4cb4a0341a46ee797d976484cb092a",
-      "state_changed_at": "2026-11-01T11:16:44Z",
+      "sha256": "918d7e2b26c741cbba2f2f0c73348a2fe5dafa51a1770db0fdfbeb61de93f886",
+      "state_changed_at": "2026-11-02T12:25:49Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -442,11 +442,11 @@
       "http_status": 200,
       "label": "Use Research on Claude",
       "last_modified": null,
-      "last_success_at": "2026-11-01T11:16:47Z",
+      "last_success_at": "2026-11-02T12:25:52Z",
       "reviewed_at": "2026-10-17T19:28:07Z",
       "reviewed_sha256": "baf36722033dc90eb1b27c2545640e55d8b04e8eb2546f004b5bafb983408705",
-      "sha256": "ea78372fb51e09a7448b34dc656044b4a92dc40b23fa4d429d0ccf5f4707a1b8",
-      "state_changed_at": "2026-11-01T11:16:47Z",
+      "sha256": "ab9dc15aa796c8fa2c2cb5fb6c49ca4b79486f0c7dc46ec7d8dcfcf0b76458f5",
+      "state_changed_at": "2026-11-02T12:25:52Z",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "antigravity-models": {

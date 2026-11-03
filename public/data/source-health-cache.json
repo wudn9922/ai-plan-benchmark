@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-11-02T12:25:55Z",
+  "last_state_change_at": "2026-11-03T11:56:37Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -9,13 +9,13 @@
     },
     "change:aa-coding-agent-import-v1.5-2026-10-17": {
       "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
-      "message": "官方頁面內容已變更（b653fdca74bd → 980c949caf5e）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（b653fdca74bd → 700e3d44a09d）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agent-import-v1.5-2026-10-17",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
     },
     "change:aa-coding-agent-opencode-import-v1.5-2026-10-17": {
       "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
-      "message": "官方頁面內容已變更（57c2b6e08805 → 4f7833078456）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（57c2b6e08805 → cb7ae0fb0df8）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agent-opencode-import-v1.5-2026-10-17",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
     },
@@ -45,25 +45,25 @@
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → de358f78e915）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → 3bf0065f900d）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → f658fb9848bd）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → f080a6148e7d）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → 918d7e2b26c7）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → 56e8d2721cf0）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "change:anthropic-cowork": {
       "label": "Claude Cowork transition and rollout",
-      "message": "官方頁面內容已變更（81d99d90b6a9 → 8d6cda54a59f）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（81d99d90b6a9 → cdbb6c9e616e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-cowork",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
@@ -87,7 +87,7 @@
     },
     "change:antigravity-models": {
       "label": "Google Antigravity model access",
-      "message": "官方頁面內容已變更（cb648665b7cd → 2fba5e1b74da）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cb648665b7cd → 8c96e8113ba5）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-models",
       "url": "https://antigravity.google/docs/models/"
     },
@@ -96,6 +96,18 @@
       "message": "官方頁面內容已變更（3f5422535180 → bed92a67d408）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-plans",
       "url": "https://antigravity.google/docs/plans"
+    },
+    "change:gemini-cli-deprecation": {
+      "label": "Gemini CLI and individual Code Assist deprecation",
+      "message": "官方頁面內容已變更（3f5eb259d639 → cfe1a496ddb6）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "gemini-cli-deprecation",
+      "url": "https://developers.google.com/gemini-code-assist/docs/deprecations"
+    },
+    "change:gemini-cli-deprecation-individuals": {
+      "label": "Individual users deprecation details",
+      "message": "官方頁面內容已變更（c86729fa45d6 → 6688f25fc40b）；方案資料未自動覆寫，待來源核對。",
+      "source_id": "gemini-cli-deprecation-individuals",
+      "url": "https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals"
     },
     "change:google-ai-plan-benefits": {
       "label": "Google AI Plus / Pro / Ultra benefits",
@@ -135,7 +147,7 @@
     },
     "change:google-student-offer": {
       "label": "Google AI student offer",
-      "message": "官方頁面內容已變更（8e2faa33ac5a → 1042ffe5038e）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8e2faa33ac5a → f373b4a3e098）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-student-offer",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
@@ -225,16 +237,16 @@
       "baseline_at": "2026-10-17T19:17:19Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"ca7cjplrfai6ac\"",
+      "etag": "\"66226f6d1fcb2d0c8caee9e94b502ca3\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:35Z",
+      "last_success_at": "2026-11-03T11:56:36Z",
       "reviewed_at": "2026-10-17T19:28:08Z",
       "reviewed_sha256": "b653fdca74bd46c430724589d48bf82e991423e738eb0c67f413dd690fc4952b",
-      "sha256": "980c949caf5e064a530b534b6bd975b82658b13503c33ef4d6da45e624592c7d",
-      "state_changed_at": "2026-10-28T10:35:35Z",
+      "sha256": "700e3d44a09d78a26a89a7b581529d9a68308a7820bcf62abfd9e9ee8c08ff56",
+      "state_changed_at": "2026-11-03T11:56:36Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
     },
     "aa-coding-agent-opencode-import-v1.5-2026-10-17": {
@@ -242,16 +254,16 @@
       "baseline_at": "2026-10-17T19:17:19Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"7isofs1je2hi5m\"",
+      "etag": "\"3403ff0fcb29ec492aef1bbd678ed9ec\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
       "last_modified": null,
-      "last_success_at": "2026-10-28T10:35:35Z",
+      "last_success_at": "2026-11-03T11:56:36Z",
       "reviewed_at": "2026-10-17T19:28:09Z",
       "reviewed_sha256": "57c2b6e0880524d95efd385cefa27ea8564403099df06ef08a0e4dfae995cd97",
-      "sha256": "4f78330784563936cf8d2b59fa18da3f0e09c029381d0c2a94973bfaa326cd76",
-      "state_changed_at": "2026-10-28T10:35:35Z",
+      "sha256": "cb7ae0fb0df84f7573f01979d870273501cbfe159be83247c1ba81b31d49d673",
+      "state_changed_at": "2026-11-03T11:56:36Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
     },
     "aa-coding-agents": {
@@ -327,16 +339,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"71xlxj96n3xafi\"",
+      "etag": "\"g29n5mji0dxa09\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-02T12:25:53Z",
+      "last_success_at": "2026-11-03T11:56:34Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "de358f78e9152ca8a41f25918086b42646695f1d6b00c578deeb4c82ed01e9a9",
-      "state_changed_at": "2026-11-02T12:25:53Z",
+      "sha256": "3bf0065f900deccd9b42b870089081af24bf6b5c4b3c01090834d25f9c6b5558",
+      "state_changed_at": "2026-11-03T11:56:34Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -344,16 +356,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"7qzb5bhw00x9wk\"",
+      "etag": "\"njdvt35m3ax9i2\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-02T12:25:54Z",
+      "last_success_at": "2026-11-03T11:56:36Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "f658fb9848bd0e2a445ec86739726c94a70ee8779ec080304814829510ad8494",
-      "state_changed_at": "2026-11-02T12:25:54Z",
+      "sha256": "f080a6148e7ded0b32794e23e92d265ac9e2b5f361f340167a78e221d960b94b",
+      "state_changed_at": "2026-11-03T11:56:36Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -366,11 +378,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-11-02T12:25:49Z",
+      "last_success_at": "2026-11-03T11:56:30Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "918d7e2b26c741cbba2f2f0c73348a2fe5dafa51a1770db0fdfbeb61de93f886",
-      "state_changed_at": "2026-11-02T12:25:49Z",
+      "sha256": "56e8d2721cf0ac8079ff0a4e5b862849a74fb4ec7cf7661ae087930027092c57",
+      "state_changed_at": "2026-11-03T11:56:30Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -383,15 +395,15 @@
       "http_status": 200,
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
-      "last_success_at": "2026-10-31T10:24:00Z",
+      "last_success_at": "2026-11-03T11:56:36Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
       "reviewed_sha256s": [
         "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
         "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc"
       ],
-      "sha256": "8d6cda54a59ff4c1ff33cd8f3bd7b7d1411c1be823b4446d69691a272e6944d5",
-      "state_changed_at": "2026-10-31T10:24:00Z",
+      "sha256": "cdbb6c9e616ece718fdaa469bea2ee2d6412749b8a72c61d0735e55138b0a8b0",
+      "state_changed_at": "2026-11-03T11:56:36Z",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "anthropic-pricing": {
@@ -454,15 +466,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6ae595a0-22617\"",
+      "etag": "\"6ae98888-22618\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity model access",
-      "last_modified": "Sat, 31 Oct 2026 07:15:44 GMT",
-      "last_success_at": "2026-10-31T10:24:01Z",
+      "last_modified": "Tue, 03 Nov 2026 07:08:56 GMT",
+      "last_success_at": "2026-11-03T11:56:37Z",
       "reviewed_sha256": "cb648665b7cdefc6476248424a2513384d4952623102f7d074fe9694545a6cf9",
-      "sha256": "2fba5e1b74dad7e0f1f346c9b2f2b9183ee81e9e6c21c7b354b5898c46b133bf",
-      "state_changed_at": "2026-10-31T10:24:01Z",
+      "sha256": "8c96e8113ba50814cc77e191fe0f67a3e64f0bc9551c346849eade02b3dfd200",
+      "state_changed_at": "2026-11-03T11:56:37Z",
       "url": "https://antigravity.google/docs/models/"
     },
     "antigravity-plans": {
@@ -491,11 +503,11 @@
       "http_status": 200,
       "label": "Gemini CLI and individual Code Assist deprecation",
       "last_modified": "Fri, 09 Oct 2026 22:52:17 GMT",
-      "last_success_at": "2026-10-17T19:28:04Z",
+      "last_success_at": "2026-11-03T11:56:33Z",
       "reviewed_at": "2026-10-17T19:28:04Z",
       "reviewed_sha256": "3f5eb259d63973e1b855b924a5f1253ccdffc29422f4ae5a1253d429b32be028",
-      "sha256": "3f5eb259d63973e1b855b924a5f1253ccdffc29422f4ae5a1253d429b32be028",
-      "state_changed_at": "2026-10-17T19:28:04Z",
+      "sha256": "cfe1a496ddb6e7bf516ca1f672ea172a69458b6893c7ded845609351137b8c24",
+      "state_changed_at": "2026-11-03T11:56:33Z",
       "url": "https://developers.google.com/gemini-code-assist/docs/deprecations"
     },
     "gemini-cli-deprecation-individuals": {
@@ -508,11 +520,11 @@
       "http_status": 200,
       "label": "Individual users deprecation details",
       "last_modified": "Fri, 09 Oct 2026 22:52:17 GMT",
-      "last_success_at": "2026-10-17T19:28:05Z",
+      "last_success_at": "2026-11-03T11:56:33Z",
       "reviewed_at": "2026-10-17T19:28:05Z",
       "reviewed_sha256": "c86729fa45d6c1c2b0c34faa273989497ea2af850f5d9b44e83b81e203115afc",
-      "sha256": "c86729fa45d6c1c2b0c34faa273989497ea2af850f5d9b44e83b81e203115afc",
-      "state_changed_at": "2026-10-17T19:28:05Z",
+      "sha256": "6688f25fc40b0df51aada78e71ac826971da4fed3b20f7f5c384ceaa95619301",
+      "state_changed_at": "2026-11-03T11:56:33Z",
       "url": "https://developers.google.com/gemini-code-assist/docs/deprecations/code-assist-individuals"
     },
     "google-ai-plan-benefits": {
@@ -661,11 +673,11 @@
       "http_status": 200,
       "label": "Google AI student offer",
       "last_modified": null,
-      "last_success_at": "2026-10-30T10:52:35Z",
+      "last_success_at": "2026-11-03T11:56:31Z",
       "reviewed_at": "2026-10-17T19:28:04Z",
       "reviewed_sha256": "8e2faa33ac5a33ec2d9d278c231bb2f4388729757a4a9f1bccf6bf0e147f01f9",
-      "sha256": "1042ffe5038ee265e88fc238c935aed4220a144ed36d52828faa86adac0d2bbf",
-      "state_changed_at": "2026-10-30T10:52:35Z",
+      "sha256": "f373b4a3e098a0318c485e9b23c289f455dfc1fbe6f99c6340a7904cfe5f7642",
+      "state_changed_at": "2026-11-03T11:56:31Z",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
     "jules-changelog": {

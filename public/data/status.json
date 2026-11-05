@@ -1,22 +1,22 @@
 {
   "aa": {
-    "checked_at": "2026-11-04T12:09:08Z",
+    "checked_at": "2026-11-05T12:22:32Z",
     "configured": true,
-    "data_updated_at": "2026-11-04T12:09:08Z",
+    "data_updated_at": "2026-11-05T12:22:32Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-11-04T12:09:08Z",
+    "last_successful_snapshot_at": "2026-11-05T12:22:32Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
-    "models_count": 725,
+    "models_count": 727,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-11-04T12:09:19Z",
+    "checked_at": "2026-11-05T12:22:44Z",
     "status": "warning",
-    "summary": "有 33 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "summary": "有 34 個內容更新待核對；10 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "blocked",
@@ -57,14 +57,6 @@
         "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
         "source_id": "openai-agent-mode",
         "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
-      },
-      {
-        "category": "blocked",
-        "label": "ChatGPT current plan comparison",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-current-pricing",
-        "url": "https://chatgpt.com/pricing/?locale=en-US"
       },
       {
         "category": "blocked",
@@ -110,7 +102,7 @@
     "warnings": [
       {
         "label": "Artificial Analysis API Reference",
-        "message": "官方頁面內容已變更（fc2dd1ea4573 → f2deca857494）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（fc2dd1ea4573 → dbc931e662c5）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-api-reference",
         "url": "https://artificialanalysis.ai/data-api/docs/reference"
       },
@@ -152,15 +144,21 @@
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → 01dc96e10627）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 954d339b7bd5）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
       {
         "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-        "message": "官方頁面內容已變更（c17099d39029 → 21aff8bdea4d）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c17099d39029 → 9b7786139c83）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
+      },
+      {
+        "label": "ChatGPT current plan comparison",
+        "message": "官方頁面內容已變更（8d7f1ab0ad3f → a30ebf54e68e）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-current-pricing",
+        "url": "https://chatgpt.com/pricing/?locale=en-US"
       },
       {
         "label": "Claude Code with a Claude plan",
@@ -170,7 +168,7 @@
       },
       {
         "label": "Claude Cowork transition and rollout",
-        "message": "官方頁面內容已變更（81d99d90b6a9 → 14304dffa523）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（81d99d90b6a9 → cdbb6c9e616e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-cowork",
         "url": "https://claude.com/blog/cowork-is-now-claude"
       },
@@ -182,7 +180,7 @@
       },
       {
         "label": "Claude pricing",
-        "message": "官方頁面內容已變更（5153caa99280 → 71e4f180f1b9）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（5153caa99280 → 577ba1769584）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-pricing",
         "url": "https://claude.com/pricing"
       },
@@ -290,7 +288,7 @@
       },
       {
         "label": "Use Research on Claude",
-        "message": "官方頁面內容已變更（baf36722033d → 4c503c1e025d）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（baf36722033d → ab9dc15aa796）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-research",
         "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
       },

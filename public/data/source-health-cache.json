@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-11-05T12:22:44Z",
+  "last_state_change_at": "2026-11-06T12:07:33Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -9,19 +9,19 @@
     },
     "change:aa-coding-agent-import-v1.5-2026-10-17": {
       "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
-      "message": "官方頁面內容已變更（b653fdca74bd → 8ed7d673834b）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（b653fdca74bd → a8e629acb1b1）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agent-import-v1.5-2026-10-17",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
     },
     "change:aa-coding-agent-opencode-import-v1.5-2026-10-17": {
       "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
-      "message": "官方頁面內容已變更（57c2b6e08805 → e508a6772fe2）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（57c2b6e08805 → 1c79ebfedf58）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agent-opencode-import-v1.5-2026-10-17",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
     },
     "change:aa-coding-agents": {
       "label": "Artificial Analysis Coding Agents",
-      "message": "官方頁面內容已變更（fe9cacd138a3 → ad9be341d391）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（fe9cacd138a3 → ee0f5c76e682）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agents",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
@@ -39,19 +39,19 @@
     },
     "change:aa-method": {
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
-      "message": "官方頁面內容已變更（de26004b835a → 1a19cbe90b5d）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（de26004b835a → 8c1d3bda13c4）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-method",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → 9b7786139c83）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → c874b96bd124）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → 954d339b7bd5）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → 0514d33faaef）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
@@ -63,7 +63,7 @@
     },
     "change:anthropic-cowork": {
       "label": "Claude Cowork transition and rollout",
-      "message": "官方頁面內容已變更（81d99d90b6a9 → cdbb6c9e616e）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（81d99d90b6a9 → 85591478f728）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-cowork",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
@@ -87,13 +87,13 @@
     },
     "change:antigravity-models": {
       "label": "Google Antigravity model access",
-      "message": "官方頁面內容已變更（cb648665b7cd → 729cab6891a3）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cb648665b7cd → 7c6ef6829524）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-models",
       "url": "https://antigravity.google/docs/models/"
     },
     "change:antigravity-plans": {
       "label": "Google Antigravity plans and limits",
-      "message": "官方頁面內容已變更（3f5422535180 → 11c135df4bf7）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（3f5422535180 → 0ffcac2e8b92）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-plans",
       "url": "https://antigravity.google/docs/plans"
     },
@@ -129,7 +129,7 @@
     },
     "change:google-jules": {
       "label": "Jules asynchronous coding agent",
-      "message": "官方頁面內容已變更（4d59f143a991 → a12a95e5f121）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（4d59f143a991 → 7156f2a529d1）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-jules",
       "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
     },
@@ -147,7 +147,7 @@
     },
     "change:google-student-offer": {
       "label": "Google AI student offer",
-      "message": "官方頁面內容已變更（8e2faa33ac5a → 65242f91ca76）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8e2faa33ac5a → b772dcd40200）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-student-offer",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
@@ -165,7 +165,7 @@
     },
     "change:openai-current-pricing": {
       "label": "ChatGPT current plan comparison",
-      "message": "官方頁面內容已變更（8d7f1ab0ad3f → a30ebf54e68e）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8d7f1ab0ad3f → ae33bda1c069）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-current-pricing",
       "url": "https://chatgpt.com/pricing/?locale=en-US"
     },
@@ -243,16 +243,16 @@
       "baseline_at": "2026-10-17T19:17:19Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"at27atda49j2lc\"",
+      "etag": "\"hxz631a1c7j0z1\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
       "last_modified": null,
-      "last_success_at": "2026-11-04T12:09:18Z",
+      "last_success_at": "2026-11-06T12:07:31Z",
       "reviewed_at": "2026-10-17T19:28:08Z",
       "reviewed_sha256": "b653fdca74bd46c430724589d48bf82e991423e738eb0c67f413dd690fc4952b",
-      "sha256": "8ed7d673834b189cdad239305316c616e88b938cb5cd24358f54c1276389db88",
-      "state_changed_at": "2026-11-04T12:09:18Z",
+      "sha256": "a8e629acb1b1c43bb2bb2f008c5f18d2c9c151e87c22054ce0b9713599d5ba9e",
+      "state_changed_at": "2026-11-06T12:07:31Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
     },
     "aa-coding-agent-opencode-import-v1.5-2026-10-17": {
@@ -260,16 +260,16 @@
       "baseline_at": "2026-10-17T19:17:19Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"jzvd4s6pw5icmf\"",
+      "etag": "\"a6o0475xq3ib0w\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
       "last_modified": null,
-      "last_success_at": "2026-11-04T12:09:18Z",
+      "last_success_at": "2026-11-06T12:07:32Z",
       "reviewed_at": "2026-10-17T19:28:09Z",
       "reviewed_sha256": "57c2b6e0880524d95efd385cefa27ea8564403099df06ef08a0e4dfae995cd97",
-      "sha256": "e508a6772fe23ffac08cf17480a9ef215568063a0d2cc70a5cf8132a2d4d588b",
-      "state_changed_at": "2026-11-04T12:09:18Z",
+      "sha256": "1c79ebfedf58a5c1a2bb337a45818d4d766a67aa76b336e96478fb3b7a37e68e",
+      "state_changed_at": "2026-11-06T12:07:32Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
     },
     "aa-coding-agents": {
@@ -277,16 +277,16 @@
       "baseline_at": "2026-10-17T19:28:01Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"dy9sisv97bjitj\"",
+      "etag": "\"4hcdsfes6ljv26\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agents",
       "last_modified": null,
-      "last_success_at": "2026-10-30T10:52:33Z",
+      "last_success_at": "2026-11-06T12:07:22Z",
       "reviewed_at": "2026-10-17T19:28:01Z",
       "reviewed_sha256": "fe9cacd138a3b305161a2aa2e60a863a345fdc5cd2b211077bf54c496f88ffa6",
-      "sha256": "ad9be341d39160390ccd78a76acb4de5007f9bcfce17144abaa04b6fc50f3301",
-      "state_changed_at": "2026-10-30T10:52:33Z",
+      "sha256": "ee0f5c76e68259f8c6ad704dea1eaa9c48a4f5b54aefeac32f214e2e18de4263",
+      "state_changed_at": "2026-11-06T12:07:22Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
     "aa-coding-method": {
@@ -328,16 +328,16 @@
       "baseline_at": "2026-10-17T19:28:01Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"4onwjlwy8vmdws\"",
+      "etag": "\"12e2p1m5gggmymh\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Intelligence Benchmark Methodology",
       "last_modified": null,
-      "last_success_at": "2026-11-04T12:09:10Z",
+      "last_success_at": "2026-11-06T12:07:22Z",
       "reviewed_at": "2026-10-17T19:28:01Z",
       "reviewed_sha256": "de26004b835abf0d8a6ab524cbe0c43a189ebe3ab58c413a0d219f17de26e758",
-      "sha256": "1a19cbe90b5d0968848be3d8a5312390851734a67d2465d7914b7c7ec34eb678",
-      "state_changed_at": "2026-11-04T12:09:10Z",
+      "sha256": "8c1d3bda13c4fea496772d9c0364dd1e719ba941ccb5543a9916e62539ff8fc4",
+      "state_changed_at": "2026-11-06T12:07:22Z",
       "url": "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
     },
     "aa-public-gemini-argon-comparison": {
@@ -345,16 +345,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"1045toigb32umua\"",
+      "etag": "\"ilzhjfphbbuozq\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-05T12:22:42Z",
+      "last_success_at": "2026-11-06T12:07:28Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "9b7786139c83d4d02e535adf160d989818d6a6ee4536a2761ce776c8f6a73954",
-      "state_changed_at": "2026-11-05T12:22:42Z",
+      "sha256": "c874b96bd1245789373d5126e43aed2e3825d4757fd2a4831f1217fe61a9b432",
+      "state_changed_at": "2026-11-06T12:07:28Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -362,16 +362,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"oqvluwv9fnumcf\"",
+      "etag": "\"5lkj8qvrv4uoi0\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-05T12:22:42Z",
+      "last_success_at": "2026-11-06T12:07:29Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "954d339b7bd5c45e6ad849db8ad92b3d6cbbe732ff287561cf742fd552bc8a41",
-      "state_changed_at": "2026-11-05T12:22:42Z",
+      "sha256": "0514d33faaefcd4b7800a4b492b117ec34e832b36fe4afe8ad79184c4a24eca0",
+      "state_changed_at": "2026-11-06T12:07:29Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -401,15 +401,15 @@
       "http_status": 200,
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
-      "last_success_at": "2026-11-05T12:22:43Z",
+      "last_success_at": "2026-11-06T12:07:30Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
       "reviewed_sha256s": [
         "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
         "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc"
       ],
-      "sha256": "cdbb6c9e616ece718fdaa469bea2ee2d6412749b8a72c61d0735e55138b0a8b0",
-      "state_changed_at": "2026-11-05T12:22:43Z",
+      "sha256": "85591478f728c7765efab451545999475ab353c10365e16e4748dcf74e00e007",
+      "state_changed_at": "2026-11-06T12:07:30Z",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "anthropic-pricing": {
@@ -472,15 +472,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6aeaca98-22882\"",
+      "etag": "\"6aed2714-2299e\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity model access",
-      "last_modified": "Wed, 04 Nov 2026 06:03:04 GMT",
-      "last_success_at": "2026-11-04T12:09:19Z",
+      "last_modified": "Fri, 06 Nov 2026 01:02:12 GMT",
+      "last_success_at": "2026-11-06T12:07:33Z",
       "reviewed_sha256": "cb648665b7cdefc6476248424a2513384d4952623102f7d074fe9694545a6cf9",
-      "sha256": "729cab6891a33994cfa56832ea9156d6757fd0cfd34704241026e512f9ba00aa",
-      "state_changed_at": "2026-11-04T12:09:19Z",
+      "sha256": "7c6ef6829524c55f0dab5b299ee99082310f727de556afee1f1dfd9c13e8ceb5",
+      "state_changed_at": "2026-11-06T12:07:33Z",
       "url": "https://antigravity.google/docs/models/"
     },
     "antigravity-plans": {
@@ -488,15 +488,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6aeaca99-1b6e8\"",
+      "etag": "\"6aed2714-1b804\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity plans and limits",
-      "last_modified": "Wed, 04 Nov 2026 06:03:05 GMT",
-      "last_success_at": "2026-11-04T12:09:19Z",
+      "last_modified": "Fri, 06 Nov 2026 01:02:12 GMT",
+      "last_success_at": "2026-11-06T12:07:33Z",
       "reviewed_sha256": "3f5422535180b6e6c02c6843c022c10e22214362628914bcf0e08815b8d58d7d",
-      "sha256": "11c135df4bf7f681d02227532c459a3a706b495c24a9152abeee04d308926064",
-      "state_changed_at": "2026-11-04T12:09:19Z",
+      "sha256": "0ffcac2e8b929c6f72efea346f83e9b7ef5bcad5eef3d9905a86779cae9405c8",
+      "state_changed_at": "2026-11-06T12:07:33Z",
       "url": "https://antigravity.google/docs/plans"
     },
     "gemini-cli-deprecation": {
@@ -628,11 +628,11 @@
       "http_status": 200,
       "label": "Jules asynchronous coding agent",
       "last_modified": null,
-      "last_success_at": "2026-10-29T10:54:19Z",
+      "last_success_at": "2026-11-06T12:07:27Z",
       "reviewed_at": "2026-10-17T19:28:06Z",
       "reviewed_sha256": "4d59f143a991edee537df987cd656ff2ad25a5c68c69016e4485b48d3e8f902e",
-      "sha256": "a12a95e5f121c8ab5313be412553ce8d459d676f2d95a9bcc74d1c3f2b4de127",
-      "state_changed_at": "2026-10-29T10:54:19Z",
+      "sha256": "7156f2a529d1147e77a50c02ac12924b02af39f20a31757b31d7ccd075e4b41d",
+      "state_changed_at": "2026-11-06T12:07:27Z",
       "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
     },
     "google-one-benefits": {
@@ -679,11 +679,11 @@
       "http_status": 200,
       "label": "Google AI student offer",
       "last_modified": null,
-      "last_success_at": "2026-11-04T12:09:13Z",
+      "last_success_at": "2026-11-06T12:07:24Z",
       "reviewed_at": "2026-10-17T19:28:04Z",
       "reviewed_sha256": "8e2faa33ac5a33ec2d9d278c231bb2f4388729757a4a9f1bccf6bf0e147f01f9",
-      "sha256": "65242f91ca761641bb6f6899bd2f69d8d6c5a2eed9b028a4cc42d0b5b16f3282",
-      "state_changed_at": "2026-11-04T12:09:13Z",
+      "sha256": "b772dcd4020073330f141d03264306735e1349b1fd24429822af6743762106a2",
+      "state_changed_at": "2026-11-06T12:07:24Z",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
     "jules-changelog": {
@@ -779,11 +779,11 @@
       "http_status": 200,
       "label": "ChatGPT current plan comparison",
       "last_modified": null,
-      "last_success_at": "2026-11-05T12:22:41Z",
+      "last_success_at": "2026-11-06T12:07:27Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "8d7f1ab0ad3f2ae2af1a1ac767e617820f7eb781b7c82d760b8a0bf7bc6c0c9e",
-      "sha256": "a30ebf54e68ead18ef65cd742adf29fa37f7c2e8d331f35abedf441f83980ed6",
-      "state_changed_at": "2026-11-05T12:22:41Z",
+      "sha256": "ae33bda1c069b1578b178ffe6bb34cfe3bf1984896d303096b717299e53768ac",
+      "state_changed_at": "2026-11-06T12:07:27Z",
       "url": "https://chatgpt.com/pricing/?locale=en-US"
     },
     "openai-deep-research": {

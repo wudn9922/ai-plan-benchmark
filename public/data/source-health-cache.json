@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-11-06T12:07:33Z",
+  "last_state_change_at": "2026-11-07T11:04:33Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -45,25 +45,25 @@
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → c874b96bd124）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → fa5f28ec4e01）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → 0514d33faaef）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → 4102bd8b952e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → 56e8d2721cf0）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → a110e9d121cd）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "change:anthropic-cowork": {
       "label": "Claude Cowork transition and rollout",
-      "message": "官方頁面內容已變更（81d99d90b6a9 → 85591478f728）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（81d99d90b6a9 → 2828a1c3bfc2）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-cowork",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
@@ -81,19 +81,19 @@
     },
     "change:anthropic-research": {
       "label": "Use Research on Claude",
-      "message": "官方頁面內容已變更（baf36722033d → ab9dc15aa796）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（baf36722033d → 3c26b57e1d7f）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-research",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "change:antigravity-models": {
       "label": "Google Antigravity model access",
-      "message": "官方頁面內容已變更（cb648665b7cd → 7c6ef6829524）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cb648665b7cd → 8a50d108c709）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-models",
       "url": "https://antigravity.google/docs/models/"
     },
     "change:antigravity-plans": {
       "label": "Google Antigravity plans and limits",
-      "message": "官方頁面內容已變更（3f5422535180 → 0ffcac2e8b92）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（3f5422535180 → f53f615fc4d6）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-plans",
       "url": "https://antigravity.google/docs/plans"
     },
@@ -165,7 +165,7 @@
     },
     "change:openai-current-pricing": {
       "label": "ChatGPT current plan comparison",
-      "message": "官方頁面內容已變更（8d7f1ab0ad3f → ae33bda1c069）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8d7f1ab0ad3f → a30ebf54e68e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-current-pricing",
       "url": "https://chatgpt.com/pricing/?locale=en-US"
     },
@@ -345,16 +345,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"ilzhjfphbbuozq\"",
+      "etag": "\"rlc7u1vifrupv6\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-06T12:07:28Z",
+      "last_success_at": "2026-11-07T11:04:30Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "c874b96bd1245789373d5126e43aed2e3825d4757fd2a4831f1217fe61a9b432",
-      "state_changed_at": "2026-11-06T12:07:28Z",
+      "sha256": "fa5f28ec4e019f98db924c318c6eaa7d2679bc4153877fe729495d3a48b07da2",
+      "state_changed_at": "2026-11-07T11:04:30Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -362,16 +362,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"5lkj8qvrv4uoi0\"",
+      "etag": "\"qqjsyy19z7updg\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-06T12:07:29Z",
+      "last_success_at": "2026-11-07T11:04:32Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "0514d33faaefcd4b7800a4b492b117ec34e832b36fe4afe8ad79184c4a24eca0",
-      "state_changed_at": "2026-11-06T12:07:29Z",
+      "sha256": "4102bd8b952e46d3d5f691e1a1353b7282d362527bf673174ee50c69d538729b",
+      "state_changed_at": "2026-11-07T11:04:32Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -384,11 +384,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-11-03T11:56:30Z",
+      "last_success_at": "2026-11-07T11:04:24Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "56e8d2721cf0ac8079ff0a4e5b862849a74fb4ec7cf7661ae087930027092c57",
-      "state_changed_at": "2026-11-03T11:56:30Z",
+      "sha256": "a110e9d121cd3b612184d326076c6a0a8987e500c42e8e4723624419f02d569a",
+      "state_changed_at": "2026-11-07T11:04:24Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -401,15 +401,15 @@
       "http_status": 200,
       "label": "Claude Cowork transition and rollout",
       "last_modified": null,
-      "last_success_at": "2026-11-06T12:07:30Z",
+      "last_success_at": "2026-11-07T11:04:32Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
       "reviewed_sha256s": [
         "81d99d90b6a9929bd6dab6536d2c7f7e35424a1bb5b38034c6a43712232563f9",
         "9ea72ba2ab480bdb2d2cb0a1eb9451bb1e4c35bd0d945a568377ba2dea3161dc"
       ],
-      "sha256": "85591478f728c7765efab451545999475ab353c10365e16e4748dcf74e00e007",
-      "state_changed_at": "2026-11-06T12:07:30Z",
+      "sha256": "2828a1c3bfc2157d9e0a058e63a35ec830ed0c186ea73e18a0df7f7d18ec0ef5",
+      "state_changed_at": "2026-11-07T11:04:32Z",
       "url": "https://claude.com/blog/cowork-is-now-claude"
     },
     "anthropic-pricing": {
@@ -460,11 +460,11 @@
       "http_status": 200,
       "label": "Use Research on Claude",
       "last_modified": null,
-      "last_success_at": "2026-11-05T12:22:40Z",
+      "last_success_at": "2026-11-07T11:04:29Z",
       "reviewed_at": "2026-10-17T19:28:07Z",
       "reviewed_sha256": "baf36722033dc90eb1b27c2545640e55d8b04e8eb2546f004b5bafb983408705",
-      "sha256": "ab9dc15aa796c8fa2c2cb5fb6c49ca4b79486f0c7dc46ec7d8dcfcf0b76458f5",
-      "state_changed_at": "2026-11-05T12:22:40Z",
+      "sha256": "3c26b57e1d7f9f448e66006b709c793a31fb658b2d70fb9795393d60004b8545",
+      "state_changed_at": "2026-11-07T11:04:29Z",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "antigravity-models": {
@@ -472,15 +472,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6aed2714-2299e\"",
+      "etag": "\"6aee5e42-2297f\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity model access",
-      "last_modified": "Fri, 06 Nov 2026 01:02:12 GMT",
-      "last_success_at": "2026-11-06T12:07:33Z",
+      "last_modified": "Fri, 06 Nov 2026 23:09:54 GMT",
+      "last_success_at": "2026-11-07T11:04:33Z",
       "reviewed_sha256": "cb648665b7cdefc6476248424a2513384d4952623102f7d074fe9694545a6cf9",
-      "sha256": "7c6ef6829524c55f0dab5b299ee99082310f727de556afee1f1dfd9c13e8ceb5",
-      "state_changed_at": "2026-11-06T12:07:33Z",
+      "sha256": "8a50d108c7097d25b16b8cdeda9f6ea9499e28b85a51b8f95ad5923c9c77cf1b",
+      "state_changed_at": "2026-11-07T11:04:33Z",
       "url": "https://antigravity.google/docs/models/"
     },
     "antigravity-plans": {
@@ -488,15 +488,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6aed2714-1b804\"",
+      "etag": "\"6aee5e42-1b7e5\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity plans and limits",
-      "last_modified": "Fri, 06 Nov 2026 01:02:12 GMT",
-      "last_success_at": "2026-11-06T12:07:33Z",
+      "last_modified": "Fri, 06 Nov 2026 23:09:54 GMT",
+      "last_success_at": "2026-11-07T11:04:33Z",
       "reviewed_sha256": "3f5422535180b6e6c02c6843c022c10e22214362628914bcf0e08815b8d58d7d",
-      "sha256": "0ffcac2e8b929c6f72efea346f83e9b7ef5bcad5eef3d9905a86779cae9405c8",
-      "state_changed_at": "2026-11-06T12:07:33Z",
+      "sha256": "f53f615fc4d6081c1e384cedcb8ae4c6f8084666fe5851157cc3c7df8f107d93",
+      "state_changed_at": "2026-11-07T11:04:33Z",
       "url": "https://antigravity.google/docs/plans"
     },
     "gemini-cli-deprecation": {
@@ -779,11 +779,11 @@
       "http_status": 200,
       "label": "ChatGPT current plan comparison",
       "last_modified": null,
-      "last_success_at": "2026-11-06T12:07:27Z",
+      "last_success_at": "2026-11-07T11:04:29Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "8d7f1ab0ad3f2ae2af1a1ac767e617820f7eb781b7c82d760b8a0bf7bc6c0c9e",
-      "sha256": "ae33bda1c069b1578b178ffe6bb34cfe3bf1984896d303096b717299e53768ac",
-      "state_changed_at": "2026-11-06T12:07:27Z",
+      "sha256": "a30ebf54e68ead18ef65cd742adf29fa37f7c2e8d331f35abedf441f83980ed6",
+      "state_changed_at": "2026-11-07T11:04:29Z",
       "url": "https://chatgpt.com/pricing/?locale=en-US"
     },
     "openai-deep-research": {

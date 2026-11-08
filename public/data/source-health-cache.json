@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-11-07T11:04:33Z",
+  "last_state_change_at": "2026-11-08T11:17:53Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -45,13 +45,13 @@
     },
     "change:aa-public-gemini-argon-comparison": {
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-      "message": "官方頁面內容已變更（c17099d39029 → fa5f28ec4e01）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c17099d39029 → c0f3f82a08a4）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gemini-argon-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → 4102bd8b952e）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → 15df52e168a6）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
@@ -69,7 +69,7 @@
     },
     "change:anthropic-pricing": {
       "label": "Claude pricing",
-      "message": "官方頁面內容已變更（5153caa99280 → 577ba1769584）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（5153caa99280 → 71e4f180f1b9）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-pricing",
       "url": "https://claude.com/pricing"
     },
@@ -345,16 +345,16 @@
       "baseline_at": "2026-10-17T19:28:07Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"rlc7u1vifrupv6\"",
+      "etag": "\"hvlzy5bubiusth\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-07T11:04:30Z",
+      "last_success_at": "2026-11-08T11:17:51Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "c17099d3902918acb19ffc08604a7d21ef09ef472cb3385a0c63037df02af967",
-      "sha256": "fa5f28ec4e019f98db924c318c6eaa7d2679bc4153877fe729495d3a48b07da2",
-      "state_changed_at": "2026-11-07T11:04:30Z",
+      "sha256": "c0f3f82a08a43675d1f39182946d1fb0c29da9be4f079bd68b255d4d2140abe2",
+      "state_changed_at": "2026-11-08T11:17:51Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
     },
     "aa-public-gpt-6-luna-high-comparison": {
@@ -362,16 +362,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"qqjsyy19z7updg\"",
+      "etag": "\"dh8r2oa5jpusbj\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-07T11:04:32Z",
+      "last_success_at": "2026-11-08T11:17:52Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "4102bd8b952e46d3d5f691e1a1353b7282d362527bf673174ee50c69d538729b",
-      "state_changed_at": "2026-11-07T11:04:32Z",
+      "sha256": "15df52e168a6e3ec83474cc7a2e8bc4b55f1d6f09a23d9f65c94511ae832d9fb",
+      "state_changed_at": "2026-11-08T11:17:52Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -421,16 +421,16 @@
       "hash_version": "pricing-region-v2",
       "http_status": 200,
       "label": "Claude pricing",
-      "last_modified": "Thu, 05 Nov 2026 12:21:54 GMT",
-      "last_success_at": "2026-11-05T12:22:34Z",
+      "last_modified": "Sun, 08 Nov 2026 11:17:20 GMT",
+      "last_success_at": "2026-11-08T11:17:46Z",
       "reviewed_at": "2026-10-18T16:51:06Z",
       "reviewed_sha256": "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4",
       "reviewed_sha256s": [
         "45986d337f7655408359daca4876e86494832cb38cec98d5ddb4c07edb53439c",
         "5153caa9928003c4829b9c38444e47a1fe8a5ac70e0fcee76a9405f752067aa4"
       ],
-      "sha256": "577ba17695841ee5a8b13828434e2e51eefbfb22fb1b265c426fa53c8e5ff7a7",
-      "state_changed_at": "2026-11-05T12:22:34Z",
+      "sha256": "71e4f180f1b9a172c009037c0806175af8556ee51c7f38a02eb771cd1607832e",
+      "state_changed_at": "2026-11-08T11:17:46Z",
       "url": "https://claude.com/pricing"
     },
     "anthropic-pro-cost": {
@@ -474,7 +474,7 @@
       "error": null,
       "etag": "\"6aee5e42-2297f\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google Antigravity model access",
       "last_modified": "Fri, 06 Nov 2026 23:09:54 GMT",
       "last_success_at": "2026-11-07T11:04:33Z",
@@ -490,7 +490,7 @@
       "error": null,
       "etag": "\"6aee5e42-1b7e5\"",
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google Antigravity plans and limits",
       "last_modified": "Fri, 06 Nov 2026 23:09:54 GMT",
       "last_success_at": "2026-11-07T11:04:33Z",

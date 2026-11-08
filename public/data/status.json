@@ -1,12 +1,12 @@
 {
   "aa": {
-    "checked_at": "2026-11-07T11:04:21Z",
+    "checked_at": "2026-11-08T11:17:44Z",
     "configured": true,
-    "data_updated_at": "2026-11-07T11:04:21Z",
+    "data_updated_at": "2026-11-08T11:17:44Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-11-07T11:04:21Z",
+    "last_successful_snapshot_at": "2026-11-08T11:17:44Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
     "models_count": 728,
@@ -14,7 +14,7 @@
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-11-07T11:04:33Z",
+    "checked_at": "2026-11-08T11:17:53Z",
     "status": "warning",
     "summary": "有 34 個內容更新待核對；10 個來源目前無法自動讀取。",
     "unavailable": [
@@ -144,13 +144,13 @@
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → 4102bd8b952e）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 15df52e168a6）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
       {
         "label": "Artificial Analysis public comparison: Gemini 4 Argon (High)",
-        "message": "官方頁面內容已變更（c17099d39029 → fa5f28ec4e01）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c17099d39029 → c0f3f82a08a4）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
       },
@@ -180,7 +180,7 @@
       },
       {
         "label": "Claude pricing",
-        "message": "官方頁面內容已變更（5153caa99280 → 577ba1769584）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（5153caa99280 → 71e4f180f1b9）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-pricing",
         "url": "https://claude.com/pricing"
       },

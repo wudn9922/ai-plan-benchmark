@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "region": "US",
   "currency": "USD",
-  "as_of": "2026-11-13",
+  "as_of": "2026-11-14",
   "index_versions": {
     "intelligence_api": "5",
     "intelligence_methodology": "v4.3.2",
@@ -4809,12 +4809,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 54.74,
+        "output_tokens_per_second": 48.27,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -4848,12 +4848,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 192.98,
+        "output_tokens_per_second": 195.54,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -4881,8 +4881,8 @@
       "intelligence_cost_reasoning": "unknown",
       "intelligence_cost_benchmark_version": "5",
       "api_pricing": {
-        "input_per_million_usd": 0.3915,
-        "output_per_million_usd": 0.783,
+        "input_per_million_usd": 0.348,
+        "output_per_million_usd": 0.696,
         "cache_read_per_million_usd": null,
         "cache_write_per_million_usd": null
       },
@@ -4892,7 +4892,7 @@
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-10T12:39:47Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5004,12 +5004,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 547.82,
+        "output_tokens_per_second": 551.43,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5043,12 +5043,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 91.81,
+        "output_tokens_per_second": 93.37,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5121,12 +5121,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 97.3,
+        "output_tokens_per_second": 116.45,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5160,12 +5160,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 142.28,
+        "output_tokens_per_second": 141.08,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5238,12 +5238,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 179.85,
+        "output_tokens_per_second": 178.57,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5394,12 +5394,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 105.81,
+        "output_tokens_per_second": 106.13,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5589,12 +5589,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 128.04,
+        "output_tokens_per_second": 127.74,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5628,12 +5628,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 301.12,
+        "output_tokens_per_second": 270.12,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5667,12 +5667,12 @@
         "cache_write_per_million_usd": 0.25
       },
       "performance": {
-        "output_tokens_per_second": 123.72,
+        "output_tokens_per_second": 122.56,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5706,12 +5706,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 56.99,
+        "output_tokens_per_second": 54.84,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -5979,12 +5979,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 177.71,
+        "output_tokens_per_second": 178.52,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6057,12 +6057,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 60.73,
+        "output_tokens_per_second": 61.59,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6096,12 +6096,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 100.41,
+        "output_tokens_per_second": 106.87,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6135,12 +6135,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 408.79,
+        "output_tokens_per_second": 409.65,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6174,12 +6174,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 134.49,
+        "output_tokens_per_second": 117.68,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6369,12 +6369,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 95.15,
+        "output_tokens_per_second": 95.04,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6408,12 +6408,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 98.49,
+        "output_tokens_per_second": 97.27,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6486,12 +6486,12 @@
         "cache_write_per_million_usd": 10.0
       },
       "performance": {
-        "output_tokens_per_second": 80.36,
+        "output_tokens_per_second": 80.64,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6525,12 +6525,12 @@
         "cache_write_per_million_usd": 1.25
       },
       "performance": {
-        "output_tokens_per_second": 73.06,
+        "output_tokens_per_second": 78.6,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6564,12 +6564,12 @@
         "cache_write_per_million_usd": 4.0
       },
       "performance": {
-        "output_tokens_per_second": 93.02,
+        "output_tokens_per_second": 89.33,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6603,12 +6603,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 115.8,
+        "output_tokens_per_second": 120.32,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6642,12 +6642,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 154.68,
+        "output_tokens_per_second": 158.47,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6681,12 +6681,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 43.71,
+        "output_tokens_per_second": 43.08,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6720,12 +6720,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 164.13,
+        "output_tokens_per_second": 159.55,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6837,12 +6837,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 57.92,
+        "output_tokens_per_second": 58.55,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -6915,12 +6915,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 41.77,
+        "output_tokens_per_second": 40.29,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7071,12 +7071,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 35.52,
+        "output_tokens_per_second": 34.06,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7149,12 +7149,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 58.91,
+        "output_tokens_per_second": 51.52,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7188,12 +7188,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 149.46,
+        "output_tokens_per_second": 146.18,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7227,12 +7227,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 52.76,
+        "output_tokens_per_second": 52.8,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7305,12 +7305,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 66.74,
+        "output_tokens_per_second": 67.06,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7461,12 +7461,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 98.94,
+        "output_tokens_per_second": 91.55,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7500,12 +7500,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 224.5,
+        "output_tokens_per_second": 219.18,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7578,12 +7578,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 155.06,
+        "output_tokens_per_second": 145.24,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7734,12 +7734,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 49.39,
+        "output_tokens_per_second": 51.55,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7773,12 +7773,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 115.93,
+        "output_tokens_per_second": 109.49,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -7890,12 +7890,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 156.92,
+        "output_tokens_per_second": 154.38,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8085,12 +8085,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 300.15,
+        "output_tokens_per_second": 284.04,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8124,12 +8124,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 121.03,
+        "output_tokens_per_second": 118.39,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8163,12 +8163,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 191.55,
+        "output_tokens_per_second": 155.3,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8241,12 +8241,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 76.97,
+        "output_tokens_per_second": 71.43,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8475,12 +8475,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 187.83,
+        "output_tokens_per_second": 182.21,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8514,12 +8514,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 65.76,
+        "output_tokens_per_second": 65.08,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8553,12 +8553,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 52.64,
+        "output_tokens_per_second": 52.5,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8592,12 +8592,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 135.27,
+        "output_tokens_per_second": 144.83,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8670,12 +8670,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 225.22,
+        "output_tokens_per_second": 206.82,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8748,12 +8748,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 128.63,
+        "output_tokens_per_second": 128.06,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8904,12 +8904,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 310.15,
+        "output_tokens_per_second": 303.18,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -8943,12 +8943,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 79.48,
+        "output_tokens_per_second": 79.67,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9060,12 +9060,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 52.31,
+        "output_tokens_per_second": 52.44,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9099,12 +9099,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 65.85,
+        "output_tokens_per_second": 58.2,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9138,12 +9138,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 56.15,
+        "output_tokens_per_second": 55.2,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9177,12 +9177,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 76.88,
+        "output_tokens_per_second": 69.23,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9216,12 +9216,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 106.88,
+        "output_tokens_per_second": 102.51,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9255,12 +9255,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 146.75,
+        "output_tokens_per_second": 153.32,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9333,12 +9333,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 98.93,
+        "output_tokens_per_second": 92.86,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9372,12 +9372,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 112.42,
+        "output_tokens_per_second": 113.68,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9411,12 +9411,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 71.46,
+        "output_tokens_per_second": 74.54,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9489,12 +9489,12 @@
         "cache_write_per_million_usd": 0.375
       },
       "performance": {
-        "output_tokens_per_second": 116.66,
+        "output_tokens_per_second": 116.42,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9528,12 +9528,12 @@
         "cache_write_per_million_usd": 0.7
       },
       "performance": {
-        "output_tokens_per_second": 123.61,
+        "output_tokens_per_second": 111.3,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9645,12 +9645,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 91.54,
+        "output_tokens_per_second": 89.62,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9684,12 +9684,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 278.56,
+        "output_tokens_per_second": 288.99,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -9918,12 +9918,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 91.96,
+        "output_tokens_per_second": 84.01,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10074,12 +10074,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 57.02,
+        "output_tokens_per_second": 64.6,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10113,12 +10113,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 249.25,
+        "output_tokens_per_second": 235.7,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10191,12 +10191,12 @@
         "cache_write_per_million_usd": 3.75
       },
       "performance": {
-        "output_tokens_per_second": 45.99,
+        "output_tokens_per_second": 44.53,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10308,12 +10308,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 174.15,
+        "output_tokens_per_second": 173.83,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10347,12 +10347,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 235.24,
+        "output_tokens_per_second": 227.07,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10386,12 +10386,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 43.78,
+        "output_tokens_per_second": 53.57,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10425,12 +10425,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 98.25,
+        "output_tokens_per_second": 96.79,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10581,12 +10581,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 48.42,
+        "output_tokens_per_second": 48.15,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10620,12 +10620,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 21.47,
+        "output_tokens_per_second": 20.97,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10659,12 +10659,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 58.58,
+        "output_tokens_per_second": 59.08,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10737,12 +10737,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 43.89,
+        "output_tokens_per_second": 44.5,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -10932,12 +10932,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 271.46,
+        "output_tokens_per_second": 265.88,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11010,12 +11010,12 @@
         "cache_write_per_million_usd": 1.36
       },
       "performance": {
-        "output_tokens_per_second": 122.98,
+        "output_tokens_per_second": 98.15,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11127,12 +11127,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 42.84,
+        "output_tokens_per_second": 42.06,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11205,12 +11205,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 193.56,
+        "output_tokens_per_second": 177.7,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11244,12 +11244,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 112.01,
+        "output_tokens_per_second": 112.82,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11322,12 +11322,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 149.5,
+        "output_tokens_per_second": 145.07,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11400,12 +11400,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 150.34,
+        "output_tokens_per_second": 148.83,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11439,12 +11439,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 188.35,
+        "output_tokens_per_second": 202.15,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11517,12 +11517,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 55.13,
+        "output_tokens_per_second": 56.18,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11595,12 +11595,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 147.59,
+        "output_tokens_per_second": 156.45,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11634,12 +11634,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 58.31,
+        "output_tokens_per_second": 58.65,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11673,12 +11673,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 53.34,
+        "output_tokens_per_second": 51.76,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11712,12 +11712,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 19.36,
+        "output_tokens_per_second": 34.5,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11946,12 +11946,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 73.36,
+        "output_tokens_per_second": 89.96,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -11985,12 +11985,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 68.21,
+        "output_tokens_per_second": 68.9,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12024,12 +12024,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 24.91,
+        "output_tokens_per_second": 25.19,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12102,12 +12102,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 158.89,
+        "output_tokens_per_second": 151.18,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12180,12 +12180,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 65.98,
+        "output_tokens_per_second": 67.96,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12219,12 +12219,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 49.15,
+        "output_tokens_per_second": 48.0,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12258,12 +12258,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 180.55,
+        "output_tokens_per_second": 181.65,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12375,12 +12375,12 @@
         "cache_write_per_million_usd": 0.25
       },
       "performance": {
-        "output_tokens_per_second": 121.35,
+        "output_tokens_per_second": 124.65,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12414,12 +12414,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 177.49,
+        "output_tokens_per_second": 167.8,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12453,12 +12453,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 71.93,
+        "output_tokens_per_second": 64.51,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12687,12 +12687,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 40.42,
+        "output_tokens_per_second": 39.78,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12726,12 +12726,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 47.58,
+        "output_tokens_per_second": 51.2,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12765,12 +12765,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 108.02,
+        "output_tokens_per_second": 85.99,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12804,12 +12804,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 78.02,
+        "output_tokens_per_second": 77.95,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12843,12 +12843,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 47.92,
+        "output_tokens_per_second": 51.21,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -12999,12 +12999,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 35.8,
+        "output_tokens_per_second": 38.98,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13038,12 +13038,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 122.99,
+        "output_tokens_per_second": 110.67,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13116,12 +13116,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 16.73,
+        "output_tokens_per_second": 18.13,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13155,12 +13155,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 153.12,
+        "output_tokens_per_second": 153.06,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13350,12 +13350,51 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 91.33,
+        "output_tokens_per_second": 103.79,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
+      "source_kind": "official",
+      "data_origin": "aa_free_api"
+    },
+    {
+      "id": "48e6f735-f2bc-418f-b99f-3dc5a0ddda77",
+      "provider": "Google",
+      "name": "Gemini 4 Argon (Medium)",
+      "version": null,
+      "retired": false,
+      "indices": {
+        "intelligence": 47.6,
+        "coding": null,
+        "agentic": null,
+        "finance_accounting": 52.9,
+        "strategy_ops": 55.8,
+        "legal": 52.0,
+        "healthcare_medical": null,
+        "engineering": 52.7,
+        "economics": 48.7
+      },
+      "intelligence_cost_per_task_usd": 4.3146,
+      "intelligence_cost_model_id": "48e6f735-f2bc-418f-b99f-3dc5a0ddda77",
+      "intelligence_cost_model_name": "Gemini 4 Argon (Medium)",
+      "intelligence_cost_model_version": null,
+      "intelligence_cost_reasoning": "unknown",
+      "intelligence_cost_benchmark_version": "5",
+      "api_pricing": {
+        "input_per_million_usd": 2.0,
+        "output_per_million_usd": 10.0,
+        "cache_read_per_million_usd": null,
+        "cache_write_per_million_usd": null
+      },
+      "performance": {
+        "output_tokens_per_second": 84.31,
+        "time_to_first_token_ms": null
+      },
+      "benchmarks": [],
+      "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13389,12 +13428,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 95.48,
+        "output_tokens_per_second": 86.69,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13428,12 +13467,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 57.12,
+        "output_tokens_per_second": 58.5,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13467,12 +13506,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 71.16,
+        "output_tokens_per_second": 73.93,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13662,12 +13701,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 49.87,
+        "output_tokens_per_second": 47.57,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13818,12 +13857,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 91.3,
+        "output_tokens_per_second": 87.08,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -13857,12 +13896,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 190.03,
+        "output_tokens_per_second": 193.53,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14052,12 +14091,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 53.24,
+        "output_tokens_per_second": 55.03,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14130,12 +14169,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 40.86,
+        "output_tokens_per_second": 40.26,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14247,12 +14286,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 135.48,
+        "output_tokens_per_second": 129.41,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14286,12 +14325,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 64.92,
+        "output_tokens_per_second": 66.64,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14325,12 +14364,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 58.82,
+        "output_tokens_per_second": 56.6,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14559,12 +14598,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 127.8,
+        "output_tokens_per_second": 128.05,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14676,12 +14715,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 175.37,
+        "output_tokens_per_second": 178.59,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14780,25 +14819,25 @@
         "engineering": 15.4,
         "economics": 12.2
       },
-      "intelligence_cost_per_task_usd": 0.1695,
+      "intelligence_cost_per_task_usd": 0.1782,
       "intelligence_cost_model_id": "583f98fb-c4b8-4df3-8d40-60ac0ed69882",
       "intelligence_cost_model_name": "Muse Glimmer (High)",
       "intelligence_cost_model_version": null,
       "intelligence_cost_reasoning": "unknown",
       "intelligence_cost_benchmark_version": "5",
       "api_pricing": {
-        "input_per_million_usd": 0.3,
-        "output_per_million_usd": 1.2,
+        "input_per_million_usd": 0.325,
+        "output_per_million_usd": 1.35,
         "cache_read_per_million_usd": null,
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 101.75,
+        "output_tokens_per_second": 96.75,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14832,12 +14871,12 @@
         "cache_write_per_million_usd": 0.25
       },
       "performance": {
-        "output_tokens_per_second": 119.54,
+        "output_tokens_per_second": 113.19,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14871,12 +14910,12 @@
         "cache_write_per_million_usd": 10.0
       },
       "performance": {
-        "output_tokens_per_second": 92.5,
+        "output_tokens_per_second": 91.79,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14910,12 +14949,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 71.63,
+        "output_tokens_per_second": 61.44,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -14988,12 +15027,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 367.41,
+        "output_tokens_per_second": 354.98,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15144,12 +15183,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 92.75,
+        "output_tokens_per_second": 96.64,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15183,12 +15222,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 45.45,
+        "output_tokens_per_second": 45.4,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15300,12 +15339,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 91.81,
+        "output_tokens_per_second": 91.88,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15404,7 +15443,7 @@
         "engineering": 22.8,
         "economics": 24.1
       },
-      "intelligence_cost_per_task_usd": 2.2257,
+      "intelligence_cost_per_task_usd": 2.2103,
       "intelligence_cost_model_id": "5b52def2-ac9b-4465-ad80-91ea8079e253",
       "intelligence_cost_model_name": "Nemotron 3 Ultra 550B A55B (Reasoning)",
       "intelligence_cost_model_version": null,
@@ -15412,17 +15451,17 @@
       "intelligence_cost_benchmark_version": "5",
       "api_pricing": {
         "input_per_million_usd": 0.6,
-        "output_per_million_usd": 2.7,
+        "output_per_million_usd": 2.4,
         "cache_read_per_million_usd": null,
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 242.74,
+        "output_tokens_per_second": 244.25,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15495,12 +15534,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 60.87,
+        "output_tokens_per_second": 60.85,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15534,12 +15573,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 169.7,
+        "output_tokens_per_second": 169.65,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15573,12 +15612,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 39.18,
+        "output_tokens_per_second": 38.71,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15651,12 +15690,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 174.95,
+        "output_tokens_per_second": 162.45,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -15690,12 +15729,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 83.66,
+        "output_tokens_per_second": 80.47,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16002,12 +16041,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 38.96,
+        "output_tokens_per_second": 38.95,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16041,12 +16080,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 89.34,
+        "output_tokens_per_second": 86.12,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16080,12 +16119,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 69.89,
+        "output_tokens_per_second": 71.84,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16119,12 +16158,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 79.51,
+        "output_tokens_per_second": 79.34,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16197,12 +16236,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 29.99,
+        "output_tokens_per_second": 28.15,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16509,12 +16548,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 88.23,
+        "output_tokens_per_second": 111.97,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16548,12 +16587,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 153.86,
+        "output_tokens_per_second": 142.28,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16587,12 +16626,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 115.52,
+        "output_tokens_per_second": 114.64,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16665,12 +16704,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 111.73,
+        "output_tokens_per_second": 110.81,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16704,12 +16743,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 27.75,
+        "output_tokens_per_second": 28.45,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16782,12 +16821,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 45.46,
+        "output_tokens_per_second": 51.59,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16821,12 +16860,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 46.55,
+        "output_tokens_per_second": 47.64,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16860,12 +16899,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 29.08,
+        "output_tokens_per_second": 28.97,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16938,12 +16977,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 127.11,
+        "output_tokens_per_second": 123.04,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -16977,12 +17016,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 195.01,
+        "output_tokens_per_second": 206.73,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17094,12 +17133,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 339.96,
+        "output_tokens_per_second": 339.84,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17172,12 +17211,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 37.75,
+        "output_tokens_per_second": 38.28,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17250,12 +17289,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 204.08,
+        "output_tokens_per_second": 191.49,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17328,12 +17367,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 72.61,
+        "output_tokens_per_second": 66.59,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17406,12 +17445,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 208.61,
+        "output_tokens_per_second": 214.32,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17562,12 +17601,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 65.58,
+        "output_tokens_per_second": 63.16,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17601,12 +17640,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 89.1,
+        "output_tokens_per_second": 87.63,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17640,12 +17679,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 170.41,
+        "output_tokens_per_second": 169.12,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17718,12 +17757,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 107.05,
+        "output_tokens_per_second": 103.62,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17757,12 +17796,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 66.98,
+        "output_tokens_per_second": 64.06,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17796,12 +17835,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 241.17,
+        "output_tokens_per_second": 235.51,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17835,12 +17874,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 127.8,
+        "output_tokens_per_second": 127.07,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17874,12 +17913,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 43.54,
+        "output_tokens_per_second": 44.61,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17913,12 +17952,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 145.61,
+        "output_tokens_per_second": 186.82,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17952,12 +17991,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 76.57,
+        "output_tokens_per_second": 75.57,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -17991,12 +18030,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 106.59,
+        "output_tokens_per_second": 102.44,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18030,12 +18069,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 52.64,
+        "output_tokens_per_second": 51.79,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18069,12 +18108,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 72.52,
+        "output_tokens_per_second": 70.68,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18225,12 +18264,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 169.54,
+        "output_tokens_per_second": 185.47,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18264,12 +18303,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 320.81,
+        "output_tokens_per_second": 319.29,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18342,12 +18381,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 139.37,
+        "output_tokens_per_second": 141.22,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18420,12 +18459,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 239.34,
+        "output_tokens_per_second": 241.67,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18459,12 +18498,12 @@
         "cache_write_per_million_usd": 0.75
       },
       "performance": {
-        "output_tokens_per_second": 124.71,
+        "output_tokens_per_second": 125.64,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18537,12 +18576,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 146.94,
+        "output_tokens_per_second": 139.9,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18693,12 +18732,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 909.43,
+        "output_tokens_per_second": 879.75,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18732,12 +18771,12 @@
         "cache_write_per_million_usd": 10.0
       },
       "performance": {
-        "output_tokens_per_second": 86.62,
+        "output_tokens_per_second": 85.95,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18771,12 +18810,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 121.57,
+        "output_tokens_per_second": 123.1,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18810,12 +18849,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 175.45,
+        "output_tokens_per_second": 167.82,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18849,12 +18888,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 284.74,
+        "output_tokens_per_second": 291.03,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -18888,12 +18927,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 161.05,
+        "output_tokens_per_second": 168.84,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19083,12 +19122,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 200.97,
+        "output_tokens_per_second": 201.72,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19122,12 +19161,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 225.89,
+        "output_tokens_per_second": 222.12,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19200,12 +19239,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 58.65,
+        "output_tokens_per_second": 53.95,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19239,12 +19278,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 638.16,
+        "output_tokens_per_second": 591.19,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19434,12 +19473,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 105.39,
+        "output_tokens_per_second": 107.75,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19473,12 +19512,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 233.17,
+        "output_tokens_per_second": 224.12,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19512,12 +19551,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 233.07,
+        "output_tokens_per_second": 232.13,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19551,12 +19590,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 121.05,
+        "output_tokens_per_second": 119.97,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19668,12 +19707,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 46.32,
+        "output_tokens_per_second": 47.7,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19746,12 +19785,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 188.88,
+        "output_tokens_per_second": 184.37,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19785,12 +19824,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 55.48,
+        "output_tokens_per_second": 54.24,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19824,12 +19863,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 79.42,
+        "output_tokens_per_second": 79.27,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -19863,12 +19902,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 1552.91,
+        "output_tokens_per_second": 1471.74,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20019,12 +20058,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 96.53,
+        "output_tokens_per_second": 97.13,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20058,12 +20097,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 42.89,
+        "output_tokens_per_second": 45.99,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20214,12 +20253,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 44.99,
+        "output_tokens_per_second": 45.32,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20331,12 +20370,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 75.34,
+        "output_tokens_per_second": 87.91,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20448,12 +20487,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 151.66,
+        "output_tokens_per_second": 137.77,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20565,12 +20604,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 116.26,
+        "output_tokens_per_second": 114.78,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20604,12 +20643,12 @@
         "cache_write_per_million_usd": 0.25
       },
       "performance": {
-        "output_tokens_per_second": 123.93,
+        "output_tokens_per_second": 124.96,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20721,12 +20760,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 5.35,
+        "output_tokens_per_second": 9.21,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20760,12 +20799,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 155.41,
+        "output_tokens_per_second": 158.36,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20799,12 +20838,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 247.62,
+        "output_tokens_per_second": 239.16,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -20994,12 +21033,12 @@
         "cache_write_per_million_usd": 0.75
       },
       "performance": {
-        "output_tokens_per_second": 124.55,
+        "output_tokens_per_second": 126.08,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21033,12 +21072,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 116.21,
+        "output_tokens_per_second": 113.71,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21111,12 +21150,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 117.92,
+        "output_tokens_per_second": 124.45,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21267,12 +21306,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 59.72,
+        "output_tokens_per_second": 59.32,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21345,12 +21384,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 39.16,
+        "output_tokens_per_second": 39.23,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21423,12 +21462,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 140.35,
+        "output_tokens_per_second": 149.06,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21579,12 +21618,12 @@
         "cache_write_per_million_usd": 4.0
       },
       "performance": {
-        "output_tokens_per_second": 98.65,
+        "output_tokens_per_second": 94.49,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21618,12 +21657,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 91.88,
+        "output_tokens_per_second": 82.32,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21657,12 +21696,12 @@
         "cache_write_per_million_usd": 3.75
       },
       "performance": {
-        "output_tokens_per_second": 48.83,
+        "output_tokens_per_second": 47.88,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21696,12 +21735,12 @@
         "cache_write_per_million_usd": 3.75
       },
       "performance": {
-        "output_tokens_per_second": 41.97,
+        "output_tokens_per_second": 41.72,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21813,12 +21852,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 86.96,
+        "output_tokens_per_second": 85.25,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -21891,12 +21930,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 82.86,
+        "output_tokens_per_second": 88.66,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22008,12 +22047,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 37.9,
+        "output_tokens_per_second": 37.69,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22047,12 +22086,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 102.25,
+        "output_tokens_per_second": 86.09,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22203,12 +22242,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 108.49,
+        "output_tokens_per_second": 103.39,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22242,12 +22281,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 90.14,
+        "output_tokens_per_second": 92.03,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22359,12 +22398,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 63.36,
+        "output_tokens_per_second": 60.76,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22398,12 +22437,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 157.95,
+        "output_tokens_per_second": 139.61,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22437,12 +22476,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 74.37,
+        "output_tokens_per_second": 72.53,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22476,12 +22515,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 57.36,
+        "output_tokens_per_second": 63.96,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22515,12 +22554,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 60.79,
+        "output_tokens_per_second": 58.9,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22554,12 +22593,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 95.78,
+        "output_tokens_per_second": 95.11,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22593,12 +22632,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 49.49,
+        "output_tokens_per_second": 48.91,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -22710,12 +22749,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 61.15,
+        "output_tokens_per_second": 55.99,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -23022,12 +23061,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 43.5,
+        "output_tokens_per_second": 44.65,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -23139,12 +23178,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 120.22,
+        "output_tokens_per_second": 122.74,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -23256,12 +23295,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 49.78,
+        "output_tokens_per_second": 49.31,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -23373,7 +23412,7 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 40.81,
+        "output_tokens_per_second": 40.41,
         "time_to_first_token_ms": null
       },
       "benchmarks": [
@@ -23499,7 +23538,7 @@
         }
       ],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api+aa_public_page",
       "public_page_source_url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low",
@@ -23614,12 +23653,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 51.06,
+        "output_tokens_per_second": 54.37,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -23653,12 +23692,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 94.94,
+        "output_tokens_per_second": 98.4,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -23692,12 +23731,12 @@
         "cache_write_per_million_usd": 1.25
       },
       "performance": {
-        "output_tokens_per_second": 96.52,
+        "output_tokens_per_second": 97.72,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -23965,12 +24004,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 38.59,
+        "output_tokens_per_second": 35.37,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24004,12 +24043,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 56.26,
+        "output_tokens_per_second": 55.86,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24043,12 +24082,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 84.74,
+        "output_tokens_per_second": 91.94,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24199,12 +24238,12 @@
         "cache_write_per_million_usd": 0.25
       },
       "performance": {
-        "output_tokens_per_second": 117.2,
+        "output_tokens_per_second": 116.3,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24277,12 +24316,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 186.86,
+        "output_tokens_per_second": 188.74,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24589,12 +24628,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 132.68,
+        "output_tokens_per_second": 126.94,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24628,12 +24667,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 128.76,
+        "output_tokens_per_second": 52.78,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24667,12 +24706,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 161.36,
+        "output_tokens_per_second": 162.95,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24784,12 +24823,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 177.66,
+        "output_tokens_per_second": 174.17,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24862,12 +24901,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 27.37,
+        "output_tokens_per_second": 31.32,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -24901,12 +24940,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 37.44,
+        "output_tokens_per_second": 40.03,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25057,12 +25096,12 @@
         "cache_write_per_million_usd": 1.25
       },
       "performance": {
-        "output_tokens_per_second": 85.01,
+        "output_tokens_per_second": 86.93,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25096,12 +25135,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 39.81,
+        "output_tokens_per_second": 40.17,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25135,12 +25174,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 71.08,
+        "output_tokens_per_second": 69.69,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25246,10 +25285,10 @@
       "intelligence_cost_reasoning": "unknown",
       "intelligence_cost_benchmark_version": "5",
       "api_pricing": {
-        "input_per_million_usd": 0.75,
-        "output_per_million_usd": 3.75,
+        "input_per_million_usd": null,
+        "output_per_million_usd": null,
         "cache_read_per_million_usd": null,
-        "cache_write_per_million_usd": 0.0417
+        "cache_write_per_million_usd": null
       },
       "performance": {
         "output_tokens_per_second": null,
@@ -25257,7 +25296,7 @@
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-10-29T10:54:10Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25291,12 +25330,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 66.06,
+        "output_tokens_per_second": 69.1,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25330,12 +25369,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 64.3,
+        "output_tokens_per_second": 57.8,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25642,12 +25681,12 @@
         "cache_write_per_million_usd": 4.0
       },
       "performance": {
-        "output_tokens_per_second": 92.34,
+        "output_tokens_per_second": 88.24,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25798,12 +25837,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 29.9,
+        "output_tokens_per_second": 30.06,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -25915,12 +25954,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 73.54,
+        "output_tokens_per_second": 66.21,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26032,12 +26071,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 159.98,
+        "output_tokens_per_second": 158.01,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26071,12 +26110,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 54.55,
+        "output_tokens_per_second": 54.45,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26110,12 +26149,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 99.45,
+        "output_tokens_per_second": 99.98,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26188,12 +26227,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 70.12,
+        "output_tokens_per_second": 67.59,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26227,12 +26266,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 52.97,
+        "output_tokens_per_second": 54.38,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26266,12 +26305,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 228.38,
+        "output_tokens_per_second": 242.61,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26305,12 +26344,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 1025.96,
+        "output_tokens_per_second": 1035.53,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26344,12 +26383,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 102.46,
+        "output_tokens_per_second": 97.57,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26383,12 +26422,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 146.39,
+        "output_tokens_per_second": 140.08,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26461,12 +26500,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 93.67,
+        "output_tokens_per_second": 88.84,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26578,12 +26617,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 118.17,
+        "output_tokens_per_second": 122.98,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26656,12 +26695,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 137.51,
+        "output_tokens_per_second": 143.95,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26728,18 +26767,18 @@
       "intelligence_cost_reasoning": "unknown",
       "intelligence_cost_benchmark_version": "5",
       "api_pricing": {
-        "input_per_million_usd": 1.31,
-        "output_per_million_usd": 3.135,
+        "input_per_million_usd": 1.5016,
+        "output_per_million_usd": 3.2,
         "cache_read_per_million_usd": null,
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 74.45,
+        "output_tokens_per_second": 78.5,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26812,12 +26851,12 @@
         "cache_write_per_million_usd": 0.125
       },
       "performance": {
-        "output_tokens_per_second": 116.68,
+        "output_tokens_per_second": 117.24,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26851,12 +26890,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 70.55,
+        "output_tokens_per_second": 61.12,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26890,12 +26929,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 178.85,
+        "output_tokens_per_second": 188.66,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -26968,12 +27007,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 163.47,
+        "output_tokens_per_second": 166.0,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27007,12 +27046,12 @@
         "cache_write_per_million_usd": 1.25
       },
       "performance": {
-        "output_tokens_per_second": 88.46,
+        "output_tokens_per_second": 87.62,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27046,12 +27085,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 101.1,
+        "output_tokens_per_second": 93.68,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27085,12 +27124,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 63.71,
+        "output_tokens_per_second": 73.9,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27124,12 +27163,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 180.31,
+        "output_tokens_per_second": 183.7,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27202,12 +27241,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 147.63,
+        "output_tokens_per_second": 146.42,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27280,12 +27319,12 @@
         "cache_write_per_million_usd": 1.25
       },
       "performance": {
-        "output_tokens_per_second": 77.1,
+        "output_tokens_per_second": 76.66,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27358,12 +27397,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 136.09,
+        "output_tokens_per_second": 144.32,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27592,12 +27631,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 68.14,
+        "output_tokens_per_second": 66.07,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27631,12 +27670,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 153.21,
+        "output_tokens_per_second": 146.18,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27670,12 +27709,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 77.9,
+        "output_tokens_per_second": 75.83,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27787,12 +27826,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 78.45,
+        "output_tokens_per_second": 74.91,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27826,12 +27865,12 @@
         "cache_write_per_million_usd": 1.25
       },
       "performance": {
-        "output_tokens_per_second": 80.56,
+        "output_tokens_per_second": 80.43,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -27865,12 +27904,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 242.14,
+        "output_tokens_per_second": 241.39,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28021,12 +28060,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 89.65,
+        "output_tokens_per_second": 89.61,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28099,12 +28138,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 93.16,
+        "output_tokens_per_second": 88.63,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28177,12 +28216,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 34.36,
+        "output_tokens_per_second": 33.92,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28216,12 +28255,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 66.23,
+        "output_tokens_per_second": 65.74,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28255,12 +28294,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 80.24,
+        "output_tokens_per_second": 89.71,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28450,12 +28489,12 @@
         "cache_write_per_million_usd": 10.0
       },
       "performance": {
-        "output_tokens_per_second": 77.53,
+        "output_tokens_per_second": 76.67,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28528,12 +28567,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 66.39,
+        "output_tokens_per_second": 63.8,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28567,12 +28606,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 88.14,
+        "output_tokens_per_second": 92.04,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28723,12 +28762,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 94.11,
+        "output_tokens_per_second": 98.47,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28762,12 +28801,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 82.13,
+        "output_tokens_per_second": 83.13,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28840,12 +28879,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 87.65,
+        "output_tokens_per_second": 84.7,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28918,12 +28957,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 47.07,
+        "output_tokens_per_second": 46.76,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -28957,12 +28996,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 121.58,
+        "output_tokens_per_second": 125.56,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29074,12 +29113,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 269.44,
+        "output_tokens_per_second": 274.4,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29113,12 +29152,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 84.33,
+        "output_tokens_per_second": 97.69,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29152,12 +29191,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 161.13,
+        "output_tokens_per_second": 162.52,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29191,12 +29230,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 302.73,
+        "output_tokens_per_second": 283.48,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29230,12 +29269,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 66.95,
+        "output_tokens_per_second": 64.96,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29269,12 +29308,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 45.35,
+        "output_tokens_per_second": 50.28,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29308,12 +29347,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 293.63,
+        "output_tokens_per_second": 316.08,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29386,12 +29425,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 80.75,
+        "output_tokens_per_second": 82.52,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29464,12 +29503,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 64.61,
+        "output_tokens_per_second": 67.85,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29503,12 +29542,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 83.28,
+        "output_tokens_per_second": 94.65,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29581,12 +29620,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 127.17,
+        "output_tokens_per_second": 125.01,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29659,12 +29698,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 120.81,
+        "output_tokens_per_second": 118.43,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29698,12 +29737,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 136.23,
+        "output_tokens_per_second": 134.12,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29737,12 +29776,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 230.96,
+        "output_tokens_per_second": 249.17,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29759,7 +29798,7 @@
         "finance_accounting": 58.1,
         "strategy_ops": 57.7,
         "legal": 56.7,
-        "healthcare_medical": null,
+        "healthcare_medical": 53.3,
         "engineering": 60.1,
         "economics": 55.0
       },
@@ -29776,12 +29815,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 249.17,
+        "output_tokens_per_second": 245.94,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29815,12 +29854,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 231.29,
+        "output_tokens_per_second": 227.59,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -29965,18 +30004,18 @@
       "intelligence_cost_reasoning": "unknown",
       "intelligence_cost_benchmark_version": "5",
       "api_pricing": {
-        "input_per_million_usd": 0.29,
+        "input_per_million_usd": 0.3,
         "output_per_million_usd": 1.2,
         "cache_read_per_million_usd": null,
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 224.81,
+        "output_tokens_per_second": 224.58,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30010,12 +30049,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 777.95,
+        "output_tokens_per_second": 631.04,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30049,12 +30088,12 @@
         "cache_write_per_million_usd": 0.25
       },
       "performance": {
-        "output_tokens_per_second": 110.94,
+        "output_tokens_per_second": 115.45,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30088,12 +30127,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 166.35,
+        "output_tokens_per_second": 164.23,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30400,12 +30439,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 83.65,
+        "output_tokens_per_second": 82.64,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30439,12 +30478,12 @@
         "cache_write_per_million_usd": 3.75
       },
       "performance": {
-        "output_tokens_per_second": 56.78,
+        "output_tokens_per_second": 56.09,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30517,12 +30556,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 81.52,
+        "output_tokens_per_second": 84.71,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30634,12 +30673,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 48.52,
+        "output_tokens_per_second": 45.52,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30673,12 +30712,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 147.34,
+        "output_tokens_per_second": 156.68,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30816,25 +30855,25 @@
         "engineering": 23.5,
         "economics": 26.1
       },
-      "intelligence_cost_per_task_usd": 0.5196,
+      "intelligence_cost_per_task_usd": 0.5575,
       "intelligence_cost_model_id": "e2c0623e-c855-4a61-bb66-be1f1ed43234",
       "intelligence_cost_model_name": "Nemotron 3.5 Super VL",
       "intelligence_cost_model_version": null,
       "intelligence_cost_reasoning": "unknown",
       "intelligence_cost_benchmark_version": "5",
       "api_pricing": {
-        "input_per_million_usd": 0.175,
+        "input_per_million_usd": 0.2,
         "output_per_million_usd": 0.5,
         "cache_read_per_million_usd": null,
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 278.21,
+        "output_tokens_per_second": 273.76,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30907,12 +30946,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 73.88,
+        "output_tokens_per_second": 72.14,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -30985,12 +31024,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 118.26,
+        "output_tokens_per_second": 112.49,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31180,12 +31219,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 65.83,
+        "output_tokens_per_second": 72.54,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31219,12 +31258,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 48.22,
+        "output_tokens_per_second": 47.94,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31385,6 +31424,45 @@
       "data_origin": "aa_free_api"
     },
     {
+      "id": "e94c7595-a320-4c88-8f07-d9fd50fc4595",
+      "provider": "DeepSeek",
+      "name": "DeepSeek V4 Pro 0813 (High)",
+      "version": null,
+      "retired": false,
+      "indices": {
+        "intelligence": 20.8,
+        "coding": null,
+        "agentic": null,
+        "finance_accounting": 28.0,
+        "strategy_ops": 36.6,
+        "legal": 26.3,
+        "healthcare_medical": null,
+        "engineering": 28.7,
+        "economics": 28.5
+      },
+      "intelligence_cost_per_task_usd": 0.8485,
+      "intelligence_cost_model_id": "e94c7595-a320-4c88-8f07-d9fd50fc4595",
+      "intelligence_cost_model_name": "DeepSeek V4 Pro 0813 (High)",
+      "intelligence_cost_model_version": null,
+      "intelligence_cost_reasoning": "unknown",
+      "intelligence_cost_benchmark_version": "5",
+      "api_pricing": {
+        "input_per_million_usd": 1.32,
+        "output_per_million_usd": 3.96,
+        "cache_read_per_million_usd": null,
+        "cache_write_per_million_usd": null
+      },
+      "performance": {
+        "output_tokens_per_second": 67.96,
+        "time_to_first_token_ms": null
+      },
+      "benchmarks": [],
+      "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
+      "source_updated_at": "2026-11-14T11:28:46Z",
+      "source_kind": "official",
+      "data_origin": "aa_free_api"
+    },
+    {
       "id": "e97a4ef5-e817-480e-9595-12f81dc4974f",
       "provider": "OpenAI",
       "name": "GPT-6 Astra (Medium)",
@@ -31414,12 +31492,12 @@
         "cache_write_per_million_usd": 12.5
       },
       "performance": {
-        "output_tokens_per_second": 45.12,
+        "output_tokens_per_second": 42.43,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31453,12 +31531,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 113.71,
+        "output_tokens_per_second": 115.94,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31531,12 +31609,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 52.22,
+        "output_tokens_per_second": 49.47,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31609,12 +31687,12 @@
         "cache_write_per_million_usd": 0.7
       },
       "performance": {
-        "output_tokens_per_second": 125.0,
+        "output_tokens_per_second": 105.95,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31687,12 +31765,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 79.08,
+        "output_tokens_per_second": 78.16,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31804,12 +31882,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 124.74,
+        "output_tokens_per_second": 126.41,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -31999,12 +32077,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 44.43,
+        "output_tokens_per_second": 52.83,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32038,12 +32116,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 36.05,
+        "output_tokens_per_second": 34.65,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32077,12 +32155,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 169.71,
+        "output_tokens_per_second": 170.07,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32116,12 +32194,12 @@
         "cache_write_per_million_usd": 2.5
       },
       "performance": {
-        "output_tokens_per_second": 70.36,
+        "output_tokens_per_second": 65.5,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32155,12 +32233,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 220.18,
+        "output_tokens_per_second": 212.36,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32194,12 +32272,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 243.84,
+        "output_tokens_per_second": 223.47,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32233,12 +32311,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 171.46,
+        "output_tokens_per_second": 172.79,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32272,12 +32350,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 62.26,
+        "output_tokens_per_second": 60.95,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32311,12 +32389,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 295.13,
+        "output_tokens_per_second": 306.83,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32350,12 +32428,12 @@
         "cache_write_per_million_usd": 3.75
       },
       "performance": {
-        "output_tokens_per_second": 45.48,
+        "output_tokens_per_second": 43.6,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32428,12 +32506,12 @@
         "cache_write_per_million_usd": 5.0
       },
       "performance": {
-        "output_tokens_per_second": 82.89,
+        "output_tokens_per_second": 79.82,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32467,12 +32545,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 74.98,
+        "output_tokens_per_second": 87.94,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32506,12 +32584,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 53.43,
+        "output_tokens_per_second": 54.27,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32584,12 +32662,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 120.06,
+        "output_tokens_per_second": 122.58,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32623,12 +32701,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 392.67,
+        "output_tokens_per_second": 373.9,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32701,12 +32779,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 68.09,
+        "output_tokens_per_second": 56.25,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32740,12 +32818,12 @@
         "cache_write_per_million_usd": 0.75
       },
       "performance": {
-        "output_tokens_per_second": 122.99,
+        "output_tokens_per_second": 124.88,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32818,12 +32896,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 124.6,
+        "output_tokens_per_second": 125.31,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32896,12 +32974,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 80.9,
+        "output_tokens_per_second": 74.44,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -32935,12 +33013,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 52.38,
+        "output_tokens_per_second": 53.35,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33130,12 +33208,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 80.15,
+        "output_tokens_per_second": 83.0,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33208,12 +33286,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 169.33,
+        "output_tokens_per_second": 180.09,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33286,12 +33364,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 83.43,
+        "output_tokens_per_second": 80.24,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33325,12 +33403,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 173.74,
+        "output_tokens_per_second": 172.9,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-12T12:43:32Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33364,12 +33442,12 @@
         "cache_write_per_million_usd": 10.0
       },
       "performance": {
-        "output_tokens_per_second": 80.93,
+        "output_tokens_per_second": 80.2,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33481,12 +33559,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 80.65,
+        "output_tokens_per_second": 78.76,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33514,18 +33592,18 @@
       "intelligence_cost_reasoning": "unknown",
       "intelligence_cost_benchmark_version": "5",
       "api_pricing": {
-        "input_per_million_usd": 0.135,
-        "output_per_million_usd": 0.275,
+        "input_per_million_usd": 0.14,
+        "output_per_million_usd": 0.28,
         "cache_read_per_million_usd": null,
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 117.77,
+        "output_tokens_per_second": 132.16,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33598,12 +33676,12 @@
         "cache_write_per_million_usd": null
       },
       "performance": {
-        "output_tokens_per_second": 155.72,
+        "output_tokens_per_second": 151.37,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },
@@ -33637,12 +33715,12 @@
         "cache_write_per_million_usd": 6.25
       },
       "performance": {
-        "output_tokens_per_second": 52.5,
+        "output_tokens_per_second": 51.8,
         "time_to_first_token_ms": null
       },
       "benchmarks": [],
       "source_url": "https://artificialanalysis.ai/data-api/docs/reference",
-      "source_updated_at": "2026-11-13T12:13:30Z",
+      "source_updated_at": "2026-11-14T11:28:46Z",
       "source_kind": "official",
       "data_origin": "aa_free_api"
     },

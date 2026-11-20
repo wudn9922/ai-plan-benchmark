@@ -1,5 +1,5 @@
 {
-  "last_state_change_at": "2026-11-19T13:08:47Z",
+  "last_state_change_at": "2026-11-20T12:54:31Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
@@ -21,7 +21,7 @@
     },
     "change:aa-coding-agents": {
       "label": "Artificial Analysis Coding Agents",
-      "message": "官方頁面內容已變更（fe9cacd138a3 → a9389c01fccb）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（fe9cacd138a3 → 871f43e58bdf）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agents",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
@@ -51,13 +51,13 @@
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → 404eba7c044c）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → d10d523b3ba0）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → f4a8d888b601）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → b803d1fd8c37）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
@@ -81,19 +81,19 @@
     },
     "change:anthropic-research": {
       "label": "Use Research on Claude",
-      "message": "官方頁面內容已變更（baf36722033d → 3b1f7b2c61eb）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（baf36722033d → 1eee50eed254）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-research",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "change:antigravity-models": {
       "label": "Google Antigravity model access",
-      "message": "官方頁面內容已變更（cb648665b7cd → a6b88ea44b75）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cb648665b7cd → b2749de25921）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-models",
       "url": "https://antigravity.google/docs/models/"
     },
     "change:antigravity-plans": {
       "label": "Google Antigravity plans and limits",
-      "message": "官方頁面內容已變更（3f5422535180 → d6901e709a9e）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（3f5422535180 → 5030f945295a）；方案資料未自動覆寫，待來源核對。",
       "source_id": "antigravity-plans",
       "url": "https://antigravity.google/docs/plans"
     },
@@ -117,7 +117,7 @@
     },
     "change:google-ai-plus-current": {
       "label": "Google AI subscriptions (current US pricing and model access)",
-      "message": "官方頁面內容已變更（7533f96d483f → fce1dad7ffd6）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（7533f96d483f → e575b892a6bc）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-ai-plus-current",
       "url": "https://gemini.google/subscriptions/?currencyCode=USD"
     },
@@ -135,7 +135,7 @@
     },
     "change:google-jules": {
       "label": "Jules asynchronous coding agent",
-      "message": "官方頁面內容已變更（4d59f143a991 → d824ceb0c7cd）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（4d59f143a991 → 68f80b1df05f）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-jules",
       "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
     },
@@ -153,7 +153,7 @@
     },
     "change:google-student-offer": {
       "label": "Google AI student offer",
-      "message": "官方頁面內容已變更（8e2faa33ac5a → 97c69e1a38db）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8e2faa33ac5a → d329288205c5）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-student-offer",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
@@ -171,7 +171,7 @@
     },
     "change:openai-current-pricing": {
       "label": "ChatGPT current plan comparison",
-      "message": "官方頁面內容已變更（8d7f1ab0ad3f → ae33bda1c069）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8d7f1ab0ad3f → a30ebf54e68e）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-current-pricing",
       "url": "https://chatgpt.com/pricing/?locale=en-US"
     },
@@ -289,16 +289,16 @@
       "baseline_at": "2026-10-17T19:28:01Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"18bzx3t0d1pkytj\"",
+      "etag": "\"d8c2357298f9d9e677dbce1ffd359a2d\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agents",
       "last_modified": null,
-      "last_success_at": "2026-11-19T13:08:36Z",
+      "last_success_at": "2026-11-20T12:54:20Z",
       "reviewed_at": "2026-10-17T19:28:01Z",
       "reviewed_sha256": "fe9cacd138a3b305161a2aa2e60a863a345fdc5cd2b211077bf54c496f88ffa6",
-      "sha256": "a9389c01fccb6375f3ad4db6f33f4687d0acde237182fa9df92f18ad8390deb5",
-      "state_changed_at": "2026-11-19T13:08:36Z",
+      "sha256": "871f43e58bdf07dc4fb35248774a063725838fedf73dad377fb6c380492bad45",
+      "state_changed_at": "2026-11-20T12:54:20Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents"
     },
     "aa-coding-method": {
@@ -374,16 +374,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"42edec61vpj11y\"",
+      "etag": "\"15jwgqmjvfqj45m\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-19T13:08:45Z",
+      "last_success_at": "2026-11-20T12:54:28Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "404eba7c044ce998f75023ddc87f714c25cbd20a51139915a3a976bcbabb4b84",
-      "state_changed_at": "2026-11-19T13:08:45Z",
+      "sha256": "d10d523b3ba012c55271a96ef07f117a0b2db0ebe29e13fbcceebb44d83a314c",
+      "state_changed_at": "2026-11-20T12:54:28Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -396,11 +396,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-11-13T12:13:33Z",
+      "last_success_at": "2026-11-20T12:54:21Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "f4a8d888b601e6f93d9bc4b862ba3afa95671dfb3b851e0cf570af0b3cb6aafb",
-      "state_changed_at": "2026-11-13T12:13:33Z",
+      "sha256": "b803d1fd8c3778ef88015b93c04b12dce817a071594817c581ca1338b0550cb2",
+      "state_changed_at": "2026-11-20T12:54:21Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -472,11 +472,11 @@
       "http_status": 200,
       "label": "Use Research on Claude",
       "last_modified": null,
-      "last_success_at": "2026-11-13T12:13:39Z",
+      "last_success_at": "2026-11-20T12:54:27Z",
       "reviewed_at": "2026-10-17T19:28:07Z",
       "reviewed_sha256": "baf36722033dc90eb1b27c2545640e55d8b04e8eb2546f004b5bafb983408705",
-      "sha256": "3b1f7b2c61ebad039d226219333ee5a73c2554f7f720d7456435bf9e2869e001",
-      "state_changed_at": "2026-11-13T12:13:39Z",
+      "sha256": "1eee50eed25489a40938b0769337bace6a9d9dff94c44a5c380f5139dd5e21ff",
+      "state_changed_at": "2026-11-20T12:54:27Z",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "antigravity-models": {
@@ -484,15 +484,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6afea4b1-2de55\"",
+      "etag": "\"6affc6df-2f831\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity model access",
-      "last_modified": "Thu, 19 Nov 2026 07:26:41 GMT",
-      "last_success_at": "2026-11-19T13:08:46Z",
+      "last_modified": "Fri, 20 Nov 2026 04:04:47 GMT",
+      "last_success_at": "2026-11-20T12:54:30Z",
       "reviewed_sha256": "cb648665b7cdefc6476248424a2513384d4952623102f7d074fe9694545a6cf9",
-      "sha256": "a6b88ea44b75d2552d0a26bbf3c4dad3e683e665a38dbe7f70b1f6c123bbaa24",
-      "state_changed_at": "2026-11-19T13:08:46Z",
+      "sha256": "b2749de2592128c9a80d96d7f879e0c8fce4510e7d972f936191bc0c3d5383ad",
+      "state_changed_at": "2026-11-20T12:54:30Z",
       "url": "https://antigravity.google/docs/models/"
     },
     "antigravity-plans": {
@@ -500,15 +500,15 @@
       "baseline_at": "2026-10-17T20:03:39Z",
       "content_type": "text/html",
       "error": null,
-      "etag": "\"6afea4b1-1cf1a\"",
+      "etag": "\"6affc6df-1e720\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Google Antigravity plans and limits",
-      "last_modified": "Thu, 19 Nov 2026 07:26:41 GMT",
-      "last_success_at": "2026-11-19T13:08:47Z",
+      "last_modified": "Fri, 20 Nov 2026 04:04:47 GMT",
+      "last_success_at": "2026-11-20T12:54:30Z",
       "reviewed_sha256": "3f5422535180b6e6c02c6843c022c10e22214362628914bcf0e08815b8d58d7d",
-      "sha256": "d6901e709a9e36a2fbee8030a04221ce678fd197a5f134b942599a151f4108a1",
-      "state_changed_at": "2026-11-19T13:08:47Z",
+      "sha256": "5030f945295a68a43416557c2e673a59180a1ec0cf2a925e5725feaa3b4d7e5c",
+      "state_changed_at": "2026-11-20T12:54:30Z",
       "url": "https://antigravity.google/docs/plans"
     },
     "gemini-cli-deprecation": {
@@ -552,7 +552,7 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI Plus / Pro / Ultra benefits",
       "last_modified": "Wed, 18 Nov 2026 23:58:00 GMT",
       "last_success_at": "2026-11-19T13:08:43Z",
@@ -572,11 +572,11 @@
       "http_status": 200,
       "label": "Google AI subscriptions (current US pricing and model access)",
       "last_modified": null,
-      "last_success_at": "2026-11-19T13:08:38Z",
+      "last_success_at": "2026-11-20T12:54:21Z",
       "reviewed_at": "2026-10-18T16:04:37Z",
       "reviewed_sha256": "7533f96d483fe6c97de878434f2c939f63eb9019e8bb8579ce6ce95bcd3c557c",
-      "sha256": "fce1dad7ffd65520c2f20e20264aa0a2e68225ace8db86cd1f06c9e3081e5d3a",
-      "state_changed_at": "2026-11-19T13:08:38Z",
+      "sha256": "e575b892a6bc32fa414dc84a32a27af5db7f7c55036bdd2ff2d602b4604cd7b9",
+      "state_changed_at": "2026-11-20T12:54:21Z",
       "url": "https://gemini.google/subscriptions/?currencyCode=USD"
     },
     "google-annual-plus": {
@@ -640,11 +640,11 @@
       "http_status": 200,
       "label": "Jules asynchronous coding agent",
       "last_modified": null,
-      "last_success_at": "2026-11-19T13:08:43Z",
+      "last_success_at": "2026-11-20T12:54:27Z",
       "reviewed_at": "2026-10-17T19:28:06Z",
       "reviewed_sha256": "4d59f143a991edee537df987cd656ff2ad25a5c68c69016e4485b48d3e8f902e",
-      "sha256": "d824ceb0c7cd6df60fa8e900b839f5e7f9db0ba519d14331dc9cc9995da5b96a",
-      "state_changed_at": "2026-11-19T13:08:43Z",
+      "sha256": "68f80b1df05f59068491d8de899890ad1d9378718e3f32c929d1ce504b0ef4ed",
+      "state_changed_at": "2026-11-20T12:54:27Z",
       "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/"
     },
     "google-one-benefits": {
@@ -671,7 +671,7 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI plans",
       "last_modified": "Wed, 18 Nov 2026 23:58:00 GMT",
       "last_success_at": "2026-11-19T13:08:37Z",
@@ -691,11 +691,11 @@
       "http_status": 200,
       "label": "Google AI student offer",
       "last_modified": null,
-      "last_success_at": "2026-11-19T13:08:39Z",
+      "last_success_at": "2026-11-20T12:54:23Z",
       "reviewed_at": "2026-10-17T19:28:04Z",
       "reviewed_sha256": "8e2faa33ac5a33ec2d9d278c231bb2f4388729757a4a9f1bccf6bf0e147f01f9",
-      "sha256": "97c69e1a38db5b4fe07d1f59e51ca54cd11ea7edf985d25865f798a6c1622c8e",
-      "state_changed_at": "2026-11-19T13:08:39Z",
+      "sha256": "d329288205c554586e3c597b896839c88cd2dba6198ca4467f8c0384a1ad2055",
+      "state_changed_at": "2026-11-20T12:54:23Z",
       "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
     },
     "jules-changelog": {
@@ -791,11 +791,11 @@
       "http_status": 200,
       "label": "ChatGPT current plan comparison",
       "last_modified": null,
-      "last_success_at": "2026-11-19T13:08:45Z",
+      "last_success_at": "2026-11-20T12:54:28Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "8d7f1ab0ad3f2ae2af1a1ac767e617820f7eb781b7c82d760b8a0bf7bc6c0c9e",
-      "sha256": "ae33bda1c069b1578b178ffe6bb34cfe3bf1984896d303096b717299e53768ac",
-      "state_changed_at": "2026-11-19T13:08:45Z",
+      "sha256": "a30ebf54e68ead18ef65cd742adf29fa37f7c2e8d331f35abedf441f83980ed6",
+      "state_changed_at": "2026-11-20T12:54:28Z",
       "url": "https://chatgpt.com/pricing/?locale=en-US"
     },
     "openai-deep-research": {

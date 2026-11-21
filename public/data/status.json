@@ -1,22 +1,22 @@
 {
   "aa": {
-    "checked_at": "2026-11-20T12:54:19Z",
+    "checked_at": "2026-11-21T12:40:01Z",
     "configured": true,
-    "data_updated_at": "2026-11-20T12:54:19Z",
+    "data_updated_at": "2026-11-21T12:40:01Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-11-20T12:54:19Z",
+    "last_successful_snapshot_at": "2026-11-21T12:40:01Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
-    "models_count": 765,
+    "models_count": 766,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-11-20T12:54:31Z",
+    "checked_at": "2026-11-21T12:40:15Z",
     "status": "warning",
-    "summary": "有 36 個內容更新待核對；11 個來源目前無法自動讀取。",
+    "summary": "有 46 個內容更新待核對；1 個來源目前無法自動讀取。",
     "unavailable": [
       {
         "category": "not_found",
@@ -24,86 +24,6 @@
         "message": "HTTP 404：此網址目前找不到；可能已搬址或撤下，不能單憑 404 判定方案已停止。",
         "source_id": "aa-public-gemini-argon-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
-      },
-      {
-        "category": "blocked",
-        "label": "ChatGPT Go plan",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-go",
-        "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
-      },
-      {
-        "category": "blocked",
-        "label": "ChatGPT Plus plan",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-plus",
-        "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus"
-      },
-      {
-        "category": "blocked",
-        "label": "ChatGPT Work and Codex",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-work",
-        "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
-      },
-      {
-        "category": "blocked",
-        "label": "ChatGPT Work rollout on paid plans",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-work-rollout",
-        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
-      },
-      {
-        "category": "blocked",
-        "label": "ChatGPT agent mode availability and limits",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-agent-mode",
-        "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
-      },
-      {
-        "category": "blocked",
-        "label": "Codex usage with GPT-6 Astra and GPT-6 models",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-codex-usage",
-        "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
-      },
-      {
-        "category": "blocked",
-        "label": "Deep research in ChatGPT",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-deep-research",
-        "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
-      },
-      {
-        "category": "blocked",
-        "label": "Flexible usage credits for ChatGPT personal plans",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-flexible-usage",
-        "url": "https://help.openai.com/en/articles/12642688"
-      },
-      {
-        "category": "blocked",
-        "label": "Models in ChatGPT",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-models",
-        "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
-      },
-      {
-        "category": "blocked",
-        "label": "Using Codex with a ChatGPT plan",
-        "manual_verified_at": "2026-10-18",
-        "message": "HTTP 403：網站拒絕自動讀取；這不代表內容已改變或產品已下架。",
-        "source_id": "openai-codex",
-        "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
       }
     ],
     "warnings": [
@@ -121,7 +41,7 @@
       },
       {
         "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
-        "message": "官方頁面內容已變更（57c2b6e08805 → 6cda5d98c926）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（57c2b6e08805 → e974462222b0）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agent-opencode-import-v1.5-2026-10-17",
         "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
       },
@@ -151,7 +71,7 @@
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → d10d523b3ba0）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 5bbc4bb92458）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
@@ -162,8 +82,38 @@
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-astra-low"
       },
       {
+        "label": "ChatGPT Go plan",
+        "message": "官方頁面內容已變更（06f0e87ce00b → c080509f54d2）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-go",
+        "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
+      },
+      {
+        "label": "ChatGPT Plus plan",
+        "message": "官方頁面內容已變更（2086043629c3 → 8628ac505437）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-plus",
+        "url": "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus"
+      },
+      {
+        "label": "ChatGPT Work and Codex",
+        "message": "官方頁面內容已變更（6f625219cccc → 54874051494a）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-work",
+        "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
+      },
+      {
+        "label": "ChatGPT Work rollout on paid plans",
+        "message": "官方頁面內容已變更（29fb34879c6b → 63801c986081）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-work-rollout",
+        "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+      },
+      {
+        "label": "ChatGPT agent mode availability and limits",
+        "message": "官方頁面內容已變更（4849d29ba376 → eac50f4c9c09）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-agent-mode",
+        "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
+      },
+      {
         "label": "ChatGPT current plan comparison",
-        "message": "官方頁面內容已變更（8d7f1ab0ad3f → a30ebf54e68e）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8d7f1ab0ad3f → ae33bda1c069）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-current-pricing",
         "url": "https://chatgpt.com/pricing/?locale=en-US"
       },
@@ -192,6 +142,24 @@
         "url": "https://claude.com/pricing"
       },
       {
+        "label": "Codex usage with GPT-6 Astra and GPT-6 models",
+        "message": "官方頁面內容已變更（532292c65879 → e5cee5f03ce3）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-codex-usage",
+        "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
+      },
+      {
+        "label": "Deep research in ChatGPT",
+        "message": "官方頁面內容已變更（c022726fa30c → a984bda97dc0）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-deep-research",
+        "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
+      },
+      {
+        "label": "Flexible usage credits for ChatGPT personal plans",
+        "message": "官方頁面內容已變更（9c7c7f1f4ebf → 26d21acd073c）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-flexible-usage",
+        "url": "https://help.openai.com/en/articles/12642688"
+      },
+      {
         "label": "Gemini Apps usage limits",
         "message": "官方頁面內容已變更（6be202f5e59b → cb918ba63d1f）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-gemini-limits",
@@ -205,7 +173,7 @@
       },
       {
         "label": "Google AI Plus / Pro / Ultra benefits",
-        "message": "官方頁面內容已變更（15607bbc9297 → 91313d26e462）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（15607bbc9297 → 725e1b5538fb）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-ai-plan-benefits",
         "url": "https://one.google.com/about/google-ai-plans/"
       },
@@ -223,13 +191,13 @@
       },
       {
         "label": "Google AI plans",
-        "message": "官方頁面內容已變更（15607bbc9297 → 91313d26e462）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（15607bbc9297 → 725e1b5538fb）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-plans",
         "url": "https://one.google.com/about/google-ai-plans/"
       },
       {
         "label": "Google AI student offer",
-        "message": "官方頁面內容已變更（8e2faa33ac5a → d329288205c5）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8e2faa33ac5a → 17c594ff368b）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-student-offer",
         "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/"
       },
@@ -241,13 +209,13 @@
       },
       {
         "label": "Google Antigravity model access",
-        "message": "官方頁面內容已變更（cb648665b7cd → b2749de25921）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cb648665b7cd → e6c7a88adc0e）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-models",
         "url": "https://antigravity.google/docs/models/"
       },
       {
         "label": "Google Antigravity plans and limits",
-        "message": "官方頁面內容已變更（3f5422535180 → 5030f945295a）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（3f5422535180 → 149c153ff983）；方案資料未自動覆寫，待來源核對。",
         "source_id": "antigravity-plans",
         "url": "https://antigravity.google/docs/plans"
       },
@@ -306,10 +274,22 @@
         "url": "https://jules.google/docs/usage-limits"
       },
       {
+        "label": "Models in ChatGPT",
+        "message": "官方頁面內容已變更（4811345c4ed0 → e3c2c23706ca）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-models",
+        "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
+      },
+      {
         "label": "Use Research on Claude",
         "message": "官方頁面內容已變更（baf36722033d → 1eee50eed254）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-research",
         "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
+      },
+      {
+        "label": "Using Codex with a ChatGPT plan",
+        "message": "官方頁面內容已變更（b7b415a90cd3 → 44d288ab2d1e）；方案資料未自動覆寫，待來源核對。",
+        "source_id": "openai-codex",
+        "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
       },
       {
         "label": "xAI X Subscription plans and pricing",

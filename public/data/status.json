@@ -1,20 +1,20 @@
 {
   "aa": {
-    "checked_at": "2026-11-26T13:54:33Z",
+    "checked_at": "2026-11-27T13:52:44Z",
     "configured": true,
-    "data_updated_at": "2026-11-26T13:54:33Z",
+    "data_updated_at": "2026-11-27T13:52:44Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-11-26T13:54:33Z",
+    "last_successful_snapshot_at": "2026-11-27T13:52:44Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
-    "models_count": 768,
+    "models_count": 770,
     "stale_days": 0,
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-11-26T13:54:51Z",
+    "checked_at": "2026-11-27T13:52:55Z",
     "status": "warning",
     "summary": "有 46 個內容更新待核對；1 個來源目前無法自動讀取。",
     "unavailable": [
@@ -29,7 +29,7 @@
     "warnings": [
       {
         "label": "Artificial Analysis API Reference",
-        "message": "官方頁面內容已變更（fc2dd1ea4573 → 0b7ec0853eeb）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（fc2dd1ea4573 → 449423e213e0）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-api-reference",
         "url": "https://artificialanalysis.ai/data-api/docs/reference"
       },
@@ -41,13 +41,13 @@
       },
       {
         "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
-        "message": "官方頁面內容已變更（57c2b6e08805 → ccb5e79fb4ae）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（57c2b6e08805 → d705f4e6bddb）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agent-opencode-import-v1.5-2026-10-17",
         "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
       },
       {
         "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
-        "message": "官方頁面內容已變更（b653fdca74bd → c2d2ff98e2c2）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（b653fdca74bd → 2b53e7a59079）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-coding-agent-import-v1.5-2026-10-17",
         "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
       },
@@ -71,7 +71,7 @@
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → 5aef710a1bd8）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 86c40915d201）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
@@ -83,7 +83,7 @@
       },
       {
         "label": "ChatGPT Go plan",
-        "message": "官方頁面內容已變更（06f0e87ce00b → 1d05441a83a4）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（06f0e87ce00b → 7aa1a85f49e9）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-go",
         "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
       },
@@ -95,19 +95,19 @@
       },
       {
         "label": "ChatGPT Work and Codex",
-        "message": "官方頁面內容已變更（6f625219cccc → ac71edca92fb）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（6f625219cccc → 6c934e4eb48c）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-work",
         "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
       },
       {
         "label": "ChatGPT Work rollout on paid plans",
-        "message": "官方頁面內容已變更（29fb34879c6b → e9823a8b0bda）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（29fb34879c6b → eb4065ed677f）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-work-rollout",
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
       },
       {
         "label": "ChatGPT agent mode availability and limits",
-        "message": "官方頁面內容已變更（4849d29ba376 → cf869978e028）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（4849d29ba376 → 5a111a3b09ad）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-agent-mode",
         "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
       },
@@ -119,7 +119,7 @@
       },
       {
         "label": "Claude Code with a Claude plan",
-        "message": "官方頁面內容已變更（8c7c8ac987a2 → b803d1fd8c37）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（8c7c8ac987a2 → 7527613ddf89）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-code",
         "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
       },
@@ -143,19 +143,19 @@
       },
       {
         "label": "Codex usage with GPT-6 Astra and GPT-6 models",
-        "message": "官方頁面內容已變更（532292c65879 → fdf36430dfa9）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（532292c65879 → c4150f25d9bb）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-codex-usage",
         "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
       },
       {
         "label": "Deep research in ChatGPT",
-        "message": "官方頁面內容已變更（c022726fa30c → b11b98307579）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c022726fa30c → 904ed162e31f）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-deep-research",
         "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
       },
       {
         "label": "Flexible usage credits for ChatGPT personal plans",
-        "message": "官方頁面內容已變更（9c7c7f1f4ebf → 1ef42269d147）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（9c7c7f1f4ebf → 22e510a0d11d）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-flexible-usage",
         "url": "https://help.openai.com/en/articles/12642688"
       },
@@ -203,7 +203,7 @@
       },
       {
         "label": "Google AI subscriptions (current US pricing and model access)",
-        "message": "官方頁面內容已變更（7533f96d483f → e575b892a6bc）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（7533f96d483f → 29d795dd1ce0）；方案資料未自動覆寫，待來源核對。",
         "source_id": "google-ai-plus-current",
         "url": "https://gemini.google/subscriptions/?currencyCode=USD"
       },
@@ -275,19 +275,19 @@
       },
       {
         "label": "Models in ChatGPT",
-        "message": "官方頁面內容已變更（4811345c4ed0 → 3aee43b188ee）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（4811345c4ed0 → 0da0c598893b）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-models",
         "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
       },
       {
         "label": "Use Research on Claude",
-        "message": "官方頁面內容已變更（baf36722033d → 1eee50eed254）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（baf36722033d → e2f929942825）；方案資料未自動覆寫，待來源核對。",
         "source_id": "anthropic-research",
         "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
       },
       {
         "label": "Using Codex with a ChatGPT plan",
-        "message": "官方頁面內容已變更（b7b415a90cd3 → 859fae064043）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（b7b415a90cd3 → be012a986478）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-codex",
         "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
       },

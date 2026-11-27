@@ -1,21 +1,21 @@
 {
-  "last_state_change_at": "2026-11-26T13:54:51Z",
+  "last_state_change_at": "2026-11-27T13:52:55Z",
   "pending_warnings": {
     "change:aa-api-reference": {
       "label": "Artificial Analysis API Reference",
-      "message": "官方頁面內容已變更（fc2dd1ea4573 → 0b7ec0853eeb）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（fc2dd1ea4573 → 449423e213e0）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-api-reference",
       "url": "https://artificialanalysis.ai/data-api/docs/reference"
     },
     "change:aa-coding-agent-import-v1.5-2026-10-17": {
       "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
-      "message": "官方頁面內容已變更（b653fdca74bd → c2d2ff98e2c2）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（b653fdca74bd → 2b53e7a59079）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agent-import-v1.5-2026-10-17",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
     },
     "change:aa-coding-agent-opencode-import-v1.5-2026-10-17": {
       "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
-      "message": "官方頁面內容已變更（57c2b6e08805 → ccb5e79fb4ae）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（57c2b6e08805 → d705f4e6bddb）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-coding-agent-opencode-import-v1.5-2026-10-17",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
     },
@@ -51,13 +51,13 @@
     },
     "change:aa-public-gpt-6-luna-high-comparison": {
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-      "message": "官方頁面內容已變更（cf20b66f30e6 → 5aef710a1bd8）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（cf20b66f30e6 → 86c40915d201）；方案資料未自動覆寫，待來源核對。",
       "source_id": "aa-public-gpt-6-luna-high-comparison",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "change:anthropic-code": {
       "label": "Claude Code with a Claude plan",
-      "message": "官方頁面內容已變更（8c7c8ac987a2 → b803d1fd8c37）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（8c7c8ac987a2 → 7527613ddf89）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-code",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
@@ -81,7 +81,7 @@
     },
     "change:anthropic-research": {
       "label": "Use Research on Claude",
-      "message": "官方頁面內容已變更（baf36722033d → 1eee50eed254）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（baf36722033d → e2f929942825）；方案資料未自動覆寫，待來源核對。",
       "source_id": "anthropic-research",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
@@ -117,7 +117,7 @@
     },
     "change:google-ai-plus-current": {
       "label": "Google AI subscriptions (current US pricing and model access)",
-      "message": "官方頁面內容已變更（7533f96d483f → e575b892a6bc）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（7533f96d483f → 29d795dd1ce0）；方案資料未自動覆寫，待來源核對。",
       "source_id": "google-ai-plus-current",
       "url": "https://gemini.google/subscriptions/?currencyCode=USD"
     },
@@ -171,19 +171,19 @@
     },
     "change:openai-agent-mode": {
       "label": "ChatGPT agent mode availability and limits",
-      "message": "官方頁面內容已變更（4849d29ba376 → cf869978e028）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（4849d29ba376 → 5a111a3b09ad）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-agent-mode",
       "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
     },
     "change:openai-codex": {
       "label": "Using Codex with a ChatGPT plan",
-      "message": "官方頁面內容已變更（b7b415a90cd3 → 859fae064043）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（b7b415a90cd3 → be012a986478）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-codex",
       "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
     },
     "change:openai-codex-usage": {
       "label": "Codex usage with GPT-6 Astra and GPT-6 models",
-      "message": "官方頁面內容已變更（532292c65879 → fdf36430dfa9）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（532292c65879 → c4150f25d9bb）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-codex-usage",
       "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
     },
@@ -195,25 +195,25 @@
     },
     "change:openai-deep-research": {
       "label": "Deep research in ChatGPT",
-      "message": "官方頁面內容已變更（c022726fa30c → b11b98307579）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（c022726fa30c → 904ed162e31f）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-deep-research",
       "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
     },
     "change:openai-flexible-usage": {
       "label": "Flexible usage credits for ChatGPT personal plans",
-      "message": "官方頁面內容已變更（9c7c7f1f4ebf → 1ef42269d147）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（9c7c7f1f4ebf → 22e510a0d11d）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-flexible-usage",
       "url": "https://help.openai.com/en/articles/12642688"
     },
     "change:openai-go": {
       "label": "ChatGPT Go plan",
-      "message": "官方頁面內容已變更（06f0e87ce00b → 1d05441a83a4）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（06f0e87ce00b → 7aa1a85f49e9）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-go",
       "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
     },
     "change:openai-models": {
       "label": "Models in ChatGPT",
-      "message": "官方頁面內容已變更（4811345c4ed0 → 3aee43b188ee）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（4811345c4ed0 → 0da0c598893b）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-models",
       "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
     },
@@ -225,13 +225,13 @@
     },
     "change:openai-work": {
       "label": "ChatGPT Work and Codex",
-      "message": "官方頁面內容已變更（6f625219cccc → ac71edca92fb）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（6f625219cccc → 6c934e4eb48c）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-work",
       "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
     },
     "change:openai-work-rollout": {
       "label": "ChatGPT Work rollout on paid plans",
-      "message": "官方頁面內容已變更（29fb34879c6b → e9823a8b0bda）；方案資料未自動覆寫，待來源核對。",
+      "message": "官方頁面內容已變更（29fb34879c6b → eb4065ed677f）；方案資料未自動覆寫，待來源核對。",
       "source_id": "openai-work-rollout",
       "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
     },
@@ -284,16 +284,16 @@
       "baseline_at": "2026-10-17T19:28:00Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"5b54efb00a648ab8ec0967065905c655\"",
+      "etag": "\"1a6faa7ac760df7b0d90be779547b2e0\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis API Reference",
       "last_modified": null,
-      "last_success_at": "2026-11-25T14:23:13Z",
+      "last_success_at": "2026-11-27T13:52:44Z",
       "reviewed_at": "2026-10-17T19:28:00Z",
       "reviewed_sha256": "fc2dd1ea45732761a0ac052754959203da154e70c70e37ed86cc5c76f1455b70",
-      "sha256": "0b7ec0853eeb7a3ea3f62bbd52151c367b77b2603739658fbf35026bd0dbbc4c",
-      "state_changed_at": "2026-11-25T14:23:13Z",
+      "sha256": "449423e213e06cf9d0024c28498bea62113d43144e0c3279fecfec26c786023f",
+      "state_changed_at": "2026-11-27T13:52:44Z",
       "url": "https://artificialanalysis.ai/data-api/docs/reference"
     },
     "aa-coding-agent-import-v1.5-2026-10-16": {
@@ -315,16 +315,16 @@
       "baseline_at": "2026-10-17T19:17:19Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"11x3godr3mzvcbh\"",
+      "etag": "\"17kpmfgkxisurqg\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agent Index v1.5 manual import",
       "last_modified": null,
-      "last_success_at": "2026-11-24T14:53:30Z",
+      "last_success_at": "2026-11-27T13:52:54Z",
       "reviewed_at": "2026-10-17T19:28:08Z",
       "reviewed_sha256": "b653fdca74bd46c430724589d48bf82e991423e738eb0c67f413dd690fc4952b",
-      "sha256": "c2d2ff98e2c20b7d4240cd7f7951ea85dac6c647c251306a2d254eb4d8d00931",
-      "state_changed_at": "2026-11-24T14:53:30Z",
+      "sha256": "2b53e7a5907966bbff3842342bf38f9144005606fbf5c2d0bc009832a45ef6bc",
+      "state_changed_at": "2026-11-27T13:52:54Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-codex"
     },
     "aa-coding-agent-opencode-import-v1.5-2026-10-17": {
@@ -332,16 +332,16 @@
       "baseline_at": "2026-10-17T19:17:19Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"9vqu1lfgj4sshx\"",
+      "etag": "\"eqxcjkjkm2s7wr\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis Coding Agent Index v1.5 OpenCode comparison",
       "last_modified": null,
-      "last_success_at": "2026-11-24T14:53:30Z",
+      "last_success_at": "2026-11-27T13:52:54Z",
       "reviewed_at": "2026-10-17T19:28:09Z",
       "reviewed_sha256": "57c2b6e0880524d95efd385cefa27ea8564403099df06ef08a0e4dfae995cd97",
-      "sha256": "ccb5e79fb4aeee74b8124f79f84d3b6e8323f8ba537602c2f51e4d008e6184cd",
-      "state_changed_at": "2026-11-24T14:53:30Z",
+      "sha256": "d705f4e6bddb6ff44dd4460ab66b339fad8119695e15dcd4996f286867b5a6b8",
+      "state_changed_at": "2026-11-27T13:52:54Z",
       "url": "https://artificialanalysis.ai/agents/coding-agents/comparisons/claude-code-vs-opencode"
     },
     "aa-coding-agents": {
@@ -434,16 +434,16 @@
       "baseline_at": "2026-10-17T19:28:08Z",
       "content_type": "text/html; charset=utf-8",
       "error": null,
-      "etag": "\"g3ubpqppkvil8i\"",
+      "etag": "\"8ympgxbyfnjuom\"",
       "hash_version": "visible-text-v1",
       "http_status": 200,
       "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:49Z",
+      "last_success_at": "2026-11-27T13:52:54Z",
       "reviewed_at": "2026-10-18T15:40:17Z",
       "reviewed_sha256": "cf20b66f30e66b46a92ba09e88664456eaf99859b79d7e9c2404b48754a9057d",
-      "sha256": "5aef710a1bd8affb8cab5df3e19684643dadedd22fec3c38cc1f63e4ae401b63",
-      "state_changed_at": "2026-11-26T13:54:49Z",
+      "sha256": "86c40915d2012c93c19091e00822651d5a4d3da1803f12961903e2dfc6b7d971",
+      "state_changed_at": "2026-11-27T13:52:54Z",
       "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
     },
     "anthropic-code": {
@@ -456,11 +456,11 @@
       "http_status": 200,
       "label": "Claude Code with a Claude plan",
       "last_modified": null,
-      "last_success_at": "2026-11-20T12:54:21Z",
+      "last_success_at": "2026-11-27T13:52:47Z",
       "reviewed_at": "2026-10-17T19:28:02Z",
       "reviewed_sha256": "8c7c8ac987a2098a4ffe974581ee93f860ee3201781e9cdd7bdc6227c61c9412",
-      "sha256": "b803d1fd8c3778ef88015b93c04b12dce817a071594817c581ca1338b0550cb2",
-      "state_changed_at": "2026-11-20T12:54:21Z",
+      "sha256": "7527613ddf89771684bc9cd569ed07f027fe41cce528220a82589149e680bbbd",
+      "state_changed_at": "2026-11-27T13:52:47Z",
       "url": "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan"
     },
     "anthropic-cowork": {
@@ -532,11 +532,11 @@
       "http_status": 200,
       "label": "Use Research on Claude",
       "last_modified": null,
-      "last_success_at": "2026-11-20T12:54:27Z",
+      "last_success_at": "2026-11-27T13:52:52Z",
       "reviewed_at": "2026-10-17T19:28:07Z",
       "reviewed_sha256": "baf36722033dc90eb1b27c2545640e55d8b04e8eb2546f004b5bafb983408705",
-      "sha256": "1eee50eed25489a40938b0769337bace6a9d9dff94c44a5c380f5139dd5e21ff",
-      "state_changed_at": "2026-11-20T12:54:27Z",
+      "sha256": "e2f929942825852bcc7d25d086080fd0241eb23c73851cb675b0ebf70a4ef575",
+      "state_changed_at": "2026-11-27T13:52:52Z",
       "url": "https://support.claude.com/en/articles/11088861-use-research-on-claude"
     },
     "antigravity-models": {
@@ -612,7 +612,7 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI Plus / Pro / Ultra benefits",
       "last_modified": "Wed, 25 Nov 2026 19:18:00 GMT",
       "last_success_at": "2026-11-26T13:54:43Z",
@@ -632,11 +632,11 @@
       "http_status": 200,
       "label": "Google AI subscriptions (current US pricing and model access)",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:38Z",
+      "last_success_at": "2026-11-27T13:52:47Z",
       "reviewed_at": "2026-10-18T16:04:37Z",
       "reviewed_sha256": "7533f96d483fe6c97de878434f2c939f63eb9019e8bb8579ce6ce95bcd3c557c",
-      "sha256": "e575b892a6bc32fa414dc84a32a27af5db7f7c55036bdd2ff2d602b4604cd7b9",
-      "state_changed_at": "2026-11-26T13:54:38Z",
+      "sha256": "29d795dd1ce0feb64a142ed94522d98d0214b30516ae33b36b7b19c9bdc40165",
+      "state_changed_at": "2026-11-27T13:52:47Z",
       "url": "https://gemini.google/subscriptions/?currencyCode=USD"
     },
     "google-annual-plus": {
@@ -731,7 +731,7 @@
       "error": null,
       "etag": null,
       "hash_version": "visible-text-v1",
-      "http_status": 200,
+      "http_status": 304,
       "label": "Google AI plans",
       "last_modified": "Wed, 25 Nov 2026 19:18:00 GMT",
       "last_success_at": "2026-11-26T13:54:37Z",
@@ -800,11 +800,11 @@
       "http_status": 200,
       "label": "ChatGPT agent mode availability and limits",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:43Z",
+      "last_success_at": "2026-11-27T13:52:50Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "4849d29ba37619e97eb890ac649b0cfad896be11a2e00c18c80de11c377a4921",
-      "sha256": "cf869978e02801fbf93e7c21c0f3e1b88661cfff9842dd3f7b2be64908195de8",
-      "state_changed_at": "2026-11-26T13:54:43Z",
+      "sha256": "5a111a3b09ad4811cd55dfe0654af2da7c530493ae0b2f0924e7e2843df425c6",
+      "state_changed_at": "2026-11-27T13:52:50Z",
       "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
     },
     "openai-codex": {
@@ -817,11 +817,11 @@
       "http_status": 200,
       "label": "Using Codex with a ChatGPT plan",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:35Z",
+      "last_success_at": "2026-11-27T13:52:45Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "b7b415a90cd3f967b4294479d3a0fb3f800ce7980533d8f143c372252056ef85",
-      "sha256": "859fae0640432fe327d38eee4a54b84e6e42d78209b87a129b9147d1f239cece",
-      "state_changed_at": "2026-11-26T13:54:35Z",
+      "sha256": "be012a986478ea6d70c539d07096976804948f89e52eafafdcc22d3642243a4b",
+      "state_changed_at": "2026-11-27T13:52:45Z",
       "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
     },
     "openai-codex-usage": {
@@ -834,11 +834,11 @@
       "http_status": 200,
       "label": "Codex usage with GPT-6 Astra and GPT-6 models",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:36Z",
+      "last_success_at": "2026-11-27T13:52:46Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "532292c65879196460c8016961384b893eb2365c00cf50bc4dce77dd51af32a3",
-      "sha256": "fdf36430dfa9b4956e349b2e635e21c5b16e9ad348cb0cb71435e4c2e82a928b",
-      "state_changed_at": "2026-11-26T13:54:36Z",
+      "sha256": "c4150f25d9bbac4c054dffdef110073c34ea5928fb7ce95cb004e0295fd5f98d",
+      "state_changed_at": "2026-11-27T13:52:46Z",
       "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
     },
     "openai-current-pricing": {
@@ -868,11 +868,11 @@
       "http_status": 200,
       "label": "Deep research in ChatGPT",
       "last_modified": null,
-      "last_success_at": "2026-11-24T14:53:27Z",
+      "last_success_at": "2026-11-27T13:52:51Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "c022726fa30c0d1b24b747d89e03a9f8886322aeec0d4a9b14d4a8f5a80b781b",
-      "sha256": "b11b983075792e39ff5ad0385b61e3ca0294e47345187b094043e21dcb75c6b4",
-      "state_changed_at": "2026-11-24T14:53:27Z",
+      "sha256": "904ed162e31f3cb7ca06da093740821ad7a1da3682c2c6fd47c0bf59df18bb4f",
+      "state_changed_at": "2026-11-27T13:52:51Z",
       "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
     },
     "openai-flexible-usage": {
@@ -885,11 +885,11 @@
       "http_status": 200,
       "label": "Flexible usage credits for ChatGPT personal plans",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:47Z",
+      "last_success_at": "2026-11-27T13:52:52Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "9c7c7f1f4ebf06f152b46156341e40c8b64df8bf474b27a012624c6709c18968",
-      "sha256": "1ef42269d1476846108af0f75de8622e142a01828c4c95cb575d0c518b081795",
-      "state_changed_at": "2026-11-26T13:54:47Z",
+      "sha256": "22e510a0d11de4ff602723afabeb3f3948e80e8a5fa3bd9d118fb92f4ae9de20",
+      "state_changed_at": "2026-11-27T13:52:52Z",
       "url": "https://help.openai.com/en/articles/12642688"
     },
     "openai-go": {
@@ -902,11 +902,11 @@
       "http_status": 200,
       "label": "ChatGPT Go plan",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:35Z",
+      "last_success_at": "2026-11-27T13:52:45Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "06f0e87ce00bfb5de33cb0605b16b23a6a556cf1509c6e548202d1e8af2150b9",
-      "sha256": "1d05441a83a4817fd08de911d851ed71359ea27e352a20a425d405ffc2595b02",
-      "state_changed_at": "2026-11-26T13:54:35Z",
+      "sha256": "7aa1a85f49e903d64c483b77fb6469cdb85cf5a05c5f8d5063876f46ee3571d4",
+      "state_changed_at": "2026-11-27T13:52:45Z",
       "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
     },
     "openai-models": {
@@ -919,11 +919,11 @@
       "http_status": 200,
       "label": "Models in ChatGPT",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:36Z",
+      "last_success_at": "2026-11-27T13:52:46Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "4811345c4ed01dfb4f6d4d6a905a405fd690f745e557981cb28c26fbfda70e98",
-      "sha256": "3aee43b188eefa28d04db2964363b30448b2cf31e417e2533c7420161b365f90",
-      "state_changed_at": "2026-11-26T13:54:36Z",
+      "sha256": "0da0c598893bc42a6483b51d065ef59cb38711fd019efa08c0d42313bd74fa59",
+      "state_changed_at": "2026-11-27T13:52:46Z",
       "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
     },
     "openai-plus": {
@@ -953,11 +953,11 @@
       "http_status": 200,
       "label": "ChatGPT Work and Codex",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:43Z",
+      "last_success_at": "2026-11-27T13:52:50Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "6f625219ccccecef4f32de007da624173da9c45d21029e8eeb06866aee6534a5",
-      "sha256": "ac71edca92fbc8803178c5dc99eb2a137ec9c1ccf6a3146418545a5567e34e71",
-      "state_changed_at": "2026-11-26T13:54:43Z",
+      "sha256": "6c934e4eb48cf96ee496194b08a276c96b3eca80607a0a504b4a52db884d96ca",
+      "state_changed_at": "2026-11-27T13:52:50Z",
       "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
     },
     "openai-work-rollout": {
@@ -970,11 +970,11 @@
       "http_status": 200,
       "label": "ChatGPT Work rollout on paid plans",
       "last_modified": null,
-      "last_success_at": "2026-11-26T13:54:45Z",
+      "last_success_at": "2026-11-27T13:52:51Z",
       "manual_verified_at": "2026-10-18",
       "reviewed_sha256": "29fb34879c6bae7d54aa705d46737f766416031d37be5b1d812a77e21820c82a",
-      "sha256": "e9823a8b0bda3449ca6f18ac0ec3ff422c45e9d7af8975de26fcca010ef728a9",
-      "state_changed_at": "2026-11-26T13:54:45Z",
+      "sha256": "eb4065ed677f87139200259dd4f622d9166922cb680cfa5d12a491cd381d1f70",
+      "state_changed_at": "2026-11-27T13:52:51Z",
       "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
     },
     "xai-build": {

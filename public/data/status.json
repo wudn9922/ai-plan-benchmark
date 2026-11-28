@@ -1,12 +1,12 @@
 {
   "aa": {
-    "checked_at": "2026-11-27T13:52:44Z",
+    "checked_at": "2026-11-28T12:59:41Z",
     "configured": true,
-    "data_updated_at": "2026-11-27T13:52:44Z",
+    "data_updated_at": "2026-11-28T12:59:41Z",
     "endpoint": "https://artificialanalysis.ai/api/v2/language/models/free",
     "http_status": null,
     "last_error": null,
-    "last_successful_snapshot_at": "2026-11-27T13:52:44Z",
+    "last_successful_snapshot_at": "2026-11-28T12:59:41Z",
     "message": "Artificial Analysis 免費 API 資料已成功更新。",
     "methodology_warning": "Artificial Analysis API 指數版本為 5；方法目錄為 v4.3.2。請人工核對方法版本與指標映射；更新器不會自動改動方法目錄。",
     "models_count": 770,
@@ -14,7 +14,7 @@
     "status": "ready"
   },
   "source_health": {
-    "checked_at": "2026-11-27T13:52:55Z",
+    "checked_at": "2026-11-28T12:59:53Z",
     "status": "warning",
     "summary": "有 46 個內容更新待核對；1 個來源目前無法自動讀取。",
     "unavailable": [
@@ -71,7 +71,7 @@
       },
       {
         "label": "Artificial Analysis public comparison: GPT-6 Luna (High)",
-        "message": "官方頁面內容已變更（cf20b66f30e6 → 86c40915d201）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（cf20b66f30e6 → 451498604e50）；方案資料未自動覆寫，待來源核對。",
         "source_id": "aa-public-gpt-6-luna-high-comparison",
         "url": "https://artificialanalysis.ai/models/comparisons/gemini-4-argon-vs-gpt-6-luna-high"
       },
@@ -83,7 +83,7 @@
       },
       {
         "label": "ChatGPT Go plan",
-        "message": "官方頁面內容已變更（06f0e87ce00b → 7aa1a85f49e9）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（06f0e87ce00b → 1c0e2d9ea651）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-go",
         "url": "https://help.openai.com/en/articles/11989085-what-is-chatgpt-go"
       },
@@ -95,13 +95,13 @@
       },
       {
         "label": "ChatGPT Work and Codex",
-        "message": "官方頁面內容已變更（6f625219cccc → 6c934e4eb48c）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（6f625219cccc → 788e5bd1d592）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-work",
         "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex"
       },
       {
         "label": "ChatGPT Work rollout on paid plans",
-        "message": "官方頁面內容已變更（29fb34879c6b → eb4065ed677f）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（29fb34879c6b → 0adba93dc6ef）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-work-rollout",
         "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
       },
@@ -143,19 +143,19 @@
       },
       {
         "label": "Codex usage with GPT-6 Astra and GPT-6 models",
-        "message": "官方頁面內容已變更（532292c65879 → c4150f25d9bb）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（532292c65879 → 43f1a7c61d01）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-codex-usage",
         "url": "https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex"
       },
       {
         "label": "Deep research in ChatGPT",
-        "message": "官方頁面內容已變更（c022726fa30c → 904ed162e31f）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（c022726fa30c → 4f9a4a7eb704）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-deep-research",
         "url": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
       },
       {
         "label": "Flexible usage credits for ChatGPT personal plans",
-        "message": "官方頁面內容已變更（9c7c7f1f4ebf → 22e510a0d11d）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（9c7c7f1f4ebf → d824154d73ed）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-flexible-usage",
         "url": "https://help.openai.com/en/articles/12642688"
       },
@@ -275,7 +275,7 @@
       },
       {
         "label": "Models in ChatGPT",
-        "message": "官方頁面內容已變更（4811345c4ed0 → 0da0c598893b）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（4811345c4ed0 → dcdac0ac7f05）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-models",
         "url": "https://help.openai.com/en/articles/20001354-gpt-6-and-other-models-in-chatgpt"
       },
@@ -287,7 +287,7 @@
       },
       {
         "label": "Using Codex with a ChatGPT plan",
-        "message": "官方頁面內容已變更（b7b415a90cd3 → be012a986478）；方案資料未自動覆寫，待來源核對。",
+        "message": "官方頁面內容已變更（b7b415a90cd3 → c083e83970f9）；方案資料未自動覆寫，待來源核對。",
         "source_id": "openai-codex",
         "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan"
       },
